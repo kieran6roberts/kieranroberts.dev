@@ -1,0 +1,12 @@
+---
+import NavLink from "@components/navigation/NavLink.astro";
+---
+
+<nav class="flex items-center justify-between px-4 py-6 border-b">
+ <a href="/" class="text-xl md:text-2xl">kieranroberts.dev</a>
+ <section class="hidden md:flex md:gap-x-8">
+  <NavLink href="/about">about</NavLink>
+  <NavLink href="https://blog.kieranroberts.dev">blog</NavLink>
+  <NavLink href="/contact">contact</NavLink>
+ </section>
+</nav>

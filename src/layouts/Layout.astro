@@ -1,0 +1,47 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	url: string;
+}
+
+const { title, description, url } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<!-- <meta name="theme-color" content="#13151a" /> -->
+
+		<meta name="description" content="Astro description" />
+
+		<!-- Facebook Meta Tags -->
+		<meta property="og:title" content={title} />
+		<meta property="og:image" content="" />
+		<meta property="og:url" content={url} />
+		<meta property="og:site_name" content="kieranroberts.dev" />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+
+		<!-- Twitter Meta Tags -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:creator" content="Kieran6dev" />
+		<meta property="twitter:domain" content="kieranroberts.dev" />
+		<meta property="twitter:url" content={url} />
+		<meta name="twitter:image" content="" />
+
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>

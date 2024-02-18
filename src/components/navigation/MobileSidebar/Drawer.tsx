@@ -15,7 +15,7 @@ import {
   getFocusableElements,
   handleTabKeyPress,
   handleEscapeKey,
-} from "@utils/accessibility";
+} from "../../../utils/accessibility";
 import { NavLink } from "../NavLink";
 
 interface Props {

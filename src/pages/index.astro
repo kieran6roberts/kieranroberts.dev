@@ -1,25 +1,44 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import { HeroCTA } from "@components/navigation/HeroCTA";
 ---
 
 <Layout>
-	<main
-		class="text-center h-[80vh] w-full flex flex-col items-center justify-center"
-	>
-		<h1 class="max-w-screen-sm md:max-w-3xl px-8 text-3xl md:text-5xl font-bold">
-			<span class="text-[0.9em] text-purple-400">Kieran Roberts.</span>
-			<span class="">Web developer.</span>
-			<span class="text-[0.6em]">Builder.</span>
-			<span class="text-[0.8em]">Proffessional.</span>
-			<span class="">Experienced.</span>
-			<span class="text-[0.5em]">Self motivated.</span>
-			<span class="text-[0.9em]">Team player.</span>
-			<span class="text-[0.6em]">Communicative.</span>
-		</h1>
-		<a
-			href="/contact"
-			class="mt-8 border rounded-2xl bg-purple-600 text-white font-medium px-6 py-2.5"
-			>Work with me</a
-		>
-	</main>
+  <main
+    class="text-center h-[75vh] w-full flex flex-col items-center justify-center"
+  >
+    <h1 class="text-2xl">Kieran Roberts - React Engineer</h1>
+    <p>More to come on homepage</p>
+    <!-- <h1
+      class="max-w-screen-sm md:max-w-3xl px-8 text-3xl md:text-5xl font-bold"
+    >
+      <span class="text-[1.1em] text-l-primary-dark dark:text-d-primary-dark"
+        >Kieran Roberts.</span
+      >
+      <span class="text-[0.8em] text-l-tertiary-2 dark:text-d-tertiary-2"
+        >Web developer.</span
+      >
+      <span
+        class="text-[0.8em] text-l-primary-darkest dark:text-d-primary-darkest"
+        >Builder.</span
+      >
+      <span class="text-[0.5em] text-l-tertiary-1 dark:text-d-tertiary-1"
+        >Proffessional.</span
+      >
+      <span class="text-[1.2em] text-l-secondary dark:text-d-secondary"
+        >Experienced.</span
+      >
+      <span class="text-[0.5em] text-l-primary-dark dark:text-d-primary-dark"
+        >Self motivated.</span
+      >
+      <span class="text-[0.9em] text-l-tertiary-2 dark:text-d-tertiary-2"
+        >Team player.</span
+      >
+      <span
+        class="text-[0.6em] text-l-primary-darkest dark:text-d-primary-darkest"
+        >Communicative.</span
+      >
+    </h1> -->
+    <HeroCTA client:load />
+  </main>
 </Layout>

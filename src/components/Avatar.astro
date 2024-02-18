@@ -1,0 +1,16 @@
+---
+import AvatarImage from "@images/Kieran-Avatar2.webp";
+import { Image } from "astro:assets";
+---
+
+<div class="w-12 h-12">
+ <Image
+  src={AvatarImage}
+  alt="Kieran Roberts avatar headshot"
+  class="rounded-full"
+  width={500}
+  height={500}
+  loading="eager"
+  quality={100}
+ />
+</div>

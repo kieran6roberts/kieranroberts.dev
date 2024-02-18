@@ -1,0 +1,21 @@
+---
+import { HoverUnderline } from "@components/navigation/HoverUnderline";
+
+interface Props {
+  href: string;
+  isExternal?: boolean;
+}
+
+const { href, isExternal } = Astro.props;
+---
+
+<div class="group flex flex-col">
+  <a
+    href={href}
+    target={isExternal ? "_blank" : "_self"}
+    class="flex items-center gap-x-2 rounded-md link-focus"
+  >
+    <slot />
+  </a>
+  <HoverUnderline />
+</div>

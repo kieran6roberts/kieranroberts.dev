@@ -1,5 +1,5 @@
 {
-  "name": "tender-tower",
+  "name": "kieranroberts.dev",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -11,8 +11,18 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.4.1",
+    "@astrojs/react": "^3.0.9",
     "@astrojs/tailwind": "^5.1.0",
+    "@iconify-json/iconoir": "^1.1.40",
+    "@types/react": "^18.2.53",
+    "@types/react-dom": "^18.2.18",
+    "@uidotdev/usehooks": "^2.4.1",
     "astro": "^4.3.2",
+    "astro-icon": "^1.1.0",
+    "iconoir-react": "^7.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-spring": "^9.7.3",
     "tailwindcss": "^3.4.1"
   },
   "devDependencies": {

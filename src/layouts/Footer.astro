@@ -1,0 +1,28 @@
+---
+import { Icon } from "astro-icon/components";
+import FooterLink from "@components/navigation/FooterLink.astro";
+---
+
+<footer
+  class="flex flex-col gap-y-4 md:flex-row items-center font-medium justify-evenly"
+>
+  <FooterLink
+    isExternal
+    href="https://www.linkedin.com/in/kieran-roberts-00517b178/"
+  >
+    <Icon name="iconoir:linkedin" />
+    LinkedIn
+  </FooterLink>
+  <FooterLink isExternal href="https://github.com/kieran6roberts">
+    <Icon name="iconoir:github" />
+    Github
+  </FooterLink>
+  <FooterLink isExternal href="https://twitter.com/Kieran6dev">
+    <Icon name="iconoir:x" />
+    X / Twitter
+  </FooterLink>
+  <FooterLink isExternal href="https://blog.kieranroberts.dev">
+    <Icon name="iconoir:open-book" />
+    Blog
+  </FooterLink>
+</footer>

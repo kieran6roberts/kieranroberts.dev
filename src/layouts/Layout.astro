@@ -1,27 +1,31 @@
 ---
-import SEO from "@components/SEO.astro";
 import type { ComponentProps } from "astro/types";
+import SEO from "@components/SEO.astro";
 import Header from "@layouts/Header.astro";
+import Footer from "@layouts/Footer.astro";
 
 type Props = ComponentProps<typeof SEO>;
 
 const DEFAULT_TITLE = "Kieran Roberts | Software Developer";
 const DEFAULT_DESCRIPTION =
-	"Hi, I'm a React & TypeScript focused web developer with multiple years worth of industry experience. Let's talk";
+  "Hi, I'm a React & TypeScript focused web developer with multiple years worth of industry experience. Let's talk";
 const DEFAULT_URL = "kieranroberts.dev";
 
+// const pathname = new URL(Astro.request.url).pathname;
+// const pathnames = pathname.split("/").filter((pathname) => !!pathname);
+
 const {
-	title = DEFAULT_TITLE,
-	description = DEFAULT_DESCRIPTION,
-	url = DEFAULT_URL,
+  title = DEFAULT_TITLE,
+  description = DEFAULT_DESCRIPTION,
+  url = DEFAULT_URL,
 } = Astro.props;
 ---
 
-<!doctype html>
 <html lang="en">
-	<SEO title={title} description={description} url={url} />
-	<body class="mx-auto max-w-[1600px]">
-		<Header />
-		<slot />
-	</body>
+  <SEO title={title} description={description} url={url} />
+  <body class="mx-auto max-w-[1600px] dark:bg-gray-900 dark:text-white">
+    <Header />
+    <slot />
+    <Footer />
+  </body>
 </html>

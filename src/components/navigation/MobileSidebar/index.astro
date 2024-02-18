@@ -1,0 +1,9 @@
+---
+import { Trigger as MobileSidebar } from "@components/navigation/MobileSidebar/Trigger";
+
+const pathname = new URL(Astro.request.url).pathname;
+---
+
+<div>
+  <MobileSidebar client:only pathname={pathname} />
+</div>

@@ -3,14 +3,24 @@
     "astro/tsconfigs/strict"
   ],
   "compilerOptions": {
-    "baseUrl": ".",
+    "jsx": "react",
+    "baseUrl": "/Users/Kieran/Documents/Dev/kieranroberts.dev",
     "paths": {
       "@components/*": [
         "src/components/*"
       ],
       "@layouts/*": [
         "src/layouts/*"
-      ]
-    }
+      ],
+      "@images/*": [
+        "src/images/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+    },
   }
 }

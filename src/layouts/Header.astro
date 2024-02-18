@@ -1,12 +1,39 @@
 ---
-import NavLink from "@components/navigation/NavLink.astro";
+import { Icon } from "astro-icon/components";
+import Avatar from "@components/Avatar.astro";
+import NavLinksWrapper from "@components/navigation/NavLinksWrapper.astro";
+import ThemeToggle from "@components/ThemeToggle.tsx";
+import MobileSidebar from "@components/navigation/MobileSidebar/index.astro";
 ---
 
-<nav class="flex items-center justify-between px-4 py-6 border-b">
- <a href="/" class="text-xl md:text-2xl">kieranroberts.dev</a>
- <section class="hidden md:flex md:gap-x-8">
-  <NavLink href="/about">about</NavLink>
-  <NavLink href="https://blog.kieranroberts.dev">blog</NavLink>
-  <NavLink href="/contact">contact</NavLink>
- </section>
+<nav
+  role="navigation"
+  class="flex items-center justify-between px-4 md:px-8 py-4 border-b dark:border-gray-800"
+>
+  <section class="flex items-center gap-x-2">
+    <a
+      href="/"
+      class="flex items-center gap-x-2 text-xl font-medium rounded-md link-focus"
+    >
+      <Avatar />
+      <div class="hidden sm:flex items-center gap-x-2">
+        kieranroberts.dev
+        <span class="text-l-secondary">
+          <Icon name="iconoir:code" width={24} height={24} />
+        </span>
+      </div>
+    </a>
+  </section>
+
+  <section class="flex items-center">
+    <div class="hidden md:flex md:items-center md:gap-x-8">
+      <NavLinksWrapper />
+    </div>
+
+    <div class="flex items-center gap-x-6 md:gap-x-0 ml-12">
+      <ThemeToggle client:load />
+
+      <MobileSidebar />
+    </div>
+  </section>
 </nav>

@@ -1,0 +1,9 @@
+---
+import { MainNavLinks } from "@components/navigation/MainNavLinks";
+
+const pathname = new URL(Astro.request.url).pathname;
+---
+
+<nav class="flex flex-col items-center md:flex-row gap-12">
+  <MainNavLinks client:load pathname={pathname} />
+</nav>

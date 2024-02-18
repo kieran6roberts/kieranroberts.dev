@@ -1,9 +1,9 @@
 import * as React from "react";
 import { animated } from "react-spring";
 import { Menu } from "iconoir-react";
-import { Drawer } from "@components/navigation/MobileSidebar/Drawer";
+import { Drawer } from "../MobileSidebar/Drawer";
 
-import { useBoop } from "@hooks/useBoop";
+import { useBoop } from "../../../hooks/useBoop";
 
 interface Props {
   pathname: string;

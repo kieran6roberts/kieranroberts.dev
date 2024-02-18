@@ -2,8 +2,8 @@ import { SunLight, HalfMoon } from "iconoir-react";
 import React, { useEffect, useState } from "react";
 import { animated } from "react-spring";
 
-import { getThemePreference, setThemePreference } from "@utils/theme";
-import { useBoop } from "@hooks/useBoop";
+import { getThemePreference, setThemePreference } from "../utils/theme";
+import { useBoop } from "../hooks/useBoop";
 
 const themeButtonLoader = (
   <div className="w-[42px] h-[42px] rounded-full bg-gray-100 dark:bg-gray-800"></div>

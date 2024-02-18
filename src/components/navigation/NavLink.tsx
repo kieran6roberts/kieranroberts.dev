@@ -1,7 +1,7 @@
 import * as React from "react";
 import { DoubleCheck } from "iconoir-react";
 
-import { HoverUnderline } from "@components/navigation/HoverUnderline";
+import { HoverUnderline } from "./HoverUnderline";
 
 interface Props {
   href: string;

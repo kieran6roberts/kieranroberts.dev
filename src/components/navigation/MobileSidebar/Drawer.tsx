@@ -7,9 +7,9 @@ import {
 import { Xmark } from "iconoir-react";
 import * as React from "react";
 
-import { useBoop } from "@hooks/useBoop";
+import { useBoop } from "../../../hooks/useBoop";
 
-import { MainNavLinks } from "@components/navigation/MainNavLinks";
+import { MainNavLinks } from "../MainNavLinks";
 
 import {
   getFocusableElements,

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { ArrowUpRight } from "iconoir-react";
 
-import { NavLink } from "@components/navigation/NavLink";
+import { NavLink } from "./NavLink";
 
 interface Props {
   pathname?: string;

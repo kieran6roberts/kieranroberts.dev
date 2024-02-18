@@ -3,7 +3,7 @@ import { PcMouse, MouseButtonLeft } from "iconoir-react";
 import { useHover } from "@uidotdev/usehooks";
 import { animated } from "react-spring";
 
-import { useBoop } from "@hooks/useBoop";
+import { useBoop } from "../../hooks/useBoop";
 
 const HeroCTA = () => {
   const [ref, hovering] = useHover();

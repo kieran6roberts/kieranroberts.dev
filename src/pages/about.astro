@@ -1,15 +1,54 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Code } from "astro-expressive-code/components";
+import { SocialLinkFloatingBar } from "@components/navigation/SocialLinkFloatingBar";
+
+export const exampleCode = `
+const isVisitorStillReading = true;
+
+if (isVisitorStillReading) {
+  return (
+    "That's the sales pitch out the way, more about me."
+  )
+}
+`;
 ---
 
 <Layout
   title="About me | Kieran Roberts"
   description="My name is Kieran and I'm a React web developer with multiple years wortth of experience. Come and find out more about me here."
   url="kieranroberts.dev/about"
+  showFooter={false}
 >
-  <main
-    class="text-center h-[80vh] w-full flex flex-col items-center justify-center"
-  >
-    <h1>About me</h1>
+  <main class="px-4 md:px-16 py-16 w-full flex flex-col">
+    <h1 class="text-4xl text-center font-semibold mb-8">
+      Hi! My name is Kieran
+    </h1>
+    <section class="flex flex-col gap-y-8 justify-center max-w-[650px] mx-auto">
+      <p>
+        I love building fast, accessible and slick websites for the modern web.
+        With almost 3 years worth of industry experience and expertise in many
+        modern web technologies, I'm always striving to build!
+      </p>
+      <div>
+        <Code code={exampleCode} lang="tsx" wrap />
+      </div>
+      <p>Born in Wales, UK 🏴󠁧󠁢󠁷󠁬󠁳󠁿, I'm now currently based in Ireland 🇮🇪.</p>
+      <p>
+        Four years ago I started my journey into software engineering when I
+        decided to change career paths. As a university graduate with a Masters
+        in Electronic Engineering, I decided it wasn't for me and spent more
+        than a year teaching myself to code.
+      </p>
+      <p>
+        Fast forward to today and I absolutely love what I do. If you want to
+        get in touch with me you can find me at one of the many links, or reach
+        out using the <a href="/contact" class="text-l-secondary">
+          contact form here</a
+        >
+        .
+      </p>
+    </section>
   </main>
+  <SocialLinkFloatingBar client:load />
 </Layout>

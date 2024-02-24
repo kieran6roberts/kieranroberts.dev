@@ -4,7 +4,9 @@ import SEO from "../components/SEO.astro";
 import Header from "../layouts/Header.astro";
 import Footer from "../layouts/Footer.astro";
 
-type Props = ComponentProps<typeof SEO>;
+type Props = ComponentProps<typeof SEO> & {
+  showFooter?: boolean;
+};
 
 const DEFAULT_TITLE = "Kieran Roberts | Software Developer";
 const DEFAULT_DESCRIPTION =
@@ -15,6 +17,7 @@ const {
   title = DEFAULT_TITLE,
   description = DEFAULT_DESCRIPTION,
   url = DEFAULT_URL,
+  showFooter = true,
 } = Astro.props;
 ---
 
@@ -23,6 +26,6 @@ const {
   <body class="mx-auto max-w-[1600px] dark:bg-gray-900 dark:text-white">
     <Header />
     <slot />
-    <Footer />
+    {showFooter ? <Footer /> : null}
   </body>
 </html>

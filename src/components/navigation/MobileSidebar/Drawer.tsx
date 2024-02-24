@@ -1,15 +1,12 @@
 import { useSpring, animated } from "react-spring";
-import {
-  useClickAway,
-  useLockBodyScroll,
-  useWindowSize,
-} from "@uidotdev/usehooks";
+import { useClickAway, useWindowSize } from "@uidotdev/usehooks";
 import { Xmark } from "iconoir-react";
 import * as React from "react";
 
 import { useBoop } from "../../../hooks/useBoop";
 
 import { MainNavLinks } from "../MainNavLinks";
+import { LockBodyScroll } from "./LockBodyScroll";
 
 import {
   getFocusableElements,
@@ -32,9 +29,6 @@ const Drawer = ({ show, closeDrawer, triggerRef, pathname }: Props) => {
       closeDrawer();
     }
   });
-
-  // Lock body scroll when drawer is open
-  useLockBodyScroll();
 
   // Close drawer when window size changes
   const { width: windowWidth, height: windowHeight } = useWindowSize();
@@ -87,6 +81,7 @@ const Drawer = ({ show, closeDrawer, triggerRef, pathname }: Props) => {
 
   return (
     <>
+      {show ? <LockBodyScroll /> : null}
       <animated.div style={styles as any} ref={ref as any}>
         <section className="w-full h-full bg-white dark:bg-slate-800 z-50">
           <button

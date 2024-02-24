@@ -6,7 +6,7 @@ import { getThemePreference, setThemePreference } from "../utils/theme";
 import { useBoop } from "../hooks/useBoop";
 
 const themeButtonLoader = (
-  <div className="w-[42px] h-[42px] rounded-full bg-gray-100 dark:bg-gray-800"></div>
+  <div className="w-[40px] h-[40px] rounded-full bg-gray-100 dark:bg-gray-800"></div>
 );
 
 const ThemeToggle = () => {

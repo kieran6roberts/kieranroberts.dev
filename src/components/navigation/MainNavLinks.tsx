@@ -15,6 +15,7 @@ const MainNavLinks = ({ pathname, showActiveCheck }: Props) => {
         href="/about"
         pathname={pathname}
         showActiveCheck={showActiveCheck}
+        prefetchStrategy="load"
       >
         About
       </NavLink>
@@ -30,6 +31,7 @@ const MainNavLinks = ({ pathname, showActiveCheck }: Props) => {
         href="/contact"
         pathname={pathname}
         showActiveCheck={showActiveCheck}
+        prefetchStrategy="load"
       >
         Contact
       </NavLink>

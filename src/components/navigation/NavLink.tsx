@@ -3,27 +3,53 @@ import { DoubleCheck } from "iconoir-react";
 
 import { HoverUnderline } from "./HoverUnderline";
 
-interface Props {
-  href: string;
-  isExternal?: boolean;
-  pathname?: string;
-  children: React.ReactNode;
-  showActiveCheck?: boolean;
+enum PrefetchStrategyEnum {
+  TAP = "tap",
+  HOVER = "hover",
+  VIEWPORT = "viewport",
+  LOAD = "load",
 }
+
+type PrefetchStrategy = `${PrefetchStrategyEnum}`;
+
+type Props =
+  | {
+      href: string;
+      pathname?: string;
+      children: React.ReactNode;
+      showActiveCheck?: boolean;
+      isExternal: true;
+      prefetchStrategy?: never;
+    }
+  | {
+      href: string;
+      isExternal?: false;
+      pathname?: string;
+      children: React.ReactNode;
+      showActiveCheck?: boolean;
+      prefetchStrategy?: PrefetchStrategy;
+    };
 
 const NavLink = ({
   href,
   isExternal,
   pathname,
   showActiveCheck,
+  prefetchStrategy = PrefetchStrategyEnum.HOVER,
   children,
 }: Props) => {
-  const isActive = pathname && href === pathname;
+  const pathnameHasTrailingSlash = pathname?.endsWith("/");
+  const updatedPathname = pathnameHasTrailingSlash
+    ? pathname?.slice(0, -1)
+    : pathname;
+  const isActive = updatedPathname && href === updatedPathname;
 
   return (
     <div className="flex justify-between w-full">
       <div className="group flex flex-col">
         <a
+          // Opt in to prefetch with custom strategy
+          {...(!isExternal && { "data-astro-prefetch": prefetchStrategy })}
           href={href}
           target={isExternal ? "_blank" : "_self"}
           className={`flex items-center gap-x-2 rounded-md text-base font-medium transition duration-150 ease-in-out link-focus ${

@@ -18,6 +18,8 @@ const {
   description = DEFAULT_DESCRIPTION,
   url = DEFAULT_URL,
 } = Astro.props;
+
+const isProd = import.meta.env.PROD;
 ---
 
 <head>
@@ -115,8 +117,10 @@ const {
     }
   </script>
 
-  <script
-    defer
-    data-domain="kieranroberts.dev"
-    src="https://plausible.io/js/script.js"></script>
+  {
+    /* Plausible analytics redirected from _redirects.js */
+    isProd ? (
+      <script defer data-domain="kieranroberts.dev" src="/js/script.js" />
+    ) : null
+  }
 </head>

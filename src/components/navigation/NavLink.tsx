@@ -1,5 +1,5 @@
 import * as React from "react";
-import { DoubleCheck } from "iconoir-react";
+import { Check } from "iconoir-react";
 
 import { HoverUnderline } from "./HoverUnderline";
 
@@ -42,7 +42,7 @@ const NavLink = ({
   const updatedPathname = pathnameHasTrailingSlash
     ? pathname?.slice(0, -1)
     : pathname;
-  const isActive = updatedPathname && href === updatedPathname;
+  const isActive = !!updatedPathname && href === updatedPathname;
 
   return (
     <div className="flex justify-between w-full">
@@ -55,16 +55,16 @@ const NavLink = ({
           className={`flex items-center gap-x-2 rounded-md text-base font-medium transition duration-150 ease-in-out link-focus ${
             isActive
               ? "text-l-secondary dark:text-d-tertiary-1 font-semibold"
-              : " text-l-primary-darkest dark:text-d-tertiary-2"
+              : " text-l-primary-darkest dark:text-white"
           }`}
         >
           {children}
         </a>
-        <HoverUnderline />
+        <HoverUnderline isLinkActive={isActive} />
       </div>
       {isActive && showActiveCheck ? (
-        <span className="text-l-secondary dark:text-d-tertiary-1">
-          <DoubleCheck width={24} height={24} />
+        <span className="text-l-secondary dark:text-d-tertiary-2">
+          <Check width={24} height={24} />
         </span>
       ) : null}
     </div>

@@ -99,9 +99,12 @@ const isProd = import.meta.env.PROD;
       ) {
         document.documentElement.className = "";
         document.documentElement.classList.add("dark");
+        document.documentElement.dataset.theme = "rose-pine-moon";
         document
           .querySelector("#theme-toggle")
           ?.setAttribute("aria-label", "dark");
+      } else {
+        document.documentElement.dataset.theme = "slack-ochin";
       }
     });
     if (
@@ -111,9 +114,12 @@ const isProd = import.meta.env.PROD;
     ) {
       document.documentElement.className = "";
       document.documentElement.classList.add("dark");
+      document.documentElement.dataset.theme = "rose-pine-moon";
       document
         .querySelector("#theme-toggle")
         ?.setAttribute("aria-label", "dark");
+    } else {
+      document.documentElement.dataset.theme = "slack-ochin";
     }
   </script>
 

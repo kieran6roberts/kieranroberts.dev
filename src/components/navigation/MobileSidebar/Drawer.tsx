@@ -7,6 +7,7 @@ import { useBoop } from "../../../hooks/useBoop";
 
 import { MainNavLinks } from "../MainNavLinks";
 import { LockBodyScroll } from "./LockBodyScroll";
+import { SocialLinks } from "../SocialLinkFloatingBar";
 
 import {
   getFocusableElements,
@@ -32,18 +33,19 @@ const Drawer = ({ show, closeDrawer, triggerRef, pathname }: Props) => {
 
   // Close drawer when window size changes
   const { width: windowWidth, height: windowHeight } = useWindowSize();
+  const windowSizeExists = !!(windowWidth && windowHeight);
 
   const [style, trigger] = useBoop({ rotation: 10 });
 
   const styles = useSpring({
-    left: show ? window.innerWidth - 350 : window.innerWidth,
+    left: show && windowSizeExists ? windowWidth - 350 : windowWidth,
     position: "fixed",
     top: 0,
     bottom: 0,
     right: 0,
     height: "100vh",
     width: "350px",
-    zIndex: 50,
+    zIndex: 9999,
   });
 
   React.useEffect(() => {
@@ -83,7 +85,7 @@ const Drawer = ({ show, closeDrawer, triggerRef, pathname }: Props) => {
     <>
       {show ? <LockBodyScroll /> : null}
       <animated.div style={styles as any} ref={ref as any}>
-        <section className="w-full h-full bg-white dark:bg-slate-800 z-50">
+        <section className="w-full h-full bg-white dark:bg-slate-800 z-10">
           <button
             onClick={closeDrawer}
             className="flex items-center justify-center absolute top-5 right-5 p-1.5 link-focus rounded-full icon-button-hover"
@@ -103,10 +105,13 @@ const Drawer = ({ show, closeDrawer, triggerRef, pathname }: Props) => {
             </NavLink>
             <MainNavLinks pathname={pathname} showActiveCheck />
           </nav>
+          <section className="flex gap-x-4 items-center absolute bottom-4 right-4">
+            <SocialLinks />
+          </section>
         </section>
       </animated.div>
       {show ? (
-        <div className="absolute inset-0 w-full h-full bg-slate-800 opacity-50 z-10" />
+        <div className="fixed inset-0 w-screen h-screen bg-slate-800 opacity-50 z-20" />
       ) : null}
     </>
   );

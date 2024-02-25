@@ -6,7 +6,7 @@ const QUERY_NAME = "(prefers-reduced-motion: no-preference)";
 
 const usePrefersReducedMotion = () => {
   /**
-   * Default to no animations on mount to be SRR safe. This is fine since we don't
+   * Default to no animations on mount to be SRR safe. This is fine since I don't
    * have any animation on mount and don't intend to have any right now.
    */
   const [prefersReducedMotion, setPrefersReducedMotion] = React.useState(true);

@@ -1,7 +1,7 @@
 ---
 import type { ComponentProps } from "astro/types";
 import SEO from "../components/SEO.astro";
-import Header from "../layouts/Header.astro";
+import { Header } from "../layouts/Header";
 import Footer from "../layouts/Footer.astro";
 
 type Props = ComponentProps<typeof SEO> & {
@@ -19,12 +19,14 @@ const {
   url = DEFAULT_URL,
   showFooter = true,
 } = Astro.props;
+
+const pathname = new URL(Astro.request.url).pathname;
 ---
 
 <html lang="en">
   <SEO title={title} description={description} url={url} />
   <body class="mx-auto max-w-[1600px] dark:bg-gray-900 dark:text-white">
-    <Header />
+    <Header client:load pathname={pathname} />
     <slot />
     {showFooter ? <Footer /> : null}
   </body>

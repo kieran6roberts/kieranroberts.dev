@@ -11,12 +11,12 @@ export default defineConfig({
     defaultStrategy: 'hover',
     prefetchAll: false
   },
-  integrations: [tailwind({
-    applyBaseStyles: false
-  }), 
-  react(), 
-  icon(), 
-  expressiveCode({
-    themes: ['dracula', 'solarized-light'],
-  })]
+  integrations: [
+    tailwind({
+      applyBaseStyles: false
+    }), 
+    react(), 
+    icon(), 
+    expressiveCode()
+  ]
 });

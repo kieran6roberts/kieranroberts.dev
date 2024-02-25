@@ -16,7 +16,7 @@ if (isVisitorStillReading) {
 
 <Layout
   title="About me | Kieran Roberts"
-  description="My name is Kieran and I'm a React web developer with multiple years wortth of experience. Come and find out more about me here."
+  description="My name is Kieran and I'm a Software developer for the web with multiple years wortth of experience. Come and find out more about me here."
   url="kieranroberts.dev/about"
   showFooter={false}
 >
@@ -27,12 +27,19 @@ if (isVisitorStillReading) {
     <section class="flex flex-col gap-y-8 justify-center max-w-[650px] mx-auto">
       <p>
         I love building fast, accessible and slick websites for the modern web.
-        With almost 3 years worth of industry experience and expertise in many
+        With multiple years worth of industry experience and expertise in many
         modern web technologies, I'm always striving to build!
       </p>
       <div>
-        <Code code={exampleCode} lang="tsx" wrap />
+        <Code
+          code={exampleCode}
+          lang="tsx"
+          wrap
+          frame="code"
+          title="Thanks for visiting!"
+        />
       </div>
+      <h2 class="text-2xl underline underline-offset-[10px]">Get to know me</h2>
       <p>Born in Wales, UK 🏴󠁧󠁢󠁷󠁬󠁳󠁿, I'm now currently based in Ireland 🇮🇪.</p>
       <p>
         Four years ago I started my journey into software engineering when I
@@ -41,13 +48,24 @@ if (isVisitorStillReading) {
         than a year teaching myself to code.
       </p>
       <p>
-        Fast forward to today and I absolutely love what I do. If you want to
-        get in touch with me you can find me at one of the many links, or reach
-        out using the <a href="/contact" class="text-l-secondary">
-          contact form here</a
-        >
-        .
+        Fast forward to today and I absolutely love what I do. Outside of
+        software development I love to go hiking and travelling when possible,
+        and a big sports fan too. I'm currently teaching myself to play guitar
+        and love to cook and try new foods.
       </p>
+      <p>
+        If you want to get in touch with me you can find me at one of the many
+        social links provided. There will also soon be a contact form provided.
+      </p>
+      <!-- <p>
+        If you're interested in hearing more about my skills, experience, and
+        what I'm currently working on, follow me to the <a
+          href="/skills-and-experience"
+          class="text-l-secondary dark:text-d-secondary"
+          >skills and experience page</a
+        >.
+      </p> -->
+      <p>Nice to meet you!</p>
     </section>
   </main>
   <SocialLinkFloatingBar client:load />

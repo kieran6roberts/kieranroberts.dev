@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import { create } from 'zustand';
-import { usePrefersReducedMotion } from "@hooks/usePrefersReducedMotion";
 
 interface Props {
   elRef: React.RefObject<HTMLElement>;

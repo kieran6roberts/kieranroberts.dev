@@ -4,8 +4,8 @@ import * as React from "react";
 import { MainNavLinks } from "../components/navigation/MainNavLinks";
 import ThemeToggle from "../components/ThemeToggle.tsx";
 import { Trigger as SidebarTrigger } from "../components/navigation/MobileSidebar/Trigger";
-import useStickyScroll from "@hooks/useStickyHeader";
-import { usePrefersReducedMotion } from "@hooks/usePrefersReducedMotion";
+import useStickyScroll from "../hooks/useStickyHeader";
+import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion";
 
 interface Props {
   pathname: string;

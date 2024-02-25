@@ -38,7 +38,8 @@ const NavLink = ({
   prefetchStrategy = PrefetchStrategyEnum.HOVER,
   children,
 }: Props) => {
-  const pathnameHasTrailingSlash = pathname?.endsWith("/");
+  const pathnameHasTrailingSlash =
+    pathname && pathname.length > 1 && pathname?.endsWith("/");
   const updatedPathname = pathnameHasTrailingSlash
     ? pathname?.slice(0, -1)
     : pathname;

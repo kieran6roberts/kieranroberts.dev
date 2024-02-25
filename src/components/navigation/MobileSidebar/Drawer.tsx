@@ -38,7 +38,11 @@ const Drawer = ({ show, closeDrawer, triggerRef, pathname }: Props) => {
   const [style, trigger] = useBoop({ rotation: 10 });
 
   const styles = useSpring({
-    left: show && windowSizeExists ? windowWidth - 350 : windowWidth,
+    left: show
+      ? windowSizeExists
+        ? windowWidth - 350
+        : windowWidth
+      : windowWidth,
     position: "fixed",
     top: 0,
     bottom: 0,

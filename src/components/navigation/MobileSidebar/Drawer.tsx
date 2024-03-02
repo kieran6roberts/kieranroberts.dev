@@ -89,7 +89,7 @@ const Drawer = ({ show, closeDrawer, triggerRef, pathname }: Props) => {
     <>
       {show ? <LockBodyScroll /> : null}
       <animated.div style={styles as any} ref={ref as any}>
-        <section className="w-full h-full bg-white dark:bg-slate-800 z-10">
+        <section className="w-full h-full bg-white dark:bg-[#100114] z-10">
           <button
             onClick={closeDrawer}
             className="flex items-center justify-center absolute top-5 right-5 p-1.5 link-focus rounded-full icon-button-hover"

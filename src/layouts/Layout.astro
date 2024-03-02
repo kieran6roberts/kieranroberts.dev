@@ -25,7 +25,7 @@ const pathname = new URL(Astro.request.url).pathname;
 
 <html lang="en">
   <SEO title={title} description={description} url={url} />
-  <body class="mx-auto max-w-[1600px] dark:bg-gray-900 dark:text-white">
+  <body class="mx-auto max-w-[1600px] dark:bg-[#100114] dark:text-white">
     <Header client:load pathname={pathname} />
     <slot />
     {showFooter ? <Footer /> : null}

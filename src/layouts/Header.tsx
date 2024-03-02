@@ -24,15 +24,21 @@ export const Header = ({ pathname }: Props) => {
     >
       <nav
         role="navigation"
-        className="flex items-center justify-between px-4 md:px-8 py-4 bg-white dark:bg-gray-800 border-b dark:border-gray-800"
+        className="flex items-center justify-between px-4 md:px-8 py-4 bg-white dark:bg-[#100114] border-b dark:border-gray-800"
       >
         <section className="flex items-center gap-x-2">
           <a
             href="/"
             className="flex items-center gap-x-2 text-md sm:text-xl font-medium rounded-full md:rounded-md link-focus"
           >
-            {/* <Avatar /> */}
-            <div className="flex items-center gap-x-2">
+            <div className="hidden w-max rounded-full mx-auto lg:mx-0 lg:block">
+              <img
+                src="/src/images/Kieran-Avatar-funky.png"
+                width="40"
+                height="40"
+              />
+            </div>
+            <div className="flex items-center text-xl font-light gap-x-2">
               kieranroberts.dev
               <span className="text-l-secondary">
                 <Code width={24} height={24} />

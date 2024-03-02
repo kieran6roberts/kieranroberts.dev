@@ -1,44 +1,30 @@
 ---
 import Layout from "../layouts/Layout.astro";
-// import { HeroCTA } from "../components/navigation/HeroCTA";
+import { SocialLinkFloatingBar } from "../components/navigation/SocialLinkFloatingBar";
 ---
 
-<Layout>
-  <main
-    class="text-center h-[80vh] w-full flex flex-col items-center justify-center"
-  >
-    <h1 class="text-2xl">Kieran Roberts - Software Engineer</h1>
-    <p>More to come on all pages</p>
-    <!-- <h1
-      class="max-w-screen-sm md:max-w-3xl px-8 text-3xl md:text-5xl font-bold"
-    >
-      <span class="text-[1.1em] text-l-primary-dark dark:text-d-primary-dark"
-        >Kieran Roberts.</span
+<Layout showFooter={false}>
+  <main class="">
+    <div class="flex flex-col items-center gap-y-12 py-20 px-4">
+      <h1
+        class="font-header text-4xl capitalize lg:text-5xl font-normal text-center mx-auto max-w-[550px] lg:max-w-[70%]"
       >
-      <span class="text-[0.8em] text-l-tertiary-2 dark:text-d-tertiary-2"
-        >Web developer.</span
-      >
-      <span
-        class="text-[0.8em] text-l-primary-darkest dark:text-d-primary-darkest"
-        >Builder.</span
-      >
-      <span class="text-[0.5em] text-l-tertiary-1 dark:text-d-tertiary-1"
-        >Proffessional.</span
-      >
-      <span class="text-[1.2em] text-l-secondary dark:text-d-secondary"
-        >Experienced.</span
-      >
-      <span class="text-[0.5em] text-l-primary-dark dark:text-d-primary-dark"
-        >Self motivated.</span
-      >
-      <span class="text-[0.9em] text-l-tertiary-2 dark:text-d-tertiary-2"
-        >Team player.</span
-      >
-      <span
-        class="text-[0.6em] text-l-primary-darkest dark:text-d-primary-darkest"
-        >Communicative.</span
-      >
-    </h1> -->
-    <!-- <HeroCTA client:load /> -->
+        <span class="text-[1.3em]">full stack javaScript,</span><br />
+        <span class="text-[1.1em] text-l-secondary dark:text-d-secondary"
+          >UI/UX specialist,</span
+        ><br />
+        <span class="text-[0.9em] text-[#3cc708] dark:text-l-tertiary-2"
+          >all-round builder</span
+        >
+      </h1>
+
+      <p class="tracking-wide text-xl max-w-[75%] mx-auto lg:mx-0 text-center">
+        I build fast, accessible, and well tested sites for the modern web.
+      </p>
+    </div>
+    <div class="w-max rounded-full mx-auto">
+      <img src="/src/images/Kieran-Avatar-funky.png" width="250" height="250" />
+    </div>
+    <SocialLinkFloatingBar client:load />
   </main>
 </Layout>

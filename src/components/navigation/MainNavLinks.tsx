@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ArrowUpRight } from "iconoir-react";
+import { OpenNewWindow } from "iconoir-react";
 
 import { NavLink } from "./NavLink";
 
@@ -25,7 +25,7 @@ const MainNavLinks = ({ pathname, showActiveCheck }: Props) => {
         showActiveCheck={showActiveCheck}
       >
         Blog
-        <ArrowUpRight height={12} width={12} />
+        <OpenNewWindow height={20} width={20} />
       </NavLink>
       <NavLink
         href="/contact"

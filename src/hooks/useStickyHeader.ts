@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { create } from 'zustand';
 
+import { debounce } from '../utils/debounce';
+
 interface Props {
   elRef: React.RefObject<HTMLElement>;
   prefersReducedMotion?: boolean;
@@ -9,18 +11,6 @@ interface Props {
 const updateNavStyle = () => {
   const canUpdate = document.documentElement.clientWidth >= 768;
   return canUpdate;
-};
-
-const debounce = (mainFunction: Function, delay: number) => {
-  let timer: any;
-
-  return function (...args: any) {
-    clearTimeout(timer);
-
-    timer = setTimeout(() => {
-      mainFunction(...args);
-    }, delay);
-  };
 };
 
 export const useStickyNavElement = create<{

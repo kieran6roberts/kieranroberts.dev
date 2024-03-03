@@ -52,7 +52,7 @@ export const Header = ({ pathname }: Props) => {
             <MainNavLinks pathname={pathname} />
           </div>
 
-          <div className="flex items-center gap-x-6 md:gap-x-0 ml-12">
+          <div className="flex items-center gap-x-6 md:gap-x-0 ml-8">
             <ThemeToggle />
 
             <SidebarTrigger pathname={pathname} />

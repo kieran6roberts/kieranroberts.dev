@@ -1,27 +1,24 @@
 import { SunLight, HalfMoon } from "iconoir-react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { animated } from "react-spring";
+import { useStore } from "@nanostores/react";
 
-import { getThemePreference, setThemePreference } from "../utils/theme";
+import { getThemePreference } from "../utils/theme";
 import { useBoop } from "../hooks/useBoop";
+import { toggleTheme, theme } from "src/stores/themeStore";
 
 const themeButtonLoader = (
   <div className="w-[40px] h-[40px] rounded-full bg-gray-100 dark:bg-gray-800"></div>
 );
 
 const ThemeToggle = () => {
-  const [isDarkTheme, setIsDarkTheme] = useState<boolean | null>(null);
   const [style, trigger] = useBoop({ rotation: 45 });
-
-  const handleThemeToggle = () => {
-    const themePreference = getThemePreference();
-    setIsDarkTheme(!isDarkTheme);
-    setThemePreference(themePreference === "dark" ? "light" : "dark");
-  };
+  const $theme = useStore(theme);
+  const isDarkTheme = $theme === "dark";
 
   useEffect(() => {
     const themePreference = getThemePreference();
-    setIsDarkTheme(themePreference === "dark");
+    theme.set(themePreference);
   }, []);
 
   const themeButton = (
@@ -32,7 +29,7 @@ const ThemeToggle = () => {
       aria-live="polite"
       className="flex items-center justify-center p-2 rounded-full link-focus icon-button-hover"
       onMouseEnter={trigger as any}
-      onClick={handleThemeToggle}
+      onClick={toggleTheme}
     >
       <animated.span style={style as any}>
         {isDarkTheme === null ? (
@@ -46,7 +43,7 @@ const ThemeToggle = () => {
     </button>
   );
 
-  return <>{isDarkTheme === null ? themeButtonLoader : themeButton}</>;
+  return <>{$theme === null ? themeButtonLoader : themeButton}</>;
 };
 
 export default ThemeToggle;

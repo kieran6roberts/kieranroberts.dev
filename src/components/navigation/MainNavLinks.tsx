@@ -27,6 +27,9 @@ const MainNavLinks = ({ pathname, showActiveCheck }: Props) => {
         Blog
         <OpenNewWindow height={20} width={20} />
       </NavLink>
+      <NavLink href="/blog" showActiveCheck={showActiveCheck}>
+        Blog2
+      </NavLink>
       <NavLink
         href="/contact"
         pathname={pathname}

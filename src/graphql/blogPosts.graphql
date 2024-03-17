@@ -1,0 +1,33 @@
+query SearchPostsOfPublication(
+  $first: Int!
+  $filter: SearchPostsOfPublicationFilter!
+  $after: String
+) {
+  searchPostsOfPublication(first: $first, filter: $filter, after: $after) {
+    edges {
+      cursor
+      node {
+        id
+        title
+        url
+        canonicalUrl
+        publishedAt
+        author {
+          id
+          name
+        }
+        publication {
+          id
+          url
+        }
+        coverImage {
+          url
+        }
+      }
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+  }
+}

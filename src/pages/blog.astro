@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { LoadMorePosts } from "../components/blog/LoadMorePosts";
+import { fetchBlogPosts, getPostsPaginatedData } from "../utils/blog";
+
+const blogPosts = await fetchBlogPosts({ first: null, after: null });
+const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(blogPosts);
+---
+
+<Layout
+  title="Blog | Kieran Roberts"
+  description="I like about React, Next.js, TypeScript, and web development in general. Find something you like here."
+  url="kieranroberts.dev/contact"
+  showFooter={false}
+>
+  <main class="px-4 md:px-16 py-16 w-full flex flex-col">
+    <h1
+      class="font-header text-l-secondary dark:text-d-tertiary-2 text-4xl text-center font-semibold mb-8"
+    >
+      My blog
+    </h1>
+    <section class="flex flex-col gap-y-8 justify-center max-w-[650px] mx-auto">
+      {postsArray.map((post) => <article>{post.title}</article>)}
+      {
+        hasNextPage ? (
+          <LoadMorePosts
+            client:visible
+            hasNextPage={hasNextPage}
+            cursor={cursor}
+          />
+        ) : null
+      }
+    </section>
+  </main>
+</Layout>

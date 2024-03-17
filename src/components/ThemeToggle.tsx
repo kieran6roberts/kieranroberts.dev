@@ -8,7 +8,7 @@ import { useBoop } from "../hooks/useBoop";
 import { toggleTheme, theme } from "src/stores/themeStore";
 
 const themeButtonLoader = (
-  <div className="w-[40px] h-[40px] rounded-full bg-gray-100 dark:bg-gray-800"></div>
+  <span className="w-[40px] h-[40px] rounded-full bg-gray-100 dark:bg-gray-800" />
 );
 
 const ThemeToggle = () => {
@@ -31,15 +31,13 @@ const ThemeToggle = () => {
       onMouseEnter={trigger as any}
       onClick={toggleTheme}
     >
-      <animated.span style={style as any}>
-        {isDarkTheme === null ? (
-          themeButtonLoader
-        ) : isDarkTheme ? (
-          <SunLight width={24} />
-        ) : (
-          <HalfMoon width={24} />
-        )}
-      </animated.span>
+      {isDarkTheme === null ? (
+        themeButtonLoader
+      ) : (
+        <animated.span style={style as any}>
+          {isDarkTheme ? <SunLight width={24} /> : <HalfMoon width={24} />}
+        </animated.span>
+      )}
     </button>
   );
 

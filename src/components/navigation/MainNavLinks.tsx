@@ -1,5 +1,4 @@
 import * as React from "react";
-import { OpenNewWindow } from "iconoir-react";
 
 import { NavLink } from "./NavLink";
 
@@ -20,15 +19,12 @@ const MainNavLinks = ({ pathname, showActiveCheck }: Props) => {
         About
       </NavLink>
       <NavLink
-        href="https://blog.kieranroberts.dev"
-        isExternal
+        href="/blog"
+        pathname={pathname}
+        prefetchStrategy="load"
         showActiveCheck={showActiveCheck}
       >
         Blog
-        <OpenNewWindow height={20} width={20} />
-      </NavLink>
-      <NavLink href="/blog" showActiveCheck={showActiveCheck}>
-        Blog2
       </NavLink>
       <NavLink
         href="/contact"

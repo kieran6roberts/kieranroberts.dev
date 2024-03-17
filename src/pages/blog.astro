@@ -1,9 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { LoadMorePosts } from "../components/blog/LoadMorePosts";
-import { fetchBlogPosts, getPostsPaginatedData } from "../utils/blog";
+import { fetchPaginatedBlogPosts, getPostsPaginatedData } from "../utils/blog";
 
-const blogPosts = await fetchBlogPosts({ first: null, after: null });
+const blogPosts = await fetchPaginatedBlogPosts({ first: null, after: null });
 const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(blogPosts);
 ---
 
@@ -19,17 +19,30 @@ const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(blogPosts);
     >
       My blog
     </h1>
-    <section class="flex flex-col gap-y-8 justify-center max-w-[650px] mx-auto">
-      {postsArray.map((post) => <article>{post.title}</article>)}
-      {
-        hasNextPage ? (
-          <LoadMorePosts
-            client:visible
-            hasNextPage={hasNextPage}
-            cursor={cursor}
-          />
-        ) : null
-      }
+    <section class="max-w-[600px] mx-auto">
+      <div class="flex flex-col gap-y-12">
+        {
+          postsArray.map((post) => (
+            <article>
+              <a class="flex flex-col gap-y-2" href={`/blog/${post.slug}`}>
+                <h2 class="max-w-[450px] mx-auto text-center prose-xl dark:prose-invert">
+                  {post.title}
+                </h2>
+                <p class="prose dark:prose-invert text-justify">{post.brief}</p>
+              </a>
+            </article>
+          ))
+        }
+        {
+          hasNextPage ? (
+            <LoadMorePosts
+              client:visible
+              hasNextPage={hasNextPage}
+              cursor={cursor}
+            />
+          ) : null
+        }
+      </div>
     </section>
   </main>
 </Layout>

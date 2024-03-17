@@ -18,5 +18,5 @@ export default defineConfig({
     react(), 
     icon(), 
     expressiveCode()
-  ]
+  ],
 });

@@ -1,0 +1,52 @@
+---
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+import Layout from "../../layouts/Layout.astro";
+import { getAllPostPagePosts } from "../../utils/blog";
+import MarkdownToHTML from "../../components/blog/MarkdownToHTML.astro";
+
+export const getStaticPaths = (async () => {
+  const allBlogPosts = await getAllPostPagePosts();
+
+  return allBlogPosts.map((post) => ({
+    params: { page: post.slug },
+    props: { post: post },
+  }));
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { post } = Astro.props;
+
+const contentMarkdown = post.content.markdown;
+---
+
+<Layout
+  title="Blog | Kieran Roberts"
+  description="I like about React, Next.js, TypeScript, and web development in general. Find something you like here."
+  url="kieranroberts.dev/contact"
+  showFooter={false}
+>
+  <main class="px-4 md:px-16 py-16 w-full flex flex-col">
+    <h1
+      class="max-w-[650px] mx-auto font-header text-l-secondary dark:text-d-tertiary-2 text-5xl text-center font-semibold mb-8"
+    >
+      {post.title}
+    </h1>
+    {
+      post.coverImage?.url ? (
+        <div class="rounded-xl overflow-hidden mx-auto max-w-[800px] bg-black">
+          <img
+            class="object-cover rounded-xl"
+            alt="Blog post cover"
+            src={post.coverImage?.url}
+          />
+        </div>
+      ) : null
+    }
+    <section
+      class="flex flex-col gap-y-8 justify-center max-w-[650px] overflow-hidden mx-auto mt-20"
+    >
+      <MarkdownToHTML markdown={contentMarkdown} />
+    </section>
+  </main>
+</Layout>

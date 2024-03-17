@@ -1,6 +1,6 @@
 import * as React from "react";
 import {
-  fetchBlogPosts,
+  fetchPaginatedBlogPosts,
   INITIAL_POST_COUNT,
   getPostsPaginatedData,
 } from "../../utils/blog";
@@ -18,7 +18,7 @@ export const LoadMorePosts = ({ cursor, hasNextPage }: ILoadMorePosts) => {
 
   const getMore = async () => {
     setLoading(true);
-    const blogPosts = await fetchBlogPosts({
+    const blogPosts = await fetchPaginatedBlogPosts({
       first: INITIAL_POST_COUNT,
       after: currentCursor,
     });
@@ -36,15 +36,22 @@ export const LoadMorePosts = ({ cursor, hasNextPage }: ILoadMorePosts) => {
   return (
     <>
       {posts.map((post) => (
-        <article>{post.title}</article>
+        <article>
+          <a className="flex flex-col gap-y-2" href={`/blog/${post.slug}`}>
+            <h2 className="max-w-[450px] mx-auto text-center prose-xl dark:prose-invert">
+              {post.title}
+            </h2>
+            <p className="prose dark:prose-invert">{post.brief}</p>
+          </a>
+        </article>
       ))}
       {loading ? (
-        <div className="p-4 text-center border opacity-50 rounded-xl">
+        <div className="p-4 mx-auto text-center border opacity-50 rounded-xl">
           Loading...
         </div>
       ) : null}
       {hasNext && !loading ? (
-        <button onClick={getMore} className="p-4 border rounded-xl">
+        <button onClick={getMore} className="mx-auto p-4 border rounded-xl">
           Load more posts
         </button>
       ) : null}

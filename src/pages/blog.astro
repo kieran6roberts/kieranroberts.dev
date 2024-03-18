@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { LoadMorePosts } from "../components/blog/LoadMorePosts";
 import { fetchPaginatedBlogPosts, getPostsPaginatedData } from "../utils/blog";
+import { SocialLinkFloatingBar } from "../components/navigation/SocialLinkFloatingBar";
 
 const blogPosts = await fetchPaginatedBlogPosts({ first: null, after: null });
 const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(blogPosts);
@@ -45,4 +46,5 @@ const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(blogPosts);
       </div>
     </section>
   </main>
+  <SocialLinkFloatingBar client:load />
 </Layout>

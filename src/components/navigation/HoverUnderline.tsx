@@ -6,10 +6,8 @@ interface Props {
 
 const HoverUnderline = ({ isLinkActive }: Props) => (
   <span
-    className={`block w-0 group-hover:w-full transition-all duration-500 h-0.5 ${
-      isLinkActive
-        ? "bg-l-secondary dark:bg-d-secondary"
-        : "bg-l-primary-dark dark:bg-d-tertiary-2"
+    className={`block group-hover:w-full transition-all duration-500 h-0.5 ${
+      isLinkActive ? "bg-d-tertiary-2 w-full" : "bg-white w-0"
     }`}
   />
 );

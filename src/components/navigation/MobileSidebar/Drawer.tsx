@@ -5,7 +5,7 @@ import * as React from "react";
 
 import { useBoop } from "../../../hooks/useBoop";
 
-import { MainNavLinks } from "../MainNavLinks";
+import { MainNavLinks } from "./MainNavLinks";
 import { LockBodyScroll } from "./LockBodyScroll";
 import { SocialLinks } from "../SocialLinkFloatingBar";
 
@@ -14,7 +14,7 @@ import {
   handleTabKeyPress,
   handleEscapeKey,
 } from "../../../utils/accessibility";
-import { NavLink } from "../NavLink";
+import { NavLink } from "./NavLink";
 
 interface Props {
   show: boolean;
@@ -102,7 +102,7 @@ const Drawer = ({ show, closeDrawer, triggerRef, pathname }: Props) => {
 
           <nav
             id="sidebar-nav"
-            className="flex flex-col h-full p-8 justify-center items-start gap-y-20"
+            className="flex flex-col h-full p-8 justify-center items-start gap-y-16"
           >
             <NavLink href="/" pathname={pathname} showActiveCheck>
               Home

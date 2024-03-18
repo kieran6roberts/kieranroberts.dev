@@ -25,7 +25,7 @@ const Trigger = ({ pathname }: Props) => {
     <>
       <animated.button
         ref={triggerRef}
-        className="flex items-center justify-center md:hidden link-focus p-2 rounded-full icon-button-hover"
+        className="flex items-center justify-center text-white md:hidden link-focus p-2 rounded-full icon-button-hover"
         onClick={toggleOpenDrawer}
         onMouseEnter={trigger as any}
       >

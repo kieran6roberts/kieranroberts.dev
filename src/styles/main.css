@@ -13,7 +13,7 @@
 }
 
  .link-focus {
-   @apply outline-none focus:ring dark:focus:ring-offset-gray-900 focus:ring-offset-4 focus:ring-l-primary-darkest dark:focus:ring-d-tertiary-2
+   @apply outline-none focus:ring dark:focus:ring-offset-gray-900 focus:ring-offset-4 focus:ring-l-secondary dark:focus:ring-d-tertiary-2
  }
  .icon-button-hover {
    @apply hover:bg-opacity-25 dark:hover:bg-opacity-25 hover:bg-l-tertiary-2 dark:hover:bg-d-primary-dark

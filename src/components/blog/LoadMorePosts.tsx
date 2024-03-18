@@ -1,9 +1,12 @@
 import * as React from "react";
+import { NavArrowDown, EmojiLookDown } from "iconoir-react";
 import {
   fetchPaginatedBlogPosts,
   INITIAL_POST_COUNT,
   getPostsPaginatedData,
 } from "../../utils/blog";
+import { useBoop } from "../../hooks/useBoop";
+import { useSpring, animated } from "react-spring";
 
 interface ILoadMorePosts {
   cursor: string;
@@ -16,6 +19,21 @@ export const LoadMorePosts = ({ cursor, hasNextPage }: ILoadMorePosts) => {
   const [currentCursor, setCurrentCursor] = React.useState(cursor);
   const [loading, setLoading] = React.useState(false);
 
+  const buttonRef = React.useRef<HTMLButtonElement>(null);
+  const [style, trigger] = useBoop({ y: 4 });
+
+  const loadingSpring = useSpring({
+    from: { y: 0, transform: "scale(1)" },
+    to: [
+      { y: 3, transform: "scale(1.1)" },
+      { y: 0, transform: "scale(1)" },
+    ],
+    loop: true,
+  });
+
+  const loadingIconStyle = {
+    ...loadingSpring,
+  };
   const getMore = async () => {
     setLoading(true);
     const blogPosts = await fetchPaginatedBlogPosts({
@@ -46,14 +64,24 @@ export const LoadMorePosts = ({ cursor, hasNextPage }: ILoadMorePosts) => {
         </article>
       ))}
       {loading ? (
-        <div className="p-4 mx-auto text-center border opacity-50 rounded-xl">
-          Loading...
+        <div className="flex items-center mt-12 justify-center gap-2 w-full font-medium mx-auto px-4 py-3 border-2 bg-[#100114] text-white border-[#100114] dark:border-d-tertiary-2 rounded-full">
+          <animated.span style={loadingIconStyle}>
+            <EmojiLookDown width={24} height={24} />
+          </animated.span>
         </div>
       ) : null}
       {hasNext && !loading ? (
-        <button onClick={getMore} className="mx-auto p-4 border rounded-xl">
-          Load more posts
-        </button>
+        <animated.button
+          ref={buttonRef}
+          onClick={getMore}
+          onMouseEnter={trigger as any}
+          className="flex items-center mt-12 justify-center gap-2 w-full font-medium mx-auto px-4 py-3 border-2 bg-[#100114] text-white border-[#100114] dark:border-d-tertiary-2 rounded-full link-focus"
+        >
+          Show more
+          <animated.span style={style as any}>
+            <NavArrowDown width={24} height={24} />
+          </animated.span>
+        </animated.button>
       ) : null}
     </>
   );

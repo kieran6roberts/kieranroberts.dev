@@ -45,7 +45,7 @@ export const SocialLinkFloatingBar = () => {
   return (
     <nav
       role="navigation"
-      className="hidden md:flex fixed bottom-6 right-6 gap-x-2 w-max py-1.5 px-6 bg-white dark:bg-[#100114] text-l-primary-darkest dark:text-white border-l-primary-dark dark:border-d-tertiary-2 border-2 rounded-full"
+      className="hidden lg:flex fixed bottom-6 right-6 gap-x-2 w-max py-1.5 px-6 bg-white dark:bg-[#100114] text-l-primary-darkest dark:text-white border-l-primary-dark dark:border-d-tertiary-2 border-2 rounded-full"
     >
       <SocialLinks />
     </nav>

@@ -9,10 +9,12 @@ import { Turnstile } from "@marsidev/react-turnstile";
 import { useStore } from "@nanostores/react";
 import toast, { Toaster } from "react-hot-toast";
 import { Check } from "iconoir-react";
+import { useSpring, animated } from "react-spring";
 
 import { TextInput } from "./TextInput";
 import { TextArea } from "./TextArea";
 import { FormLabel } from "./FormLabel";
+import { useBoop } from "../../hooks/useBoop";
 
 import {
   updateContactFieldValues,
@@ -55,22 +57,38 @@ export const ContactForm = () => {
   const [token, setToken] = React.useState<string | null>(null);
   const [status, setStatus] = React.useState<WidgetStatus>(null);
   const [emailSuccess, setEmailSuccess] = React.useState(false);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
 
   const turnstileRef = React.useRef<any>(null);
   const submitFormRef = React.useRef<HTMLFormElement>(null);
 
+  const buttonRef = React.useRef<HTMLButtonElement>(null);
+
+  const submittedSpring = useSpring({
+    from: { transform: "scale(1)" },
+    to: [{ transform: "scale(1.1)" }, { transform: "scale(1)" }],
+    loop: true,
+  });
+
+  const submittingSpring = useSpring({
+    from: { x: 0 },
+    to: [{ x: 15 }, { x: 0 }],
+    loop: true,
+  });
+
   const challengeSolved = status === "solved";
 
-  const { register, formState, handleSubmit } = useForm<ContactSchema>({
+  const { register, formState, handleSubmit, reset } = useForm<ContactSchema>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
       email: $contactFormFields.email,
       message: $contactFormFields.message,
     },
     mode: "onSubmit",
+    reValidateMode: "onBlur",
   });
 
-  const { errors } = formState;
+  const { errors, isSubmitted } = formState;
 
   const emailError = errors?.email;
   const messageError = errors?.message;
@@ -107,17 +125,24 @@ export const ContactForm = () => {
         // },
       });
 
-      toast.promise(responsePromise, {
-        loading: "Sending your message...",
-        success: "Submission success!",
-        error:
-          "Sorry, there was a error processing this submission. Kieran has been notified, find me at one of my social links in the meantime.",
-      });
+      // toast.promise(responsePromise, {
+      //   loading: "Sending your message...",
+      //   success: "Submission success!",
+      //   error:
+      //     "Sorry, there was a error processing this submission. Kieran has been notified, find me at one of my social links in the meantime.",
+      // });
 
       const response = await responsePromise;
 
       if (response.ok) {
+        toast.success(
+          "Submission success! Kieran will try to respond within 24 hrs."
+        );
         setEmailSuccess(true);
+        reset({
+          email: "",
+          message: "",
+        });
       }
       updateContactFieldValues({
         name: "email",
@@ -154,6 +179,12 @@ export const ContactForm = () => {
     updateField();
   };
 
+  React.useEffect(() => {
+    if (errors.email?.message || errors.message?.message) {
+      toast.error("Form validation errors.");
+    }
+  }, [errors]);
+
   return (
     <>
       <Toaster position="top-center" gutter={8} />
@@ -180,7 +211,7 @@ export const ContactForm = () => {
             <FormLabel htmlFor="message">Message *</FormLabel>
             <TextArea
               id="message"
-              rows={6}
+              rows={4}
               placeholder="What can I help you with..."
               {...register("message")}
               error={!!messageError}
@@ -215,17 +246,28 @@ export const ContactForm = () => {
           />
           {!emailSuccess ? (
             <button
+              ref={buttonRef}
               type="submit"
-              className="flex items-center gap-2 mt-8 font-medium mx-auto px-5 py-2.5 rounded-full border-2 border-l-secondary dark:border-l-secondary focus:outline-none focus:ring-2 focus:ring-l-secondary dark:focus:ring-d-tertiary-2"
+              className="flex items-center justify-center mt-8 gap-2 w-full font-medium mx-auto px-4 py-3 border-2 bg-[#100114] text-white border-[#100114] dark:border-d-tertiary-2 rounded-full link-focus"
             >
-              <span className="text-l-secondary">Finish and send</span>
-              <span className="text-l-secondary">
-                <SendMail width={24} height={24} />
-              </span>
+              {isSubmitting ? (
+                <animated.span style={{ ...submittingSpring }}>
+                  <SendMail width={24} height={24} />
+                </animated.span>
+              ) : (
+                <>
+                  <span>Finish and send</span>
+                  <span>
+                    <SendMail width={24} height={24} />
+                  </span>
+                </>
+              )}
             </button>
           ) : (
-            <div className="flex items-center mt-8 mx-auto text-green-500 p-2.5 rounded-full border-2 border-green-500">
-              <Check width={20} height={20} strokeWidth={2.5} />
+            <div className="flex items-center mt-8 mx-auto bg-[#100114] border-[#100114] dark:border-d-tertiary-2 text-white dark:text-d-tertiary-2 p-2.5 rounded-full border-2">
+              <animated.span style={{ ...submittedSpring }}>
+                <Check width={20} height={20} strokeWidth={2.5} />
+              </animated.span>
             </div>
           )}
         </div>

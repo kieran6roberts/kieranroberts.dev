@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { ContactForm } from "../components/forms/ContactForm";
+import PageTitle from "../layouts/PageTitle.astro";
 ---
 
 <Layout
@@ -9,12 +10,8 @@ import { ContactForm } from "../components/forms/ContactForm";
   url="kieranroberts.dev/contact"
   showFooter={false}
 >
-  <main class="px-4 md:px-16 py-16 w-full flex flex-col">
-    <h1
-      class="font-header text-l-secondary dark:text-d-tertiary-2 text-4xl text-center font-semibold mb-8"
-    >
-      Get in touch with me
-    </h1>
+  <main class="px-8 md:px-16 py-16 w-full flex flex-col">
+    <PageTitle> Get in touch with me </PageTitle>
     <section class="flex flex-col gap-y-8 justify-center max-w-[650px] mx-auto">
       <p class="text-center">
         Want to ask me a question, collaborate with me, or get in touch for any

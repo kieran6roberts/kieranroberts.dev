@@ -14,7 +14,6 @@ import { useSpring, animated } from "react-spring";
 import { TextInput } from "./TextInput";
 import { TextArea } from "./TextArea";
 import { FormLabel } from "./FormLabel";
-import { useBoop } from "../../hooks/useBoop";
 
 import {
   updateContactFieldValues,
@@ -107,6 +106,7 @@ export const ContactForm = () => {
       );
       return;
     }
+    setIsSubmitting(true);
 
     const { email, message } = data;
 
@@ -154,6 +154,8 @@ export const ContactForm = () => {
       });
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 

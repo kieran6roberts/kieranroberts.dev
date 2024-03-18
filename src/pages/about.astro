@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { Code } from "astro-expressive-code/components";
 import { SocialLinkFloatingBar } from "../components/navigation/SocialLinkFloatingBar";
+import PageTitle from "../layouts/PageTitle.astro";
 
 export const exampleCode = `
 const isVisitorStillReading = true;
@@ -20,12 +21,8 @@ if (isVisitorStillReading) {
   url="kieranroberts.dev/about"
   showFooter={false}
 >
-  <main class="px-4 md:px-16 py-16 w-full flex flex-col">
-    <h1
-      class="font-header text-l-secondary dark:text-d-tertiary-2 text-4xl text-center font-semibold mb-8"
-    >
-      Hi! My name is Kieran
-    </h1>
+  <main class="px-8 md:px-16 py-16 w-full flex flex-col">
+    <PageTitle>Hi! My name is Kieran</PageTitle>
     <section class="flex flex-col gap-y-8 justify-center max-w-[650px] mx-auto">
       <p>
         I love building fast, accessible and slick websites for the modern web.

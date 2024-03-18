@@ -9,7 +9,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'header': 'Permanent Marker'
+        'header': 'Junegull-Regular',
       },
       colors: {
         // Light mode

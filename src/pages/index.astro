@@ -1,30 +1,266 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { SocialLinkFloatingBar } from "../components/navigation/SocialLinkFloatingBar";
+import { Code } from "astro-expressive-code/components";
+// import { SocialLinkFloatingBar } from "../components/navigation/SocialLinkFloatingBar";
+
+export const code = `
+  const NAME = 'Kieran Roberts';
+  const OCCUPATION = 'Full stack JavaScript developer';
+`;
 ---
 
-<Layout showFooter={false}>
-  <main class="">
-    <div class="flex flex-col items-center gap-y-12 py-20 px-4">
-      <h1
-        class="font-header text-4xl capitalize lg:text-5xl font-normal text-center mx-auto max-w-[550px] lg:max-w-[70%]"
-      >
-        <span class="text-[1.3em]">full stack javaScript,</span><br />
-        <span class="text-[1.1em] text-l-secondary dark:text-d-secondary"
-          >UI/UX specialist,</span
-        ><br />
-        <span class="text-[0.9em] text-[#3cc708] dark:text-l-tertiary-2"
-          >all-round builder</span
-        >
-      </h1>
+<script type="module">
+  const timelineCards = document.querySelectorAll(".timeline-card");
 
-      <p class="tracking-wide text-xl max-w-[75%] mx-auto lg:mx-0 text-center">
-        I build fast, accessible, and well tested sites for the modern web.
-      </p>
-    </div>
-    <div class="w-max rounded-full mx-auto">
-      <img src="/src/images/Kieran-Avatar-funky.png" width="250" height="250" />
-    </div>
-    <SocialLinkFloatingBar client:load />
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    },
+    {
+      threshold: 1,
+    }
+  );
+
+  timelineCards.forEach((card) => {
+    observer.observe(card);
+  });
+</script>
+
+<Layout showFooter={false}>
+  <main>
+    <section
+      style={{
+        background:
+          "linear-gradient(180deg, rgba(16,1,20,1) 53%, rgba(50,14,59,1) 80%, rgba(76,42,133,1) 100%)",
+        scrollSnapAlign: "none",
+      }}
+      class="flex flex-col h-[85vh] lg:flex-row items-center gap-y-12 py-20 px-4 md:px-24 bg-black"
+    >
+      <div class="flex flex-col max-w-[65%]">
+        <h1
+          class="font-header text-4xl mb-6 capitalize lg:text-5xl font-normal text-center lg:text-left"
+        >
+          <span class="text-[1.3em] text-white">full stack javaScript,</span><br
+          />
+          <span class="text-[1.1em] text-l-secondary dark:text-d-secondary"
+            >UI/UX specialist,</span
+          ><br />
+          <span class="text-[0.9em] text-l-tertiary-2">all-round builder</span>
+        </h1>
+
+        <p
+          class="hidden lg:block text-white prose font-medium mb-6 text-xl max-w-[75%] mx-auto lg:mx-0 text-left"
+        >
+          I build fast, accessible, and well tested sites for the modern web.
+          With industry experience working across complex projects supporting
+          thousands of active users, I love what I do.
+        </p>
+        <div class="flex flex-row items-center gap-2"></div>
+        <a
+          href="/contact"
+          class="flex items-center gap-x-2 w-max mx-auto lg:mx-0 justify-center font-medium px-4 py-3 border-2 bg-white hover:bg-slate-100 hover:text-l-primary-dark text-d-primary-dark rounded-full outline-none focus:ring ring-offset-gray-900 ring-offset-4 ring-d-tertiary-2"
+        >
+          Get in touch
+        </a>
+      </div>
+      <div class="w-max rounded-full mx-auto">
+        <img
+          src="/src/images/Kieran-Avatar-funky.png"
+          width="200"
+          height="200"
+          class="rounded-full border border-l-tertiary-2"
+        />
+      </div>
+      <!-- <div class="w-max rounded-full mx-auto">
+        <img src="/src/images/Hero-splash.png" width="650" />
+      </div> -->
+    </section>
+    <section
+      style={{
+        scrollSnapAlign: "start",
+      }}
+      class="bg-[#100114]"
+    >
+      <h2
+        class="font-header pt-32 text-center text-white text-5xl font-semibold"
+      >
+        My timeline
+      </h2>
+      <div class="grid grid-cols-[1fr_3px_1fr] py-20 px-4 md:px-24">
+        <!-- <div class="mx-5 mb-5 text-right"> -->
+        <div
+          class="mx-5 mb-5 text-right text-d-tertiary-2 text-lg font-medium peer:hover:text-white"
+        >
+          May 10th, 2021 - Present
+        </div>
+        <!-- </div> -->
+        <div class="relative bg-white w-px h-full">
+          <span
+            class="w-4 h-4 rounded-full bg-white absolute top-0 left-1/2 transform -translate-x-[50%]"
+          ></span>
+        </div>
+        <a
+          href="https://hashnode.com"
+          target="_blank"
+          rel="noopener"
+          class="timeline-card block mx-5 mb-5 text-left hover:bg-d-primary-darkest/20 px-4 lg:px-8 py-4 rounded-xl prose text-white"
+        >
+          <h2 class="mb-4 text-white">Full Stack developer at Hashnode</h2>
+          <p class="text-white/75">
+            Developing, maintaining, and testing of large codebases. Working
+            closely with the design team to ship interactive features with slick
+            UI/UX for the frontend. Crafting and developing issues and roadmaps,
+            and experience working on AWS infrastrucutre and bulding out public
+            GraphQL API's.
+          </p>
+        </a>
+        <a
+          href="/blog"
+          class="timeline-card block mx-5 mb-5 text-left hover:bg-d-primary-darkest/20 py-4 px-4 lg:px-8 rounded-xl prose text-white"
+        >
+          <h2 class="mb-4 text-white">Writing a successful blog</h2>
+          <p class="text-white/75">
+            With some skills under my belt I started blogging to share the
+            knowledge I had gained. I soon created a blog on Hashnode focusing
+            on a mix of technical and non-technical topics and finished as a top
+            50 writer on the platform several months running. Today my blog has
+            received more than 110,000 visitors!
+          </p>
+        </a>
+        <div class="relative bg-white w-px h-full">
+          <span
+            class="w-4 h-4 rounded-full bg-white absolute top-0 left-1/2 transform -translate-x-[50%]"
+          ></span>
+          <!-- <span
+            class="w-4 h-4 rounded-full bg-white absolute bottom-0 left-1/2 transform -translate-x-[50%]"
+          ></span> -->
+        </div>
+        <div class="mx-5 mb-5 text-left">
+          <div class="text-d-tertiary-2 text-lg font-medium">
+            Jan 2022 - Present
+          </div>
+        </div>
+        <div
+          class="mx-5 mb-5 text-right text-d-tertiary-2 text-lg font-medium peer:hover:text-white"
+        >
+          Mar 2020 - May 2021
+        </div>
+        <!-- </div> -->
+        <div class="relative bg-white w-px h-full">
+          <span
+            class="w-4 h-4 rounded-full bg-white absolute top-0 left-1/2 transform -translate-x-[50%]"
+          ></span>
+        </div>
+        <div
+          class="timeline-card block mx-5 mb-5 text-left hover:bg-d-primary-darkest/20 px-4 lg:px-8 py-4 rounded-xl prose text-white"
+        >
+          <h2 class="mb-4 text-white">Moving into web development</h2>
+          <p class="text-white/75">
+            I spent almost 18 months during this time changing fields into web
+            development with self study. Fortunately I was in a position to put
+            in all my time and picked up several fontend and backend
+            technologies focusing on JavaScript.
+          </p>
+        </div>
+
+        <div
+          class="timeline-card mx-5 mb-5 text-right hover:bg-d-primary-darkest/20 py-4 px-4 lg:px-8 rounded-xl prose text-white"
+        >
+          <h2 class="mb-4 text-white">Travel</h2>
+          <p class="text-white/75">
+            I spent around 18 months living and working around New Zealand and
+            planned to travel further after those 2 years were up. Unfortunately
+            some big event happened in early 2020 and my onward travel plans had
+            to be scrapped.
+          </p>
+        </div>
+        <div class="relative bg-white w-px h-full">
+          <span
+            class="w-4 h-4 rounded-full bg-white absolute top-0 left-1/2 transform -translate-x-[50%]"
+          ></span>
+          <!-- <span
+            class="w-4 h-4 rounded-full bg-white absolute bottom-0 left-1/2 transform -translate-x-[50%]"
+          ></span> -->
+        </div>
+        <div class="mx-5 mb-5 text-left">
+          <div class="text-d-tertiary-2 text-lg font-medium">
+            Jan 2022 - Present
+          </div>
+        </div>
+        <div class="mx-5 mb-5 text-right">
+          <div class="text-d-tertiary-2 text-lg font-medium">
+            May 2018 - Apr 2019
+          </div>
+        </div>
+        <div class="relative bg-white w-px h-full">
+          <span
+            class="w-4 h-4 rounded-full bg-white absolute top-0 left-1/2 transform -translate-x-[50%]"
+          ></span>
+          <!-- <span
+            class="w-4 h-4 rounded-full bg-white absolute bottom-0 left-1/2 transform -translate-x-[50%]"
+          ></span> -->
+        </div>
+        <div
+          class="timeline-card mx-5 mb-5 text-left hover:bg-d-primary-darkest/20 py-4 px-4 lg:px-8 rounded-xl prose text-white"
+        >
+          <h2 class="mb-4 text-white">Post university</h2>
+          <p class="text-white/75">
+            During the end of my time at university I realised my passion for
+            Electronic Engineering wasn't there. I'm not the kind of person to
+            persue something I don't enjoy. Therefore I spent almost 2 years
+            working at a local supermarket to save up funds that would allow me
+            to spend a prolonged period of time travelling the world.
+          </p>
+        </div>
+        <!-- </div> -->
+        <div
+          class="timeline-card mx-5 mb-5 text-left hover:bg-d-primary-darkest/20 px-4 lg:px-8 py-4 rounded-xl prose text-white"
+        >
+          <h2 class="mb-4 text-white">
+            MEng Electronic Engineering, Bangor University (1st Class Honours)
+          </h2>
+          <p class="text-white/75">
+            I spent 4 years earning a masters degree in Electronic Enginering at
+            Bangor University, Wales. It was essential in teaching me all about
+            effective teamwork, communication, delegation and soft skills I
+            apply to this day.
+          </p>
+        </div>
+        <div class="relative bg-white w-px h-full">
+          <span
+            class="w-4 h-4 rounded-full bg-white absolute top-0 left-1/2 transform -translate-x-[50%]"
+          ></span>
+          <span
+            class="w-4 h-4 rounded-full bg-white absolute bottom-0 left-1/2 transform -translate-x-[50%]"
+          ></span>
+        </div>
+        <div
+          class="mx-5 mb-5 text-left text-d-tertiary-2 text-lg font-medium peer:hover:text-white"
+        >
+          Sep 2013 - May 2017
+        </div>
+      </div>
+    </section>
+    <!-- <section class="">
+      <div
+        class="flex flex-col lg:flex-row gap-2 bg-[#100114] py-20 px-4 md:px-24"
+      >
+        <div></div>
+        <div>
+          <!-- <div
+        class="max-w-[400px] sm:max-w-[600px] md:max-w-[800px] mx-auto overflow-hidden"
+      > -->
+    <!-- <Code
+            code={code}
+            lang="tsx"
+            wrap
+            frame="code"
+            title="Thanks for visiting!"
+          /> -->
+    <!-- </div> -->
   </main>
 </Layout>

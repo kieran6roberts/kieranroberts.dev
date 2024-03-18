@@ -26,7 +26,7 @@ export const Header = ({ pathname }: Props) => {
     >
       <nav
         role="navigation"
-        className="flex items-center justify-between px-4 md:px-8 py-4 bg-[#100114] border-b dark:border-gray-800"
+        className="flex items-center justify-between px-4 md:px-24 py-4 bg-[#100114] border-b dark:border-gray-800"
       >
         <section className="flex items-center gap-x-2">
           <a
@@ -64,6 +64,7 @@ export const Header = ({ pathname }: Props) => {
             <SidebarTrigger pathname={pathname} />
           </div>
         </section>
+        <div className="absolute bottom-0 left-0 bg-gradient-to-r from-l-primary-dark from-30% via-l-secondary via-75% to-l-tertiary-2 via h-[2px] w-full bg-white" />
       </nav>
     </header>
   );

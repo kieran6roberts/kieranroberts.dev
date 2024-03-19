@@ -2,38 +2,32 @@ import * as React from "react";
 import { OpenBook, X, Github, Linkedin } from "iconoir-react";
 import { Boop } from "../animation/Boop";
 
-export const SocialLinks = () => {
+export const SocialLinks = ({ asDark }: { asDark?: boolean }) => {
+  const linkStyle = `flex items-center justify-center ${
+    asDark ? "text-white" : ""
+  } w-max p-2 rounded-full link-focus icon-button-hover`;
   return (
     <>
       <Boop boopConfig={{ rotation: 5 }}>
-        <a
-          href="https://github.com/kieran6roberts"
-          className="flex items-center justify-center w-max p-2 rounded-full link-focus icon-button-hover"
-        >
+        <a href="https://github.com/kieran6roberts" className={linkStyle}>
           <Github width={22} height={22} strokeWidth={1.5} />
         </a>
       </Boop>
       <Boop boopConfig={{ rotation: -5 }}>
-        <a
-          href="https://twitter.com/Kieran6dev"
-          className="flex items-center justify-center p-2 rounded-full link-focus icon-button-hover"
-        >
+        <a href="https://twitter.com/Kieran6dev" className={linkStyle}>
           <X width={22} height={22} strokeWidth={1.5} />
         </a>
       </Boop>
       <Boop boopConfig={{ rotation: 5 }}>
         <a
           href="https://www.linkedin.com/in/kieran-roberts-00517b178/"
-          className="flex items-center justify-center p-2 rounded-full link-focus icon-button-hover"
+          className={linkStyle}
         >
           <Linkedin width={22} height={22} strokeWidth={1.5} />
         </a>
       </Boop>
       <Boop boopConfig={{ rotation: -5 }}>
-        <a
-          href="https://blog.kieranroberts.dev"
-          className="flex items-center justify-center p-2 rounded-full link-focus icon-button-hover"
-        >
+        <a href="https://blog.kieranroberts.dev" className={linkStyle}>
           <OpenBook width={22} height={22} strokeWidth={1.5} />
         </a>
       </Boop>

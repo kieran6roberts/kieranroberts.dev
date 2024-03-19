@@ -2,7 +2,7 @@
 import type { ComponentProps } from "astro/types";
 import SEO from "../components/SEO.astro";
 import { Header } from "../layouts/Header";
-// import Footer from "../layouts/Footer.astro";
+import Footer from "../layouts/Footer.astro";
 
 type Props = ComponentProps<typeof SEO> & {
   showFooter?: boolean;
@@ -21,22 +21,17 @@ const {
 } = Astro.props;
 
 const pathname = new URL(Astro.request.url).pathname;
+
+// style={{
+//     scrollSnapType: "y proximity",
+//   }}
 ---
 
-<html
-  style={{
-    scrollSnapType: "y proximity",
-  }}
-  lang="en"
->
+<html lang="en">
   <SEO title={title} description={description} url={url} />
-  <body
-    style={{
-      scrollSnapType: "y proximity",
-    }}
-    class="mx-auto max-w-[1600px] dark:bg-[#100114] dark:text-white"
-  >
+  <body class="mx-auto max-w-[1600px] dark:bg-[#100114] dark:text-white">
     <Header client:load pathname={pathname} />
     <slot />
+    {showFooter ? <Footer /> : null}
   </body>
 </html>

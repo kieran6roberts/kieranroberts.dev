@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Code } from "astro-expressive-code/components";
-// import { SocialLinkFloatingBar } from "../components/navigation/SocialLinkFloatingBar";
+// import { Code } from "astro-expressive-code/components";
+import { SocialLinks } from "@components/navigation/SocialLinkFloatingBar";
+import { MainNavLinks } from "@components/navigation/MainNavLinks";
 
 export const code = `
   const NAME = 'Kieran Roberts';
@@ -30,7 +31,7 @@ export const code = `
   });
 </script>
 
-<Layout showFooter={false}>
+<Layout url="kieranroberts.dev" showFooter={false}>
   <main>
     <section
       style={{
@@ -91,13 +92,11 @@ export const code = `
         My timeline
       </h2>
       <div class="grid grid-cols-[1fr_3px_1fr] py-20 px-4 md:px-24">
-        <!-- <div class="mx-5 mb-5 text-right"> -->
         <div
-          class="mx-5 mb-5 text-right text-d-tertiary-2 text-lg font-medium peer:hover:text-white"
+          class="timeline-date mx-5 mb-5 text-right text-d-tertiary-2 text-lg font-medium peer:hover:text-white"
         >
           May 10th, 2021 - Present
         </div>
-        <!-- </div> -->
         <div class="relative bg-white w-px h-full">
           <span
             class="w-4 h-4 rounded-full bg-white absolute top-0 left-1/2 transform -translate-x-[50%]"
@@ -107,7 +106,7 @@ export const code = `
           href="https://hashnode.com"
           target="_blank"
           rel="noopener"
-          class="timeline-card block mx-5 mb-5 text-left hover:bg-d-primary-darkest/20 px-4 lg:px-8 py-4 rounded-xl prose text-white"
+          class="timeline-card block mx-5 mb-5 text-left hover:bg-d-primary-darkest/20 p-4 lg:p-8 rounded-xl prose text-white"
         >
           <h2 class="mb-4 text-white">Full Stack developer at Hashnode</h2>
           <p class="text-white/75">
@@ -120,7 +119,7 @@ export const code = `
         </a>
         <a
           href="/blog"
-          class="timeline-card block mx-5 mb-5 text-left hover:bg-d-primary-darkest/20 py-4 px-4 lg:px-8 rounded-xl prose text-white"
+          class="timeline-card peer/1 block mx-5 mb-5 text-left hover:bg-d-primary-darkest/20 p-4 lg:p-8 rounded-xl prose text-white"
         >
           <h2 class="mb-4 text-white">Writing a successful blog</h2>
           <p class="text-white/75">
@@ -135,28 +134,24 @@ export const code = `
           <span
             class="w-4 h-4 rounded-full bg-white absolute top-0 left-1/2 transform -translate-x-[50%]"
           ></span>
-          <!-- <span
-            class="w-4 h-4 rounded-full bg-white absolute bottom-0 left-1/2 transform -translate-x-[50%]"
-          ></span> -->
-        </div>
-        <div class="mx-5 mb-5 text-left">
-          <div class="text-d-tertiary-2 text-lg font-medium">
-            Jan 2022 - Present
-          </div>
         </div>
         <div
-          class="mx-5 mb-5 text-right text-d-tertiary-2 text-lg font-medium peer:hover:text-white"
+          class="text-d-tertiary-2 text-lg font-medium mx-5 mb-5 text-left peer-hover/1:text-l-tertiary-2"
+        >
+          Jan 2022 - Present
+        </div>
+        <div
+          class="timeline-date mx-5 mb-5 text-right text-d-tertiary-2 text-lg font-medium peer:hover:text-white"
         >
           Mar 2020 - May 2021
         </div>
-        <!-- </div> -->
         <div class="relative bg-white w-px h-full">
           <span
             class="w-4 h-4 rounded-full bg-white absolute top-0 left-1/2 transform -translate-x-[50%]"
           ></span>
         </div>
         <div
-          class="timeline-card block mx-5 mb-5 text-left hover:bg-d-primary-darkest/20 px-4 lg:px-8 py-4 rounded-xl prose text-white"
+          class="timeline-card block mx-5 mb-5 text-left hover:bg-d-primary-darkest/20 p-4 lg:p-8 rounded-xl prose text-white"
         >
           <h2 class="mb-4 text-white">Moving into web development</h2>
           <p class="text-white/75">
@@ -168,7 +163,7 @@ export const code = `
         </div>
 
         <div
-          class="timeline-card mx-5 mb-5 text-right hover:bg-d-primary-darkest/20 py-4 px-4 lg:px-8 rounded-xl prose text-white"
+          class="timeline-card peer/2 mx-5 mb-5 text-right hover:bg-d-primary-darkest/20 p-4 lg:p-8 rounded-xl prose text-white"
         >
           <h2 class="mb-4 text-white">Travel</h2>
           <p class="text-white/75">
@@ -182,30 +177,26 @@ export const code = `
           <span
             class="w-4 h-4 rounded-full bg-white absolute top-0 left-1/2 transform -translate-x-[50%]"
           ></span>
-          <!-- <span
-            class="w-4 h-4 rounded-full bg-white absolute bottom-0 left-1/2 transform -translate-x-[50%]"
-          ></span> -->
         </div>
-        <div class="mx-5 mb-5 text-left">
-          <div class="text-d-tertiary-2 text-lg font-medium">
-            Jan 2022 - Present
-          </div>
+        <div
+          class="text-d-tertiary-2 text-lg font-medium mx-5 mb-5 text-left peer-hover/2:text-l-tertiary-2"
+        >
+          Jan 2022 - Present
         </div>
-        <div class="mx-5 mb-5 text-right">
-          <div class="text-d-tertiary-2 text-lg font-medium">
-            May 2018 - Apr 2019
-          </div>
+
+        <div
+          class="timeline-date mx-5 mb-5 text-right text-d-tertiary-2 text-lg font-medium"
+        >
+          May 2018 - Apr 2019
         </div>
+
         <div class="relative bg-white w-px h-full">
           <span
             class="w-4 h-4 rounded-full bg-white absolute top-0 left-1/2 transform -translate-x-[50%]"
           ></span>
-          <!-- <span
-            class="w-4 h-4 rounded-full bg-white absolute bottom-0 left-1/2 transform -translate-x-[50%]"
-          ></span> -->
         </div>
         <div
-          class="timeline-card mx-5 mb-5 text-left hover:bg-d-primary-darkest/20 py-4 px-4 lg:px-8 rounded-xl prose text-white"
+          class="timeline-card mx-5 mb-5 text-left hover:bg-d-primary-darkest/20 p-4 lg:p-8 rounded-xl prose text-white"
         >
           <h2 class="mb-4 text-white">Post university</h2>
           <p class="text-white/75">
@@ -216,9 +207,8 @@ export const code = `
             to spend a prolonged period of time travelling the world.
           </p>
         </div>
-        <!-- </div> -->
         <div
-          class="timeline-card mx-5 mb-5 text-left hover:bg-d-primary-darkest/20 px-4 lg:px-8 py-4 rounded-xl prose text-white"
+          class="timeline-card peer/3 mx-5 mb-5 text-left hover:bg-d-primary-darkest/20 p-4 lg:p-8 rounded-xl prose text-white"
         >
           <h2 class="mb-4 text-white">
             MEng Electronic Engineering, Bangor University (1st Class Honours)
@@ -239,7 +229,7 @@ export const code = `
           ></span>
         </div>
         <div
-          class="mx-5 mb-5 text-left text-d-tertiary-2 text-lg font-medium peer:hover:text-white"
+          class="timeline-date mx-5 mb-5 text-left text-d-tertiary-2 text-lg font-medium peer-hover/3:text-l-tertiary-2"
         >
           Sep 2013 - May 2017
         </div>
@@ -263,4 +253,22 @@ export const code = `
           /> -->
     <!-- </div> -->
   </main>
+  <footer
+    class="relative flex flex-row justify-between items-center gap-y-4 px-56 py-8 h-56 bg-[#100114] border-t border-slate-900"
+  >
+    <div class="flex flex-col gap-4">
+      <a href="/" class="text-3xl font-medium text-white">kieranroberts.dev</a>
+      <div class="flex flex-row items-center">
+        <SocialLinks asDark />
+      </div>
+      <div class="text-white text-sm">
+        Design & functionality by me. &#169;2024 Kieran Roberts
+      </div>
+    </div>
+    <div class="flex flex-col gap-4 self-end pb-4">
+      <div class="flex items-center font-light gap-4">
+        <MainNavLinks client:visible />
+      </div>
+    </div>
+  </footer>
 </Layout>

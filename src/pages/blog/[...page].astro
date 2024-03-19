@@ -21,10 +21,9 @@ const contentMarkdown = post.content.markdown;
 ---
 
 <Layout
-  title="Blog | Kieran Roberts"
-  description="I like about React, Next.js, TypeScript, and web development in general. Find something you like here."
-  url="kieranroberts.dev/contact"
-  showFooter={false}
+  title={`${post.title} | Kieran Roberts`}
+  description={post.brief}
+  url={`kieranroberts.dev/${post.slug}`}
 >
   <main class="px-4 md:px-16 py-16 w-full flex flex-col">
     <h1

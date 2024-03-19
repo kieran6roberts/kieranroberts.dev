@@ -21,6 +21,10 @@
   @apply opacity-0 transition-opacity duration-300;
  }
 
+ .timeline-date:has(+ * + .timeline-card:hover) {
+  @apply text-l-tertiary-2;
+ }
+
  .show {
   @apply opacity-100;
  }

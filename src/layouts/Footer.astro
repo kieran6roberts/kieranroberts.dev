@@ -1,28 +1,34 @@
 ---
-import { Icon } from "astro-icon/components";
-import FooterLink from "../components/navigation/FooterLink.astro";
+import { SocialLinks } from "@components/navigation/SocialLinkFloatingBar";
+import { MainNavLinks } from "@components/navigation/MainNavLinks";
+
+const { asDark } = Astro.props;
 ---
 
 <footer
-  class="flex flex-col gap-y-4 md:flex-row items-center font-medium justify-evenly"
+  class={`relative flex flex-row justify-between items-center gap-y-4 px-56 py-8 h-56 ${asDark ? "bg-[#100114]" : ""} border-t border-slate-900`}
 >
-  <FooterLink
-    isExternal
-    href="https://www.linkedin.com/in/kieran-roberts-00517b178/"
-  >
-    <Icon name="iconoir:linkedin" />
-    LinkedIn
-  </FooterLink>
-  <FooterLink isExternal href="https://github.com/kieran6roberts">
-    <Icon name="iconoir:github" />
-    Github
-  </FooterLink>
-  <FooterLink isExternal href="https://twitter.com/Kieran6dev">
-    <Icon name="iconoir:x" />
-    X / Twitter
-  </FooterLink>
-  <FooterLink isExternal href="https://blog.kieranroberts.dev">
-    <Icon name="iconoir:open-book" />
-    Blog
-  </FooterLink>
+  <div class="flex flex-col gap-4">
+    <a
+      href="/"
+      class={`text-3xl font-medium ${asDark ? "text-white" : "text-black dark:text-white"}`}
+    >
+      kieranroberts.dev
+    </a>
+    <div class="flex flex-row items-center">
+      <SocialLinks />
+    </div>
+    <div
+      class={`${asDark ? "text-white" : "text-black dark:text-white"} text-sm`}
+    >
+      Design & functionality by me. &#169;2024 Kieran Roberts
+    </div>
+  </div>
+  <div class="flex flex-col gap-4 self-end pb-4">
+    <div
+      class="flex items-center font-light gap-4 bg-[#100114] py-2 px-6 rounded-xl"
+    >
+      <MainNavLinks client:visible />
+    </div>
+  </div>
 </footer>

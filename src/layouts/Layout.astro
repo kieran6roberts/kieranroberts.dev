@@ -27,9 +27,44 @@ const pathname = new URL(Astro.request.url).pathname;
 //   }}
 ---
 
-<html lang="en">
+<!-- <script type="module">
+  const floatingBar = document.querySelector(".floating-social-bar");
+
+  console.log(floatingBar);
+
+  const footer = document.querySelector(".main-footer");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        console.log(entry);
+        if (entry.isIntersecting) {
+          console.log("Is intersectinh", entry.isIntersecting);
+          floatingBar.classList.toggle("hide");
+        }
+      });
+    },
+    {
+      threshold: 0,
+      rootMargin: "100px",
+    }
+  );
+
+  observer.observe(footer);
+</script> -->
+<html
+  style={{
+    scrollBehavior: "smooth",
+  }}
+  lang="en"
+>
   <SEO title={title} description={description} url={url} />
-  <body class="mx-auto max-w-[1600px] dark:bg-[#100114] dark:text-white">
+  <body
+    style={{
+      scrollBehavior: "smooth",
+    }}
+    class="mx-auto max-w-[1600px] bg-[#faf8f7] dark:bg-[#100114] dark:text-white"
+  >
     <Header client:load pathname={pathname} />
     <slot />
     {showFooter ? <Footer /> : null}

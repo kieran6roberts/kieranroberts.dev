@@ -6,7 +6,7 @@ import ThemeToggle from "../components/ThemeToggle.tsx";
 import { Trigger as SidebarTrigger } from "../components/navigation/MobileSidebar/Trigger";
 import useStickyScroll from "../hooks/useStickyHeader";
 import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion";
-import { formatPathname } from "../utils/urls";
+// import { formatPathname } from "../utils/urls";
 
 interface Props {
   pathname: string;
@@ -64,7 +64,7 @@ export const Header = ({ pathname }: Props) => {
             <SidebarTrigger pathname={pathname} />
           </div>
         </section>
-        <div className="absolute bottom-0 left-0 bg-gradient-to-r from-l-primary-dark from-30% via-l-secondary via-75% to-l-tertiary-2 via h-[2px] w-full bg-white" />
+        <div className="absolute bottom-0 left-0 bg-gradient-to-r from-l-primary-dark from-30% via-l-secondary via-75% to-l-tertiary-2 h-[2px] w-full bg-white" />
       </nav>
     </header>
   );

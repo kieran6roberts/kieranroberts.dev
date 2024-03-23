@@ -56,7 +56,7 @@ export const LoadMorePosts = ({ cursor, hasNextPage }: ILoadMorePosts) => {
       {posts.map((post) => (
         <article>
           <a className="flex flex-col gap-y-2" href={`/blog/${post.slug}`}>
-            <h2 className="max-w-[450px] mx-auto text-center prose-xl dark:prose-invert">
+            <h2 className="max-w-[450px] mx-auto text-center font-medium text-xl text-l-primary-dark dark:text-d-tertiary-2">
               {post.title}
             </h2>
             <p className="prose dark:prose-invert">{post.brief}</p>

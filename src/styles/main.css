@@ -18,14 +18,22 @@
  }
 
  .timeline-card {
-  @apply opacity-0 transition-opacity duration-300;
+  @apply opacity-0 transition-opacity duration-700;
  }
 
  .timeline-date:has(+ * + .timeline-card:hover) {
   @apply text-l-tertiary-2;
  }
 
+ .floating-social-bar {
+  @apply opacity-100 transition-opacity duration-300;
+ }
+
  .show {
   @apply opacity-100;
+ }
+
+ .hide {
+  @apply opacity-0;
  }
 }

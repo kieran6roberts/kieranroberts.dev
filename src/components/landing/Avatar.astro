@@ -1,0 +1,19 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  width: number;
+  height: number;
+}
+
+const { width, height, ...restOfProps } = Astro.props;
+---
+
+<Image
+  src="/src/images/Kieran-Avatar-funky.png"
+  alt="Stylized headshot of Kieran"
+  width={width}
+  height={height}
+  class="z-10 rounded-full border border-l-tertiary-2"
+  {...restOfProps}
+/>

@@ -2,8 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import { LoadMorePosts } from "../components/blog/LoadMorePosts";
 import { fetchPaginatedBlogPosts, getPostsPaginatedData } from "../utils/blog";
-import { SocialLinkFloatingBar } from "../components/navigation/SocialLinkFloatingBar";
+// import { SocialLinkFloatingBar } from "../components/navigation/SocialLinkFloatingBar";
 import PageTitle from "../layouts/PageTitle.astro";
+import ScrollUp from "../components/navigation/ScrollUp.astro";
 
 const blogPosts = await fetchPaginatedBlogPosts({ first: null, after: null });
 const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(blogPosts);
@@ -22,7 +23,7 @@ const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(blogPosts);
           postsArray.map((post) => (
             <article>
               <a class="flex flex-col gap-y-2" href={`/blog/${post.slug}`}>
-                <h2 class="max-w-[450px] mx-auto text-center prose-xl dark:prose-invert">
+                <h2 class="max-w-[450px] mx-auto font-medium text-center text-xl text-l-primary-dark dark:text-d-tertiary-2">
                   {post.title}
                 </h2>
                 <p class="prose dark:prose-invert text-justify">{post.brief}</p>
@@ -42,5 +43,6 @@ const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(blogPosts);
       </div>
     </section>
   </main>
-  <SocialLinkFloatingBar client:load />
+  <ScrollUp />
+  <!-- <SocialLinkFloatingBar client:load /> -->
 </Layout>

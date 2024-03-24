@@ -4,9 +4,9 @@ import {
   fetchPaginatedBlogPosts,
   INITIAL_POST_COUNT,
   getPostsPaginatedData,
-} from "../../utils/blog";
-import { TimelineCard } from "../../components/about/TimelineCard";
-import { Button } from "../Button";
+} from "@utils/blog";
+import { TimelineCard } from "@components/about/TimelineCard";
+import { Button } from "@components/Button";
 
 interface ILoadMorePosts {
   cursor: string;
@@ -55,6 +55,7 @@ export const LoadMorePosts = ({ cursor, hasNextPage }: ILoadMorePosts) => {
           variant="transparent"
           width="full"
           disabled
+          type="button"
         />
       ) : null}
       {hasNext && !loading ? (
@@ -64,6 +65,7 @@ export const LoadMorePosts = ({ cursor, hasNextPage }: ILoadMorePosts) => {
           iconAnimationSettings={{ y: 4 }}
           variant="transparent"
           width="full"
+          type="button"
         >
           Show more posts
         </Button>

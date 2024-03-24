@@ -1,12 +1,10 @@
 import { Code } from "iconoir-react";
 import * as React from "react";
-// import Avatar from "../components/Avatar.astro";
-import { MainNavLinks } from "../components/navigation/MainNavLinks";
-import ThemeToggle from "../components/ThemeToggle.tsx";
-import { Trigger as SidebarTrigger } from "../components/navigation/MobileSidebar/Trigger";
-import useStickyScroll from "../hooks/useStickyHeader";
-import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion";
-// import { formatPathname } from "../utils/urls";
+import { MainNavLinks } from "@components/navigation/MainNavLinks";
+import ThemeToggle from "@components/ThemeToggle.tsx";
+import { Trigger as SidebarTrigger } from "@components/navigation/MobileSidebar/Trigger";
+import useStickyScroll from "@hooks/useStickyHeader";
+import { usePrefersReducedMotion } from "@hooks/usePrefersReducedMotion";
 
 interface Props {
   pathname: string;

@@ -1,10 +1,9 @@
 import * as React from "react";
-import { Check } from "iconoir-react";
 
 import { HoverUnderline } from "./HoverUnderline";
 import type { PrefetchStrategy } from "../../types/links";
 import { PrefetchStrategyEnum } from "../../types/links";
-import { formatPathname } from "../../utils/urls";
+import { formatPathname } from "@utils/urls";
 
 export type NavLinkProps =
   | {

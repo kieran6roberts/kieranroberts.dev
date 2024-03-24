@@ -2,8 +2,6 @@ import * as React from "react";
 
 const QUERY_NAME = "(prefers-reduced-motion: no-preference)";
 
-// const getInitialState = () => !window.matchMedia(QUERY_NAME).matches;
-
 const usePrefersReducedMotion = () => {
   /**
    * Default to no animations on mount to be SRR safe. This is fine since I don't

@@ -4,7 +4,7 @@
   ],
   "compilerOptions": {
     "jsx": "react",
-    "baseUrl": "/Users/Kieran/Documents/Dev/kieranroberts.dev",
+    "baseUrl": ".",
     "paths": {
       "@components/*": [
         "src/components/*"

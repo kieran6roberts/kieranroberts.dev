@@ -1,8 +1,8 @@
 import * as React from "react";
 import { animated } from "react-spring";
 
-import { useBoop } from "../../hooks/useBoop";
-import type { BoopConfig } from "../../hooks/useBoop";
+import { useBoop } from "@hooks/useBoop";
+import type { BoopConfig } from "@hooks/useBoop";
 
 interface Props {
   boopConfig: BoopConfig;

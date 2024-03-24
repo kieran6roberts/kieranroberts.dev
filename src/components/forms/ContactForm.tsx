@@ -10,7 +10,7 @@ import { useStore } from "@nanostores/react";
 import toast, { Toaster } from "react-hot-toast";
 import { Check } from "iconoir-react";
 import { useSpring, animated } from "react-spring";
-import { Button } from "../Button";
+import { Button } from "@components/Button";
 
 import { TextInput } from "./TextInput";
 import { TextArea } from "./TextArea";

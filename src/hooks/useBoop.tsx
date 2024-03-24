@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useSpring } from "react-spring";
-import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
+import { usePrefersReducedMotion } from "@hooks/usePrefersReducedMotion";
 
 export type BoopConfig = {
   x?: number;

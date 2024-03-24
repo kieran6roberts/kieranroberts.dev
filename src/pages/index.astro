@@ -1,14 +1,14 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "@layouts/Layout.astro";
 import { Code } from "astro-expressive-code/components";
 import { SocialLinks } from "@components/navigation/SocialLinkFloatingBar";
 import { MainNavLinks } from "@components/navigation/MainNavLinks";
-import SectionTitle from "../components/landing/SectionTitle.astro";
-import ListItem from "../components/landing/ListItem.astro";
-import TechIconWrapper from "../components/landing/TechIconWrapper.astro";
-import SectionDescription from "../components/landing/SectionDescription.astro";
-import Avatar from "../components/landing/Avatar.astro";
-import { Button } from "../components/Button";
+import SectionTitle from "@components/landing/SectionDescription.astro";
+import ListItem from "@components/landing/ListItem.astro";
+import TechIconWrapper from "@components/landing/TechIconWrapper.astro";
+import SectionDescription from "@components/landing/SectionDescription.astro";
+import Avatar from "@components/landing/Avatar.astro";
+import { Button } from "@components/Button";
 import {
   landingPageCodeDesktopExample,
   landingPageCodeMobileExample,
@@ -30,7 +30,7 @@ import {
   NodejsSVG,
   FigmaSVG,
   LinearSVG,
-} from "../components/icons/index";
+} from "@components/icons/index";
 
 const JOB_DESCRIPTION =
   "Developing, maintaining, and testing of large codebases. Working closely with the design team to ship interactive features with slick UI/UX for the frontend. Crafting and developing issues and roadmaps. Working inside our AWS infrastrucutre and contributing to building out our public GraphQL API's.";

@@ -1,8 +1,8 @@
 import { animated } from "react-spring";
 import * as React from "react";
 
-import { useBoop } from "../hooks/useBoop";
-import type { BoopConfig } from "../hooks/useBoop";
+import { useBoop } from "@hooks/useBoop";
+import type { BoopConfig } from "@hooks/useBoop";
 
 const buttonVariants = {
   "solid-dark":

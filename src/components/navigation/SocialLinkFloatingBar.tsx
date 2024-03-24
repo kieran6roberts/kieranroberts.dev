@@ -1,6 +1,6 @@
 import * as React from "react";
 import { OpenBook, X, Github, Linkedin } from "iconoir-react";
-import { Boop } from "../animation/Boop";
+import { Boop } from "@components/animation/Boop";
 
 export const SocialLinks = ({ asDark }: { asDark?: boolean }) => {
   const linkStyle = `flex items-center justify-center ${

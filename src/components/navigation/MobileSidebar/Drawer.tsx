@@ -3,18 +3,18 @@ import { useClickAway, useWindowSize } from "@uidotdev/usehooks";
 import { Xmark } from "iconoir-react";
 import * as React from "react";
 
-import { useBoop } from "../../../hooks/useBoop";
+import { useBoop } from "@hooks/useBoop";
 
-import { MainNavLinks } from "./MainNavLinks";
-import { LockBodyScroll } from "./LockBodyScroll";
-import { SocialLinks } from "../SocialLinkFloatingBar";
+import { MainNavLinks } from "@components/navigation/MainNavLinks";
+import { LockBodyScroll } from "@components/navigation/MobileSidebar/LockBodyScroll";
+import { SocialLinks } from "@components/navigation/SocialLinkFloatingBar";
 
 import {
   getFocusableElements,
   handleTabKeyPress,
   handleEscapeKey,
-} from "../../../utils/accessibility";
-import { NavLink } from "./NavLink";
+} from "@utils/accessibility";
+import { NavLink } from "@components/navigation/NavLink";
 
 interface Props {
   show: boolean;

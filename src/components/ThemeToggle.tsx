@@ -3,8 +3,8 @@ import * as React from "react";
 import { animated } from "react-spring";
 import { useStore } from "@nanostores/react";
 
-import { getThemePreference } from "../utils/theme";
-import { useBoop } from "../hooks/useBoop";
+import { getThemePreference } from "@utils/theme";
+import { useBoop } from "@hooks/useBoop";
 import { toggleTheme, theme } from "src/stores/themeStore";
 
 const ThemeButtonLoader = () => (

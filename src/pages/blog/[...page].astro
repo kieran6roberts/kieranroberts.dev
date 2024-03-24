@@ -1,10 +1,10 @@
 ---
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 import { ArrowUp } from "iconoir-react";
-import Layout from "../../layouts/Layout.astro";
-import { getAllPostPagePosts } from "../../utils/blog";
-import MarkdownToHTML from "../../components/blog/MarkdownToHTML.astro";
-import ScrollUp from "../../components/navigation/ScrollUp.astro";
+import Layout from "@layouts/Layout.astro";
+import { getAllPostPagePosts } from "@utils/blog";
+import MarkdownToHTML from "@components/blog/MarkdownToHTML.astro";
+import ScrollUp from "@components/navigation/ScrollUp.astro";
 
 export const getStaticPaths = (async () => {
   const allBlogPosts = await getAllPostPagePosts();

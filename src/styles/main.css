@@ -17,6 +17,31 @@
     src: url('/fonts/Quicksand-Regular.woff2') format('woff2')
   }
 
+  .hero-bg {
+    background: linear-gradient(3deg, #6B7FD7, #7c3aed, #6B7FD7);
+    background-size: 600% 600%;
+
+    -webkit-animation: wave 16s ease infinite;
+    -moz-animation: wave 16s ease infinite;
+    animation: wave 16s ease infinite;
+  }
+
+    @-webkit-keyframes wave {
+        0%{background-position:90% 0%}
+        50%{background-position:11% 100%}
+        100%{background-position:90% 0%}
+    }
+    @-moz-keyframes wave {
+        0%{background-position:90% 0%}
+        50%{background-position:11% 100%}
+        100%{background-position:90% 0%}
+    }
+    @keyframes wave {
+        0%{background-position:90% 0%}
+        50%{background-position:11% 100%}
+        100%{background-position:90% 0%}
+    }
+
  .link-focus {
    @apply outline-none focus:ring dark:focus:ring-offset-gray-900 focus:ring-offset-4 focus:ring-l-secondary dark:focus:ring-d-tertiary-2
  }

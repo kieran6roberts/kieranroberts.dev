@@ -38,8 +38,6 @@ const useBoop = ({
      scale(1)`;
 
   const style = useSpring({
-    // display: "inline-block",
-    backfaceVisibility: "hidden",
     transform,
     config: springConfig,
   });
@@ -60,9 +58,14 @@ const useBoop = ({
     setIsBooped(true);
   }, []);
 
-  const styleToApply = !prefersReducedMotion ? style : {};
+  const styleToApply: React.CSSProperties | {} = !prefersReducedMotion
+    ? style
+    : {};
 
-  return [styleToApply, trigger] as any;
+  return {
+    styleToApplyOnBoop: styleToApply,
+    handleBoopTrigger: trigger,
+  };
 };
 
 export { useBoop };

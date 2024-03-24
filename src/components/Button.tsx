@@ -84,64 +84,84 @@ export const Button = React.forwardRef<
     },
     forwardedRef
   ) => {
-    const [iconStyle, iconTrigger] = useBoop(iconAnimationSettings || {});
-    const [buttonStyle, buttonTrigger] = useBoop(buttonAnimationSettings || {});
+    const {
+      styleToApplyOnBoop: iconStyleToApply,
+      handleBoopTrigger: handleIconTrigger,
+    } = useBoop(iconAnimationSettings || {});
+    const {
+      styleToApplyOnBoop: buttonStyleToApply,
+      handleBoopTrigger: handleButtonTrigger,
+    } = useBoop(buttonAnimationSettings || {});
 
     if (asLink && href) {
       return (
         <a
+          {...(buttonStyleToApply && { style: buttonStyleToApply })}
+          {...{ "data-astro-prefetch": "hover" }}
           ref={forwardedRef as React.ForwardedRef<HTMLAnchorElement>}
           href={href}
-          style={buttonStyle}
-          {...{ "data-astro-prefetch": "hover" }}
           className={`flex items-center gap-2 font-medium rounded-full transition-colors duration-100 focus:ring outline-none ring-offset-4 px-4 py-3 ${
             className ?? ""
           } ${buttonVariants[variant]} ${buttonWidth[width]}`}
           onMouseEnter={() => {
-            if (iconAnimationSettings) iconTrigger();
-            if (buttonAnimationSettings) buttonTrigger();
+            if (iconAnimationSettings) handleIconTrigger();
+            if (buttonAnimationSettings) handleButtonTrigger();
           }}
           {...restOfProps}
         >
-          <animated.span style={iconStyle}>{startIcon}</animated.span>
+          <animated.span {...(iconStyleToApply && { style: iconStyleToApply })}>
+            {startIcon}
+          </animated.span>
           {childrenIsIcon ? (
-            <animated.span style={iconStyle}>{children}</animated.span>
+            <animated.span
+              {...(iconStyleToApply && { style: iconStyleToApply })}
+            >
+              {children}
+            </animated.span>
           ) : (
             children
           )}
-          <animated.span style={iconStyle}>{endIcon}</animated.span>
+          <animated.span {...(iconStyleToApply && { style: iconStyleToApply })}>
+            {endIcon}
+          </animated.span>
         </a>
       );
     }
 
     return (
       <animated.button
-        ref={forwardedRef as React.ForwardedRef<HTMLButtonElement>}
-        style={buttonStyle}
+        {...(buttonStyleToApply && { style: buttonStyleToApply })}
         {...(type !== "submit" && { onClick: onClick })}
+        ref={forwardedRef as React.ForwardedRef<HTMLButtonElement>}
         type={type}
         disabled={disabled}
         className={`flex items-center justify-center gap-2 font-medium transition-colors duration-100 rounded-full focus:ring outline-none ring-offset-4 px-4 py-3 ${
           className ?? ""
         } ${buttonVariants[variant]} ${buttonWidth[width]}`}
         onMouseEnter={() => {
-          if (iconAnimationSettings) iconTrigger();
-          if (buttonAnimationSettings) buttonTrigger();
+          if (iconAnimationSettings) handleIconTrigger();
+          if (buttonAnimationSettings) handleButtonTrigger();
         }}
         {...restOfProps}
       >
         {startIcon ? (
-          <animated.span style={iconStyle}>{startIcon}</animated.span>
+          <animated.span {...(iconStyleToApply && { style: iconStyleToApply })}>
+            {startIcon}
+          </animated.span>
         ) : null}
 
         {childrenIsIcon ? (
-          <animated.span style={iconStyle}>{children}</animated.span>
+          <animated.span {...(iconStyleToApply && { style: iconStyleToApply })}>
+            {children}
+          </animated.span>
         ) : (
           children
         )}
 
         {endIcon ? (
-          <animated.span style={iconStyle}>{endIcon}</animated.span>
+          <animated.span {...(iconStyleToApply && { style: iconStyleToApply })}>
+            {endIcon}
+          </animated.span>
         ) : null}
       </animated.button>
     );

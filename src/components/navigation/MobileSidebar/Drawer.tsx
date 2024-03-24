@@ -35,7 +35,7 @@ const Drawer = ({ show, closeDrawer, triggerRef, pathname }: Props) => {
   const { width: windowWidth, height: windowHeight } = useWindowSize();
   const windowSizeExists = !!(windowWidth && windowHeight);
 
-  const [style, trigger] = useBoop({ rotation: 10 });
+  const { styleToApplyOnBoop, handleBoopTrigger } = useBoop({ rotation: 10 });
 
   const styles = useSpring({
     left: show
@@ -93,9 +93,11 @@ const Drawer = ({ show, closeDrawer, triggerRef, pathname }: Props) => {
           <button
             onClick={closeDrawer}
             className="flex items-center justify-center absolute top-5 right-5 p-1.5 link-focus rounded-full icon-button-hover"
-            onMouseEnter={trigger as any}
+            onMouseEnter={handleBoopTrigger}
           >
-            <animated.span style={style as any}>
+            <animated.span
+              {...(styleToApplyOnBoop && { style: styleToApplyOnBoop })}
+            >
               <Xmark width={24} height={24} />
             </animated.span>
           </button>

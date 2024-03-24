@@ -10,10 +10,13 @@ interface Props {
 }
 
 const Boop = ({ boopConfig, children }: Props) => {
-  const [style, trigger] = useBoop(boopConfig);
+  const { styleToApplyOnBoop, handleBoopTrigger } = useBoop(boopConfig);
 
   return (
-    <animated.span onMouseEnter={trigger as any} style={style as any}>
+    <animated.span
+      onMouseEnter={handleBoopTrigger}
+      {...(styleToApplyOnBoop && { style: styleToApplyOnBoop })}
+    >
       {children}
     </animated.span>
   );

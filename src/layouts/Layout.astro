@@ -21,37 +21,8 @@ const {
 } = Astro.props;
 
 const pathname = new URL(Astro.request.url).pathname;
-
-// style={{
-//     scrollSnapType: "y proximity",
-//   }}
 ---
 
-<!-- <script type="module">
-  const floatingBar = document.querySelector(".floating-social-bar");
-
-  console.log(floatingBar);
-
-  const footer = document.querySelector(".main-footer");
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        console.log(entry);
-        if (entry.isIntersecting) {
-          console.log("Is intersectinh", entry.isIntersecting);
-          floatingBar.classList.toggle("hide");
-        }
-      });
-    },
-    {
-      threshold: 0,
-      rootMargin: "100px",
-    }
-  );
-
-  observer.observe(footer);
-</script> -->
 <html
   style={{
     scrollBehavior: "smooth",

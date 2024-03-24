@@ -12,7 +12,7 @@ const ThemeButtonLoader = () => (
 );
 
 const ThemeToggle = () => {
-  const [style, trigger] = useBoop({ rotation: 45 });
+  const { styleToApplyOnBoop, handleBoopTrigger } = useBoop({ rotation: 45 });
   const [isMounted, setIsMounted] = React.useState(false);
   const $theme = useStore(theme);
   const isDarkTheme = $theme === "dark";
@@ -33,11 +33,12 @@ const ThemeToggle = () => {
       title="Toggles light & dark theme"
       aria-live="polite"
       className="flex items-center justify-center text-white p-2 rounded-full outline-none focus:ring ring-offset-gray-900 ring-offset-4 ring-d-tertiary-2 icon-button-hover"
-      onMouseEnter={trigger as any}
+      onMouseEnter={handleBoopTrigger}
       onClick={toggleTheme}
       disabled={$theme === null}
+      {...(styleToApplyOnBoop && { style: styleToApplyOnBoop })}
     >
-      <animated.span style={style as any}>
+      <animated.span style={styleToApplyOnBoop}>
         {isDarkTheme ? <SunLight width={24} /> : <HalfMoon width={24} />}
       </animated.span>
     </button>

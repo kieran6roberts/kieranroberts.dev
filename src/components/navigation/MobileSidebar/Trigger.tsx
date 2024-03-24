@@ -12,7 +12,7 @@ interface Props {
 const Trigger = ({ pathname }: Props) => {
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
   const triggerRef = React.useRef<HTMLButtonElement>(null);
-  const [style, trigger] = useBoop({ x: 1 });
+  const { styleToApplyOnBoop, handleBoopTrigger } = useBoop({ x: 1 });
 
   const toggleOpenDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -27,9 +27,11 @@ const Trigger = ({ pathname }: Props) => {
         ref={triggerRef}
         className="flex items-center justify-center text-white md:hidden link-focus p-2 rounded-full icon-button-hover"
         onClick={toggleOpenDrawer}
-        onMouseEnter={trigger as any}
+        onMouseEnter={handleBoopTrigger}
       >
-        <animated.span style={style as any}>
+        <animated.span
+          {...(styleToApplyOnBoop && { style: styleToApplyOnBoop })}
+        >
           <Menu width={24} height={24} />
         </animated.span>
       </animated.button>

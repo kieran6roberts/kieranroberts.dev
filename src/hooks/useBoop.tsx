@@ -38,7 +38,7 @@ const useBoop = ({
      scale(1)`;
 
   const style = useSpring({
-    display: "inline-block",
+    // display: "inline-block",
     backfaceVisibility: "hidden",
     transform,
     config: springConfig,

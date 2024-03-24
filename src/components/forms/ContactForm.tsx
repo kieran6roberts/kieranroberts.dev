@@ -10,6 +10,7 @@ import { useStore } from "@nanostores/react";
 import toast, { Toaster } from "react-hot-toast";
 import { Check } from "iconoir-react";
 import { useSpring, animated } from "react-spring";
+import { Button } from "../Button";
 
 import { TextInput } from "./TextInput";
 import { TextArea } from "./TextArea";
@@ -247,10 +248,12 @@ export const ContactForm = () => {
             }}
           />
           {!emailSuccess ? (
-            <button
+            <Button
               ref={buttonRef}
+              width="full"
               type="submit"
-              className="flex items-center justify-center mt-8 gap-2 w-full font-medium mx-auto px-4 py-3 border-2 bg-[#100114] text-white border-[#100114] dark:border-d-tertiary-2 rounded-full link-focus"
+              variant="transparent"
+              className="mt-8"
             >
               {isSubmitting ? (
                 <animated.span style={{ ...submittingSpring }}>
@@ -264,7 +267,7 @@ export const ContactForm = () => {
                   </span>
                 </>
               )}
-            </button>
+            </Button>
           ) : (
             <div className="flex items-center mt-8 mx-auto bg-[#100114] border-[#100114] dark:border-d-tertiary-2 text-white dark:text-d-tertiary-2 p-2.5 rounded-full border-2">
               <animated.span style={{ ...submittedSpring }}>

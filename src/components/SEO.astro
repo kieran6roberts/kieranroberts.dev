@@ -105,7 +105,7 @@ const isProd = import.meta.env.PROD;
   {
     /* Plausible analytics redirected from _redirects.js */
     isProd ? (
-      <script defer data-domain="kieranroberts.dev" src="/js/script.js" />
+      <script is:inline data-domain="kieranroberts.dev" src="/js/script.js" />
     ) : null
   }
 </head>

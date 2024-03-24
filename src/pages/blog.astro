@@ -2,9 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 import { LoadMorePosts } from "../components/blog/LoadMorePosts";
 import { fetchPaginatedBlogPosts, getPostsPaginatedData } from "../utils/blog";
-// import { SocialLinkFloatingBar } from "../components/navigation/SocialLinkFloatingBar";
 import PageTitle from "../layouts/PageTitle.astro";
 import ScrollUp from "../components/navigation/ScrollUp.astro";
+import { TimelineCard } from "@components/about/TimelineCard";
+import { ArrowUp } from "iconoir-react";
 
 const blogPosts = await fetchPaginatedBlogPosts({ first: null, after: null });
 const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(blogPosts);
@@ -21,14 +22,16 @@ const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(blogPosts);
       <div class="flex flex-col gap-y-12">
         {
           postsArray.map((post) => (
-            <article>
-              <a class="flex flex-col gap-y-2" href={`/blog/${post.slug}`}>
-                <h2 class="max-w-[450px] mx-auto font-medium text-center text-xl text-l-primary-dark dark:text-d-tertiary-2">
-                  {post.title}
-                </h2>
-                <p class="prose dark:prose-invert text-justify">{post.brief}</p>
+            <>
+              <a href={`/blog/${post.slug}`} class="link-focus rounded-xl">
+                <TimelineCard
+                  title={post.title}
+                  description={post.brief}
+                  date={post.publishedAt}
+                  options={{ formatDate: true }}
+                />
               </a>
-            </article>
+            </>
           ))
         }
         {
@@ -43,6 +46,7 @@ const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(blogPosts);
       </div>
     </section>
   </main>
-  <ScrollUp />
-  <!-- <SocialLinkFloatingBar client:load /> -->
+  <ScrollUp>
+    <ArrowUp width={16} height={16} />
+  </ScrollUp>
 </Layout>

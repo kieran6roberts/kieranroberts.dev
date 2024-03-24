@@ -7,7 +7,8 @@ import SectionTitle from "../components/landing/SectionTitle.astro";
 import ListItem from "../components/landing/ListItem.astro";
 import TechIconWrapper from "../components/landing/TechIconWrapper.astro";
 import SectionDescription from "../components/landing/SectionDescription.astro";
-import Avatar from "@components/landing/Avatar.astro";
+import Avatar from "../components/landing/Avatar.astro";
+import { Button } from "../components/Button";
 import {
   landingPageCodeDesktopExample,
   landingPageCodeMobileExample,
@@ -36,26 +37,6 @@ const JOB_DESCRIPTION =
 const JOB_TITLE = "Full stack developer";
 ---
 
-<!-- <script type="module">
-  const timelineCards = document.querySelectorAll(".timeline-card");
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        }
-      });
-    },
-    {
-      threshold: 1,
-    }
-  );
-
-  timelineCards.forEach((card) => {
-    observer.observe(card);
-  });
-</script> -->
 <Layout url="kieranroberts.dev" showFooter={false}>
   <main class="bg-l-secondary">
     <section
@@ -82,12 +63,12 @@ const JOB_TITLE = "Full stack developer";
           thousands of active users, I love what I do.
         </p>
         <div class="flex flex-row items-center gap-2"></div>
-        <a
+        <Button
+          asLink
           href="/contact"
-          class="flex items-center gap-x-2 w-max mx-auto md:mx-0 justify-center font-medium px-4 py-3 bg-white hover:bg-slate-100 hover:text-l-primary-dark text-d-primary-dark rounded-full outline-none focus:ring ring-offset-gray-900 ring-offset-4 ring-d-tertiary-2"
+          className="mx-auto md:mx-0"
+          variant="solid-white">Get in touch</Button
         >
-          Get in touch
-        </a>
       </div>
       <div class="md:hidden w-max rounded-full mx-auto">
         <Avatar width={150} height={150} />
@@ -139,18 +120,13 @@ const JOB_TITLE = "Full stack developer";
     >
       <div class="flex-1 self-center">
         <SectionTitle styles="text-black"> Tech I work with </SectionTitle>
-        <div class="flex flex-col gap-8">
+        <div class="flex flex-col gap-8 items-center">
           <SectionDescription styles="text-black">
             I'm always looking to learn new things, but always strive to use the
             right tool for the job.
           </SectionDescription>
 
-          <a
-            href="/about"
-            class="flex items-center justify-center gap-2 w-max font-medium mx-auto px-4 py-3 bg-[#100114] hover:bg-black/80 text-white rounded-full link-focus"
-          >
-            See my skills
-          </a>
+          <Button asLink href="/about">See my skills</Button>
         </div>
       </div>
       <div class="flex-1">
@@ -185,7 +161,7 @@ const JOB_TITLE = "Full stack developer";
         <span class="text-l-tertiary-2">May 10th, 2021 - Present</span>
         <h2 class="flex flex-col items-start text-xl gap-2 mb-4 text-white">
           {JOB_TITLE} at
-          <span class="">
+          <span>
             <svg class="w-36" fill="white" viewBox="0 0 334 56">
               <path
                 fill-rule="evenodd"
@@ -198,7 +174,7 @@ const JOB_TITLE = "Full stack developer";
             </svg>
           </span>
         </h2>
-        <p class="text-base prose-invert">
+        <p class="text-base text-white prose-invert">
           {JOB_DESCRIPTION}
         </p>
       </div>
@@ -260,133 +236,18 @@ const JOB_TITLE = "Full stack developer";
             {JOB_DESCRIPTION}
           </p>
         </a>
-        <!-- <a
-        href="/blog"
-        class="timeline-card peer/1 block mx-1 md:mx-5 mb-5 text-left hover:bg-d-primary-darkest/20 p-4 lg:p-8 rounded-xl prose text-white"
-      >
-        <h2 class="mb-4 text-white">Writing a successful blog</h2>
-        <p class="text-white/75">
-          With some skills under my belt I started blogging to share the
-          knowledge I had gained. I soon created a blog on Hashnode focusing
-          on a mix of technical and non-technical topics and finished as a top
-          50 writer on the platform several months running. Today my blog has
-          received more than 110,000 visitors!
-        </p>
-      </a>
-      <div class="relative bg-white w-px h-full">
-        <span
-          class="w-4 h-4 rounded-full bg-white absolute top-0 left-1/2 transform -translate-x-[50%]"
-        ></span>
       </div>
-      <div
-        class="text-d-tertiary-2 text-lg font-medium mx-5 mb-5 text-left peer-hover/1:text-l-tertiary-2"
-      >
-        Jan 2022 - Present
-      </div>
-      <div
-        class="timeline-date mx-5 mb-5 text-right text-d-tertiary-2 text-lg font-medium peer:hover:text-white"
-      >
-        Mar 2020 - May 2021
-      </div>
-      <div class="relative bg-white w-px h-full">
-        <span
-          class="w-4 h-4 rounded-full bg-white absolute top-0 left-1/2 transform -translate-x-[50%]"
-        ></span>
-      </div>
-      <div
-        class="timeline-card block mx-1 md:mx-5 mb-5 text-left hover:bg-d-primary-darkest/20 p-4 lg:p-8 rounded-xl prose text-white"
-      >
-        <h2 class="mb-4 text-white">Moving into web development</h2>
-        <p class="text-white/75">
-          I spent almost 18 months during this time changing fields into web
-          development with self study. Fortunately I was in a position to put
-          in all my time and picked up several fontend and backend
-          technologies focusing on JavaScript.
-        </p>
-      </div>
-
-      <div
-        class="timeline-card peer/2 mx-1 md:mx-5 mb-5 text-right hover:bg-d-primary-darkest/20 p-4 lg:p-8 rounded-xl prose text-white"
-      >
-        <h2 class="mb-4 text-white">Travel</h2>
-        <p class="text-white/75">
-          I spent around 18 months living and working around New Zealand and
-          planned to travel further after those 2 years were up. Unfortunately
-          some big event happened in early 2020 and my onward travel plans had
-          to be scrapped.
-        </p>
-      </div>
-      <div class="relative bg-white w-px h-full">
-        <span
-          class="w-4 h-4 rounded-full bg-white absolute top-0 left-1/2 transform -translate-x-[50%]"
-        ></span>
-      </div>
-      <div
-        class="text-d-tertiary-2 text-lg font-medium mx-5 mb-5 text-left peer-hover/2:text-l-tertiary-2"
-      >
-        Jan 2022 - Present
-      </div>
-
-      <div
-        class="timeline-date mx-5 mb-5 text-right text-d-tertiary-2 text-lg font-medium"
-      >
-        May 2018 - Apr 2019
-      </div>
-
-      <div class="relative bg-white w-px h-full">
-        <span
-          class="w-4 h-4 rounded-full bg-white absolute top-0 left-1/2 transform -translate-x-[50%]"
-        ></span>
-      </div>
-      <div
-        class="timeline-card mx-1 md:mx-5 mb-5 text-left hover:bg-d-primary-darkest/20 p-4 lg:p-8 rounded-xl prose text-white"
-      >
-        <h2 class="mb-4 text-white">Post university</h2>
-        <p class="text-white/75">
-          During the end of my time at university I realised my passion for
-          Electronic Engineering wasn't there. I'm not the kind of person to
-          persue something I don't enjoy. Therefore I spent almost 2 years
-          working at a local supermarket to save up funds that would allow me
-          to spend a prolonged period of time travelling the world.
-        </p>
-      </div>
-      <div
-        class="timeline-card peer/3 mx-1 md:mx-5 mb-5 text-left hover:bg-d-primary-darkest/20 p-4 lg:p-8 rounded-xl prose text-white"
-      >
-        <h2 class="mb-4 text-white">
-          MEng Electronic Engineering, Bangor University (1st Class Honours)
-        </h2>
-        <p class="text-white/75">
-          I spent 4 years earning a masters degree in Electronic Enginering at
-          Bangor University, Wales. It was essential in teaching me all about
-          effective teamwork, communication, delegation and soft skills I
-          apply to this day.
-        </p>
-      </div>
-      <div class="relative bg-white w-px h-full">
-        <span
-          class="w-4 h-4 rounded-full bg-white absolute top-0 left-1/2 transform -translate-x-[50%]"
-        ></span>
-        <span
-          class="w-4 h-4 rounded-full bg-white absolute bottom-0 left-1/2 transform -translate-x-[50%]"
-        ></span>
-      </div>
-      <div
-        class="timeline-date mx-5 mb-5 text-left text-d-tertiary-2 text-lg font-medium peer-hover/3:text-l-tertiary-2"
-      >
-        Sep 2013 - May 2017
-      </div>
-    </div> -->
-      </div>
-      <a
+      <Button
+        asLink
         href="/about"
-        class="flex items-center justify-center gap-2 w-max font-medium mx-auto px-4 py-3 border-2 bg-[#100114] hover:bg-gray-900 text-white border-d-tertiary-2 rounded-full link-focus"
+        variant="transparent-dark"
+        className="mx-auto"
       >
         Find out more about me
-      </a>
+      </Button>
     </section>
     <footer
-      class="relative flex flex-col md:flex-row justify-between items-center gap-y-4 px-20 md:px-56 py-8 bg-[#100114] border-t border-slate-900"
+      class="relative flex flex-col md:flex-row justify-between items-center gap-y-4 px-20 lg:px-56 py-8 bg-[#100114] border-t border-slate-900"
     >
       <div class="flex flex-col gap-4 items-center md:items-start">
         <a href="/" class="text-3xl font-medium text-white">kieranroberts.dev</a

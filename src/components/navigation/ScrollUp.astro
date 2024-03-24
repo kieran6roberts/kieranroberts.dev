@@ -1,10 +1,18 @@
 ---
-import { FastArrowUp } from "iconoir-react";
+import { Button } from "../Button";
+import { ArrowUp } from "iconoir-react";
 ---
 
-<a
+<Button
+  client:load
+  className="z-1 fixed bottom-6 right-6 lg:right-24"
+  variant="transparent"
+  asLink
   href="#"
-  class="z-1 fixed bottom-6 right-6 lg:right-24 gap-x-2 w-max py-1.5 px-6 bg-white dark:bg-[#100114] text-l-primary-darkest dark:text-white border-l-primary-dark dark:border-d-tertiary-2 border-2 rounded-full"
+  iconAnimationSettings={{ y: 4 }}
+  childrenIsIcon
+  startIcon={null}
+  endIcon={null}
 >
-  <FastArrowUp width={16} height={16} />
-</a>
+  <ArrowUp width={16} height={16} />
+</Button>

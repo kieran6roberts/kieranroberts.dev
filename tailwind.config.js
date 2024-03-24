@@ -9,7 +9,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'header': 'Junegull-Regular',
+        sans: ['Quicksand', 'sans-serif'],
+        header: 'Junegull-Regular',
       },
       colors: {
         // Light mode

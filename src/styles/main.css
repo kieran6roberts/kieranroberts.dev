@@ -10,6 +10,13 @@
   src: url('/fonts/junegull.woff') format('woff2');
   }
 
+  @font-face {
+    font-family: "Quicksand";
+    font-weight: 400;
+    font-style: normal;
+    src: url('/fonts/Quicksand-Regular.woff2') format('woff2')
+  }
+
  .link-focus {
    @apply outline-none focus:ring dark:focus:ring-offset-gray-900 focus:ring-offset-4 focus:ring-l-secondary dark:focus:ring-d-tertiary-2
  }

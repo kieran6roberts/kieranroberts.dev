@@ -1,0 +1,26 @@
+query PostPagePosts($host: String!, $first: Int!, $after: String) {
+  publication(host: $host) {
+    id
+    posts(first: $first, after: $after) {
+      edges {
+        node {
+          slug
+          content {
+            markdown
+          }
+          title
+          subtitle
+          coverImage {
+            url
+          }
+          readTimeInMinutes
+        }
+        cursor
+      }
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+    }
+  }
+}

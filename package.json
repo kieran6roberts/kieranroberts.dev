@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build && cp _redirects dist/_redirects",
+    "codegen": "graphql-codegen --config codegen.yml",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -25,6 +26,8 @@
     "astro": "^4.3.2",
     "astro-expressive-code": "^0.33.4",
     "astro-icon": "^1.1.0",
+    "graphql": "^16.8.1",
+    "graphql-request": "^6.1.0",
     "iconoir-react": "^7.3.0",
     "nanostores": "^0.10.0",
     "react": "^18.2.0",
@@ -41,10 +44,14 @@
     "sharp": "^0.33.2",
     "tailwindcss": "^3.4.1",
     "unified": "^11.0.4",
-    "zod": "^3.22.4",
-    "zustand": "^4.5.2"
+    "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.2",
+    "@graphql-codegen/typed-document-node": "^5.0.6",
+    "@graphql-codegen/typescript": "^4.0.6",
+    "@graphql-codegen/typescript-operations": "^4.2.0",
+    "@graphql-typed-document-node/core": "^3.2.0",
     "@typescript-eslint/parser": "^6.20.0",
     "eslint": "^8.56.0",
     "eslint-plugin-astro": "^0.31.4",

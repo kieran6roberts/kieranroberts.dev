@@ -1,0 +1,37 @@
+query BlogPosts($host: String!, $after: String, $first: Int!) {
+  publication(host: $host) {
+    id
+    posts(after: $after, first: $first) {
+      edges {
+        node {
+          __typename
+          id
+          title
+          slug
+          publishedAt
+          url
+          subtitle
+          brief
+          readTimeInMinutes
+          views
+          author {
+            __typename
+            id
+            username
+            name
+            profilePicture
+          }
+          coverImage {
+            __typename
+            url
+          }
+        }
+        cursor
+      }
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+    }
+  }
+}

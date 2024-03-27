@@ -1,10 +1,10 @@
 ---
 import { Image } from "astro:assets";
 
-interface Props {
+type Props = {
   width: number;
   height: number;
-}
+};
 
 const { width, height, ...restOfProps } = Astro.props;
 ---

@@ -1,3 +1,14 @@
-<span class="place-self-center w-[52px] h-[52px] md:w-20 md:h-20">
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<span
+  title={title}
+  class="place-self-center w-[52px] h-[52px] md:w-20 md:h-20 opacity-100 lg:opacity-75 transform transition-all duration-150 hover:scale-105 hover:opacity-100"
+>
   <slot />
 </span>

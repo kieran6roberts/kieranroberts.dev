@@ -13,6 +13,7 @@ export type NavLinkProps =
       showActiveCheck?: boolean;
       isExternal: true;
       prefetchStrategy?: never;
+      asDark?: boolean;
     }
   | {
       href: string;
@@ -21,6 +22,7 @@ export type NavLinkProps =
       children: React.ReactNode;
       showActiveCheck?: boolean;
       prefetchStrategy?: PrefetchStrategy;
+      asDark?: boolean;
     };
 
 const NavLink = ({
@@ -29,6 +31,7 @@ const NavLink = ({
   pathname,
   prefetchStrategy = PrefetchStrategyEnum.HOVER,
   children,
+  asDark,
 }: NavLinkProps) => {
   const updatedPathname = formatPathname({ pathname });
   const isActive = !!updatedPathname && href === updatedPathname;
@@ -41,8 +44,15 @@ const NavLink = ({
           {...(!isExternal && { "data-astro-prefetch": prefetchStrategy })}
           href={href}
           target={isExternal ? "_blank" : "_self"}
-          className={`flex items-center gap-x-2 whitespace-nowrap rounded-md text-md font-light transition duration-150 ease-in-out outline-none focus:ring ring-offset-gray-900 ring-offset-4 ring-d-tertiary-2 ${
-            isActive ? "text-d-tertiary-2" : "text-white"
+          className={`flex items-center gap-x-2 whitespace-nowrap rounded-md text-md transition duration-150 ease-in-out outline-none focus:ring ring-offset-gray-900 ring-offset-4 ring-d-tertiary-2 
+          ${
+            asDark
+              ? isActive
+                ? "text-d-tertiary-2"
+                : "text-white"
+              : isActive
+              ? "text-l-secondary dark:text-d-tertiary-2"
+              : "text-black dark:text-white"
           }`}
         >
           {children}

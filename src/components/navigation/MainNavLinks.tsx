@@ -5,9 +5,10 @@ import { NavLink } from "@components/navigation/NavLink";
 interface Props {
   pathname?: string;
   showActiveCheck?: boolean;
+  asDark?: boolean;
 }
 
-const MainNavLinks = ({ pathname, showActiveCheck }: Props) => {
+const MainNavLinks = ({ pathname, showActiveCheck, asDark }: Props) => {
   return (
     <>
       <NavLink
@@ -15,6 +16,7 @@ const MainNavLinks = ({ pathname, showActiveCheck }: Props) => {
         pathname={pathname}
         prefetchStrategy="load"
         showActiveCheck={showActiveCheck}
+        asDark={!!asDark}
       >
         Blog
       </NavLink>
@@ -23,14 +25,16 @@ const MainNavLinks = ({ pathname, showActiveCheck }: Props) => {
         pathname={pathname}
         showActiveCheck={showActiveCheck}
         prefetchStrategy="load"
+        asDark={!!asDark}
       >
-        Technical skills
+        Skills
       </NavLink>
       <NavLink
         href="/about"
         pathname={pathname}
         showActiveCheck={showActiveCheck}
         prefetchStrategy="load"
+        asDark={!!asDark}
       >
         About
       </NavLink>
@@ -39,6 +43,7 @@ const MainNavLinks = ({ pathname, showActiveCheck }: Props) => {
         pathname={pathname}
         showActiveCheck={showActiveCheck}
         prefetchStrategy="load"
+        asDark={!!asDark}
       >
         Contact
       </NavLink>

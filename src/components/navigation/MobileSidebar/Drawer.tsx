@@ -34,6 +34,7 @@ const Drawer = ({ show, closeDrawer, triggerRef, pathname }: Props) => {
   // Close drawer when window size changes
   const { width: windowWidth, height: windowHeight } = useWindowSize();
   const windowSizeExists = !!(windowWidth && windowHeight);
+  const isHomepage = pathname === "/";
 
   const { styleToApplyOnBoop, handleBoopTrigger } = useBoop({ rotation: 10 });
 
@@ -89,10 +90,16 @@ const Drawer = ({ show, closeDrawer, triggerRef, pathname }: Props) => {
     <>
       {show ? <LockBodyScroll /> : null}
       <animated.div style={styles as any} ref={ref as any}>
-        <section className="w-full h-full bg-white dark:bg-[#100114] z-10">
+        <section
+          className={`w-full h-full z-10 ${
+            isHomepage ? "bg-[#100114]" : "bg-white dark:bg-[#100114]"
+          }`}
+        >
           <button
             onClick={closeDrawer}
-            className="flex items-center justify-center absolute top-5 right-5 p-1.5 link-focus rounded-full icon-button-hover"
+            className={`absolute top-5 right-5 p-1.5 ${
+              isHomepage ? "text-white" : "text-black dark:text-white"
+            } link-focus rounded-full icon-button-hover`}
             onMouseEnter={handleBoopTrigger}
           >
             <animated.span
@@ -106,13 +113,22 @@ const Drawer = ({ show, closeDrawer, triggerRef, pathname }: Props) => {
             id="sidebar-nav"
             className="flex flex-col h-full p-8 justify-center items-start gap-y-16"
           >
-            <NavLink href="/" pathname={pathname} showActiveCheck>
+            <NavLink
+              href="/"
+              pathname={pathname}
+              asDark={!!isHomepage}
+              showActiveCheck
+            >
               Home
             </NavLink>
-            <MainNavLinks pathname={pathname} showActiveCheck />
+            <MainNavLinks
+              pathname={pathname}
+              showActiveCheck
+              asDark={!!isHomepage}
+            />
           </nav>
           <section className="flex gap-x-4 items-center absolute bottom-4 right-4">
-            <SocialLinks />
+            <SocialLinks asDark={!!isHomepage} />
           </section>
         </section>
       </animated.div>

@@ -61,17 +61,24 @@ const JOB_TITLE = "Full stack developer";
         <p
           class="hidden lg:block text-white prose font-medium mb-6 text-xl max-w-[75%] lg:max-w-[580px] mx-auto lg:mx-0 text-left"
         >
-          I build fast, accessible, and well tested sites for the modern web.
-          With industry experience working across complex projects supporting
-          thousands of active users, I love what I do.
+          I build fast, accessible, and responsive sites for the modern web.
+          With industry experience working on complex projects supporting
+          thousands of active users, I love what I do!
         </p>
-        <div class="flex flex-row items-center gap-2"></div>
-        <Button
-          asLink
-          href="/contact"
-          className="mx-auto lg:mx-0"
-          variant="solid-white">Get in touch</Button
-        >
+        <div class="flex flex-col md:flex-row items-center gap-2">
+          <Button
+            asLink
+            href="/blog"
+            className="mx-auto lg:mx-0"
+            variant="solid-white">Read my blog</Button
+          >
+          <Button
+            asLink
+            href="/contact"
+            className="mx-auto lg:mx-0"
+            variant="solid-dark">Get in touch</Button
+          >
+        </div>
       </div>
       <div class="rounded-full mx-auto w-[225px] h-[225px]">
         <Avatar width={225} height={225} />
@@ -109,7 +116,7 @@ const JOB_TITLE = "Full stack developer";
         </div>
       </div>
       <div class="flex-1 self-center">
-        <SectionTitle styles="text-white">
+        <SectionTitle styles="text-gray-900 dark:text-white">
           Java(Type)Script is my playground
         </SectionTitle>
         <SectionDescription styles="text-white">
@@ -136,22 +143,24 @@ const JOB_TITLE = "Full stack developer";
         <div
           class="grid grid-cols-3 md:grid-cols-4 gap-y-12 items-center justify-center"
         >
-          <TechIconWrapper><ReactSVG /></TechIconWrapper>
-          <TechIconWrapper><TailwindSVG /></TechIconWrapper>
-          <TechIconWrapper><GraphqlSVG /></TechIconWrapper>
-          <TechIconWrapper><NextjsSVG /></TechIconWrapper>
-          <TechIconWrapper><JavaScriptSVG /></TechIconWrapper>
-          <TechIconWrapper><AWSLambdaSVG /></TechIconWrapper>
-          <TechIconWrapper><CypressSVG /></TechIconWrapper>
-          <TechIconWrapper><MongoDBSVG /></TechIconWrapper>
-          <TechIconWrapper><GitSVG /></TechIconWrapper>
-          <TechIconWrapper><JestSVG /></TechIconWrapper>
-          <TechIconWrapper><CloudflareSVG /></TechIconWrapper>
-          <TechIconWrapper><AstroSVG /></TechIconWrapper>
-          <TechIconWrapper><HashnodeSVG /></TechIconWrapper>
-          <TechIconWrapper><NodejsSVG /></TechIconWrapper>
-          <TechIconWrapper><FigmaSVG /></TechIconWrapper>
-          <TechIconWrapper><LinearSVG /></TechIconWrapper>
+          <TechIconWrapper title="React"><ReactSVG /></TechIconWrapper>
+          <TechIconWrapper title="TailwindCSS"><TailwindSVG /></TechIconWrapper>
+          <TechIconWrapper title="GraphQL"><GraphqlSVG /></TechIconWrapper>
+          <TechIconWrapper title="Next.js"><NextjsSVG /></TechIconWrapper>
+          <TechIconWrapper title="JavaScript"><JavaScriptSVG /></TechIconWrapper
+          >
+          <TechIconWrapper title="AWS Lambda"><AWSLambdaSVG /></TechIconWrapper>
+          <TechIconWrapper title="Cypress"><CypressSVG /></TechIconWrapper>
+          <TechIconWrapper title="MongoDB"><MongoDBSVG /></TechIconWrapper>
+          <TechIconWrapper title="Git"><GitSVG /></TechIconWrapper>
+          <TechIconWrapper title="Jest"><JestSVG /></TechIconWrapper>
+          <TechIconWrapper title="Cloudflare"><CloudflareSVG /></TechIconWrapper
+          >
+          <TechIconWrapper title="Astro"><AstroSVG /></TechIconWrapper>
+          <TechIconWrapper title="Hashnode"><HashnodeSVG /></TechIconWrapper>
+          <TechIconWrapper title="Node.js"><NodejsSVG /></TechIconWrapper>
+          <TechIconWrapper title="Figma"><FigmaSVG /></TechIconWrapper>
+          <TechIconWrapper title="Linear"><LinearSVG /></TechIconWrapper>
         </div>
       </div>
     </section>
@@ -268,7 +277,7 @@ const JOB_TITLE = "Full stack developer";
         <div
           class="flex items-center justify-center md:justify-start font-light gap-4"
         >
-          <MainNavLinks client:visible />
+          <MainNavLinks asDark client:visible />
         </div>
       </div>
     </footer>

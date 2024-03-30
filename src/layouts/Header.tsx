@@ -53,11 +53,11 @@ export const Header = ({ pathname }: Props) => {
 
         <section className="flex items-center">
           <div className="hidden md:flex md:items-center md:gap-x-8">
-            <MainNavLinks pathname={pathname} />
+            <MainNavLinks pathname={pathname} asDark />
           </div>
 
           <div className="flex items-center gap-x-6 md:gap-x-0 ml-8">
-            <ThemeToggle />
+            {!isActive ? <ThemeToggle /> : null}
 
             <SidebarTrigger pathname={pathname} />
           </div>

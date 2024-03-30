@@ -11,20 +11,28 @@ const MainNavLinks = ({ pathname, showActiveCheck }: Props) => {
   return (
     <>
       <NavLink
-        href="/about"
-        pathname={pathname}
-        showActiveCheck={showActiveCheck}
-        prefetchStrategy="load"
-      >
-        About
-      </NavLink>
-      <NavLink
         href="/blog"
         pathname={pathname}
         prefetchStrategy="load"
         showActiveCheck={showActiveCheck}
       >
         Blog
+      </NavLink>
+      <NavLink
+        href="/skills"
+        pathname={pathname}
+        showActiveCheck={showActiveCheck}
+        prefetchStrategy="load"
+      >
+        Technical skills
+      </NavLink>
+      <NavLink
+        href="/about"
+        pathname={pathname}
+        showActiveCheck={showActiveCheck}
+        prefetchStrategy="load"
+      >
+        About
       </NavLink>
       <NavLink
         href="/contact"

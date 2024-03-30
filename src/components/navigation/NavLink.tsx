@@ -41,7 +41,7 @@ const NavLink = ({
           {...(!isExternal && { "data-astro-prefetch": prefetchStrategy })}
           href={href}
           target={isExternal ? "_blank" : "_self"}
-          className={`flex items-center gap-x-2 rounded-md text-md font-light transition duration-150 ease-in-out outline-none focus:ring ring-offset-gray-900 ring-offset-4 ring-d-tertiary-2 ${
+          className={`flex items-center gap-x-2 whitespace-nowrap rounded-md text-md font-light transition duration-150 ease-in-out outline-none focus:ring ring-offset-gray-900 ring-offset-4 ring-d-tertiary-2 ${
             isActive ? "text-d-tertiary-2" : "text-white"
           }`}
         >

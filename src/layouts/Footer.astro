@@ -3,6 +3,8 @@ import { SocialLinks } from "@components/navigation/SocialLinkFloatingBar";
 import { MainNavLinks } from "@components/navigation/MainNavLinks";
 
 const { asDark } = Astro.props;
+
+const currentYear = new Date().getFullYear();
 ---
 
 <footer
@@ -21,7 +23,7 @@ const { asDark } = Astro.props;
     <div
       class={`text-center md:text-start ${asDark ? "text-white" : "text-black dark:text-white"} text-sm`}
     >
-      Design & functionality by me. &#169;2024 Kieran Roberts
+      Design & build by Kieran Roberts &#169;{currentYear}
     </div>
   </div>
   <div class="flex flex-col gap-4 self-center md:self-end pb-4">

@@ -13,12 +13,11 @@ const Boop = ({ boopConfig, children }: Props) => {
   const { styleToApplyOnBoop, handleBoopTrigger } = useBoop(boopConfig);
 
   return (
-    <animated.span
-      onMouseEnter={handleBoopTrigger}
-      {...(styleToApplyOnBoop && { style: styleToApplyOnBoop })}
-    >
-      {children}
-    </animated.span>
+    <div onMouseEnter={handleBoopTrigger}>
+      <animated.span {...(styleToApplyOnBoop && { style: styleToApplyOnBoop })}>
+        {children}
+      </animated.span>
+    </div>
   );
 };
 

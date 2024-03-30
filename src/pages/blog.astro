@@ -4,7 +4,7 @@ import { LoadMorePosts } from "@components/blog/LoadMorePosts";
 import { fetchPaginatedBlogPosts, getPostsPaginatedData } from "@utils/blog";
 import PageTitle from "@layouts/PageTitle.astro";
 import ScrollUp from "@components/navigation/ScrollUp.astro";
-import { TimelineCard } from "@components/about/TimelineCard";
+import { ArticleCard } from "@components/ArticleCard";
 import { ArrowUp } from "iconoir-react";
 
 const blogPosts = await fetchPaginatedBlogPosts({ first: null, after: null });
@@ -17,14 +17,17 @@ const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(blogPosts);
   url="kieranroberts.dev/contact"
 >
   <main class="px-8 md:px-16 py-16 w-full flex flex-col">
-    <PageTitle>My blog</PageTitle>
+    <PageTitle>Blog</PageTitle>
     <section class="max-w-[600px] mx-auto">
       <div class="flex flex-col gap-y-12">
         {
           postsArray.map((post) => (
             <>
-              <a href={`/blog/${post.slug}`} class="link-focus rounded-xl">
-                <TimelineCard
+              <a
+                href={`/blog/${post.slug}`}
+                class="group link-focus rounded-xl"
+              >
+                <ArticleCard
                   title={post.title}
                   description={post.brief}
                   date={post.publishedAt}

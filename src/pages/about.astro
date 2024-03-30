@@ -2,19 +2,19 @@
 import Layout from "@layouts/Layout.astro";
 import { SocialLinkFloatingBar } from "@components/navigation/SocialLinkFloatingBar";
 import PageTitle from "@layouts/PageTitle.astro";
-import { TimelineCard } from "@components/about/TimelineCard";
+import { ArticleCard } from "@components/ArticleCard";
 import { TIMELINE_ITEMS } from "@utils/consts";
 import EndOfFeed from "@components/blog/EndOfFeed.astro";
 ---
 
 <Layout
   title="About me | Kieran Roberts"
-  description="My name is Kieran and I'm a Software developer for the web with multiple years wortth of experience. Come and find out more about me here."
+  description="My name is Kieran and I'm a JavaScript developer with multiple years of experience. Come and find out more about me here."
   url="kieranroberts.dev/about"
 >
   <main class="px-8 md:px-16 py-16 w-full flex flex-col">
     <PageTitle>Hi! My name is Kieran</PageTitle>
-    <div class="max-w-[650px] mx-auto">
+    <div class="max-w-[1000px] mx-auto">
       <section class="text-lg font-medium prose dark:prose-invert">
         <p>
           Back in 2020 I transitioned from the field of electronic engineering
@@ -53,7 +53,7 @@ import EndOfFeed from "@components/blog/EndOfFeed.astro";
       <section class="flex flex-col gap-4">
         {
           TIMELINE_ITEMS.map((item) => (
-            <TimelineCard
+            <ArticleCard
               date={item.date}
               title={item.title}
               description={item.description}
@@ -74,7 +74,7 @@ import EndOfFeed from "@components/blog/EndOfFeed.astro";
                   </svg>
                 </span>
               ) : null}
-            </TimelineCard>
+            </ArticleCard>
           ))
         }
       </section>
@@ -83,4 +83,3 @@ import EndOfFeed from "@components/blog/EndOfFeed.astro";
   </main>
   <SocialLinkFloatingBar client:load />
 </Layout>
-../components/about/TimelineCard.tsx

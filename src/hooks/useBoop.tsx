@@ -55,6 +55,7 @@ const useBoop = ({
   }, [isBooped, timing]);
 
   const trigger = React.useCallback(() => {
+    console.log("Boop Fire!");
     setIsBooped(true);
   }, []);
 

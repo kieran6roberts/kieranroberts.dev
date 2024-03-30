@@ -5,7 +5,7 @@ import {
   INITIAL_POST_COUNT,
   getPostsPaginatedData,
 } from "@utils/blog";
-import { TimelineCard } from "@components/about/TimelineCard";
+import { ArticleCard } from "@components/ArticleCard";
 import { Button } from "@components/Button";
 
 interface ILoadMorePosts {
@@ -40,7 +40,7 @@ export const LoadMorePosts = ({ cursor, hasNextPage }: ILoadMorePosts) => {
     <>
       {posts.map((post) => (
         <a href={`/blog/${post.slug}`} className="block">
-          <TimelineCard
+          <ArticleCard
             title={post.title}
             description={post.brief}
             date={post.publishedAt}

@@ -23,3 +23,5 @@ export const landingPageCodeMobileExample = `
     reflectThemePreference(theme)
   };
 `;
+
+export const skillsUXExample = ``;

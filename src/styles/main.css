@@ -16,6 +16,12 @@
     font-style: normal;
     src: url('/fonts/Quicksand-Regular.woff2') format('woff2')
   }
+  @font-face {
+    font-family: "Quicksand";
+    font-weight: 500;
+    font-style: normal;
+    src: url('/fonts/Quicksand-Medium.woff2') format('woff2')
+  }
 
   .hero-bg {
     background: linear-gradient(3deg, #6B7FD7, #7c3aed, #6B7FD7);

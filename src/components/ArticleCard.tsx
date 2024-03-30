@@ -9,7 +9,7 @@ interface Props {
   };
 }
 
-export const TimelineCard = (props: Props) => {
+export const ArticleCard = (props: Props) => {
   const displayDate = props.options?.formatDate
     ? new Date(props.date).toLocaleDateString("en-US", {
         weekday: "long",
@@ -19,7 +19,7 @@ export const TimelineCard = (props: Props) => {
       })
     : props.date;
   return (
-    <article className="flex flex-col border dark:border-gray-800 p-4 transform transition-transform duration-500 hover:scale-105 rounded-xl">
+    <article className="flex flex-col border dark:border-gray-800 group-focus:border-none p-4 transform transition-transform duration-500 hover:scale-105 rounded-xl">
       <span className="text-l-secondary font-medium dark:text-d-tertiary-2">
         {displayDate}
       </span>

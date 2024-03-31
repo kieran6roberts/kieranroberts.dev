@@ -8,29 +8,33 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer
-  class={`main-footer relative flex flex-col md:flex-row justify-between items-center gap-y-4 px-20 lg:px-56 py-8 ${asDark ? "bg-[#100114]" : "bg-[#f5f3ed] dark:bg-[#100114]"} border-t border-slate-900`}
+  class={`main-footer relative ${asDark ? "bg-[#100114]" : "bg-[#f5f3ed] dark:bg-[#100114]"} border-t border-slate-900`}
 >
-  <div class="flex flex-col gap-4 items-center md:items-start">
-    <a
-      href="/"
-      class={`text-3xl font-medium ${asDark ? "text-white" : "text-black dark:text-white"}`}
-    >
-      kieranroberts.dev
-    </a>
-    <div class="flex flex-row items-center">
-      <SocialLinks />
+  <div
+    class="flex flex-col md:flex-row justify-between gap-y-4 px-20 lg:px-56 py-8 items-center max-w-[1600px] mx-auto"
+  >
+    <div class="flex flex-col gap-4 items-center md:items-start">
+      <a
+        href="/"
+        class={`text-3xl font-medium ${asDark ? "text-white" : "text-black dark:text-white"}`}
+      >
+        kieranroberts.dev
+      </a>
+      <div class="flex flex-row items-center">
+        <SocialLinks client:visible />
+      </div>
+      <div
+        class={`text-center md:text-start ${asDark ? "text-white" : "text-black dark:text-white"} text-sm`}
+      >
+        Design & build by Kieran Roberts &#169;{currentYear}
+      </div>
     </div>
-    <div
-      class={`text-center md:text-start ${asDark ? "text-white" : "text-black dark:text-white"} text-sm`}
-    >
-      Design & build by Kieran Roberts &#169;{currentYear}
-    </div>
-  </div>
-  <div class="flex flex-col gap-4 self-center md:self-end pb-4">
-    <div
-      class="flex items-center justify-center md:justify-start bg-[#100114] font-light gap-4 py-2 px-6 rounded-xl"
-    >
-      <MainNavLinks asDark client:visible />
+    <div class="flex flex-col gap-4 self-center md:self-end pb-4">
+      <div
+        class="flex items-center justify-center md:justify-start bg-[#100114] font-light gap-4 py-2 px-6 rounded-xl"
+      >
+        <MainNavLinks asDark client:visible />
+      </div>
     </div>
   </div>
 </footer>

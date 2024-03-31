@@ -39,7 +39,7 @@ export const LoadMorePosts = ({ cursor, hasNextPage }: ILoadMorePosts) => {
   return (
     <>
       {posts.map((post) => (
-        <a href={`/blog/${post.slug}`} className="block">
+        <a href={`/blog/${post.slug}`} key={post.id} className="block">
           <ArticleCard
             title={post.title}
             description={post.brief}

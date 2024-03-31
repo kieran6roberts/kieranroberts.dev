@@ -14,3 +14,5 @@ export * from './HashnodeSVG';
 export * from './NodejsSVG';
 export * from './FigmaSVG';
 export * from './LinearSVG';
+export * from './FavoriteBookSVG';
+export * from './SendMailSVG';

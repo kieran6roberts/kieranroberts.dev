@@ -34,10 +34,12 @@ const pathname = new URL(Astro.request.url).pathname;
     style={{
       scrollBehavior: "smooth",
     }}
-    class="mx-auto max-w-[1600px] bg-[#faf8f7] dark:bg-[#100114] dark:text-white"
+    class="bg-[#faf8f7] dark:bg-[#100114] dark:text-white"
   >
-    <Header client:load pathname={pathname} />
-    <slot />
+    <div class="flex flex-col justify-start min-h-[100vh]">
+      <Header client:load pathname={pathname} />
+      <slot />
+    </div>
     {showFooter ? <Footer /> : null}
   </body>
 </html>

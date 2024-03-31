@@ -22,7 +22,7 @@ const NavLink = ({
       {...(!isExternal && { "data-astro-prefetch": prefetchStrategy })}
       href={href}
       target={isExternal ? "_blank" : "_self"}
-      className={`flex items-center justify-between w-full py-3 px-6 gap-x-2 rounded-md text-lg font-light transition duration-150 ease-in-out hover:bg-l-tertiary-2/25 dark:hover:bg-d-primary-dark/25 link-focus ${
+      className={`flex items-center justify-between w-full py-3 px-6 gap-x-2 rounded-md text-lg transition duration-150 ease-in-out hover:bg-l-tertiary-2/25 dark:hover:bg-d-primary-dark/25 link-focus ${
         isActive
           ? "text-l-secondary dark:text-d-tertiary-2"
           : "text-black dark:text-white"

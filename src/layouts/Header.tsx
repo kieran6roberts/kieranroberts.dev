@@ -20,11 +20,11 @@ export const Header = ({ pathname }: Props) => {
   return (
     <header
       ref={headerRef}
-      className="relative transform-none md:sticky z-50 md:top-0 md:left-0"
+      className="relative transform-none bg-[#100114] md:sticky z-50 md:top-0 md:left-0"
     >
       <nav
         role="navigation"
-        className="flex items-center justify-between px-4 md:px-24 py-4 bg-[#100114] border-b dark:border-gray-800"
+        className="flex items-center max-w-[1600px] mx-auto justify-between px-4 md:px-24 py-4 border-b dark:border-gray-800"
       >
         <section className="flex items-center gap-x-2">
           <a

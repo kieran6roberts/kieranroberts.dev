@@ -5,7 +5,7 @@ import { fetchPaginatedBlogPosts, getPostsPaginatedData } from "@utils/blog";
 import PageTitle from "@layouts/PageTitle.astro";
 import ScrollUp from "@components/navigation/ScrollUp.astro";
 import { ArticleCard } from "@components/ArticleCard";
-import { ArrowUp } from "iconoir-react";
+import { ArrowUpSVG } from "@components/icons";
 
 const blogPosts = await fetchPaginatedBlogPosts({ first: null, after: null });
 const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(blogPosts);
@@ -50,6 +50,8 @@ const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(blogPosts);
     </section>
   </main>
   <ScrollUp>
-    <ArrowUp width={16} height={16} />
+    <span class="w-4 h-4 block text-white">
+      <ArrowUpSVG />
+    </span>
   </ScrollUp>
 </Layout>

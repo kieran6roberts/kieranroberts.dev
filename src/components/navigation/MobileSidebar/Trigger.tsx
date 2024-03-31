@@ -1,6 +1,6 @@
 import * as React from "react";
 import { animated } from "react-spring";
-import { Menu } from "iconoir-react";
+import { MenuSVG } from "@components/icons";
 import { Drawer } from "@components/navigation/MobileSidebar/Drawer";
 
 import { useBoop } from "@hooks/useBoop";
@@ -24,15 +24,17 @@ const Trigger = ({ pathname }: Props) => {
   return (
     <>
       <animated.button
+        aria-label="Open sidebar navigation menu"
         ref={triggerRef}
         className="flex items-center justify-center text-white md:hidden link-focus p-2 rounded-full icon-button-hover"
         onClick={toggleOpenDrawer}
         onMouseEnter={handleBoopTrigger}
       >
         <animated.span
+          className="w-6 h-6 block"
           {...(styleToApplyOnBoop && { style: styleToApplyOnBoop })}
         >
-          <Menu width={24} height={24} />
+          <MenuSVG color="#ffffff" />
         </animated.span>
       </animated.button>
       <Drawer

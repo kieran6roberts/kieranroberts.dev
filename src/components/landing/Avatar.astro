@@ -10,11 +10,11 @@ const { width, height, ...restOfProps } = Astro.props;
 ---
 
 <Image
-  src="/src/images/Kieran-Avatar-funky.png"
+  src="/src/images/Kieran-Avatar-funky-min.webp"
   alt="Stylized headshot of Kieran"
   width={width}
   height={height}
   class="z-10 rounded-full border border-l-tertiary-2"
-  loading="eager"
+  loading="lazy"
   {...restOfProps}
 />

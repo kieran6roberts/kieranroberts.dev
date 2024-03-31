@@ -1,5 +1,5 @@
 import * as React from "react";
-import { NavArrowDown, EmojiLookDown } from "iconoir-react";
+import { NavArrowDownSVG, EmojiLookDownSVG } from "@components/icons";
 import {
   fetchPaginatedBlogPosts,
   INITIAL_POST_COUNT,
@@ -51,7 +51,11 @@ export const LoadMorePosts = ({ cursor, hasNextPage }: ILoadMorePosts) => {
       {loading ? (
         <Button
           onClick={() => {}}
-          startIcon={<EmojiLookDown width={24} height={24} />}
+          startIcon={
+            <span className="block w-6 h-6">
+              <EmojiLookDownSVG color="#ffffff" />
+            </span>
+          }
           variant="transparent"
           width="full"
           disabled
@@ -61,7 +65,11 @@ export const LoadMorePosts = ({ cursor, hasNextPage }: ILoadMorePosts) => {
       {hasNext && !loading ? (
         <Button
           onClick={getMore}
-          endIcon={<NavArrowDown width={24} height={24} />}
+          endIcon={
+            <span className="block w-6 h-6">
+              <NavArrowDownSVG color="#ffffff" />
+            </span>
+          }
           iconAnimationSettings={{ y: 4 }}
           variant="transparent"
           width="full"

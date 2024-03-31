@@ -1,6 +1,6 @@
 ---
 import { Button } from "@components/Button";
-import { ArrowUp } from "iconoir-react";
+import { ArrowUpSVG } from "@components/icons";
 ---
 
 <Button
@@ -14,5 +14,7 @@ import { ArrowUp } from "iconoir-react";
   startIcon={null}
   endIcon={null}
 >
-  <ArrowUp width={16} height={16} />
+  <span class="block w-4 h-4 text-white">
+    <ArrowUpSVG />
+  </span>
 </Button>

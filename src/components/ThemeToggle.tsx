@@ -1,4 +1,4 @@
-import { SunLight, HalfMoon } from "iconoir-react";
+import { SunLightSVG, HalfMoonSVG } from "@components/icons";
 import * as React from "react";
 import { animated } from "react-spring";
 import { useStore } from "@nanostores/react";
@@ -38,8 +38,15 @@ const ThemeToggle = () => {
       disabled={$theme === null}
       {...(styleToApplyOnBoop && { style: styleToApplyOnBoop })}
     >
-      <animated.span style={styleToApplyOnBoop}>
-        {isDarkTheme ? <SunLight width={24} /> : <HalfMoon width={24} />}
+      <animated.span
+        style={styleToApplyOnBoop}
+        className="block text-white w-6 h-6"
+      >
+        {isDarkTheme ? (
+          <SunLightSVG color="#ffffff" />
+        ) : (
+          <HalfMoonSVG color="#ffffff" />
+        )}
       </animated.span>
     </button>
   );

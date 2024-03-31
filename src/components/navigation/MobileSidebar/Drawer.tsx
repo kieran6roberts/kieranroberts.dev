@@ -1,6 +1,6 @@
 import { useSpring, animated } from "react-spring";
 import { useClickAway, useWindowSize } from "@uidotdev/usehooks";
-import { Xmark } from "iconoir-react";
+import { XMarkSVG } from "@components/icons";
 import * as React from "react";
 
 import { useBoop } from "@hooks/useBoop";
@@ -96,6 +96,7 @@ const Drawer = ({ show, closeDrawer, triggerRef, pathname }: Props) => {
           }`}
         >
           <button
+            aria-label="Close sidebar navigation"
             onClick={closeDrawer}
             className={`absolute top-5 right-5 p-1.5 ${
               isHomepage ? "text-white" : "text-black dark:text-white"
@@ -103,9 +104,10 @@ const Drawer = ({ show, closeDrawer, triggerRef, pathname }: Props) => {
             onMouseEnter={handleBoopTrigger}
           >
             <animated.span
+              className="block w-6 h-6 text-black dark:text-white"
               {...(styleToApplyOnBoop && { style: styleToApplyOnBoop })}
             >
-              <Xmark width={24} height={24} />
+              <XMarkSVG />
             </animated.span>
           </button>
 

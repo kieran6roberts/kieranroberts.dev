@@ -4,6 +4,7 @@ import { HoverUnderline } from "./HoverUnderline";
 import type { PrefetchStrategy } from "../../types/links";
 import { PrefetchStrategyEnum } from "../../types/links";
 import { formatPathname } from "@utils/urls";
+import { CheckSVG } from "@components/icons";
 
 export type NavLinkProps =
   | {
@@ -30,6 +31,7 @@ const NavLink = ({
   isExternal,
   pathname,
   prefetchStrategy = PrefetchStrategyEnum.HOVER,
+  showActiveCheck,
   children,
   asDark,
 }: NavLinkProps) => {
@@ -59,6 +61,11 @@ const NavLink = ({
         </a>
         <HoverUnderline isLinkActive={isActive} />
       </div>
+      {isActive && showActiveCheck ? (
+        <span className="block w-6 h-6 bg-white dark:bg-[#100114] text-l-secondary dark:text-d-tertiary-2">
+          <CheckSVG />
+        </span>
+      ) : null}
     </div>
   );
 };

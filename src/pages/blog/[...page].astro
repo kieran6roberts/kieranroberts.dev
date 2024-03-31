@@ -1,6 +1,6 @@
 ---
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
-import { ArrowUp } from "iconoir-react";
+import { ArrowUpSVG } from "@components/icons";
 import Layout from "@layouts/Layout.astro";
 import { getAllPostPagePosts } from "@utils/blog";
 import MarkdownToHTML from "@components/blog/MarkdownToHTML.astro";
@@ -53,6 +53,8 @@ const contentMarkdown = post.content.markdown;
     </section>
   </main>
   <ScrollUp>
-    <ArrowUp width={16} height={16} />
+    <span class="block w-4 h-4 text-white">
+      <ArrowUpSVG />
+    </span>
   </ScrollUp>
 </Layout>

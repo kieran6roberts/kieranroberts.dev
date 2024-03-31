@@ -14,7 +14,7 @@ const MainNavLinks = ({ pathname, showActiveCheck, asDark }: Props) => {
       <NavLink
         href="/blog"
         pathname={pathname}
-        prefetchStrategy="load"
+        prefetchStrategy="hover"
         showActiveCheck={showActiveCheck}
         asDark={!!asDark}
       >
@@ -24,7 +24,7 @@ const MainNavLinks = ({ pathname, showActiveCheck, asDark }: Props) => {
         href="/skills"
         pathname={pathname}
         showActiveCheck={showActiveCheck}
-        prefetchStrategy="load"
+        prefetchStrategy="hover"
         asDark={!!asDark}
       >
         Skills
@@ -33,7 +33,7 @@ const MainNavLinks = ({ pathname, showActiveCheck, asDark }: Props) => {
         href="/about"
         pathname={pathname}
         showActiveCheck={showActiveCheck}
-        prefetchStrategy="load"
+        prefetchStrategy="hover"
         asDark={!!asDark}
       >
         About
@@ -42,7 +42,7 @@ const MainNavLinks = ({ pathname, showActiveCheck, asDark }: Props) => {
         href="/contact"
         pathname={pathname}
         showActiveCheck={showActiveCheck}
-        prefetchStrategy="load"
+        prefetchStrategy="hover"
         asDark={!!asDark}
       >
         Contact

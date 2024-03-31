@@ -8,7 +8,7 @@ export const CTAButtons = () => {
   const [ref2, isHoveringContactBtn] = useHover();
 
   return (
-    <div className="flex flex-col justify-center md:justify-start md:flex-row items-center gap-2">
+    <div className="flex flex-col justify-center lg:justify-start md:flex-row items-center gap-2">
       <Button
         ref={ref1}
         asLink
@@ -18,7 +18,7 @@ export const CTAButtons = () => {
         iconAnimationSettings={{ scale: 1.1 }}
         endIcon={
           <span className="block text-slate-500 w-6 h-6">
-            <FavoriteBookSVG clas hoverFill={isHoveringBlogBtn} />
+            <FavoriteBookSVG hoverFill={isHoveringBlogBtn} />
           </span>
         }
       >

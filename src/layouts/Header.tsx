@@ -1,4 +1,4 @@
-import { Code } from "iconoir-react";
+import { CodeSVG } from "@components/icons";
 import * as React from "react";
 import { MainNavLinks } from "@components/navigation/MainNavLinks";
 import ThemeToggle from "@components/ThemeToggle.tsx";
@@ -33,19 +33,18 @@ export const Header = ({ pathname }: Props) => {
           >
             <div className="hidden w-max rounded-full mx-auto lg:mx-0 lg:block">
               <img
-                src="/src/images/Kieran-Avatar-funky.png"
+                src="/src/images/Kieran-Avatar-funky-min.webp"
                 alt="Headshot of Kieran Roberts"
                 width="40"
                 height="40"
+                loading="eager"
                 className="rounded-full border border-l-tertiary-2"
               />
             </div>
             <div className="flex items-center text-white text-xl font-light gap-x-2">
               kieranroberts.dev
-              <span
-                className={`${isActive ? "text-l-tertiary-2" : "text-white"}`}
-              >
-                <Code width={24} height={24} />
+              <span className="block w-6 h-6">
+                <CodeSVG color={isActive ? "#97EC77" : "#ffffff"} />
               </span>
             </div>
           </a>

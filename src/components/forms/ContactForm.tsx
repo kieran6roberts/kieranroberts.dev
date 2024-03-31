@@ -3,12 +3,11 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import type { SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { SendMail } from "iconoir-react";
+import { SendMailSVG, CheckSVG } from "@components/icons";
 import { ErrorMessage } from "@hookform/error-message";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { useStore } from "@nanostores/react";
 import toast, { Toaster } from "react-hot-toast";
-import { Check } from "iconoir-react";
 import { useSpring, animated } from "react-spring";
 import { Button } from "@components/Button";
 
@@ -256,22 +255,28 @@ export const ContactForm = () => {
               className="mt-8"
             >
               {isSubmitting ? (
-                <animated.span style={{ ...submittingSpring }}>
-                  <SendMail width={24} height={24} />
+                <animated.span
+                  style={{ ...submittingSpring }}
+                  className="block text-white stroke-current w-6 h-6"
+                >
+                  <SendMailSVG />
                 </animated.span>
               ) : (
                 <>
                   <span>Finish and send</span>
-                  <span>
-                    <SendMail width={24} height={24} />
+                  <span className="block text-white stroke-current w-6 h-6">
+                    <SendMailSVG />
                   </span>
                 </>
               )}
             </Button>
           ) : (
             <div className="flex items-center mt-8 mx-auto bg-[#100114] border-[#100114] dark:border-d-tertiary-2 text-white dark:text-d-tertiary-2 p-2.5 rounded-full border-2">
-              <animated.span style={{ ...submittedSpring }}>
-                <Check width={20} height={20} strokeWidth={2.5} />
+              <animated.span
+                style={{ ...submittedSpring }}
+                className="w-5 h-5 block"
+              >
+                <CheckSVG />
               </animated.span>
             </div>
           )}

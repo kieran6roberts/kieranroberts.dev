@@ -33,7 +33,7 @@ import {
 import { CTAButtons } from "@components/landing/CTAButtons";
 
 const JOB_DESCRIPTION =
-  "Working at a fast paced startup in the tech industry. Hashnode are one of the leading players in the online blogging space, tailored to software developers and technical writers. It's where I started my blogging journey and it's GraphQL API's power my headless blog today";
+  "Working at a fast paced startup in the tech industry is becoming one of the leading players in the online blogging space, tailored to software developers and technical writers. It's where I started my blogging journey and it's GraphQL API's power my headless blog today.";
 const JOB_TITLE = "Full stack developer";
 ---
 
@@ -47,7 +47,7 @@ const JOB_TITLE = "Full stack developer";
           <h1
             class="font-header text-4xl md:text-5xl lg:text-6xl mb-6 capitalize font-normal text-center lg:text-left"
           >
-            <span class="text-[1.3em] text-white"
+            <span class="text-[1.2em] text-white"
               >full stack <span class="md:hidden">js,</span><span
                 class="hidden md:inline-block">javaScript,</span
               ></span
@@ -55,18 +55,27 @@ const JOB_TITLE = "Full stack developer";
 
             <span class="bg-[#100114] rounded-lg py-1 px-2">
               <span
-                class="text-[1.1em] bg-clip-text text-transparent bg-gradient-to-br from-blue-600 via-violet-600 to-violet-600 bg-transparent bg-[length:400%_400%] px-3 rounded-lg"
+                class="text-[1em] bg-clip-text text-transparent bg-gradient-to-br from-blue-300 via-violet-300 to-violet-400 bg-transparent bg-[length:400%_400%] px-3 rounded-lg"
                 >UI/UX specialist,</span
               ><br />
             </span>
             <span class="text-[0.9em] text-l-tertiary-2">builder</span>
           </h1>
           <p
-            class="hidden lg:block text-white prose font-medium mb-6 text-xl max-w-[75%] lg:max-w-[580px] mx-auto lg:mx-0 text-left"
+            class="hidden lg:block text-white prose mb-6 text-xl max-w-[75%] lg:max-w-[620px] mx-auto lg:mx-0 text-left"
           >
-            I build fast, accessible, and responsive sites for the modern web.
-            With industry experience working on complex projects supporting
-            thousands of active users, I love what I do!
+            I build <span
+              class="bg-[#100114] inline-block w-max transform -rotate-1 transition-transform duration-300 hover:rotate-0 font-medium px-px rounded-md"
+              >fast</span
+            >,
+            <span
+              class="bg-[#100114] inline-block w-max transform rotate-1 transition-transform duration-300 hover:rotate-0 font-medium px-px rounded-md"
+              >accessible</span
+            >, and <span
+              class="bg-[#100114] inline-block w-max transform -rotate-1 transition-transform duration-300 hover:rotate-0 font-medium px-px rounded-md"
+              >responsive</span
+            > sites for the modern web. With industry experience working on complex
+            projects supporting thousands of active users. I love what I do!
           </p>
           <CTAButtons client:load />
         </div>
@@ -133,30 +142,38 @@ const JOB_TITLE = "Full stack developer";
           <div
             class="grid grid-cols-3 md:grid-cols-4 gap-y-12 items-center justify-center"
           >
-            <TechIconWrapper title="React"><ReactSVG /></TechIconWrapper>
+            <TechIconWrapper title="JavaScript"
+              ><JavaScriptSVG /></TechIconWrapper
+            >
             <TechIconWrapper title="TailwindCSS"
               ><TailwindSVG /></TechIconWrapper
             >
             <TechIconWrapper title="GraphQL"><GraphqlSVG /></TechIconWrapper>
-            <TechIconWrapper title="Next.js"><NextjsSVG /></TechIconWrapper>
-            <TechIconWrapper title="JavaScript"
-              ><JavaScriptSVG /></TechIconWrapper
+            <TechIconWrapper title="React"><ReactSVG /></TechIconWrapper>
+            <TechIconWrapper isDark title="Next.js"
+              ><NextjsSVG /></TechIconWrapper
             >
             <TechIconWrapper title="AWS Lambda"
               ><AWSLambdaSVG /></TechIconWrapper
             >
-            <TechIconWrapper title="Cypress"><CypressSVG /></TechIconWrapper>
             <TechIconWrapper title="MongoDB"><MongoDBSVG /></TechIconWrapper>
             <TechIconWrapper title="Git"><GitSVG /></TechIconWrapper>
             <TechIconWrapper title="Jest"><JestSVG /></TechIconWrapper>
+            <TechIconWrapper isDark title="Cypress"
+              ><CypressSVG /></TechIconWrapper
+            >
             <TechIconWrapper title="Cloudflare"
               ><CloudflareSVG /></TechIconWrapper
             >
             <TechIconWrapper title="Astro"><AstroSVG /></TechIconWrapper>
             <TechIconWrapper title="Hashnode"><HashnodeSVG /></TechIconWrapper>
-            <TechIconWrapper title="Node.js"><NodejsSVG /></TechIconWrapper>
+            <TechIconWrapper isDark title="Node.js"
+              ><NodejsSVG /></TechIconWrapper
+            >
             <TechIconWrapper title="Figma"><FigmaSVG /></TechIconWrapper>
-            <TechIconWrapper title="Linear"><LinearSVG /></TechIconWrapper>
+            <TechIconWrapper isDark title="Linear"
+              ><LinearSVG /></TechIconWrapper
+            >
           </div>
         </div>
       </section>
@@ -194,8 +211,8 @@ const JOB_TITLE = "Full stack developer";
               class="text-l-tertiary-2 text-right peer:hover:text-white text-base md:text-lg"
               >May 10th, 2021 - Present</span
             >
-            <h3 class="text-left text-[1.1em] font-semibold pl-8 text-white">
-              Some of my responsibilities
+            <h3 class="text-left text-[1.1em] font-semibold text-white">
+              Responsibilities
             </h3>
             <ul class="flex flex-col gap-y-4 text-white/80 text-left">
               <ListItem>
@@ -204,7 +221,7 @@ const JOB_TITLE = "Full stack developer";
                 open source component library.
               </ListItem>
               <ListItem>
-                Bulding fully fledged full-stack features from the ground up,
+                Building fully fledged full-stack features from the ground up,
                 through from concept to conception. Working across UI/UX, AWS
                 based infrastructure, and public GraphQL API's.
               </ListItem>
@@ -266,7 +283,7 @@ const JOB_TITLE = "Full stack developer";
             <SocialLinks client:visible asDark />
           </div>
           <div class="text-center md:text-start text-white text-sm">
-            Design & functionality by me. &#169;2024 Kieran Roberts
+            Design & functionality by Kieran Roberts &#169;2024
           </div>
         </div>
         <div class="flex flex-col gap-4 self-center md:self-end pb-4">

@@ -100,7 +100,7 @@ export const Button = React.forwardRef<
           {...{ "data-astro-prefetch": "hover" }}
           ref={forwardedRef as React.ForwardedRef<HTMLAnchorElement>}
           href={href}
-          className={`flex items-center gap-2 font-medium rounded-full transition-colors duration-100 focus:ring outline-none ring-offset-4 px-4 py-3 ${
+          className={`flex items-center gap-2 font-medium rounded-full transition-colors duration-100 focus:ring outline-none ring-offset-4 px-3 py-2 md:px-4 md:py-3 ${
             className ?? ""
           } ${buttonVariants[variant]} ${buttonWidth[width]}`}
           onMouseEnter={() => {

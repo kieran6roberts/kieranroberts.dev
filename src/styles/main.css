@@ -27,12 +27,12 @@
   }
 
   .hero-bg {
-    background: linear-gradient(3deg, #6B7FD7, #7c3aed, #6B7FD7);
+    background: linear-gradient(35deg, #6B7FD7,  #7c3aed, #1c8a72, #6B7FD7);
     background-size: 600% 600%;
 
-    -webkit-animation: wave 16s ease infinite;
-    -moz-animation: wave 16s ease infinite;
-    animation: wave 16s ease infinite;
+    -webkit-animation: wave 7s ease infinite;
+    -moz-animation: wave 7s ease infinite;
+    animation: wave 7s ease infinite;
   }
 
     @-webkit-keyframes wave {

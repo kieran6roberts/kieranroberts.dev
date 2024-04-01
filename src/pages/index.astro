@@ -4,7 +4,6 @@ import { Code } from "astro-expressive-code/components";
 import { SocialLinks } from "@components/navigation/SocialLinkFloatingBar";
 import { MainNavLinks } from "@components/navigation/MainNavLinks";
 import SectionTitle from "@components/landing/SectionTitle.astro";
-import ListItem from "@components/landing/ListItem.astro";
 import TechIconWrapper from "@components/landing/TechIconWrapper.astro";
 import SectionDescription from "@components/landing/SectionDescription.astro";
 import { Button } from "@components/Button";
@@ -33,7 +32,7 @@ import {
 import { CTAButtons } from "@components/landing/CTAButtons";
 
 const JOB_DESCRIPTION =
-  "Working at a fast paced startup in the tech industry is becoming one of the leading players in the online blogging space, tailored to software developers and technical writers. It's where I started my blogging journey and it's GraphQL API's power my headless blog today.";
+  "Working at a fast paced tech startup, Hashnode offers various tools and solutions for software developers and technical writers in the online blogging space. It's where I started my blogging journey and it's GraphQL API's power my headless blog today.";
 const JOB_TITLE = "Full stack developer";
 ---
 
@@ -47,16 +46,17 @@ const JOB_TITLE = "Full stack developer";
           <h1
             class="font-header text-4xl md:text-5xl lg:text-6xl mb-6 capitalize font-normal text-center lg:text-left"
           >
+            <span class="block text-[0.4em] pl-4">Kieran Roberts</span>
             <span class="text-[1.2em] text-white"
-              >full stack <span class="md:hidden">js,</span><span
-                class="hidden md:inline-block">javaScript,</span
+              >full stack <span class="md:hidden">js</span><span
+                class="hidden md:inline-block">javaScript</span
               ></span
             ><br />
 
             <span class="bg-[#100114] rounded-lg py-1 px-2">
               <span
                 class="text-[1em] bg-clip-text text-transparent bg-gradient-to-br from-blue-300 via-violet-300 to-violet-400 bg-transparent bg-[length:400%_400%] px-3 rounded-lg"
-                >UI/UX specialist,</span
+                >UI/UX specialist</span
               ><br />
             </span>
             <span class="text-[0.9em] text-l-tertiary-2">builder</span>
@@ -74,8 +74,9 @@ const JOB_TITLE = "Full stack developer";
             >, and <span
               class="bg-[#100114] inline-block w-max transform -rotate-1 transition-transform duration-300 hover:rotate-0 font-medium px-px rounded-md"
               >responsive</span
-            > sites for the modern web. With industry experience working on complex
-            projects supporting thousands of active users. I love what I do!
+            > sites for the modern web. With mutliple years worth of industry experience
+            working on projects supporting thousands of active users. I love what
+            I do!
           </p>
           <CTAButtons client:load />
         </div>
@@ -96,10 +97,10 @@ const JOB_TITLE = "Full stack developer";
           >
             <Code
               code={landingPageCodeDesktopExample}
-              lang="tsx"
+              lang="ts"
               wrap
               frame="code"
-              title="Thanks for visiting!"
+              title="+1 for an accessible web"
             />
           </div>
           <div
@@ -110,7 +111,7 @@ const JOB_TITLE = "Full stack developer";
               lang="tsx"
               wrap
               frame="code"
-              title="Thanks for visiting!"
+              title="Who doesn't love themes"
             />
           </div>
         </div>
@@ -119,8 +120,12 @@ const JOB_TITLE = "Full stack developer";
             Java(Type)Script is my playground
           </SectionTitle>
           <SectionDescription styles="text-white">
-            Slightly ironic since this site is built using Astro which ships no
-            JavaScript by default.
+            But only when JavaScript is required. For example this site is built
+            with <a
+              href="https://astro.build/"
+              class="text-d-tertiary-2 underline"
+              aria-label="Astro, opens in new tab">Astro</a
+            > to reduce the JavaScript overhead.
           </SectionDescription>
         </div>
       </section>
@@ -131,8 +136,8 @@ const JOB_TITLE = "Full stack developer";
           <SectionTitle styles="text-black"> Tech I work with </SectionTitle>
           <div class="flex flex-col gap-8 items-center">
             <SectionDescription styles="text-black">
-              I'm always looking to learn new things, but always strive to use
-              the right tool for the job.
+              I'm always looking to learn new things and strive to pick the
+              right tool for the job.
             </SectionDescription>
 
             <Button client:visible asLink href="/skills">See my skills</Button>
@@ -178,8 +183,8 @@ const JOB_TITLE = "Full stack developer";
         </div>
       </section>
       <section class="bg-[#100114] py-32 px-1 sm:px-4 md:px-16">
-        <SectionTitle styles="text-white max-w-[90%] mx-auto">
-          What am I currently working on?
+        <SectionTitle styles="text-white max-w-[90%] md:max-w-[500px] mx-auto">
+          Current Status
         </SectionTitle>
         {/* Mobile What am I working on */}
         <div class="flex flex-col gap-y-4 md:hidden px-8 mb-8">
@@ -206,43 +211,13 @@ const JOB_TITLE = "Full stack developer";
 
         {/* Desktop What am I working on */}
         <div class="hidden md:grid grid-cols-[1fr_3px_1fr] pt-20 pb-12">
-          <div class="flex flex-col gap-y-8 mx-5 mb-5 font-medium">
-            <span
-              class="text-l-tertiary-2 text-right peer:hover:text-white text-base md:text-lg"
-              >May 10th, 2021 - Present</span
-            >
-            <h3 class="text-left text-[1.1em] font-semibold text-white">
-              Responsibilities
-            </h3>
-            <ul class="flex flex-col gap-y-4 text-white/80 text-left">
-              <ListItem>
-                Working closely with desing team to build accessible and
-                interactive UI for our product, including our development of an
-                open source component library.
-              </ListItem>
-              <ListItem>
-                Building fully fledged full-stack features from the ground up,
-                through from concept to conception. Working across UI/UX, AWS
-                based infrastructure, and public GraphQL API's.
-              </ListItem>
-              <ListItem>
-                Code review, internal documentation, product testing, issue
-                crafting, and writing for our blogs are all part of the day to
-                day activities.
-              </ListItem>
-            </ul>
-          </div>
-          <div class="relative bg-white w-px h-full">
-            <span
-              class="w-4 h-4 rounded-full bg-white absolute top-0 left-1/2 transform -translate-x-[50%]"
-            ></span>
-          </div>
           <a
             href="https://hashnode.com"
             target="_blank"
             rel="noopener"
-            class="block mx-1 md:mx-5 mb-5 text-left hover:bg-d-primary-darkest/20 p-4 lg:p-8 rounded-xl text-xl text-white border border-gray-800 outline-none focus:ring-2 focus:ring-offset-gray-900 focus:ring-d-tertiary-2 focus:ring-offset-4"
+            class="flex flex-col justify-center mx-1 md:mx-5 mb-5 rounded-xl text-left hover:bg-d-primary-darkest/20 p-4 lg:p-8 text-xl text-white outline-none focus:ring-2 focus:ring-offset-gray-900 focus:ring-d-tertiary-2 focus:ring-offset-4"
           >
+            <span class="text-base mb-1 text-d-tertiary-2">Employed</span>
             <h2 class="flex flex-col gap-2 mb-4 text-white">
               {JOB_TITLE}
 
@@ -257,10 +232,43 @@ const JOB_TITLE = "Full stack developer";
                   fill="fill-current"></path>
               </svg>
             </h2>
-            <p class="text-base md:text-xl text-white/75">
+            <p class="text-base font-medium md:text-xl text-white">
               {JOB_DESCRIPTION}
             </p>
           </a>
+          <div class="relative bg-white w-px h-full">
+            <span
+              class="w-4 h-4 rounded-full bg-white absolute top-0 left-1/2 transform -translate-x-[50%]"
+            ></span>
+          </div>
+          <div class="flex flex-col gap-y-8 mx-5 mb-5 font-medium">
+            <span
+              class="text-l-tertiary-2 text-left peer:hover:text-white text-base md:text-lg"
+              >May 10th, 2021 - Present</span
+            >
+            <!-- <h3 class="text-left text-[1.1em] font-semibold text-white">
+            Responsibilities
+          </h3> -->
+            <ul
+              class="flex flex-col prose text-xl dark:prose-invert gap-y-4 text-white/75 text-left"
+            >
+              <li class="flex items-start gap-2">
+                Working closely with the design team to build accessible and
+                interactive UI's for our product, powering our component
+                library.
+              </li>
+              <li class="flex items-start gap-2">
+                Building full stack features from the ground up, through from
+                concept to conception. Working across UI/UX, AWS based
+                infrastructure, and public/internal GraphQL API's.
+              </li>
+              <li class="flex items-start gap-2">
+                Code review, internal documentation, product testing, issue
+                crafting, and writing for our blogs are all part of the day to
+                day activities.
+              </li>
+            </ul>
+          </div>
         </div>
         <Button
           client:visible
@@ -283,7 +291,7 @@ const JOB_TITLE = "Full stack developer";
             <SocialLinks client:visible asDark />
           </div>
           <div class="text-center md:text-start text-white text-sm">
-            Design & functionality by Kieran Roberts &#169;2024
+            Design & build by Kieran Roberts &#169;2024
           </div>
         </div>
         <div class="flex flex-col gap-4 self-center md:self-end pb-4">

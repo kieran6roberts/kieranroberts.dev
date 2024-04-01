@@ -8,7 +8,9 @@ import { ArticleCard } from "@components/ArticleCard";
 import { ArrowUpSVG } from "@components/icons";
 
 const blogPosts = await fetchPaginatedBlogPosts({ first: null, after: null });
-const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(blogPosts);
+const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(
+  blogPosts as any
+);
 ---
 
 <Layout
@@ -42,7 +44,7 @@ const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(blogPosts);
             <LoadMorePosts
               client:visible
               hasNextPage={hasNextPage}
-              cursor={cursor}
+              cursor={cursor as any}
             />
           ) : null
         }

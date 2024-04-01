@@ -29,10 +29,10 @@ export const LoadMorePosts = ({ cursor, hasNextPage }: ILoadMorePosts) => {
       cursor,
       hasNextPage: _hasNextPage,
       postsArray,
-    } = getPostsPaginatedData(blogPosts);
+    } = getPostsPaginatedData(blogPosts as any);
     setPosts(postsArray);
-    setCurrentCursor(cursor);
-    setHasNext(_hasNextPage);
+    setCurrentCursor(cursor as any);
+    setHasNext(_hasNextPage as any);
     setLoading(false);
   };
 

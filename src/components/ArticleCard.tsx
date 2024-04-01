@@ -20,7 +20,7 @@ export const ArticleCard = (props: Props) => {
     : props.date;
   return (
     <article className="flex flex-col border dark:border-gray-800 group-focus:border-none p-4 transform transition-transform duration-500 hover:scale-105 rounded-xl">
-      <span className="text-l-secondary font-medium dark:text-d-tertiary-2">
+      <span className="text-white w-max rounded-xl px-2 py-px bg-black font-medium dark:text-d-tertiary-2">
         {displayDate}
       </span>
       <h2 className="flex flex-row items-center text-xl font-semibold flex-wrap gap-2 mb-4 mt-2">

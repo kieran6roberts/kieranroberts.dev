@@ -87,7 +87,7 @@ export const ContactForm = () => {
     reValidateMode: "onBlur",
   });
 
-  const { errors, isSubmitted } = formState;
+  const { errors } = formState;
 
   const emailError = errors?.email;
   const messageError = errors?.message;

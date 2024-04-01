@@ -4,9 +4,8 @@ import react from "@astrojs/react";
 import expressiveCode from "astro-expressive-code";
 import { FontaineTransform } from 'fontaine';
 
-
-// https://astro.build/config
 export default defineConfig({
+  site: "https://kieranroberts.dev",
   vite: {
     plugins: [
       FontaineTransform.vite({

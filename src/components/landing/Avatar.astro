@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import AvatarImage from "@images/Kieran-Avatar-funky-min.webp";
 
 type Props = {
   width: number;
@@ -10,7 +11,7 @@ const { width, height, ...restOfProps } = Astro.props;
 ---
 
 <Image
-  src="/src/images/Kieran-Avatar-funky-min.webp"
+  src={AvatarImage}
   alt="Stylized headshot of Kieran"
   width={width}
   height={height}

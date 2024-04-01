@@ -5,6 +5,7 @@ import ThemeToggle from "@components/ThemeToggle.tsx";
 import { Trigger as SidebarTrigger } from "@components/navigation/MobileSidebar/Trigger";
 import useStickyScroll from "@hooks/useStickyHeader";
 import { usePrefersReducedMotion } from "@hooks/usePrefersReducedMotion";
+import AvatarImage from "@images/Kieran-Avatar-funky-min.webp";
 
 interface Props {
   pathname: string;
@@ -33,7 +34,7 @@ export const Header = ({ pathname }: Props) => {
           >
             <div className="hidden w-max rounded-full mx-auto lg:mx-0 lg:block">
               <img
-                src="/src/images/Kieran-Avatar-funky-min.webp"
+                src={AvatarImage.src}
                 alt="Headshot of Kieran Roberts"
                 width="40"
                 height="40"

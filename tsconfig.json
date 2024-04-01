@@ -21,6 +21,12 @@
       "@hooks/*": [
         "src/hooks/*"
       ],
+      "@styles/*": [
+        "src/styles/*"
+      ],
+      "@stores/*": [
+        "src/stores/*"
+      ],
     },
   }
 }

@@ -6,7 +6,7 @@ import { getAllPostPagePosts } from "@utils/blog";
 import MarkdownToHTML from "@components/blog/MarkdownToHTML.astro";
 import ScrollUp from "@components/navigation/ScrollUp.astro";
 
-import "../../styles/highlight.css";
+import "@styles/highlight.css";
 
 export const getStaticPaths = (async () => {
   const allBlogPosts = await getAllPostPagePosts();

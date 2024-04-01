@@ -7,7 +7,6 @@ import SectionTitle from "@components/landing/SectionTitle.astro";
 import ListItem from "@components/landing/ListItem.astro";
 import TechIconWrapper from "@components/landing/TechIconWrapper.astro";
 import SectionDescription from "@components/landing/SectionDescription.astro";
-import Avatar from "@components/landing/Avatar.astro";
 import { Button } from "@components/Button";
 import {
   landingPageCodeDesktopExample,
@@ -44,11 +43,14 @@ const JOB_TITLE = "Full stack developer";
       <section
         class="hero-bg flex flex-col lg:flex-row items-center rounded-bl-3xl rounded-br-3xl gap-y-12 py-32 px-4 lg:px-16"
       >
-        <div class="flex flex-col max-w-[95%] lg:w-[700px] xl:w-[950px]">
+        <div class="flex flex-col mx-auto max-w-[95%]">
           <h1
-            class="font-header text-3xl h-[155px] lg:h-[170px] md:text-4xl lg:text-5xl mb-6 capitalize font-normal text-center lg:text-left"
+            class="font-header text-4xl md:text-5xl lg:text-6xl mb-6 capitalize font-normal text-center lg:text-left"
           >
-            <span class="text-[1.3em] text-white">full stack javaScript,</span
+            <span class="text-[1.3em] text-white"
+              >full stack <span class="md:hidden">js,</span><span
+                class="hidden md:inline-block">javaScript,</span
+              ></span
             ><br />
 
             <span class="bg-[#100114] rounded-lg py-1 px-2">
@@ -68,9 +70,9 @@ const JOB_TITLE = "Full stack developer";
           </p>
           <CTAButtons client:load />
         </div>
-        <div class="rounded-full mx-auto w-[225px] h-[225px]">
+        <!-- <div class="rounded-full mx-auto w-[225px] h-[225px]">
           <Avatar width={225} height={225} />
-        </div>
+        </div> -->
       </section>
 
       <section
@@ -108,8 +110,8 @@ const JOB_TITLE = "Full stack developer";
             Java(Type)Script is my playground
           </SectionTitle>
           <SectionDescription styles="text-white">
-            Which is ironic since this site is built using Astro which ships no
-            JavaScript by default 😄.
+            Slightly ironic since this site is built using Astro which ships no
+            JavaScript by default.
           </SectionDescription>
         </div>
       </section>

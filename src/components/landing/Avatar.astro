@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import AvatarImage from "@images/Kieran-Avatar-funky-min.webp";
+import AvatarImage from "@assets/Kieran-Avatar-funky-min.webp";
 
 type Props = {
   width: number;
@@ -16,6 +16,7 @@ const { width, height, ...restOfProps } = Astro.props;
   width={width}
   height={height}
   class="z-10 rounded-full border border-l-tertiary-2"
+  quality="high"
   loading="lazy"
   {...restOfProps}
 />

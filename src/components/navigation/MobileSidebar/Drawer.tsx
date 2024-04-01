@@ -104,7 +104,9 @@ const Drawer = ({ show, closeDrawer, triggerRef, pathname }: Props) => {
             onMouseEnter={handleBoopTrigger}
           >
             <animated.span
-              className="block w-6 h-6 text-black dark:text-white"
+              className={`block w-6 h-6 ${
+                isHomepage ? "text-white" : "text-black dark:text-white"
+              }`}
               {...(styleToApplyOnBoop && { style: styleToApplyOnBoop })}
             >
               <XMarkSVG />

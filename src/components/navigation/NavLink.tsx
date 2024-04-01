@@ -59,10 +59,16 @@ const NavLink = ({
         >
           {children}
         </a>
-        <HoverUnderline isLinkActive={isActive} />
+        <HoverUnderline isLinkActive={isActive} asDark={asDark} />
       </div>
       {isActive && showActiveCheck ? (
-        <span className="block w-6 h-6 bg-white dark:bg-[#100114] text-l-secondary dark:text-d-tertiary-2">
+        <span
+          className={`block w-6 h-6 ${
+            asDark
+              ? "bg-[#100114] text-d-tertiary-2"
+              : "bg-white dark:bg-[#100114] text-l-secondary dark:text-d-tertiary-2"
+          } `}
+        >
           <CheckSVG />
         </span>
       ) : null}

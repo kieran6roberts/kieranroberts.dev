@@ -3,16 +3,17 @@ import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import expressiveCode from "astro-expressive-code";
 import { FontaineTransform } from 'fontaine';
+import sitemap from "@astrojs/sitemap";
 
+// https://astro.build/config
 export default defineConfig({
-  site: "https://kieranroberts.dev",
+  // site: "https://kieranroberts.dev", Once custom domain is in use
+  site: "https://kieranroberts-dev.pages.dev/",
   vite: {
-    plugins: [
-      FontaineTransform.vite({
-        fallbacks: ['BlinkMacSystemFont', 'Segoe UI', 'Helvetica Neue', 'Arial', 'Noto Sans'],
-        resolvePath: (id) => new URL(`./public${id}`, import.meta.url),
-      }),
-    ]
+    plugins: [FontaineTransform.vite({
+      fallbacks: ['BlinkMacSystemFont', 'Segoe UI', 'Helvetica Neue', 'Arial', 'Noto Sans'],
+      resolvePath: id => new URL(`./public${id}`, import.meta.url)
+    })]
   },
   prefetch: {
     defaultStrategy: 'hover',
@@ -20,13 +21,14 @@ export default defineConfig({
   },
   integrations: [
     tailwind({
-      applyBaseStyles: false
-    }),
-    
-    react(), 
-    expressiveCode(),
-    (await import("astro-compress")).default({
-			Path: ["./dist"],
-		}),
-  ],
+    applyBaseStyles: false
+  }), 
+  react(), 
+  sitemap(),
+  expressiveCode(), 
+  (await import("astro-compress")).default({
+    Path: ["./dist"],
+    Image: false,
+  }), 
+]
 });

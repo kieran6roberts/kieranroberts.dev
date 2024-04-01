@@ -5,7 +5,7 @@ import ThemeToggle from "@components/ThemeToggle.tsx";
 import { Trigger as SidebarTrigger } from "@components/navigation/MobileSidebar/Trigger";
 import useStickyScroll from "@hooks/useStickyHeader";
 import { usePrefersReducedMotion } from "@hooks/usePrefersReducedMotion";
-import AvatarImage from "@images/Kieran-Avatar-funky-min.webp";
+import AvatarImage from "@assets/Kieran-Avatar-funky-min.webp";
 
 interface Props {
   pathname: string;

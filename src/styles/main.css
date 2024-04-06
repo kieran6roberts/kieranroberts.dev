@@ -49,7 +49,47 @@
         0%{background-position:90% 0%}
         50%{background-position:11% 100%}
         100%{background-position:90% 0%}
+  }
+
+  @keyframes carousel {
+    from {
+      transform: translateX(0);
     }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  .hero-carousel {
+    animation: carousel 40s linear infinite normal none running;
+  }
+
+ .hero-logos:hover .hero-carousel {
+  animation-play-state: paused;
+ }
+
+ .hero-logos:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background: red;
+  z-index: 2;
+  background: linear-gradient(to left, transparent, #100114);
+ }
+
+ .hero-logos:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background: linear-gradient(to right, transparent, #100114);
+  z-index: 2;
+ }
 
  .link-focus {
    @apply outline-none focus:ring dark:focus:ring-offset-gray-900 focus:ring-offset-4 focus:ring-l-secondary dark:focus:ring-d-tertiary-2

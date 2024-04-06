@@ -25,7 +25,7 @@ export const Header = ({ pathname }: Props) => {
     >
       <nav
         role="navigation"
-        className="flex items-center max-w-[1600px] mx-auto justify-between px-4 md:px-24 py-4 border-b dark:border-gray-800"
+        className="flex items-center max-w-[1600px] mx-auto justify-between px-4 md:px-16 lg:px-24 py-4 border-b dark:border-gray-800"
       >
         <section className="flex items-center gap-x-2">
           <a
@@ -51,15 +51,14 @@ export const Header = ({ pathname }: Props) => {
           </a>
         </section>
 
-        <section className="flex items-center">
-          <div className="hidden md:flex md:items-center md:gap-x-8">
-            <MainNavLinks pathname={pathname} asDark />
-          </div>
-
-          <div className="flex items-center gap-x-6 md:gap-x-0 ml-8">
+        <section className="flex items-center gap-x-8">
+          <div className="flex items-center gap-x-6 md:gap-x-0">
             {!isActive ? <ThemeToggle /> : null}
 
             <SidebarTrigger pathname={pathname} />
+          </div>
+          <div className="hidden md:flex md:items-center md:gap-x-8">
+            <MainNavLinks pathname={pathname} asDark />
           </div>
         </section>
         <div className="absolute bottom-0 left-0 bg-gradient-to-r from-l-primary-dark from-30% via-l-secondary via-75% to-l-tertiary-2 h-[2px] w-full bg-white" />

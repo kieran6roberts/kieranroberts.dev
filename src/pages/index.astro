@@ -40,39 +40,44 @@ const JOB_TITLE = "Full stack developer";
   <main class="bg-[#100114]">
     <div class="max-w-[1600px] mx-auto">
       <section
-        class="hero-bg flex flex-col lg:flex-row items-center rounded-bl-3xl rounded-br-3xl gap-y-12 py-32 px-4 lg:px-16"
+        class="flex flex-col items-center rounded-bl-3xl rounded-br-3xl gap-y-12 py-32 px-4 lg:px-16"
       >
         <div class="flex flex-col mx-auto max-w-[95%]">
           <h1
             class="font-header text-4xl md:text-5xl lg:text-6xl mb-6 capitalize font-normal text-center lg:text-left"
           >
-            <span class="block text-[0.4em] pl-4">Kieran Roberts</span>
-            <span class="text-[1.2em] text-white"
-              >full stack <span class="md:hidden">js</span><span
-                class="hidden md:inline-block">javaScript</span
-              ></span
-            ><br />
+            <span
+              class="block text-white font-normal text-[0.4em] md:text-[0.3em] pl-4"
+              >Kieran Roberts</span
+            >
+            <div class="flex flex-col items-center lg:items-start gap-1">
+              <span class="text-[1.2em] text-white"
+                >full stack <span class="md:hidden">js</span><span
+                  class="hidden md:inline-block">javaScript</span
+                ></span
+              >
 
-            <span class="bg-[#100114] rounded-lg py-1 px-2">
-              <span
-                class="text-[1em] bg-clip-text text-transparent bg-gradient-to-br from-blue-300 via-violet-300 to-violet-400 bg-transparent bg-[length:400%_400%] px-3 rounded-lg"
-                >UI/UX specialist</span
-              ><br />
-            </span>
-            <span class="text-[0.9em] text-l-tertiary-2">builder</span>
+              <span class="w-max border-2 rounded-lg py-1 px-2">
+                <span
+                  class="text-[1em] bg-clip-text text-transparent bg-gradient-to-br from-blue-300 via-violet-300 to-violet-400 bg-transparent bg-[length:400%_400%] px-3 rounded-lg"
+                  >UI/UX specialist</span
+                ><br />
+              </span>
+              <span class="text-[0.9em] text-l-tertiary-2">builder</span>
+            </div>
           </h1>
           <p
             class="hidden lg:block text-white prose mb-6 text-xl max-w-[75%] lg:max-w-[620px] mx-auto lg:mx-0 text-left"
           >
             I build <span
-              class="bg-[#100114] inline-block w-max transform -rotate-1 transition-transform duration-300 hover:rotate-0 font-medium px-px rounded-md"
+              class="bg-l-primary-dark text-white inline-block w-max transform -rotate-1 transition-transform duration-300 hover:rotate-0 font-medium px-px rounded-md"
               >fast</span
             >,
             <span
-              class="bg-[#100114] inline-block w-max transform rotate-1 transition-transform duration-300 hover:rotate-0 font-medium px-px rounded-md"
+              class="bg-l-primary-dark text-white inline-block w-max transform rotate-1 transition-transform duration-300 hover:rotate-0 font-medium px-px rounded-md"
               >accessible</span
             >, and <span
-              class="bg-[#100114] inline-block w-max transform -rotate-1 transition-transform duration-300 hover:rotate-0 font-medium px-px rounded-md"
+              class="bg-l-primary-dark text-white inline-block w-max transform -rotate-1 transition-transform duration-300 hover:rotate-0 font-medium px-px rounded-md"
               >responsive</span
             > sites for the modern web. With mutliple years worth of industry experience
             working on projects supporting thousands of active users. I love what
@@ -83,6 +88,178 @@ const JOB_TITLE = "Full stack developer";
         <!-- <div class="rounded-full mx-auto w-[225px] h-[225px]">
           <Avatar width={225} height={225} />
         </div> -->
+        <div
+          class="hero-logos relative mt-12 whitespace-nowrap max-w-[90vw] mx-auto overflow-hidden"
+        >
+          <div
+            class="hero-carousel inline-block gap-4 opacity-1 transition duration-200"
+          >
+            <span
+              title="JavaScript"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><JavaScriptSVG /></span
+            >
+            <span
+              title="TailwindCSS"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><TailwindSVG /></span
+            >
+            <span
+              title="GraphQL"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><GraphqlSVG /></span
+            >
+            <span
+              title="React"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><ReactSVG /></span
+            >
+            <span
+              title="Next.js"
+              class="inline-block w-[65px] bg-white mx-6 h-[65px] rounded-full opacity-20"
+              ><NextjsSVG /></span
+            >
+            <span
+              title="AWS Lambda"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><AWSLambdaSVG /></span
+            >
+            <span
+              title="MongoDB"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><MongoDBSVG /></span
+            >
+            <span
+              title="Git"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><GitSVG /></span
+            >
+            <span
+              title="Jest"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><JestSVG /></span
+            >
+            <span
+              title="Cypress"
+              class="inline-block w-[65px] bg-white mx-6 h-[65px] rounded-full opacity-20"
+              ><CypressSVG /></span
+            >
+            <span
+              title="Cloudflare"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><CloudflareSVG /></span
+            >
+            <span
+              title="Astro"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><AstroSVG /></span
+            >
+            <span
+              title="Hashnode"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><HashnodeSVG /></span
+            >
+            <span
+              title="Node.js"
+              class="inline-block w-[65px] bg-white mx-6 h-[65px] rounded-full opacity-20"
+              ><NodejsSVG /></span
+            >
+            <span
+              title="Figma"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><FigmaSVG /></span
+            >
+            <span
+              title="Linear"
+              class="inline-block w-[65px] bg-white mx-6 h-[65px] rounded-full opacity-20"
+              ><LinearSVG /></span
+            >
+          </div>
+          <div
+            class="hero-carousel inline-block opacity-1 transition duration-200"
+          >
+            <span
+              title="JavaScript"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><JavaScriptSVG /></span
+            >
+            <span
+              title="TailwindCSS"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><TailwindSVG /></span
+            >
+            <span
+              title="GraphQL"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><GraphqlSVG /></span
+            >
+            <span
+              title="React"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><ReactSVG /></span
+            >
+            <span
+              title="Next.js"
+              class="inline-block w-[65px] bg-white mx-6 h-[65px] rounded-full opacity-20"
+              ><NextjsSVG /></span
+            >
+            <span
+              title="AWS Lambda"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><AWSLambdaSVG /></span
+            >
+            <span
+              title="MongoDB"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><MongoDBSVG /></span
+            >
+            <span
+              title="JavaScript"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><GitSVG /></span
+            >
+            <span
+              title="Jest"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><JestSVG /></span
+            >
+            <span
+              title="Cypress"
+              class="inline-block w-[65px] bg-white mx-6 h-[65px] rounded-full opacity-20"
+              ><CypressSVG /></span
+            >
+            <span
+              title="Cloudflare"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><CloudflareSVG /></span
+            >
+            <span
+              title="Astro"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><AstroSVG /></span
+            >
+            <span
+              title="Hashnode"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><HashnodeSVG /></span
+            >
+            <span
+              title="Node.js"
+              class="inline-block w-[65px] bg-white mx-6 h-[65px] rounded-full opacity-20"
+              ><NodejsSVG /></span
+            >
+            <span
+              title="Figma"
+              class="inline-block w-[65px] mx-6 h-[65px] rounded-full opacity-20"
+              ><FigmaSVG /></span
+            >
+            <span
+              title="Linear"
+              class="inline-block w-[65px] bg-white mx-6 h-[65px] rounded-full opacity-20"
+              ><LinearSVG /></span
+            >
+          </div>
+        </div>
       </section>
 
       <section

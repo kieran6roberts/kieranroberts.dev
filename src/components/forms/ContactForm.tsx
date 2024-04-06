@@ -37,8 +37,8 @@ const contactSchema = z.object({
     .email(
       "Please enter a valid email address in the form name@domain.something"
     ),
-  message: z.string().min(15, {
-    message: "Message must be at least 15 characters, don't be shy.",
+  message: z.string().min(25, {
+    message: "Message must be at least 25 characters, don't be shy.",
   }),
 });
 
@@ -84,13 +84,13 @@ export const ContactForm = () => {
       message: $contactFormFields.message,
     },
     mode: "onSubmit",
-    reValidateMode: "onBlur",
+    // reValidateMode: "onChange",
   });
 
   const { errors } = formState;
 
-  const emailError = errors?.email;
-  const messageError = errors?.message;
+  const emailError = errors?.email?.message;
+  const messageError = errors?.message?.message;
 
   const submitForm: SubmitHandler<ContactSchema> = async (data) => {
     if (!challengeSolved || !token) {
@@ -106,44 +106,37 @@ export const ContactForm = () => {
       );
       return;
     }
+    const loadingToast = toast.loading("Sending your message...");
     setIsSubmitting(true);
 
     const { email, message } = data;
 
     try {
-      const responsePromise = fetch(CONTACT_FORM_ENDPOINT, {
+      await fetch(CONTACT_FORM_ENDPOINT, {
+        mode: "no-cors",
         method: "POST",
         body: JSON.stringify({
           senderEmail: email,
           message,
           token,
         }),
-        // headers: {
-        //   Accept: "application/json",
-        //   "Content-Type": "application/json",
-        //   "Access-Control-Allow-Origin": "*",
-        // },
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          // "Access-Control-Allow-Origin": "*",
+        },
       });
 
-      // toast.promise(responsePromise, {
-      //   loading: "Sending your message...",
-      //   success: "Submission success!",
-      //   error:
-      //     "Sorry, there was a error processing this submission. Kieran has been notified, find me at one of my social links in the meantime.",
-      // });
+      toast.dismiss(loadingToast);
 
-      const response = await responsePromise;
+      toast.success("Submission success. Kieran will respond asap.");
 
-      if (response.ok) {
-        toast.success(
-          "Submission success! Kieran will try to respond within 24 hrs."
-        );
-        setEmailSuccess(true);
-        reset({
-          email: "",
-          message: "",
-        });
-      }
+      setEmailSuccess(true);
+      reset({
+        email: "",
+        message: "",
+      });
+
       updateContactFieldValues({
         name: "email",
         value: "",
@@ -153,7 +146,8 @@ export const ContactForm = () => {
         value: "",
       });
     } catch (error) {
-      console.log(error);
+      toast.dismiss(loadingToast);
+      toast.error("There was an error processing this request.");
     } finally {
       setIsSubmitting(false);
     }
@@ -192,7 +186,7 @@ export const ContactForm = () => {
       <Toaster position="top-center" gutter={8} />
       <form ref={submitFormRef} onSubmit={handleSubmit(submitForm)}>
         <div className="flex flex-col gap-4">
-          <div>
+          <div className="flex flex-col gap-1">
             <FormLabel htmlFor="email">Email address *</FormLabel>
             <TextInput
               error={!!emailError}
@@ -209,7 +203,7 @@ export const ContactForm = () => {
             />
           </div>
 
-          <div>
+          <div className="flex flex-col gap-1">
             <FormLabel htmlFor="message">Message *</FormLabel>
             <TextArea
               id="message"
@@ -252,7 +246,7 @@ export const ContactForm = () => {
               width="full"
               type="submit"
               variant="transparent"
-              className="mt-8"
+              className="mt-4"
             >
               {isSubmitting ? (
                 <animated.span
@@ -271,7 +265,7 @@ export const ContactForm = () => {
               )}
             </Button>
           ) : (
-            <div className="flex items-center mt-8 mx-auto bg-[#100114] border-[#100114] dark:border-d-tertiary-2 text-white dark:text-d-tertiary-2 p-2.5 rounded-full border-2">
+            <div className="flex items-center mt-4 mx-auto bg-[#100114] border-[#100114] dark:border-d-tertiary-2 text-white dark:text-d-tertiary-2 p-2.5 rounded-full border-2">
               <animated.span
                 style={{ ...submittedSpring }}
                 className="w-5 h-5 block"

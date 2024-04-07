@@ -49,3 +49,8 @@ export const TIMELINE_ITEMS = [
  date: 'May 10th, 2021 - Present'
 },
 ];
+
+export const JOB_DESCRIPTION =
+  "Working at a fast paced tech startup, Hashnode offers various tools and solutions for software developers and technical writers in the online blogging space. It's where I started my blogging journey and it's GraphQL API's power my headless blog today.";
+export const JOB_TITLE = "Full stack developer"
+export const JOB_DATE = 'May 10th, 2021 - Present';

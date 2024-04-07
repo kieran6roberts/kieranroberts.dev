@@ -13,7 +13,6 @@ export const CTAButtons = () => {
         ref={ref1}
         asLink
         href="/blog"
-        // className="mx-auto lg:mx-0"
         variant="solid-white"
         iconAnimationSettings={{ scale: 1.1 }}
         endIcon={
@@ -28,8 +27,7 @@ export const CTAButtons = () => {
         ref={ref2}
         asLink
         href="/contact"
-        // className="mx-auto lg:mx-0"
-        variant="solid-dark"
+        variant="transparent-dark"
         iconAnimationSettings={{ scale: 1.05, x: 2 }}
         endIcon={
           <span className="block text-slate-100 stroke-current w-6 h-6">

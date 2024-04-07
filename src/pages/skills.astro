@@ -23,7 +23,10 @@ import {
   HashnodeSVG,
   NodejsSVG,
   FigmaSVG,
+  LinearSVG,
 } from "@components/icons/index";
+import StatusCard from "@components/skills/StatusCard.astro";
+import { JOB_DATE, JOB_DESCRIPTION, JOB_TITLE } from "@utils/consts";
 ---
 
 <Layout
@@ -32,19 +35,35 @@ import {
   url="kieranroberts.dev/skills"
 >
   <main class="px-8 md:px-16 py-16 w-full flex flex-col">
-    <PageTitle>My skills and experience</PageTitle>
+    <PageTitle>My skills & experience</PageTitle>
     <div class="max-w-[1000px] mx-auto">
+      <h2 class="font-header text-3xl text-left my-8">Current Employment</h2>
       <section class="mb-16">
-        <div class="prose text-lg font-medium dark:prose-invert">
-          <p class="font-medium">
-            I absolutely love learning new things, it's one of my favorite parts
-            of life. It's probably the reason I took to the crazy ever changing
-            field of web development. Here is everything you might want to know
-            about my technical skills, and generally what I bring to the table.
-          </p>
+        <StatusCard
+          date={JOB_DATE}
+          title={JOB_TITLE}
+          description={JOB_DESCRIPTION}
+        />
+        <div class="prose dark:prose-invert mt-6">
+          <ul class="text-lg prose prose-invert text-black dark:text-white">
+            <li>
+              Working closely with the design team to build accessible and
+              interactive UI's for the product, powering a component library.
+            </li>
+            <li>
+              Building full stack features from the ground up, through from
+              concept to conception. Working across UI/UX, AWS based
+              infrastructure, and public/internal GraphQL API's.
+            </li>
+            <li>
+              Code review, internal documentation, product testing, issue
+              crafting, and writing for our blogs are all part of the day to day
+              activities.
+            </li>
+          </ul>
         </div>
       </section>
-      <h2 class="font-header text-4xl text-left my-12">Technical skills</h2>
+      <h2 class="font-header text-3xl text-left my-12">Technical skills</h2>
       <section class="flex flex-col gap-8">
         <SkillsCard title="Frontend UI/UX">
           <Fragment slot="tech">
@@ -76,82 +95,75 @@ import {
             </p>
             <ul>
               <li>
-                Removing itself from view offers the full screen to view
-                content. Important for a site focused around reading content.
+                Removing itself from view offers the full screen visibility to
+                view content. Important for a site focused around content
+                consumption.
               </li>
               <li>
-                The navigation links and nav items are never far away, no need
-                to scroll back to the top of the page. Especially benefical if
-                say you had a 'Follow' button in the navbar. You make it easier
-                for users to perform those actions thus generating more userr
-                interactions for the site.
+                The navigation links header call to actions and nav items are
+                never far away, no need to scroll back to the top of the page to
+                perform some action.
               </li>
               <li>
-                The movement of the navbar is also optional providing an
-                accessible solution, if a user has set a prefers reduce motion
-                option in their system to true, the navbar will remain fixed to
-                the top offering an accessible solution for all.
+                The navbar translate is also optional providing an accessible
+                solution. If a user has set the prefers reduce motion option in
+                their system to true, the navbar will remain fixed to the top.
               </li>
-              <div
-                class="hidden my-8 md:block sm:max-w-[550px] mx-auto overflow-hidden"
-              >
-                <Code
-                  code={landingPageCodeDesktopExample}
-                  lang="tsx"
-                  wrap
-                  frame="code"
-                  title="Accessiblity is key"
-                />
-              </div>
             </ul>
           </div>
         </SkillsCard>
         <SkillsCard title="Serverless backend">
           <Fragment slot="tech">
-            <div class="bg-white dark:bg-white p-[0.5] rounded-full">
-              <TechIconWrapper title="Next.JS"><NextjsSVG /></TechIconWrapper>
-            </div>
+            <span
+              title="Next.js"
+              class="block w-10 h-10 bg-white rounded-full overflow-hidden border transform transition-all duration-150 hover:scale-105 hover:opacity-100"
+            >
+              <NextjsSVG />
+            </span>
 
             <TechIconWrapper title="AWS Lambda"
               ><AWSLambdaSVG /></TechIconWrapper
             >
-            <TechIconWrapper title="MongoDB"><MongoDBSVG /></TechIconWrapper>
             <TechIconWrapper title="Cloudflare"
               ><CloudflareSVG /></TechIconWrapper
             >
           </Fragment>
           <div slot="content" class="prose dark:prose-invert text-lg mt-6">
             <p>
-              I have experience working in tech stacks benefitting serverless
-              offerings utilizing infrastructure such <span class="font-medium"
-                >Amazon Web Services (AWS)</span
-              >,
+              I have many years worth of experience working with tech stacks
+              that make use of serverless offerings utilizing infrastructure
+              such <span class="font-medium">Amazon Web Services (AWS)</span>,
               <span class="font-medium">Vercel</span>, and <span
                 class="font-medium">Cloudflare</span
               >.
             </p>
             <p>
-              Check out this video where I talk about how I implemented the
-              contact form on this site using <span class="font-medium"
-                >AWS Lambda</span
-              >, <span class="font-medium">AWS API Gateway</span>, <span
-                class="font-medium">AWS SMS</span
-              > and <span class="font-medium">Clourdflare Turnstile</span>.
+              The <a href="/contact">contact form</a> on this site is powered using
+              some of these offerings as I didn't feel the need to reach for an 'out
+              of the box' form/email solution. Instead, I connected a few serverless
+              offerings like <span class="font-medium">AWS Lambda</span>, <span
+                class="font-medium">AWS API Gateway</span
+              >, <span class="font-medium">AWS Simple Email Serivce (SES)</span>
+              and <span class="font-medium">Clourdflare Turnstile</span> to make
+              it happen.
             </p>
           </div>
         </SkillsCard>
         <SkillsCard title="Testing tools">
           <Fragment slot="tech">
-            <div class="bg-white dark:bg-white p-[0.5] rounded-full">
-              <TechIconWrapper title="Cypress"><CypressSVG /></TechIconWrapper>
-            </div>
+            <span
+              title="Cypress"
+              class="block w-10 h-10 bg-white rounded-full overflow-hidden border transform transition-all duration-150 hover:scale-105 hover:opacity-100"
+            >
+              <CypressSVG />
+            </span>
 
             <TechIconWrapper title="Jest"><JestSVG /></TechIconWrapper>
           </Fragment>
           <div slot="content" class="prose dark:prose-invert text-lg mt-6">
             <p>
               Testing is a critical part of software development and I've
-              managed to aquire experience with different forms of
+              managed to aquire plenty of experience with different forms of
               product/backend testing and tools. For example:
             </p>
             <ul>
@@ -166,9 +178,9 @@ import {
               </li>
               <li>
                 Unit testing in both product frontend and API and infrastructure
-                based backends primariy with <span class="font-medium"
+                based backends primarily with <span class="font-medium"
                   >Jest</span
-                >
+                >.
               </li>
             </ul>
           </div>
@@ -182,9 +194,9 @@ import {
           </Fragment>
           <div slot="content" class="prose dark:prose-invert text-lg mt-6">
             <p>
-              I have experience developing both public and internal API's,
-              interacting with databases such as <span>MongoDB</span> on a regular
-              basis.
+              Developing both public and internal API's that interact with
+              databases such as <span class="font-medium">MongoDB</span> is something
+              I am confident with and have pushed to production many times.
             </p>
             <h3>Example</h3>
             <p>
@@ -196,34 +208,10 @@ import {
                 class="font-medium text-l-secondary"
                 >Hashnode public GraphQL API</a
               > which offers an expanding range of quries and mutations. I have had
-              the opportunity to build some of the mutations on offer here.
+              the opportunity to build a few of the mutations on offer here.
             </p>
           </div>
         </SkillsCard>
-        <!-- <SkillsCard title="Issue crafting and product planning">
-          <Fragment slot="tech">
-        
-              <TechIconWrapper><CypressSVG /></TechIconWrapper>
-       
-            <TechIconWrapper><JestSVG /></TechIconWrapper>
-          </Fragment>
-          <div slot="content" class="prose dark:prose-invert text-lg mt-6">
-            <p>
-              Testing is a critical part of software development. I've managed
-              to aquire experience in the following: like unit testing GraphQL
-              mutations, End to end (E2E) testing parts of the frontend, or
-              anything in betweemd
-            </p>
-            <ul>
-              <li>Fronted end to end (E2E) with Cypress</li>
-              <li>Setting up tests for CI environment with GitHub Actions</li>
-              <li>
-                Unit testing in both frontend and backend, for example unit
-                testing GraphQL mutations.
-              </li>
-            </ul>
-          </div>
-        </SkillsCard> -->
       </section>
       <h2 class="font-header text-4xl text-left my-12">Soft Skills</h2>
       <section class="flex flex-col gap-8">
@@ -240,8 +228,8 @@ import {
             <p>
               If there's one thing my experience working remotely has taught me,
               is that communication is king. As part of a fully remote team at a
-              fast moving startup, if you didn't communicate well you'd be left
-              behind.
+              fast moving startup, if you didn't communicate well you would end
+              up behind.
             </p>
             <ul>
               <li>
@@ -259,24 +247,19 @@ import {
             </ul>
           </div>
         </SkillsCard>
-        <SkillsCard title="Code reviews">
+        <SkillsCard title="Code review">
           <Fragment slot="tech">
             <TechIconWrapper title="Git"><GitSVG /></TechIconWrapper>
           </Fragment>
           <div slot="content" class="prose dark:prose-invert text-lg mt-6">
             <p>
-              To this date I have authored <span class="font-medium"
-                >more than 100 pull request reviews</span
-              >
-              that eventually went live to large userbases. Here are some of the
-              things I practice when reviewing code.
+              I have extensive experience reviewing code that goes live to
+              thousands of active users. Here are some of the things I practice
+              when reviewing code.
             </p>
 
             <ul>
-              <li>
-                Understand the expectations before heading in based on what the
-                work is.
-              </li>
+              <li>Understand the expectations before heading in to review.</li>
               <li>
                 Ask helpful open ended questions and phrase things in a clear
                 but friendly tone.
@@ -286,7 +269,49 @@ import {
                 alternatives.
               </li>
               <li>Be empathetic to the person writing the code.</li>
+              <li>Always be open to learning something.</li>
             </ul>
+          </div>
+        </SkillsCard>
+        <SkillsCard title="Organisation">
+          <Fragment slot="tech">
+            <span
+              title="Linear"
+              class="block w-10 h-10 bg-white rounded-full overflow-hidden border transform transition-all duration-150 hover:scale-105 hover:opacity-100"
+            >
+              <LinearSVG />
+            </span>
+          </Fragment>
+          <div slot="content" class="prose dark:prose-invert text-lg mt-6">
+            <p>
+              Having personal and team organisation is essential for success.
+              Personally I'm always creating personal to-do lists to keep my
+              focus on what's important when new things are always popping up.
+            </p>
+            <p>
+              This organisation should extend to the team level. I'm experienced
+              in using various project tracking tools such as
+              <span class="font-medium">Linear</span> and <span
+                class="font-medium">Jira</span
+              > to create and develop issues/stories and projects. Also note taking
+              tools like <span class="font-medium">Notion</span> to share notes and
+              create internal documentation.
+            </p>
+          </div>
+        </SkillsCard>
+        <SkillsCard title="Time Management">
+          <div slot="content" class="prose dark:prose-invert text-lg mt-6">
+            <p>
+              Good time management as a remote developer is crucial and I like
+              to think that's something I do well having worked with fast moving
+              teams on time barred projects.
+            </p>
+            <p>
+              Being time conscious is crucial for being able to estimate
+              correctly and work to that estimation. I often write out personal
+              to-do lists for myself (alongside issue/projects to-dos) to help
+              stick to timelines and keep focus.
+            </p>
           </div>
         </SkillsCard>
         <SkillsCard title="Technical writing">
@@ -295,20 +320,21 @@ import {
           </Fragment>
           <div slot="content" class="prose dark:prose-invert text-lg mt-6">
             <p>
-              I took up writing as a means to further my understanding of
-              topics. My blog was the reason I got the opportunity to interview
-              for my first role and to this date I have more than 110,000
-              pageviews across all articles.
+              I took up writing as a means to further my understanding of topics
+              and share what I learned with others in a similar position to me.
+              My blog was the reason I got the opportunity to interview for my
+              first role, and to this date, I have more than 110,000 pageviews
+              across all articles.
             </p>
             <p>
               You can <a href="/blog" class="font-medium text-l-secondary"
-                >visit my blog here</a
+                >find my blog here</a
               >
             </p>
           </div>
         </SkillsCard>
       </section>
-      <EndOfFeed />
+      <!-- <EndOfFeed /> -->
     </div>
   </main>
   <SocialLinkFloatingBar client:load />

@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import { NavLink } from "@components/navigation/NavLink";
-import { Button } from "@components/Button";
 
 interface Props {
   pathname?: string;

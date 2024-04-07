@@ -1,7 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-import { debounce } from '@utils/debounce';
+import { useEffect, useRef } from 'react';
 
-const TRANSLATE_RESET = 'translateY(0px)';
 const TRANSLATE_BUFFER = 30;
 
 interface UseStickyScrollProps {
@@ -10,8 +8,6 @@ interface UseStickyScrollProps {
 }
 
 const useStickyScroll = ({ elRef, prefersReducedMotion }: UseStickyScrollProps) => {
-  const [shouldAddScroll, setShouldAddScroll] = useState(false);
-
   const scrollRef = useRef<{ prevScrollTop: number; animation?: number }>({
     prevScrollTop: 0,
   });
@@ -56,31 +52,11 @@ const useStickyScroll = ({ elRef, prefersReducedMotion }: UseStickyScrollProps) 
     if (prefersReducedMotion) {
       return;
     }
-    if (shouldAddScroll) {
-      window.addEventListener('scroll', handleNavScroll);
-    } else {
-      window.removeEventListener('scroll', handleNavScroll);
-      if (elRef.current) elRef.current.style.transform = TRANSLATE_RESET ;
-    }
-    
+    window.addEventListener('scroll', handleNavScroll);
+
     return () => {
       window.removeEventListener('scroll', handleNavScroll);
       if (scrollRef.current.animation) cancelAnimationFrame(scrollRef.current.animation);
-    };
-  }, [shouldAddScroll, prefersReducedMotion]);
-
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      return;
-    }
-    const handleResize = debounce(() => {
-      setShouldAddScroll(window.innerWidth >= 768);
-    }, 0);
-    handleResize();
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
     };
   }, [prefersReducedMotion]);
 };

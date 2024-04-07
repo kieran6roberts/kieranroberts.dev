@@ -26,31 +26,6 @@
     src: url('/fonts/Quicksand-Medium.woff2') format('woff2')
   }
 
-  .hero-bg {
-    background: linear-gradient(35deg, #6B7FD7,  #7c3aed, #1c8a72, #6B7FD7);
-    background-size: 600% 600%;
-
-    -webkit-animation: wave 7s ease infinite;
-    -moz-animation: wave 7s ease infinite;
-    animation: wave 7s ease infinite;
-  }
-
-    @-webkit-keyframes wave {
-        0%{background-position:90% 0%}
-        50%{background-position:11% 100%}
-        100%{background-position:90% 0%}
-    }
-    @-moz-keyframes wave {
-        0%{background-position:90% 0%}
-        50%{background-position:11% 100%}
-        100%{background-position:90% 0%}
-    }
-    @keyframes wave {
-        0%{background-position:90% 0%}
-        50%{background-position:11% 100%}
-        100%{background-position:90% 0%}
-  }
-
   @keyframes carousel {
     from {
       transform: translateX(0);

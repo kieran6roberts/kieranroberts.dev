@@ -1,5 +1,6 @@
 ---
 import { GithubSVG, StarSVG, GitForkSVG } from "@components/icons";
+import { Boop } from "@components/animation/Boop";
 
 const url = "https://api.github.com/users/kieran6roberts/repos";
 const response = await fetch(url);
@@ -14,22 +15,46 @@ const totalGitForks = (data || []).reduce((cur: any, next: any) => {
 if (!totalGitForks && !totalGitStars) {
   return null;
 }
+
+interface Props {
+  asDark?: boolean;
+}
+
+const { asDark } = Astro.props;
 ---
 
 <div class="flex items-center justify-center md:self-end gap-3">
-  <span class="block w-5 h-5 text-black dark:text-white">
-    <GithubSVG />
-  </span>
-  <div title="Git stars" class="flex items-center gap-1">
-    <span class="block w-4 h-4 text-black dark:text-white">
-      <StarSVG />
-    </span>
-    {totalGitStars}
-  </div>
-  <div title="Git forks" class="flex items-center gap-1">
-    <span class="block w-4 h-4 text-black dark:text-white">
-      <GitForkSVG />
-    </span>
-    {totalGitForks}
-  </div>
+  <Boop boopConfig={{ rotation: 5 }}>
+    <a
+      href="https://github.com/kieran6roberts"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Kieran Roberts GitHub profile, opens in new tab"
+      class={`flex items-center justify-center ${asDark ? "text-white" : "text-black dark:text-white"} p-1 icon-button-hover link-focus rounded-full`}
+    >
+      <span class="inline-block w-5 h-5">
+        <GithubSVG />
+      </span>
+    </a>
+  </Boop>
+  <Boop boopConfig={{ rotation: 5 }}>
+    <div title="Git stars" class="flex items-center gap-1 p-1">
+      <span
+        class={`block w-4 h-4 ${asDark ? "text-white" : "text-black dark:text-white"}`}
+      >
+        <StarSVG />
+      </span>
+      {totalGitStars}
+    </div>
+  </Boop>
+  <Boop boopConfig={{ rotation: 5 }}>
+    <div title="Git forks" class="flex items-center gap-1 p-1">
+      <span
+        class={`block w-4 h-4 ${asDark ? "text-white" : "text-black dark:text-white"}`}
+      >
+        <GitForkSVG />
+      </span>
+      {totalGitForks}
+    </div>
+  </Boop>
 </div>

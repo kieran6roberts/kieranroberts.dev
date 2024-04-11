@@ -66,6 +66,24 @@
   z-index: 2;
  }
 
+ .cursor {
+  animation: blink 1s linear infinite;
+ }
+
+ @keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 100;
+  }
+
+  100% {
+    opacity: 0;
+  }
+ }
+
  .link-focus {
    @apply outline-none focus:ring dark:focus:ring-offset-gray-900 focus:ring-offset-4 focus:ring-l-secondary dark:focus:ring-d-tertiary-2
  }

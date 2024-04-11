@@ -25,7 +25,7 @@ export const Header = ({ pathname }: Props) => {
     >
       <nav
         role="navigation"
-        className="flex items-center max-w-[1600px] mx-auto justify-between px-4 md:px-16 lg:px-24 py-4 border-b dark:border-gray-800"
+        className="flex items-center max-w-[1600px] h-[75px] mx-auto justify-between px-4 md:px-16 lg:px-24 py-4 border-b dark:border-gray-800"
       >
         <section className="flex items-center gap-x-2">
           <a
@@ -42,12 +42,12 @@ export const Header = ({ pathname }: Props) => {
                 className="rounded-full border border-l-tertiary-2"
               />
             </div>
-            <div className="flex items-center text-white text-xl font-light gap-x-2">
+            <h1 className="flex items-center text-white text-xl font-light gap-x-2">
               kieranroberts.dev
               <span className="block w-6 h-6">
                 <CodeSVG color={isActive ? "#97EC77" : "#ffffff"} />
               </span>
-            </div>
+            </h1>
           </a>
         </section>
 

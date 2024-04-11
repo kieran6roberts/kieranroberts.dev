@@ -1,0 +1,90 @@
+---
+import { CTAButtons } from "@components/landing/CTAButtons";
+---
+
+<script type="module">
+  const sleep = (ms) => {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  };
+
+  const phrases = ["Full Stack Dev", "UI/UX Specialist", "Builder"];
+  const sleepTime = 100;
+  let currentPhraseIndex = 0;
+
+  const heroAnimation = async () => {
+    const el = document.getElementById("typewriter");
+
+    while (true) {
+      let currentWord = phrases[currentPhraseIndex];
+
+      for (let i = 0; i < currentWord.length; i++) {
+        el.innerText = currentWord.substring(0, i + 1);
+        await sleep(sleepTime);
+      }
+
+      await sleep(sleepTime * 10);
+
+      for (let i = currentWord.length; i > 0; i--) {
+        el.innerText = currentWord.substring(0, i - 1);
+        await sleep(sleepTime);
+      }
+      await sleep(sleepTime * 5);
+
+      if (currentPhraseIndex === phrases.length - 1) {
+        currentPhraseIndex = 0;
+      } else {
+        currentPhraseIndex++;
+      }
+    }
+  };
+
+  heroAnimation();
+</script>
+
+<section
+  class="flex flex-col items-center justify-center h-[75vh] rounded-bl-3xl rounded-br-3xl gap-y-4 px-4 lg:px-16"
+>
+  <div class="flex flex-col justify-center items-center mx-auto w-[90%]">
+    <div
+      class="w-[90vw] lg:w-[75vw] max-w-[1000px] whitespace-nowrap font-header text-white mb-6 capitalize font-normal text-center"
+    >
+      <span
+        class="flex flex-col lg:flex-row items-center gap-2 lg:gap-6 justify-center rounded-lg py-1 px-2"
+      >
+        <span class="inline-block text-white text-4xl md:text-5xl lg:text-6xl"
+          >Hi! I'm a</span
+        >
+
+        <span
+          class="flex items-center justify-center text-4xl md:text-6xl lg:text-7xl border-b-4 flex-1 w-[50%] min-h-[80px]"
+        >
+          <span
+            id="typewriter"
+            class="text-[1em] bg-clip-text text-transparent bg-gradient-to-br from-blue-300 via-violet-300 to-violet-400 bg-transparent bg-[length:400%_400%] rounded-lg"
+          >
+          </span>
+          <span class="cursor inline-block text-white text-5xl opacity-100">
+            |
+          </span>
+        </span>
+      </span>
+    </div>
+  </div>
+  <p
+    class="hidden lg:block text-white prose mb-6 text-xl max-w-[75%] lg:max-w-[620px] mx-auto lg:mx-0 text-left"
+  >
+    I build <span
+      class="bg-l-primary-dark text-white inline-block w-max transform -rotate-1 transition-transform duration-300 hover:rotate-0 font-medium px-px rounded-md"
+      >fast</span
+    >,
+    <span
+      class="bg-d-tertiary-2 text-black inline-block w-max transform rotate-1 transition-transform duration-300 hover:rotate-0 font-medium px-px rounded-md"
+      >accessible</span
+    >, and <span
+      class="bg-d-primary-darkest text-white inline-block w-max transform -rotate-1 transition-transform duration-300 hover:rotate-0 font-medium px-px rounded-md"
+      >responsive</span
+    > sites for the modern web. With mutliple years worth of industry experience
+    working on projects supporting thousands of active users. I love what I do!
+  </p>
+  <CTAButtons client:load />
+</section>

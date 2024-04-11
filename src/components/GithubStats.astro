@@ -1,0 +1,35 @@
+---
+import { GithubSVG, StarSVG, GitForkSVG } from "@components/icons";
+
+const url = "https://api.github.com/users/kieran6roberts/repos";
+const response = await fetch(url);
+const data = await response.json();
+const totalGitStars = (data || []).reduce((cur: any, next: any) => {
+  return cur + next.stargazers_count;
+}, 0);
+const totalGitForks = (data || []).reduce((cur: any, next: any) => {
+  return cur + next.forks_count;
+}, 0);
+
+if (!totalGitForks && !totalGitStars) {
+  return null;
+}
+---
+
+<div class="flex items-center justify-center md:self-end gap-3">
+  <span class="block w-5 h-5 text-black dark:text-white">
+    <GithubSVG />
+  </span>
+  <div title="Git stars" class="flex items-center gap-1">
+    <span class="block w-4 h-4 text-black dark:text-white">
+      <StarSVG />
+    </span>
+    {totalGitStars}
+  </div>
+  <div title="Git forks" class="flex items-center gap-1">
+    <span class="block w-4 h-4 text-black dark:text-white">
+      <GitForkSVG />
+    </span>
+    {totalGitForks}
+  </div>
+</div>

@@ -17,6 +17,14 @@ import { CTAButtons } from "@components/landing/CTAButtons";
     while (true) {
       let currentWord = phrases[currentPhraseIndex];
 
+      if (currentPhraseIndex === 1) {
+        el.style.color = "#6B7FD7";
+      } else if (currentPhraseIndex === 2) {
+        el.style.color = "#71DAEC";
+      } else {
+        el.style.color = "#97EC77";
+      }
+
       for (let i = 0; i < currentWord.length; i++) {
         el.innerText = currentWord.substring(0, i + 1);
         await sleep(sleepTime);
@@ -74,14 +82,14 @@ import { CTAButtons } from "@components/landing/CTAButtons";
     class="hidden lg:block text-white prose mb-6 text-xl max-w-[75%] lg:max-w-[620px] mx-auto lg:mx-0 text-left"
   >
     I build <span
-      class="bg-l-primary-dark text-white inline-block w-max transform -rotate-1 transition-transform duration-300 hover:rotate-0 font-medium px-px rounded-md"
+      class="bg-l-tertiary-1 text-[1.1em] text-black inline-block w-max transform -rotate-1 transition-transform duration-300 hover:rotate-0 font-medium px-px rounded-md"
       >fast</span
     >,
     <span
-      class="bg-d-tertiary-2 text-black inline-block w-max transform rotate-1 transition-transform duration-300 hover:rotate-0 font-medium px-px rounded-md"
+      class="bg-l-tertiary-2 text-[1.1em] text-black inline-block w-max transform rotate-1 transition-transform duration-300 hover:rotate-0 font-medium px-px rounded-md"
       >accessible</span
     >, and <span
-      class="bg-d-primary-darkest text-white inline-block w-max transform -rotate-1 transition-transform duration-300 hover:rotate-0 font-medium px-px rounded-md"
+      class="bg-d-secondary text-[1.1em] text-white inline-block w-max transform -rotate-1 transition-transform duration-300 hover:rotate-0 font-medium px-px rounded-md"
       >responsive</span
     > sites for the modern web. With mutliple years worth of industry experience
     working on projects supporting thousands of active users. I love what I do!

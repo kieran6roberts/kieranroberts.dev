@@ -23,7 +23,7 @@ export const Header = ({ pathname }: Props) => {
   return (
     <header
       ref={headerRef}
-      className="transform-none bg-[#100114] sticky z-50 top-0 left-0"
+      className="transform-none bg-[#100114] sticky z-[9999] top-0 left-0"
     >
       <nav
         role="navigation"

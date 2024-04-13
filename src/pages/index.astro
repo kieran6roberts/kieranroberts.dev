@@ -4,36 +4,24 @@ import { Code } from "astro-expressive-code/components";
 import { SocialLinks } from "@components/navigation/SocialLinkFloatingBar";
 import { MainNavLinks } from "@components/navigation/MainNavLinks";
 import SectionTitle from "@components/landing/SectionTitle.astro";
-import TechIconWrapper from "@components/landing/TechIconWrapper.astro";
 import SectionDescription from "@components/landing/SectionDescription.astro";
 import { Button } from "@components/Button";
 import {
   landingPageCodeDesktopExample,
   landingPageCodeMobileExample,
 } from "../utils/code";
-import {
-  ReactSVG,
-  TailwindSVG,
-  GraphqlSVG,
-  NextjsSVG,
-  JavaScriptSVG,
-  AWSLambdaSVG,
-  CypressSVG,
-  MongoDBSVG,
-  GitSVG,
-  JestSVG,
-  CloudflareSVG,
-  AstroSVG,
-  HashnodeSVG,
-  NodejsSVG,
-  FigmaSVG,
-  LinearSVG,
-} from "@components/icons/index";
+import { ArrowRightSVG } from "@components/icons";
 import MobileStatusCard from "@components/skills/StatusCard.astro";
 import { JOB_DATE, JOB_DESCRIPTION, JOB_TITLE } from "@utils/consts";
 import Hero from "@components/landing/Hero.astro";
 import TechCarousel from "@components/landing/TechCarousel.astro";
+import { Image } from "astro:assets";
+import { fetchPaginatedBlogPosts, getPostsPaginatedData } from "@utils/blog";
 // import GithubStats from "@components/GithubStats.astro";
+
+const postsData = await fetchPaginatedBlogPosts({ first: 1 });
+const { postsArray } = getPostsPaginatedData(postsData as any);
+const latestPost = postsArray[0];
 ---
 
 <Layout url="kieranroberts.dev" showFooter={false}>
@@ -53,7 +41,7 @@ import TechCarousel from "@components/landing/TechCarousel.astro";
         <section
           class="relative bg-[#100114] flex flex-col-reverse gap-y-12 lg:flex-row"
         >
-          <div class="flex-1">
+          <div class="flex-1 px-8">
             <div
               class="hidden md:block max-w-[95%] sm:max-w-[550px] mx-auto overflow-hidden"
             >
@@ -94,56 +82,79 @@ import TechCarousel from "@components/landing/TechCarousel.astro";
       </div>
 
       <section
-        class="bg-l-tertiary-2 flex flex-col rounded-3xl lg:flex-row gap-12 py-32 sm:px-4 md:px-16"
+        class="bg-l-tertiary-2 flex flex-col rounded-3xl lg:flex-row gap-12"
       >
-        <div class="flex-1 self-center">
-          <SectionTitle styles="text-black"> Tech I work with </SectionTitle>
+        <div
+          class="w-full lg:w-1/2 self-center pt-32 lg:py-32 sm:px-4 md:px-16 lg:pl-16"
+        >
+          <SectionTitle styles="text-black">Check out my blog</SectionTitle>
           <div class="flex flex-col gap-8 items-center">
             <SectionDescription styles="text-black">
-              I'm always looking to learn new things and strive to pick the
-              right tool for the job.
+              I love to share what I have learned with others. In my blog you
+              can find content on Next.js, React, and a host of general web
+              development topics.
             </SectionDescription>
 
-            <Button client:visible asLink href="/skills">See my skills</Button>
+            <Button client:visible asLink href="/blog">Visit blog</Button>
           </div>
         </div>
-        <div class="flex-1">
-          <div
-            class="grid grid-cols-3 md:grid-cols-4 gap-y-12 items-center justify-center"
+        <div
+          class="w-full lg:w-1/2 pt-16 lg:py-32 bg-[#100114] sm:px-4 lg:pr-16"
+        >
+          <a
+            href={`/blog/${latestPost.slug}`}
+            class="group w-full flex flex-col justify-center border-b border-l-secondary lg:border-none px-8 lg:px-16 pt-4 gap-4 flex-1"
           >
-            <TechIconWrapper title="JavaScript"
-              ><JavaScriptSVG /></TechIconWrapper
+            <div class="flex flex-col">
+              <span class="text-l-tertiary-2 text-left text-lg font-medium"
+                >Latest article</span
+              >
+              <span class="text-white">
+                {
+                  new Date(latestPost.publishedAt).toLocaleDateString("en-US", {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })
+                }
+              </span>
+            </div>
+            {
+              latestPost.coverImage ? (
+                <div class="relative self-center">
+                  <Image
+                    src={latestPost.coverImage.url}
+                    alt={latestPost.title}
+                    class="rounded-xl opacity-50 group-hover:opacity-100"
+                    width={500}
+                    height={250}
+                  />
+                  <div class="absolute bottom-0 right-0 left-0 opacity-100 transition-opacity duration-300 h-20 bg-gradient-to-t from-[#100114] from-75% to-transparent z-10 group-hover:opacity-0" />
+                </div>
+              ) : null
+            }
+            <div
+              class="z-50 flex flex-col gap-4 relative transition-transform duration-300 -translate-y-16 group-hover:translate-y-0"
             >
-            <TechIconWrapper title="TailwindCSS"
-              ><TailwindSVG /></TechIconWrapper
-            >
-            <TechIconWrapper title="GraphQL"><GraphqlSVG /></TechIconWrapper>
-            <TechIconWrapper title="React"><ReactSVG /></TechIconWrapper>
-            <TechIconWrapper isDark title="Next.js"
-              ><NextjsSVG /></TechIconWrapper
-            >
-            <TechIconWrapper title="AWS Lambda"
-              ><AWSLambdaSVG /></TechIconWrapper
-            >
-            <TechIconWrapper title="MongoDB"><MongoDBSVG /></TechIconWrapper>
-            <TechIconWrapper title="Git"><GitSVG /></TechIconWrapper>
-            <TechIconWrapper title="Jest"><JestSVG /></TechIconWrapper>
-            <TechIconWrapper isDark title="Cypress"
-              ><CypressSVG /></TechIconWrapper
-            >
-            <TechIconWrapper title="Cloudflare"
-              ><CloudflareSVG /></TechIconWrapper
-            >
-            <TechIconWrapper title="Astro"><AstroSVG /></TechIconWrapper>
-            <TechIconWrapper title="Hashnode"><HashnodeSVG /></TechIconWrapper>
-            <TechIconWrapper isDark title="Node.js"
-              ><NodejsSVG /></TechIconWrapper
-            >
-            <TechIconWrapper title="Figma"><FigmaSVG /></TechIconWrapper>
-            <TechIconWrapper isDark title="Linear"
-              ><LinearSVG /></TechIconWrapper
-            >
-          </div>
+              <h2
+                class="text-2xl text-center text-white lg:text-white/75 lg:group-hover:text-white/100 font-medium"
+              >
+                {latestPost.title}
+              </h2>
+              <p
+                class="text-white/75 lg:text-white/50 lg:group-hover:text-white/75 text-lg"
+              >
+                {latestPost.brief}
+              </p>
+              <span class="flex items-center gap-2 font-medium text-white"
+                >Read more <span
+                  class="inline-block w-4 h-4 text-white transform transition-transform duration-300 translate-x-0 group-hover:translate-x-4"
+                  ><ArrowRightSVG /></span
+                >
+              </span>
+            </div>
+          </a>
         </div>
       </section>
       <section class="bg-[#100114] py-32 px-1 sm:px-4 md:px-16">

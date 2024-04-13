@@ -32,3 +32,4 @@ export * from './StarSVG';
 export * from './GitForkSVG';
 export * from './SQLSVG';
 export * from './RSSSVG';
+export * from './ArrowRightSVG';

@@ -5,7 +5,8 @@ import { fetchPaginatedBlogPosts, getPostsPaginatedData } from "@utils/blog";
 import PageTitle from "@layouts/PageTitle.astro";
 import ScrollUp from "@components/navigation/ScrollUp.astro";
 import { ArticleCard } from "@components/ArticleCard";
-import { ArrowUpSVG } from "@components/icons";
+import { ArrowUpSVG, RSSSVG } from "@components/icons";
+import { Button } from "@components/Button";
 
 const blogPosts = await fetchPaginatedBlogPosts({ first: null, after: null });
 const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(
@@ -18,8 +19,33 @@ const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(
   description="I like about React, Next.js, TypeScript, and web development in general. Find something you like here."
   url="kieranroberts.dev/contact"
 >
-  <main class="px-8 md:px-16 py-16 w-full flex flex-col">
-    <PageTitle>Blog</PageTitle>
+  <main class="px-8 md:px-16 py-16 w-full flex flex-col gap-4">
+    <PageTitle>
+      <a
+        href="https://twitter.com/Kieran6dev"
+        class="text-[1.2em] p-1 rounded-lg">@Kieran6Dev</a
+      >
+      <br />Blog
+    </PageTitle>
+    <Button
+      client:load
+      variant="transparent"
+      className="flex items-center mx-auto mb-6"
+      asLink
+      href="/blog/rss.xml"
+      iconAnimationSettings={{ x: 2, scale: 1.03 }}
+      childrenIsIcon
+      startIcon={null}
+      endIcon={null}
+      aria-label="Kieran6Dev RSS feed"
+    >
+      <div class="flex items-center gap-2">
+        <span class="inline-block">RSS feed</span>
+        <span class="flex w-5 h-5 text-white">
+          <RSSSVG />
+        </span>
+      </div>
+    </Button>
     <section class="max-w-[600px] mx-auto">
       <div class="flex flex-col gap-y-12">
         {

@@ -36,7 +36,6 @@ export const getPaginatedPostPagePosts = async ({ first, after }: { first?: numb
  }
 };
 
-// Hashnode API only gives paginated posts
 export const getAllPostPagePosts = async () => {
  let currentCursor: string | undefined | null = '';
  let hasNext = true;

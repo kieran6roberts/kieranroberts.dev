@@ -30,3 +30,4 @@ export * from './XMarkSVG';
 export * from './XSVG';
 export * from './StarSVG';
 export * from './GitForkSVG';
+export * from './SQLSVG';

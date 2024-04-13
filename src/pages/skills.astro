@@ -21,6 +21,7 @@ import {
   NodejsSVG,
   FigmaSVG,
   LinearSVG,
+  SQLSVG,
 } from "@components/icons/index";
 import StatusCard from "@components/skills/StatusCard.astro";
 import { JOB_DATE, JOB_DESCRIPTION, JOB_TITLE } from "@utils/consts";
@@ -184,16 +185,16 @@ import { JOB_DATE, JOB_DESCRIPTION, JOB_TITLE } from "@utils/consts";
         </SkillsCard>
         <SkillsCard title="API's & Databases">
           <Fragment slot="tech">
+            <TechIconWrapper title="SQL"><SQLSVG /></TechIconWrapper>
             <TechIconWrapper title="NodeJS"><NodejsSVG /></TechIconWrapper>
-            <TechIconWrapper title="MongoDB"><MongoDBSVG /></TechIconWrapper>
-
             <TechIconWrapper title="GraphQL"><GraphqlSVG /></TechIconWrapper>
+            <TechIconWrapper title="MongoDB"><MongoDBSVG /></TechIconWrapper>
           </Fragment>
           <div slot="content" class="prose dark:prose-invert text-lg mt-6">
             <p>
-              Developing both public and internal API's that interact with
-              databases such as <span class="font-medium">MongoDB</span> is something
-              I am confident with and have pushed to production many times.
+              Experience working with both relational and non-relational
+              databases, developing both public and internal API's that interact
+              with these databases.
             </p>
             <h3>Example</h3>
             <p>
@@ -213,14 +214,6 @@ import { JOB_DATE, JOB_DESCRIPTION, JOB_TITLE } from "@utils/consts";
       <h2 class="font-header text-4xl text-left my-12">Soft Skills</h2>
       <section class="flex flex-col gap-8">
         <SkillsCard title="Communication">
-          <!-- <Fragment slot="tech">
-  
-              <TechIconWrapper><ReactSVG /></TechIconWrapper>
- 
-            <TechIconWrapper><TailwindSVG /></TechIconWrapper>
-            <TechIconWrapper><AstroSVG /></TechIconWrapper>
-            <TechIconWrapper><FigmaSVG /></TechIconWrapper>
-          </Fragment> -->
           <div slot="content" class="prose dark:prose-invert text-lg mt-6">
             <p>
               If there's one thing my experience working remotely has taught me,

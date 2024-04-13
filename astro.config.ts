@@ -7,8 +7,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  // site: "https://kieranroberts.dev", Once custom domain is in use
-  site: "https://kieranroberts-dev.pages.dev/",
+  site: "https://kieranroberts.dev",
   vite: {
     plugins: [FontaineTransform.vite({
       fallbacks: ['BlinkMacSystemFont', 'Segoe UI', 'Helvetica Neue', 'Arial', 'Noto Sans'],

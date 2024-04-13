@@ -829,6 +829,30 @@ input CreateDraftTagInput {
   slug: String
 }
 
+input CreateSeriesInput {
+  """The cover image of the series."""
+  coverImage: String
+  """The description of the series. Accepts markdown."""
+  descriptionMarkdown: String
+  """The name of the series."""
+  name: String!
+  """The id of the publication the series belongs to."""
+  publicationId: ID!
+  """
+  The slug of the series. Used to access series page.  Example https://johndoe.com/series/series-slug
+  """
+  slug: String!
+  """
+  The sort order of the series, determines if the latest posts should appear first or last in series.
+  """
+  sortOrder: SortOrder
+}
+
+type CreateSeriesPayload {
+  """Returns the created series."""
+  series: Series!
+}
+
 input CreateWebhookInput {
   events: [WebhookEvent!]!
   publicationId: ID!
@@ -1472,6 +1496,16 @@ type LikePostPayload {
   post: Post
 }
 
+input LikeReplyInput {
+  commentId: ID!
+  likesCount: Int = 1
+  replyId: ID!
+}
+
+type LikeReplyPayload {
+  reply: Reply
+}
+
 """Contains information about meta tags. Used for SEO purpose."""
 input MetaTagsInput {
   """The description of the post used in og:description for SEO."""
@@ -1495,12 +1529,16 @@ type Mutation {
     """Information about the draft to be created."""
     input: CreateDraftInput!
   ): CreateDraftPayload!
+  """Creates a new series."""
+  createSeries(input: CreateSeriesInput!): CreateSeriesPayload!
   createWebhook(input: CreateWebhookInput!): CreateWebhookPayload!
   deleteWebhook(id: ID!): DeleteWebhookPayload!
   """Likes a comment."""
   likeComment(input: LikeCommentInput!): LikeCommentPayload!
   """Likes a post."""
   likePost(input: LikePostInput!): LikePostPayload!
+  """Likes a reply."""
+  likeReply(input: LikeReplyInput!): LikeReplyPayload!
   """Publishes an existing draft as a post."""
   publishDraft(
     """Information about the draft to be published."""
@@ -1519,6 +1557,8 @@ type Mutation {
   removeRecommendation(input: RemoveRecommendationInput!): RemoveRecommendationPayload!
   """Removes a reply from a comment."""
   removeReply(input: RemoveReplyInput!): RemoveReplyPayload!
+  """Removes a series."""
+  removeSeries(input: RemoveSeriesInput!): RemoveSeriesPayload!
   """Reschedule a draft."""
   rescheduleDraft(input: RescheduleDraftInput!): RescheduleDraftPayload!
   resendWebhookRequest(input: ResendWebhookRequestInput!): ResendWebhookRequestPayload!
@@ -1543,6 +1583,8 @@ type Mutation {
   updatePost(input: UpdatePostInput!): UpdatePostPayload!
   """Updates a reply"""
   updateReply(input: UpdateReplyInput!): UpdateReplyPayload!
+  """Updates a series."""
+  updateSeries(input: UpdateSeriesInput!): UpdateSeriesPayload!
   updateWebhook(input: UpdateWebhookInput!): UpdateWebhookPayload!
 }
 
@@ -1760,6 +1802,19 @@ type PagesPreferences {
   members: Boolean
   """A flag indicating if the publication's newsletter page is enabled."""
   newsletter: Boolean
+}
+
+type PendingInvite implements Node {
+  """The email of the user that was invited."""
+  email: String
+  """The ID of the pending invite."""
+  id: ID!
+  """The role assigned to the user in the publication."""
+  role: UserPublicationRole!
+  """
+  Invited Hashnode user, returns null if the user is not a Hashnode user.
+  """
+  user: User
 }
 
 """
@@ -2415,10 +2470,22 @@ type PublicationLinks {
 type PublicationMember implements Node {
   """The ID of the publication member."""
   id: ID!
+  """
+  Denotes if the member is public or private
+  A private member is not visible on members page
+  """
+  privacyState: PublicationMemberPrivacyState
   """The role of the user in the publication."""
   role: UserPublicationRole!
   """The user who is a member of the publication."""
   user: User
+}
+
+enum PublicationMemberPrivacyState {
+  """The member is private and not visible on the members page."""
+  PRIVATE
+  """The member is public and visible on the members page."""
+  PUBLIC
 }
 
 """Contains the publication's navbar items."""
@@ -2699,8 +2766,16 @@ type Query {
 
 type RSSImport implements Node {
   id: ID!
+  """Indicates whether posts should be imported as drafts or not"""
+  importAsDrafts: Boolean!
+  """
+  RSS Tag name to be considered as the post content for automatic import.
+  """
+  rssTagName: String
   """The URL pointing to the RSS feed."""
   rssURL: String!
+  """Indicates whether the posts should be scraped or not"""
+  scrapePosts: Boolean!
 }
 
 """
@@ -2776,6 +2851,16 @@ type RemoveReplyPayload {
   reply: Reply
 }
 
+input RemoveSeriesInput {
+  """The id of the series to remove."""
+  id: ID!
+}
+
+type RemoveSeriesPayload {
+  """Returns the updated series."""
+  series: Series!
+}
+
 """
 Contains basic information about the reply.
 A reply is a response to a comment.
@@ -2833,6 +2918,21 @@ type RestorePostPayload {
   post: Post
 }
 
+type RoleBasedInvite implements Node {
+  """The capacity of how many members to be invited by the link."""
+  capacity: Int
+  """The expiry date of the invite."""
+  expiryDate: DateTime
+  """The ID of the role based invite."""
+  id: ID!
+  """Invite link of the role based invite."""
+  inviteLink: String
+  """Boolean that signifies if the invite has unlimited capacity."""
+  isUnlimitedCapacity: Boolean
+  """The role assigned to the user in the publication."""
+  role: UserPublicationRole!
+}
+
 """Information to help in seo related meta tags."""
 type SEO {
   """The description used in og:description tag for SEO purposes."""
@@ -2887,7 +2987,10 @@ enum Scope {
   assign_pro_publications
   change_pro_subscription
   create_pro
+  docs_editor_or_owner
+  docs_owner
   import_subscribers_to_publication
+  invited_team_user
   publication_admin
   publication_member
   publish_comment
@@ -3327,6 +3430,30 @@ input UpdateReplyInput {
 
 type UpdateReplyPayload {
   reply: Reply
+}
+
+input UpdateSeriesInput {
+  """The cover image of the series."""
+  coverImage: String
+  """The description of the series. Accepts markdown."""
+  descriptionMarkdown: String
+  """The id of the series to update."""
+  id: ID!
+  """The name of the series."""
+  name: String
+  """
+  The slug of the series. Used to access series page.  Example https://johndoe.com/series/series-slug
+  """
+  slug: String
+  """
+  The sort order of the series, determines if the latest posts should appear first or last in series.
+  """
+  sortOrder: SortOrder
+}
+
+type UpdateSeriesPayload {
+  """Returns the updated series."""
+  series: Series!
 }
 
 input UpdateWebhookInput {

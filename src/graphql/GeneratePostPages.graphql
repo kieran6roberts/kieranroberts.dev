@@ -7,9 +7,16 @@ query PostPagePosts($host: String!, $first: Int!, $after: String) {
           slug
           content {
             markdown
+            html
           }
+          seo {
+            description
+          }
+          brief
           title
           subtitle
+          slug
+          publishedAt
           coverImage {
             url
           }

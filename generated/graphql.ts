@@ -827,6 +827,27 @@ export type CreateDraftTagInput = {
   slug?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type CreateSeriesInput = {
+  /** The cover image of the series. */
+  coverImage?: InputMaybe<Scalars['String']['input']>;
+  /** The description of the series. Accepts markdown. */
+  descriptionMarkdown?: InputMaybe<Scalars['String']['input']>;
+  /** The name of the series. */
+  name: Scalars['String']['input'];
+  /** The id of the publication the series belongs to. */
+  publicationId: Scalars['ID']['input'];
+  /** The slug of the series. Used to access series page.  Example https://johndoe.com/series/series-slug */
+  slug: Scalars['String']['input'];
+  /** The sort order of the series, determines if the latest posts should appear first or last in series. */
+  sortOrder?: InputMaybe<SortOrder>;
+};
+
+export type CreateSeriesPayload = {
+  __typename?: 'CreateSeriesPayload';
+  /** Returns the created series. */
+  series: Series;
+};
+
 export type CreateWebhookInput = {
   events: Array<WebhookEvent>;
   publicationId: Scalars['ID']['input'];
@@ -1456,6 +1477,17 @@ export type LikePostPayload = {
   post?: Maybe<Post>;
 };
 
+export type LikeReplyInput = {
+  commentId: Scalars['ID']['input'];
+  likesCount?: InputMaybe<Scalars['Int']['input']>;
+  replyId: Scalars['ID']['input'];
+};
+
+export type LikeReplyPayload = {
+  __typename?: 'LikeReplyPayload';
+  reply?: Maybe<Reply>;
+};
+
 /** Contains information about meta tags. Used for SEO purpose. */
 export type MetaTagsInput = {
   /** The description of the post used in og:description for SEO. */
@@ -1477,12 +1509,16 @@ export type Mutation = {
   cancelScheduledDraft: CancelScheduledDraftPayload;
   /** Creates a new draft for a post. */
   createDraft: CreateDraftPayload;
+  /** Creates a new series. */
+  createSeries: CreateSeriesPayload;
   createWebhook: CreateWebhookPayload;
   deleteWebhook: DeleteWebhookPayload;
   /** Likes a comment. */
   likeComment: LikeCommentPayload;
   /** Likes a post. */
   likePost: LikePostPayload;
+  /** Likes a reply. */
+  likeReply: LikeReplyPayload;
   /** Publishes an existing draft as a post. */
   publishDraft: PublishDraftPayload;
   /** Creates a new post. */
@@ -1495,6 +1531,8 @@ export type Mutation = {
   removeRecommendation: RemoveRecommendationPayload;
   /** Removes a reply from a comment. */
   removeReply: RemoveReplyPayload;
+  /** Removes a series. */
+  removeSeries: RemoveSeriesPayload;
   /** Reschedule a draft. */
   rescheduleDraft: RescheduleDraftPayload;
   resendWebhookRequest: ResendWebhookRequestPayload;
@@ -1516,6 +1554,8 @@ export type Mutation = {
   updatePost: UpdatePostPayload;
   /** Updates a reply */
   updateReply: UpdateReplyPayload;
+  /** Updates a series. */
+  updateSeries: UpdateSeriesPayload;
   updateWebhook: UpdateWebhookPayload;
 };
 
@@ -1545,6 +1585,11 @@ export type MutationCreateDraftArgs = {
 };
 
 
+export type MutationCreateSeriesArgs = {
+  input: CreateSeriesInput;
+};
+
+
 export type MutationCreateWebhookArgs = {
   input: CreateWebhookInput;
 };
@@ -1562,6 +1607,11 @@ export type MutationLikeCommentArgs = {
 
 export type MutationLikePostArgs = {
   input: LikePostInput;
+};
+
+
+export type MutationLikeReplyArgs = {
+  input: LikeReplyInput;
 };
 
 
@@ -1597,6 +1647,11 @@ export type MutationRemoveRecommendationArgs = {
 
 export type MutationRemoveReplyArgs = {
   input: RemoveReplyInput;
+};
+
+
+export type MutationRemoveSeriesArgs = {
+  input: RemoveSeriesInput;
 };
 
 
@@ -1653,6 +1708,11 @@ export type MutationUpdatePostArgs = {
 
 export type MutationUpdateReplyArgs = {
   input: UpdateReplyInput;
+};
+
+
+export type MutationUpdateSeriesArgs = {
+  input: UpdateSeriesInput;
 };
 
 
@@ -1882,6 +1942,18 @@ export type PagesPreferences = {
   members?: Maybe<Scalars['Boolean']['output']>;
   /** A flag indicating if the publication's newsletter page is enabled. */
   newsletter?: Maybe<Scalars['Boolean']['output']>;
+};
+
+export type PendingInvite = Node & {
+  __typename?: 'PendingInvite';
+  /** The email of the user that was invited. */
+  email?: Maybe<Scalars['String']['output']>;
+  /** The ID of the pending invite. */
+  id: Scalars['ID']['output'];
+  /** The role assigned to the user in the publication. */
+  role: UserPublicationRole;
+  /** Invited Hashnode user, returns null if the user is not a Hashnode user. */
+  user?: Maybe<User>;
 };
 
 /** Contains basic information about the tag returned by popularTags query. */
@@ -2542,11 +2614,23 @@ export type PublicationMember = Node & {
   __typename?: 'PublicationMember';
   /** The ID of the publication member. */
   id: Scalars['ID']['output'];
+  /**
+   * Denotes if the member is public or private
+   * A private member is not visible on members page
+   */
+  privacyState?: Maybe<PublicationMemberPrivacyState>;
   /** The role of the user in the publication. */
   role: UserPublicationRole;
   /** The user who is a member of the publication. */
   user?: Maybe<User>;
 };
+
+export enum PublicationMemberPrivacyState {
+  /** The member is private and not visible on the members page. */
+  Private = 'PRIVATE',
+  /** The member is public and visible on the members page. */
+  Public = 'PUBLIC'
+}
 
 /** Contains the publication's navbar items. */
 export type PublicationNavbarItem = {
@@ -2835,8 +2919,14 @@ export type QueryUserArgs = {
 export type RssImport = Node & {
   __typename?: 'RSSImport';
   id: Scalars['ID']['output'];
+  /** Indicates whether posts should be imported as drafts or not */
+  importAsDrafts: Scalars['Boolean']['output'];
+  /** RSS Tag name to be considered as the post content for automatic import. */
+  rssTagName?: Maybe<Scalars['String']['output']>;
   /** The URL pointing to the RSS feed. */
   rssURL: Scalars['String']['output'];
+  /** Indicates whether the posts should be scraped or not */
+  scrapePosts: Scalars['Boolean']['output'];
 };
 
 /**
@@ -2920,6 +3010,17 @@ export type RemoveReplyPayload = {
   reply?: Maybe<Reply>;
 };
 
+export type RemoveSeriesInput = {
+  /** The id of the series to remove. */
+  id: Scalars['ID']['input'];
+};
+
+export type RemoveSeriesPayload = {
+  __typename?: 'RemoveSeriesPayload';
+  /** Returns the updated series. */
+  series: Series;
+};
+
 /**
  * Contains basic information about the reply.
  * A reply is a response to a comment.
@@ -2977,6 +3078,22 @@ export type RestorePostPayload = {
   post?: Maybe<Post>;
 };
 
+export type RoleBasedInvite = Node & {
+  __typename?: 'RoleBasedInvite';
+  /** The capacity of how many members to be invited by the link. */
+  capacity?: Maybe<Scalars['Int']['output']>;
+  /** The expiry date of the invite. */
+  expiryDate?: Maybe<Scalars['DateTime']['output']>;
+  /** The ID of the role based invite. */
+  id: Scalars['ID']['output'];
+  /** Invite link of the role based invite. */
+  inviteLink?: Maybe<Scalars['String']['output']>;
+  /** Boolean that signifies if the invite has unlimited capacity. */
+  isUnlimitedCapacity?: Maybe<Scalars['Boolean']['output']>;
+  /** The role assigned to the user in the publication. */
+  role: UserPublicationRole;
+};
+
 /** Information to help in seo related meta tags. */
 export type Seo = {
   __typename?: 'SEO';
@@ -3028,7 +3145,10 @@ export enum Scope {
   AssignProPublications = 'assign_pro_publications',
   ChangeProSubscription = 'change_pro_subscription',
   CreatePro = 'create_pro',
+  DocsEditorOrOwner = 'docs_editor_or_owner',
+  DocsOwner = 'docs_owner',
   ImportSubscribersToPublication = 'import_subscribers_to_publication',
+  InvitedTeamUser = 'invited_team_user',
   PublicationAdmin = 'publication_admin',
   PublicationMember = 'publication_member',
   PublishComment = 'publish_comment',
@@ -3455,6 +3575,27 @@ export type UpdateReplyPayload = {
   reply?: Maybe<Reply>;
 };
 
+export type UpdateSeriesInput = {
+  /** The cover image of the series. */
+  coverImage?: InputMaybe<Scalars['String']['input']>;
+  /** The description of the series. Accepts markdown. */
+  descriptionMarkdown?: InputMaybe<Scalars['String']['input']>;
+  /** The id of the series to update. */
+  id: Scalars['ID']['input'];
+  /** The name of the series. */
+  name?: InputMaybe<Scalars['String']['input']>;
+  /** The slug of the series. Used to access series page.  Example https://johndoe.com/series/series-slug */
+  slug?: InputMaybe<Scalars['String']['input']>;
+  /** The sort order of the series, determines if the latest posts should appear first or last in series. */
+  sortOrder?: InputMaybe<SortOrder>;
+};
+
+export type UpdateSeriesPayload = {
+  __typename?: 'UpdateSeriesPayload';
+  /** Returns the updated series. */
+  series: Series;
+};
+
 export type UpdateWebhookInput = {
   events?: InputMaybe<Array<WebhookEvent>>;
   id: Scalars['ID']['input'];
@@ -3868,8 +4009,8 @@ export type PostPagePostsQueryVariables = Exact<{
 }>;
 
 
-export type PostPagePostsQuery = { __typename?: 'Query', publication?: { __typename?: 'Publication', id: string, posts: { __typename?: 'PublicationPostConnection', edges: Array<{ __typename?: 'PostEdge', cursor: string, node: { __typename?: 'Post', slug: string, title: string, subtitle?: string | null, readTimeInMinutes: number, content: { __typename?: 'Content', markdown: string }, coverImage?: { __typename?: 'PostCoverImage', url: string } | null } }>, pageInfo: { __typename?: 'PageInfo', hasNextPage?: boolean | null, endCursor?: string | null } } } | null };
+export type PostPagePostsQuery = { __typename?: 'Query', publication?: { __typename?: 'Publication', id: string, posts: { __typename?: 'PublicationPostConnection', edges: Array<{ __typename?: 'PostEdge', cursor: string, node: { __typename?: 'Post', slug: string, brief: string, title: string, subtitle?: string | null, publishedAt: string, readTimeInMinutes: number, content: { __typename?: 'Content', markdown: string, html: string }, seo?: { __typename?: 'SEO', description?: string | null } | null, coverImage?: { __typename?: 'PostCoverImage', url: string } | null } }>, pageInfo: { __typename?: 'PageInfo', hasNextPage?: boolean | null, endCursor?: string | null } } } | null };
 
 
 export const BlogPostsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"BlogPosts"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"host"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"after"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"first"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"publication"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"host"},"value":{"kind":"Variable","name":{"kind":"Name","value":"host"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"posts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"after"},"value":{"kind":"Variable","name":{"kind":"Name","value":"after"}}},{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"Variable","name":{"kind":"Name","value":"first"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"edges"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"publishedAt"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"subtitle"}},{"kind":"Field","name":{"kind":"Name","value":"brief"}},{"kind":"Field","name":{"kind":"Name","value":"readTimeInMinutes"}},{"kind":"Field","name":{"kind":"Name","value":"views"}},{"kind":"Field","name":{"kind":"Name","value":"author"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"profilePicture"}}]}},{"kind":"Field","name":{"kind":"Name","value":"coverImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"cursor"}}]}},{"kind":"Field","name":{"kind":"Name","value":"pageInfo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"hasNextPage"}},{"kind":"Field","name":{"kind":"Name","value":"endCursor"}}]}}]}}]}}]}}]} as unknown as DocumentNode<BlogPostsQuery, BlogPostsQueryVariables>;
-export const PostPagePostsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"PostPagePosts"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"host"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"first"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"after"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"publication"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"host"},"value":{"kind":"Variable","name":{"kind":"Name","value":"host"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"posts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"Variable","name":{"kind":"Name","value":"first"}}},{"kind":"Argument","name":{"kind":"Name","value":"after"},"value":{"kind":"Variable","name":{"kind":"Name","value":"after"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"edges"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"markdown"}}]}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"subtitle"}},{"kind":"Field","name":{"kind":"Name","value":"coverImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"readTimeInMinutes"}}]}},{"kind":"Field","name":{"kind":"Name","value":"cursor"}}]}},{"kind":"Field","name":{"kind":"Name","value":"pageInfo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"hasNextPage"}},{"kind":"Field","name":{"kind":"Name","value":"endCursor"}}]}}]}}]}}]}}]} as unknown as DocumentNode<PostPagePostsQuery, PostPagePostsQueryVariables>;
+export const PostPagePostsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"PostPagePosts"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"host"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"first"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"after"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"publication"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"host"},"value":{"kind":"Variable","name":{"kind":"Name","value":"host"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"posts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"Variable","name":{"kind":"Name","value":"first"}}},{"kind":"Argument","name":{"kind":"Name","value":"after"},"value":{"kind":"Variable","name":{"kind":"Name","value":"after"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"edges"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"content"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"markdown"}},{"kind":"Field","name":{"kind":"Name","value":"html"}}]}},{"kind":"Field","name":{"kind":"Name","value":"seo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"description"}}]}},{"kind":"Field","name":{"kind":"Name","value":"brief"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"subtitle"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"publishedAt"}},{"kind":"Field","name":{"kind":"Name","value":"coverImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"readTimeInMinutes"}}]}},{"kind":"Field","name":{"kind":"Name","value":"cursor"}}]}},{"kind":"Field","name":{"kind":"Name","value":"pageInfo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"hasNextPage"}},{"kind":"Field","name":{"kind":"Name","value":"endCursor"}}]}}]}}]}}]}}]} as unknown as DocumentNode<PostPagePostsQuery, PostPagePostsQueryVariables>;

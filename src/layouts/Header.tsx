@@ -2,6 +2,7 @@ import { CodeSVG } from "@components/icons";
 import * as React from "react";
 import { MainNavLinks } from "@components/navigation/MainNavLinks";
 import ThemeToggle from "@components/ThemeToggle.tsx";
+import { RSSLink } from "@components/navigation/RSSLink";
 import { Trigger as SidebarTrigger } from "@components/navigation/MobileSidebar/Trigger";
 import useStickyScroll from "@hooks/useStickyHeader";
 import { usePrefersReducedMotion } from "@hooks/usePrefersReducedMotion";
@@ -15,6 +16,7 @@ export const Header = ({ pathname }: Props) => {
   const headerRef = React.useRef<HTMLElement>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
   const isActive = pathname === "/";
+  const isBlogPath = pathname.includes("/blog");
 
   useStickyScroll({ elRef: headerRef, prefersReducedMotion });
 
@@ -52,8 +54,9 @@ export const Header = ({ pathname }: Props) => {
         </section>
 
         <section className="flex items-center gap-x-8">
-          <div className="flex items-center gap-x-6 md:gap-x-0">
+          <div className="flex items-center gap-x-2 md:gap-x-6">
             {!isActive ? <ThemeToggle /> : null}
+            {isBlogPath ? <RSSLink /> : null}
 
             <SidebarTrigger pathname={pathname} />
           </div>

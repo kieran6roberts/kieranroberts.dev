@@ -33,3 +33,4 @@ export * from './GitForkSVG';
 export * from './SQLSVG';
 export * from './RSSSVG';
 export * from './ArrowRightSVG';
+export * from './ArrowDownSVG';

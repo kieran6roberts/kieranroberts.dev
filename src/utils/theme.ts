@@ -1,7 +1,7 @@
 type Theme = 'light' | "dark";
 const STORAGE_KEY = 'theme';
 export const EXPRESSIVE_CODE_THEMES = {
-  light: 'slack-ochin',
+  // light: 'slack-ochin',
   dark: 'rose-pine-moon'
 };
 
@@ -17,7 +17,7 @@ export const getThemePreference = (): Theme => {
 export const reflectThemePreference = (theme: Theme) => {
  document.documentElement.className = '';
  document.documentElement.classList.add(theme)
- document.documentElement.setAttribute('data-theme', EXPRESSIVE_CODE_THEMES[theme]);
+ document.documentElement.setAttribute('data-theme', EXPRESSIVE_CODE_THEMES['dark']);
  document
    .querySelector('#theme-toggle')
    ?.setAttribute('aria-label', theme)

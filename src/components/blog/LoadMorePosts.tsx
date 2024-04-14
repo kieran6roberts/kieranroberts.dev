@@ -52,8 +52,8 @@ export const LoadMorePosts = ({ cursor, hasNextPage }: ILoadMorePosts) => {
         <Button
           onClick={() => {}}
           startIcon={
-            <span className="block w-6 h-6">
-              <EmojiLookDownSVG color="#ffffff" />
+            <span className="block w-6 h-6 text-white">
+              <EmojiLookDownSVG />
             </span>
           }
           variant="transparent"
@@ -66,8 +66,8 @@ export const LoadMorePosts = ({ cursor, hasNextPage }: ILoadMorePosts) => {
         <Button
           onClick={getMore}
           endIcon={
-            <span className="block w-6 h-6">
-              <NavArrowDownSVG color="#ffffff" />
+            <span className="block w-6 h-6 text-white">
+              <NavArrowDownSVG />
             </span>
           }
           iconAnimationSettings={{ y: 4 }}

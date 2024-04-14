@@ -1,16 +1,7 @@
 import * as React from "react";
 
-interface Props {
-  [x: string]: any;
-}
-
-export const FigmaSVG = ({ restOfProps }: Props) => (
-  <svg
-    viewBox="0 0 16 16"
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    {...restOfProps}
-  >
+export const FigmaSVG = () => (
+  <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none">
     <path
       fill="#1ABCFE"
       d="M8.55 8c0-1.289 1.019-2.333 2.275-2.333C12.082 5.667 13.1 6.71 13.1 8c0 1.289-1.018 2.333-2.275 2.333C9.57 10.333 8.55 9.29 8.55 8z"

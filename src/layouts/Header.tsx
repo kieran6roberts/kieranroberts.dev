@@ -46,8 +46,12 @@ export const Header = ({ pathname }: Props) => {
             </div>
             <h1 className="flex items-center text-white text-xl font-light gap-x-2">
               kieranroberts.dev
-              <span className="block w-6 h-6">
-                <CodeSVG color={isActive ? "#97EC77" : "#ffffff"} />
+              <span
+                className={`block w-6 h-6 ${
+                  isActive ? "text-[#97EC77]" : "text-white"
+                }`}
+              >
+                <CodeSVG />
               </span>
             </h1>
           </a>

@@ -10,7 +10,7 @@ import {
   landingPageCodeDesktopExample,
   landingPageCodeMobileExample,
 } from "../utils/code";
-import { ArrowRightSVG } from "@components/icons";
+import { ArrowDownSVG, ArrowRightSVG } from "@components/icons";
 import MobileStatusCard from "@components/skills/StatusCard.astro";
 import { JOB_DATE, JOB_DESCRIPTION, JOB_TITLE } from "@utils/consts";
 import Hero from "@components/landing/Hero.astro";
@@ -27,142 +27,69 @@ const latestPost = postsArray[0];
 <Layout url="kieranroberts.dev" showFooter={false}>
   <div class="bg-[#100114]">
     <main class="bg-[#100114] max-w-[1600px] mx-auto">
-      <div>
+      <div class="relative">
         <Hero />
-      </div>
-
-      <div class="relative gap-12 py-32 md:py-44 sm:px-4 md:px-16">
         <div
-          class="absolute top-4 right-4 sm:right-16 lg:right-20 flex flex-row items-center"
+          class="absolute bottom-4 right-4 sm:right-16 lg:right-20 flex flex-row items-center"
         >
           <SocialLinks client:load asDark />
         </div>
-        <TechCarousel />
-        <section
-          class="relative bg-[#100114] flex flex-col-reverse gap-y-12 lg:flex-row"
-        >
-          <div class="flex-1 px-8">
-            <div
-              class="hidden md:block max-w-[95%] sm:max-w-[550px] mx-auto overflow-hidden"
-            >
-              <Code
-                code={landingPageCodeDesktopExample}
-                lang="ts"
-                wrap
-                frame="code"
-                title="+1 for an accessible web"
-              />
-            </div>
-            <div
-              class="md:hidden max-w-[95%] sm:max-w-[550px] mx-auto overflow-hidden"
-            >
-              <Code
-                code={landingPageCodeMobileExample}
-                lang="tsx"
-                wrap
-                frame="code"
-                title="Who doesn't love themes"
-              />
-            </div>
-          </div>
-          <div class="flex-1 self-center">
-            <SectionTitle styles="text-white">
-              Java(Type)Script is my playground
-            </SectionTitle>
-            <SectionDescription styles="text-white">
-              But only when JavaScript is required. For example this site is
-              built with <a
-                href="https://astro.build/"
-                class="text-d-tertiary-2 underline"
-                aria-label="Astro, opens in new tab">Astro</a
-              > to reduce the JavaScript overhead.
-            </SectionDescription>
-          </div>
-        </section>
       </div>
 
-      <section
-        class="bg-l-tertiary-2 flex flex-col rounded-3xl lg:flex-row gap-12"
-      >
-        <div
-          class="w-full lg:w-1/2 self-center pt-32 lg:py-32 sm:px-4 md:px-16 lg:pl-16"
-        >
-          <SectionTitle styles="text-black">Check out my blog</SectionTitle>
-          <div class="flex flex-col gap-8 items-center">
-            <SectionDescription styles="text-black">
-              I love to share what I have learned with others. In my blog you
-              can find content on Next.js, React, and a host of general web
-              development topics.
-            </SectionDescription>
-
-            <Button client:visible asLink href="/blog">Visit blog</Button>
-          </div>
-        </div>
-        <div
-          class="w-full lg:w-1/2 pt-16 lg:py-32 bg-[#100114] sm:px-4 lg:pr-16"
-        >
-          <a
-            href={`/blog/${latestPost.slug}`}
-            class="group w-full flex flex-col justify-center border-b border-l-secondary lg:border-none px-8 lg:px-16 pt-4 gap-4 flex-1"
-          >
-            <div class="flex flex-col">
-              <span class="text-l-tertiary-2 text-left text-lg font-medium"
-                >Latest article</span
-              >
-              <span class="text-white">
-                {
-                  new Date(latestPost.publishedAt).toLocaleDateString("en-US", {
-                    weekday: "long",
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })
-                }
-              </span>
-            </div>
-            {
-              latestPost.coverImage ? (
-                <div class="relative self-center">
-                  <Image
-                    src={latestPost.coverImage.url}
-                    alt={latestPost.title}
-                    class="rounded-xl opacity-50 group-hover:opacity-100"
-                    width={500}
-                    height={250}
-                  />
-                  <div class="absolute bottom-0 right-0 left-0 opacity-100 transition-opacity duration-300 h-20 bg-gradient-to-t from-[#100114] from-75% to-transparent z-10 group-hover:opacity-0" />
-                </div>
-              ) : null
-            }
-            <div
-              class="z-50 flex flex-col gap-4 relative transition-transform duration-300 -translate-y-16 group-hover:translate-y-0"
-            >
-              <h2
-                class="text-2xl text-center text-white lg:text-white/75 lg:group-hover:text-white/100 font-medium"
-              >
-                {latestPost.title}
-              </h2>
-              <p
-                class="text-white/75 lg:text-white/50 lg:group-hover:text-white/75 text-lg"
-              >
-                {latestPost.brief}
-              </p>
-              <span class="flex items-center gap-2 font-medium text-white"
-                >Read more <span
-                  class="inline-block w-4 h-4 text-white transform transition-transform duration-300 translate-x-0 group-hover:translate-x-4"
-                  ><ArrowRightSVG /></span
-                >
-              </span>
-            </div>
-          </a>
+      <section>
+        <div class="my-32">
+          <TechCarousel />
         </div>
       </section>
-      <section class="bg-[#100114] py-32 px-1 sm:px-4 md:px-16">
+
+      <section
+        class="relative bg-l-secondary flex flex-col-reverse rounded-tl-3xl rounded-tr-3xl lg:rounded-3xl lg:flex-row"
+      >
+        <div
+          class="hidden lg:flex flex-1 md:px-8 bg-[#100114] py-32 px-4 xl:px-16"
+        >
+          <div class="max-w-[95%] sm:max-w-[550px] mx-auto overflow-hidden">
+            <Code
+              code={landingPageCodeDesktopExample}
+              lang="ts"
+              wrap
+              frame="code"
+              title="+1 for an accessible web"
+            />
+          </div>
+        </div>
+        <div class="flex-1 self-center h-full py-32 px-4 md:px-8 xl:px-16">
+          <SectionTitle styles="text-white">
+            Java(Type)Script is my playground
+          </SectionTitle>
+          <SectionDescription styles="text-white">
+            But only when JavaScript is required. For example this site is built
+            with <a
+              href="https://astro.build/"
+              class="text-[#100114] underline"
+              aria-label="Astro, opens in new tab">Astro</a
+            > to reduce the JavaScript overhead.
+          </SectionDescription>
+          <div
+            class="lg:hidden max-w-[95%] mt-16 sm:max-w-[550px] mx-auto overflow-hidden"
+          >
+            <Code
+              code={landingPageCodeMobileExample}
+              lang="tsx"
+              wrap
+              frame="code"
+              title="Who doesn't love themes"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-[#100114] py-32 xl:px-16">
         <SectionTitle styles="text-white max-w-[90%] md:max-w-[500px] mx-auto">
           Current Status
         </SectionTitle>
         {/* Mobile What am I working on */}
-        <div class="lg:hidden px-8 mb-8">
+        <div class="lg:hidden px-4 md:px-8 mb-8">
           <MobileStatusCard
             title={JOB_TITLE}
             description={JOB_DESCRIPTION}
@@ -241,8 +168,85 @@ const latestPost = postsArray[0];
           Find out more about me
         </Button>
       </section>
+
+      <section class="bg-l-tertiary-2 flex flex-col rounded-3xl lg:flex-row">
+        <div
+          class="w-full lg:w-1/2 self-center pt-32 pb-16 lg:py-32 px-4 md:px-8 xl:px-16"
+        >
+          <SectionTitle styles="text-black">Check out my blog</SectionTitle>
+          <div class="flex flex-col gap-8 items-center">
+            <SectionDescription styles="text-black">
+              I love to share what I have learned with others. In my blog you
+              can find content on Next.js, React, and a host of general web
+              development topics.
+            </SectionDescription>
+
+            <Button client:visible asLink href="/blog">Visit blog</Button>
+
+            <span class="block text-black mx-auto mt-4 lg:hidden w-8 h-8">
+              <ArrowDownSVG />
+            </span>
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2 pt-32 pb-16 bg-[#100114]">
+          <a
+            href={`/blog/${latestPost.slug}`}
+            class="group w-full flex flex-col justify-center px-4 md:px-8 xl:px-16 pt-4 gap-4 flex-1"
+          >
+            <div class="flex flex-col">
+              <span class="text-l-tertiary-2 text-left text-lg font-medium"
+                >Latest article</span
+              >
+              <span class="text-white">
+                {
+                  new Date(latestPost.publishedAt).toLocaleDateString("en-US", {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })
+                }
+              </span>
+            </div>
+            {
+              latestPost.coverImage ? (
+                <div class="relative self-center">
+                  <Image
+                    src={latestPost.coverImage.url}
+                    alt={latestPost.title}
+                    class="rounded-xl opacity-50 group-hover:opacity-100"
+                    width={500}
+                    height={250}
+                  />
+                  <div class="absolute bottom-0 right-0 left-0 opacity-100 transition-opacity duration-300 h-20 bg-gradient-to-t from-[#100114] from-75% to-transparent z-10 group-hover:opacity-0" />
+                </div>
+              ) : null
+            }
+            <div
+              class="z-50 flex flex-col gap-4 relative transition-transform duration-300 -translate-y-16 group-hover:translate-y-0"
+            >
+              <h2
+                class="text-2xl text-center text-white lg:text-white/75 lg:group-hover:text-white/100 font-medium"
+              >
+                {latestPost.title}
+              </h2>
+              <p
+                class="text-white/75 lg:text-white/50 lg:group-hover:text-white/75 prose sm:prose-lg md:prose-xl"
+              >
+                {latestPost.brief}
+              </p>
+              <span class="flex items-center gap-2 font-medium text-white"
+                >Read more <span
+                  class="inline-block w-4 h-4 text-white transform transition-transform duration-300 translate-x-0 group-hover:translate-x-4"
+                  ><ArrowRightSVG /></span
+                >
+              </span>
+            </div>
+          </a>
+        </div>
+      </section>
       <footer
-        class="relative flex flex-col md:flex-row justify-between items-center gap-y-4 px-20 lg:px-56 py-8 bg-[#100114] border-t border-slate-900"
+        class="relative flex flex-col md:flex-row justify-between items-center gap-y-4 px-4 md:px-8 xl:px-16 py-8 xl:py-24 bg-[#100114] border-t border-slate-900"
       >
         <div class="flex flex-col gap-4 items-center md:items-start">
           <a href="/" class="text-3xl font-medium text-white"

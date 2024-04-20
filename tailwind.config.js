@@ -20,6 +20,7 @@ export default {
         'l-tertiary-1': '#71DAEC',
         'l-tertiary-2': '#97EC77',
         // Dark mode
+        'primary-dark': '#100114', 
         'd-primary-darkest': '#320E3B',
         'd-primary-dark': '#4C2A85',
         'd-secondary': '#6B7FD7',

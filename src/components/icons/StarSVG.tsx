@@ -1,11 +1,6 @@
 import * as React from "react";
 
-interface Props {
-  hoverFill?: boolean;
-  [x: string]: any;
-}
-
-export const StarSVG = ({ restOfProps }: Props) => (
+export const StarSVG = () => (
   <svg
     strokeWidth="1.5"
     viewBox="0 0 24 24"

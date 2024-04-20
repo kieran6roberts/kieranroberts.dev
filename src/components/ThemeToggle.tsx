@@ -42,11 +42,7 @@ const ThemeToggle = () => {
         style={styleToApplyOnBoop}
         className="block text-white w-6 h-6"
       >
-        {isDarkTheme ? (
-          <SunLightSVG color="#ffffff" />
-        ) : (
-          <HalfMoonSVG color="#ffffff" />
-        )}
+        {isDarkTheme ? <SunLightSVG /> : <HalfMoonSVG />}
       </animated.span>
     </button>
   );

@@ -31,10 +31,10 @@ const Trigger = ({ pathname }: Props) => {
         onMouseEnter={handleBoopTrigger}
       >
         <animated.span
-          className="w-6 h-6 block"
+          className="w-6 h-6 block text-white"
           {...(styleToApplyOnBoop && { style: styleToApplyOnBoop })}
         >
-          <MenuSVG color="#ffffff" />
+          <MenuSVG />
         </animated.span>
       </animated.button>
       <Drawer

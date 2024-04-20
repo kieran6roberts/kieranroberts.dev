@@ -1,16 +1,11 @@
 import * as React from "react";
 
-interface Props {
-  [x: string]: any;
-}
-
-export const NodejsSVG = ({ restOfProps }: Props) => (
+export const NodejsSVG = () => (
   <svg
     viewBox="0 -99 512 512"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     preserveAspectRatio="xMidYMid"
-    {...restOfProps}
   >
     <defs>
       <linearGradient
@@ -20,11 +15,11 @@ export const NodejsSVG = ({ restOfProps }: Props) => (
         y2="89.7551419%"
         id="linearGradient-1"
       >
-        <stop stop-color="#41873F" offset="0%"></stop>
-        <stop stop-color="#418B3D" offset="32.88%"></stop>
-        <stop stop-color="#419637" offset="63.52%"></stop>
-        <stop stop-color="#3FA92D" offset="93.19%"></stop>
-        <stop stop-color="#3FAE2A" offset="100%"></stop>
+        <stop stopColor="#41873F" offset="0%"></stop>
+        <stop stopColor="#418B3D" offset="32.88%"></stop>
+        <stop stopColor="#419637" offset="63.52%"></stop>
+        <stop stopColor="#3FA92D" offset="93.19%"></stop>
+        <stop stopColor="#3FAE2A" offset="100%"></stop>
       </linearGradient>
       <path
         id="path-2"
@@ -37,10 +32,10 @@ export const NodejsSVG = ({ restOfProps }: Props) => (
         y2="-18.3061379%"
         id="linearGradient-4"
       >
-        <stop stop-color="#41873F" offset="13.76%"></stop>
-        <stop stop-color="#54A044" offset="40.32%"></stop>
-        <stop stop-color="#66B848" offset="71.36%"></stop>
-        <stop stop-color="#6CC04A" offset="90.81%"></stop>
+        <stop stopColor="#41873F" offset="13.76%"></stop>
+        <stop stopColor="#54A044" offset="40.32%"></stop>
+        <stop stopColor="#66B848" offset="71.36%"></stop>
+        <stop stopColor="#6CC04A" offset="90.81%"></stop>
       </linearGradient>
       <linearGradient
         x1="-4413.77%"
@@ -49,10 +44,10 @@ export const NodejsSVG = ({ restOfProps }: Props) => (
         y2="13.43%"
         id="linearGradient-5"
       >
-        <stop stop-color="#6CC04A" offset="9.191646%"></stop>
-        <stop stop-color="#66B848" offset="28.64%"></stop>
-        <stop stop-color="#54A044" offset="59.68%"></stop>
-        <stop stop-color="#41873F" offset="86.24%"></stop>
+        <stop stopColor="#6CC04A" offset="9.191646%"></stop>
+        <stop stopColor="#66B848" offset="28.64%"></stop>
+        <stop stopColor="#54A044" offset="59.68%"></stop>
+        <stop stopColor="#41873F" offset="86.24%"></stop>
       </linearGradient>
       <linearGradient
         x1="-4.38880435%"
@@ -61,10 +56,10 @@ export const NodejsSVG = ({ restOfProps }: Props) => (
         y2="49.9972065%"
         id="linearGradient-6"
       >
-        <stop stop-color="#6CC04A" offset="9.191646%"></stop>
-        <stop stop-color="#66B848" offset="28.64%"></stop>
-        <stop stop-color="#54A044" offset="59.68%"></stop>
-        <stop stop-color="#41873F" offset="86.24%"></stop>
+        <stop stopColor="#6CC04A" offset="9.191646%"></stop>
+        <stop stopColor="#66B848" offset="28.64%"></stop>
+        <stop stopColor="#54A044" offset="59.68%"></stop>
+        <stop stopColor="#41873F" offset="86.24%"></stop>
       </linearGradient>
       <linearGradient
         x1="-9713.77%"
@@ -73,10 +68,10 @@ export const NodejsSVG = ({ restOfProps }: Props) => (
         y2="36.21%"
         id="linearGradient-7"
       >
-        <stop stop-color="#6CC04A" offset="9.191646%"></stop>
-        <stop stop-color="#66B848" offset="28.64%"></stop>
-        <stop stop-color="#54A044" offset="59.68%"></stop>
-        <stop stop-color="#41873F" offset="86.24%"></stop>
+        <stop stopColor="#6CC04A" offset="9.191646%"></stop>
+        <stop stopColor="#66B848" offset="28.64%"></stop>
+        <stop stopColor="#54A044" offset="59.68%"></stop>
+        <stop stopColor="#41873F" offset="86.24%"></stop>
       </linearGradient>
       <linearGradient
         x1="-103.860714%"
@@ -85,10 +80,10 @@ export const NodejsSVG = ({ restOfProps }: Props) => (
         y2="50.2754209%"
         id="linearGradient-8"
       >
-        <stop stop-color="#6CC04A" offset="9.191646%"></stop>
-        <stop stop-color="#66B848" offset="28.64%"></stop>
-        <stop stop-color="#54A044" offset="59.68%"></stop>
-        <stop stop-color="#41873F" offset="86.24%"></stop>
+        <stop stopColor="#6CC04A" offset="9.191646%"></stop>
+        <stop stopColor="#66B848" offset="28.64%"></stop>
+        <stop stopColor="#54A044" offset="59.68%"></stop>
+        <stop stopColor="#41873F" offset="86.24%"></stop>
       </linearGradient>
       <linearGradient
         x1="130.613025%"
@@ -97,11 +92,11 @@ export const NodejsSVG = ({ restOfProps }: Props) => (
         y2="201.605387%"
         id="linearGradient-9"
       >
-        <stop stop-color="#41873F" offset="0%"></stop>
-        <stop stop-color="#418B3D" offset="32.88%"></stop>
-        <stop stop-color="#419637" offset="63.52%"></stop>
-        <stop stop-color="#3FA92D" offset="93.19%"></stop>
-        <stop stop-color="#3FAE2A" offset="100%"></stop>
+        <stop stopColor="#41873F" offset="0%"></stop>
+        <stop stopColor="#418B3D" offset="32.88%"></stop>
+        <stop stopColor="#419637" offset="63.52%"></stop>
+        <stop stopColor="#3FA92D" offset="93.19%"></stop>
+        <stop stopColor="#3FAE2A" offset="100%"></stop>
       </linearGradient>
     </defs>
     <g fill="none">
@@ -152,28 +147,28 @@ export const NodejsSVG = ({ restOfProps }: Props) => (
             ></path>
             <path
               fill="url(#linearGradient-5)"
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M50.3909707,0.809029345 L49.6975169,1.15575621 L50.6221219,1.15575621 L50.3909707,0.809029345 Z"
             ></path>
             <path
               d="M106.791874,105.636117 C108.178781,104.827088 109.218962,103.440181 109.681264,101.937698 L56.0541761,10.4018059 C54.6672686,10.1706546 53.1647856,10.2862302 51.8934537,11.0952596 L3.351693,39.0645598 L55.7074492,134.530023 C56.4009029,134.414447 57.2099323,134.183296 57.903386,133.836569 L106.791874,105.636117 L106.791874,105.636117 Z"
               fill="url(#linearGradient-6)"
-              fill-rule="evenodd"
+              fillRule="evenodd"
             ></path>
             <path
               fill="url(#linearGradient-7)"
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M111.299323,104.711512 L110.952596,104.133634 L110.952596,104.942664 L111.299323,104.711512 Z"
             ></path>
             <path
               d="M106.791874,105.636117 L58.0189616,133.720993 C57.3255079,134.06772 56.6320542,134.298871 55.8230248,134.414447 L56.7476298,136.148081 L110.83702,104.827088 L110.83702,104.133634 L109.450113,101.822122 C109.218962,103.440181 108.178781,104.827088 106.791874,105.636117 L106.791874,105.636117 Z"
               fill="url(#linearGradient-8)"
-              fill-rule="evenodd"
+              fillRule="evenodd"
             ></path>
             <path
               d="M106.791874,105.636117 L58.0189616,133.720993 C57.3255079,134.06772 56.6320542,134.298871 55.8230248,134.414447 L56.7476298,136.148081 L110.83702,104.827088 L110.83702,104.133634 L109.450113,101.822122 C109.218962,103.440181 108.178781,104.827088 106.791874,105.636117 L106.791874,105.636117 Z"
               fill="url(#linearGradient-9)"
-              fill-rule="evenodd"
+              fillRule="evenodd"
             ></path>
           </g>
         </g>

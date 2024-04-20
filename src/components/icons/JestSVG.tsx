@@ -1,16 +1,11 @@
 import * as React from "react";
 
-interface Props {
-  [x: string]: any;
-}
-
-export const JestSVG = ({ restOfProps }: Props) => (
+export const JestSVG = () => (
   <svg
     viewBox="-13.5 0 283 283"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     preserveAspectRatio="xMidYMid"
-    {...restOfProps}
   >
     <g>
       <path

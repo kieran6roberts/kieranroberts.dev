@@ -1,12 +1,7 @@
 import * as React from "react";
 
-interface Props {
-  [x: string]: any;
-}
-
-export const JavaScriptSVG = ({ restOfProps }: Props) => (
+export const JavaScriptSVG = () => (
   <svg
-    {...restOfProps}
     xmlns="http://www.w3.org/2000/svg"
     aria-label="JavaScript"
     role="img"

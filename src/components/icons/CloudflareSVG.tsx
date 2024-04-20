@@ -1,16 +1,11 @@
 import * as React from "react";
 
-interface Props {
-  [x: string]: any;
-}
-
-export const CloudflareSVG = ({ restOfProps }: Props) => (
+export const CloudflareSVG = () => (
   <svg
     viewBox="0 -70 256 256"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     preserveAspectRatio="xMidYMid"
-    {...restOfProps}
   >
     <g>
       <g transform="translate(0.000000, -1.000000)">

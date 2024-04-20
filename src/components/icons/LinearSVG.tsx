@@ -1,16 +1,7 @@
 import * as React from "react";
 
-interface Props {
-  [x: string]: any;
-}
-
-export const LinearSVG = ({ restOfProps }: Props) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    {...restOfProps}
-  >
+export const LinearSVG = () => (
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M3.03509 12.9431C3.24245 14.9227 4.10472 16.8468 5.62188 18.364C7.13904 19.8811 9.0631 20.7434 11.0428 20.9508L3.03509 12.9431Z"
       fill="#000000"

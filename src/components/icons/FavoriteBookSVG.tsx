@@ -2,17 +2,15 @@ import * as React from "react";
 
 interface Props {
   hoverFill?: boolean;
-  [x: string]: any;
 }
 
-export const FavoriteBookSVG = ({ hoverFill, restOfProps }: Props) => (
+export const FavoriteBookSVG = ({ hoverFill }: Props) => (
   <svg
     strokeWidth="1.5"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     color="#000000"
-    {...restOfProps}
   >
     <path
       d="M4 19V5C4 3.89543 4.89543 3 6 3H19.4C19.7314 3 20 3.26863 20 3.6V16.7143"

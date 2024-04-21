@@ -48,7 +48,7 @@ export const Header = ({ pathname }: Props) => {
         >
           {/* Skip to content link */}
           <a
-            className="absolute flex items-center h-1/2 justify-center m-auto inset-0 w-44 bg-l-secondary text-white font-medium rounded-lg text-center outline-none opacity-0 transition-opacity focus:opacity-100 focus:ring-2 focus:ring-white"
+            className="hidden absolute pointer-events-none lg:flex items-center h-1/2 justify-center m-auto inset-0 w-44 bg-l-secondary text-white font-medium rounded-lg text-center outline-none opacity-0 transition-opacity focus:pointer-events-auto focus:opacity-100 focus:ring-2 focus:ring-white"
             href="#main"
           >
             Skip to content

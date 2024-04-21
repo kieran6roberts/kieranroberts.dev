@@ -34,3 +34,4 @@ export * from './SQLSVG';
 export * from './RSSSVG';
 export * from './ArrowRightSVG';
 export * from './ArrowDownSVG';
+export * from './SearchSVG';

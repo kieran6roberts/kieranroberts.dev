@@ -44,8 +44,15 @@ export const Header = ({ pathname }: Props) => {
       >
         <nav
           role="navigation"
-          className="flex items-center max-w-[1728px] h-[75px] mx-auto justify-between px-4 md:px-8 lg:px-16 py-4 border-b dark:border-gray-800"
+          className="relative flex items-center max-w-[1728px] h-[75px] mx-auto justify-between px-4 md:px-8 lg:px-16 py-4 border-b dark:border-gray-800"
         >
+          {/* Skip to content link */}
+          <a
+            className="absolute flex items-center h-1/2 justify-center m-auto inset-0 w-44 bg-l-secondary text-white font-medium rounded-lg text-center outline-none opacity-0 transition-opacity focus:opacity-100 focus:ring-2 focus:ring-white"
+            href="#main"
+          >
+            Skip to content
+          </a>
           <section className="flex items-center gap-x-4">
             <a
               href="/"

@@ -3,8 +3,9 @@ import { XSVG, GithubSVG, LinkedInSVG } from "@components/icons";
 import { Boop } from "@components/animation/Boop";
 
 export const SocialLinks = ({ asDark }: { asDark?: boolean }) => {
-  const linkStyle =
-    "flex items-center justify-center w-max p-2 rounded-full link-focus icon-button-hover";
+  const linkStyle = `flex items-center justify-center w-max p-2 focus:ring outline-none ring-offset-4 rounded-full ${
+    asDark ? "ring-offset-black ring-d-tertiary-2" : "link-focus"
+  } icon-button-hover`;
   return (
     <>
       <Boop boopConfig={{ rotation: 5 }}>

@@ -6,13 +6,13 @@ import type { BoopConfig } from "@hooks/useBoop";
 
 const buttonVariants = {
   "solid-dark":
-    "bg-[#100114] hover:bg-black/80 border-2 border-transparent text-white ring-offset-white ring-d-secondary disabled:opacity-90",
+    "bg-primary-dark hover:bg-black/80 border-2 border-transparent text-white ring-offset-white ring-d-secondary disabled:opacity-90",
   "solid-white":
     "bg-white text-black hover:bg-gray-50 border-2 border-transparent ring-offset-black ring-d-tertiary-2 disabled:opacity-90",
   "transparent-dark":
-    "bg-[#100114] border-2 text-white link-focus border-d-tertiary-2 hover:bg-d-primary-darkest ring-offset-secondary ring-d-tertiary-2 disabled:opacity-90",
+    "bg-primary-dark border-2 text-white border-d-tertiary-2 hover:bg-d-primary-darkest ring-offset-black ring-d-tertiary-2 disabled:opacity-90",
   transparent:
-    "bg-[#100114] dark:text-white border-2 border-transparent text-white link-focus dark:border-d-tertiary-2 hover:bg-l-primary-darkest dark:hover:bg-d-primary-darkest ring-offset-secondary ring-d-tertiary-2 disabled:opacity-90",
+    "bg-primary-dark dark:text-white border-2 border-transparent text-white link-focus dark:border-d-tertiary-2 hover:bg-l-primary-darkest dark:hover:bg-d-primary-darkest ring-offset-secondary ring-d-tertiary-2 disabled:opacity-90",
 };
 
 const buttonWidth = {

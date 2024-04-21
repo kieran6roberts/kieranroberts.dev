@@ -16,7 +16,7 @@ export const KBarResults = () => {
             </div>
           ) : (
             <div
-              className={`group capitalize flex items-center justify-between px-8 py-3 cursor-pointer hover:bg-d-tertiary-2/50 dark:hover:bg-l-primary-darkest/20 ${
+              className={`group capitalize flex items-center justify-between px-8 py-3 cursor-pointer hover:bg-d-tertiary-2/50 dark:hover:bg-l-primary-darkest/40 ${
                 active ? "bg-d-tertiary-2/50 dark:bg-l-primary-darkest/20" : ""
               }`}
             >

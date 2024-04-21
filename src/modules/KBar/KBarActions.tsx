@@ -1,0 +1,42 @@
+export const actions = [
+  {
+    id: "home",
+    name: "Home",
+    shortcut: ["h"],
+    keywords: "home",
+    section: "navigation",
+    perform: () => (window.location.href = "/"),
+  },
+  {
+    id: "blog",
+    name: "Blog",
+    shortcut: ["b"],
+    keywords: "blog",
+    section: "navigation",
+    perform: () => (window.location.href = "/blog"),
+  },
+  {
+    id: "skills",
+    name: "Skills",
+    shortcut: ["s"],
+    keywords: "skills",
+    section: "navigation",
+    perform: () => (window.location.href = "/skills"),
+  },
+  {
+    id: "about",
+    name: "About",
+    shortcut: ["a"],
+    keywords: "about",
+    section: "navigation",
+    perform: () => (window.location.href = "/about"),
+  },
+  {
+    id: "contact",
+    name: "Contact",
+    shortcut: ["c"],
+    keywords: "contact",
+    section: "navigation",
+    perform: () => (window.location.href = "/contact"),
+  },
+];

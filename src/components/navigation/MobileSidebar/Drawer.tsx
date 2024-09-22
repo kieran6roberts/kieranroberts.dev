@@ -34,7 +34,6 @@ const Drawer = ({ show, closeDrawer, triggerRef, pathname }: Props) => {
   // Close drawer when window size changes
   const { width: windowWidth, height: windowHeight } = useWindowSize();
   const windowSizeExists = !!(windowWidth && windowHeight);
-  const isHomepage = pathname === "/";
 
   const { styleToApplyOnBoop, handleBoopTrigger } = useBoop({ rotation: 10 });
 
@@ -90,23 +89,15 @@ const Drawer = ({ show, closeDrawer, triggerRef, pathname }: Props) => {
     <>
       {show ? <LockBodyScroll /> : null}
       <animated.div style={styles as any} ref={ref as any}>
-        <section
-          className={`w-full h-full z-10 ${
-            isHomepage ? "bg-[#100114]" : "bg-white dark:bg-[#100114]"
-          }`}
-        >
+        <section className="w-full h-full z-10 bg-white dark:bg-[#100114]">
           <button
             aria-label="Close sidebar navigation"
             onClick={closeDrawer}
-            className={`absolute top-5 right-5 p-1.5 ${
-              isHomepage ? "text-white" : "text-black dark:text-white"
-            } link-focus rounded-full icon-button-hover`}
+            className={`absolute top-5 right-5 p-1.5 text-black dark:text-white link-focus rounded-full icon-button-hover`}
             onMouseEnter={handleBoopTrigger}
           >
             <animated.span
-              className={`block w-6 h-6 ${
-                isHomepage ? "text-white" : "text-black dark:text-white"
-              }`}
+              className="block w-6 h-6 text-black dark:text-white"
               {...(styleToApplyOnBoop && { style: styleToApplyOnBoop })}
             >
               <XMarkSVG />
@@ -120,20 +111,32 @@ const Drawer = ({ show, closeDrawer, triggerRef, pathname }: Props) => {
             <NavLink
               href="/"
               pathname={pathname}
-              asDark={!!isHomepage}
               showActiveCheck
+              prefetchStrategy="hover"
             >
               Home
             </NavLink>
-            <MainNavLinks
+            <NavLink
+              href="/blog"
               pathname={pathname}
               showActiveCheck
-              asDark={!!isHomepage}
-            />
+              prefetchStrategy="hover"
+            >
+              Blog
+            </NavLink>
+            <NavLink
+              href="https://www.linkedin.com/in/kieran-roberts-00517b178/"
+              isExternal
+            >
+              LinkedIn
+            </NavLink>
+            <NavLink href="https://github.com/kieran6roberts" isExternal>
+              GitHub
+            </NavLink>
+            <NavLink href="https://twitter.com/Kieran6dev" isExternal>
+              X
+            </NavLink>
           </nav>
-          <section className="flex gap-x-4 items-center absolute bottom-4 right-4">
-            <SocialLinks asDark={!!isHomepage} />
-          </section>
         </section>
       </animated.div>
       {show ? (

@@ -2,6 +2,7 @@
 export default {
   content: [
     "./src/**/*.{astro,html,js,ts,jsx,tsx}", 
+    "./node_modules/@hashnode/matrix-ui/dist/*.{js,ts,jsx,tsx,mdx}",
   ],
   plugins: [
     require('@tailwindcss/typography'),

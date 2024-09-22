@@ -8,11 +8,9 @@ const { asDark } = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
-<footer
-  class={`main-footer relative ${asDark ? "bg-[#100114]" : "bg-[#f5f3ed] dark:bg-[#100114]"} border-t border-slate-900`}
->
+<footer class={`main-footer relative border-t dark:border-slate-900`}>
   <div
-    class="flex flex-col md:flex-row justify-between gap-y-4 px-4 md:px-8 xl:px-16 py-8 xl:py-24 items-center max-w-[1600px] mx-auto"
+    class="flex flex-col md:flex-row justify-between gap-y-4 px-4 md:px-8 xl:px-12 py-8 xl:py-16 items-center max-w-[1600px] mx-auto"
   >
     <div class="flex flex-col gap-4 items-center md:items-start">
       <a
@@ -34,11 +32,11 @@ const currentYear = new Date().getFullYear();
       <!-- <div class="hidden md:block text-black dark:text-white self-end">
         <GithubStats client:load />
       </div> -->
-      <div
+      <!-- <div
         class="flex items-center justify-center md:justify-start border bg-[#100114] font-light px-6 gap-4 py-2 rounded-xl"
       >
         <MainNavLinks asDark client:visible />
-      </div>
+      </div> -->
     </div>
   </div>
 </footer>

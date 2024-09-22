@@ -1,6 +1,5 @@
 import * as React from "react";
 
-import { HoverUnderline } from "./HoverUnderline";
 import type { PrefetchStrategy } from "../../types/links";
 import { PrefetchStrategyEnum } from "../../types/links";
 import { formatPathname } from "@utils/urls";
@@ -14,7 +13,6 @@ export type NavLinkProps =
       showActiveCheck?: boolean;
       isExternal: true;
       prefetchStrategy?: never;
-      asDark?: boolean;
     }
   | {
       href: string;
@@ -23,57 +21,53 @@ export type NavLinkProps =
       children: React.ReactNode;
       showActiveCheck?: boolean;
       prefetchStrategy?: PrefetchStrategy;
-      asDark?: boolean;
     };
 
-const NavLink = ({
-  href,
-  isExternal,
-  pathname,
-  prefetchStrategy = PrefetchStrategyEnum.HOVER,
-  showActiveCheck,
-  children,
-  asDark,
-}: NavLinkProps) => {
-  const updatedPathname = formatPathname({ pathname });
-  const isActive = !!updatedPathname && href === updatedPathname;
+const NavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps>(
+  (
+    {
+      href,
+      isExternal,
+      pathname,
+      prefetchStrategy = PrefetchStrategyEnum.HOVER,
+      showActiveCheck,
+      children,
+      ...rest
+    },
+    ref,
+  ) => {
+    const updatedPathname = formatPathname({ pathname });
+    const isActive = !!updatedPathname && href === updatedPathname;
 
-  return (
-    <div className="flex justify-between w-full">
-      <div className="group flex flex-col">
-        <a
-          // Opt in to prefetch with custom strategy
-          {...(!isExternal && { "data-astro-prefetch": prefetchStrategy })}
-          href={href}
-          target={isExternal ? "_blank" : "_self"}
-          className={`flex items-center gap-x-2 whitespace-nowrap rounded-md text-md transition duration-150 ease-in-out outline-none focus:ring ring-offset-gray-900 ring-offset-4 ring-d-tertiary-2 
+    return (
+      <div className="flex justify-between w-full">
+        <div className="group flex flex-col">
+          <a
+            // Opt in to prefetch with custom strategy
+            {...(!isExternal && { "data-astro-prefetch": prefetchStrategy })}
+            href={href}
+            target={isExternal ? "_blank" : "_self"}
+            ref={ref}
+            className={`flex items-center gap-x-2 px-4 py-1.5 rounded-full whitespace-nowrap text-sm font-medium transition duration-150 ease-in-out outline-none link-focus icon-button-hover 
+              
           ${
-            asDark
-              ? isActive
-                ? "text-d-tertiary-2"
-                : "text-white"
-              : isActive
-              ? "text-l-secondary dark:text-d-tertiary-2"
+            isActive
+              ? "text-l-primary-dark dark:text-d-tertiary-2"
               : "text-black dark:text-white"
           }`}
-        >
-          {children}
-        </a>
-        <HoverUnderline isLinkActive={isActive} asDark={asDark} />
+            {...rest}
+          >
+            {children}
+          </a>
+        </div>
+        {isActive && showActiveCheck ? (
+          <span className="block w-6 h-6 bg-white dark:bg-[#100114] text-l-secondary dark:text-d-tertiary-2">
+            <CheckSVG />
+          </span>
+        ) : null}
       </div>
-      {isActive && showActiveCheck ? (
-        <span
-          className={`block w-6 h-6 ${
-            asDark
-              ? "bg-[#100114] text-d-tertiary-2"
-              : "bg-white dark:bg-[#100114] text-l-secondary dark:text-d-tertiary-2"
-          } `}
-        >
-          <CheckSVG />
-        </span>
-      ) : null}
-    </div>
-  );
-};
+    );
+  },
+);
 
 export { NavLink };

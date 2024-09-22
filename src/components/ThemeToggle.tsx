@@ -8,7 +8,7 @@ import { useBoop } from "@hooks/useBoop";
 import { toggleTheme, theme } from "src/stores/themeStore";
 
 const ThemeButtonLoader = () => (
-  <span className="w-[40px] h-[40px] rounded-full bg-gray-800" />
+  <span className="w-[36px] h-[36px] rounded-full bg-gray-50 dark:bg-gray-800" />
 );
 
 const ThemeToggle = () => {
@@ -32,7 +32,7 @@ const ThemeToggle = () => {
       id="theme-toggle"
       title="Toggles light & dark theme"
       aria-live="polite"
-      className="flex items-center justify-center text-white p-2 rounded-full outline-none focus:ring ring-offset-gray-900 ring-offset-4 ring-d-tertiary-2 icon-button-hover"
+      className="flex items-center justify-center p-1.5 rounded-full outline-none link-focus icon-button-hover"
       onMouseEnter={handleBoopTrigger}
       onClick={toggleTheme}
       disabled={$theme === null}
@@ -40,7 +40,7 @@ const ThemeToggle = () => {
     >
       <animated.span
         style={styleToApplyOnBoop}
-        className="block text-white w-6 h-6"
+        className="block text-black dark:text-white w-6 h-6"
       >
         {isDarkTheme ? <SunLightSVG /> : <HalfMoonSVG />}
       </animated.span>

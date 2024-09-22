@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 @layer base {
- @font-face {
-  font-family: 'Junegull-Regular';
-  font-style: normal;
-  font-weight: normal;
-  font-display: swap;
-  src: url('/fonts/junegull.woff') format('woff2');
+  @font-face {
+    font-family: "Junegull-Regular";
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url("/fonts/junegull.woff") format("woff2");
   }
 
   @font-face {
@@ -16,14 +16,14 @@
     font-weight: 400;
     font-display: swap;
     font-style: normal;
-    src: url('/fonts/Quicksand-Regular.woff2') format('woff2')
+    src: url("/fonts/Quicksand-Regular.woff2") format("woff2");
   }
   @font-face {
     font-family: "Quicksand";
     font-weight: 500;
     font-display: swap;
     font-style: normal;
-    src: url('/fonts/Quicksand-Medium.woff2') format('woff2')
+    src: url("/fonts/Quicksand-Medium.woff2") format("woff2");
   }
 
   @keyframes carousel {
@@ -39,74 +39,74 @@
     animation: carousel 40s linear infinite normal none running;
   }
 
- .hero-logos:hover .hero-carousel {
-  animation-play-state: paused;
- }
-
- .hero-logos:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 150px;
-  height: 100%;
-  z-index: 1;
-  background: linear-gradient(to left, transparent, #100114);
- }
-
- .hero-logos:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 150px;
-  height: 100%;
-  background: linear-gradient(to right, transparent, #100114);
-  z-index: 1;
- }
-
- .cursor {
-  animation: blink 1s linear infinite;
- }
-
- @keyframes blink {
-  0% {
-    opacity: 0;
+  .hero-logos:hover .hero-carousel {
+    animation-play-state: paused;
   }
 
-  50% {
-    opacity: 100;
+  .hero-logos:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(to left, transparent, #100114);
   }
 
-  100% {
-    opacity: 0;
+  .hero-logos:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 100%;
+    background: linear-gradient(to right, transparent, #100114);
+    z-index: 1;
   }
- }
 
- .link-focus {
-   @apply outline-none focus:ring dark:focus:ring-offset-gray-900 focus:ring-offset-4 focus:ring-l-secondary dark:focus:ring-d-tertiary-2
- }
- .icon-button-hover {
-   @apply hover:bg-opacity-25 dark:hover:bg-opacity-25 hover:bg-l-tertiary-2 dark:hover:bg-d-primary-dark
- }
+  .cursor {
+    animation: blink 1s linear infinite;
+  }
 
- .timeline-card {
-  @apply opacity-0 transition-opacity duration-700;
- }
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
 
- .timeline-date:has(+ * + .timeline-card:hover) {
-  @apply text-l-tertiary-2;
- }
+    50% {
+      opacity: 100;
+    }
 
- .floating-social-bar {
-  @apply opacity-100 transition-opacity duration-300;
- }
+    100% {
+      opacity: 0;
+    }
+  }
 
- .show {
-  @apply opacity-100;
- }
+  .link-focus {
+    @apply outline-none focus:ring dark:focus:ring-offset-gray-900 focus:ring-offset-4 focus:ring-l-secondary dark:focus:ring-d-tertiary-2 !important;
+  }
+  .icon-button-hover {
+    @apply hover:bg-opacity-25 dark:hover:bg-opacity-25 hover:bg-l-tertiary-2 dark:hover:bg-d-primary-dark !important;
+  }
 
- .hide {
-  @apply opacity-0;
- }
+  .timeline-card {
+    @apply opacity-0 transition-opacity duration-700;
+  }
+
+  .timeline-date:has(+ * + .timeline-card:hover) {
+    @apply text-l-tertiary-2;
+  }
+
+  .floating-social-bar {
+    @apply opacity-100 transition-opacity duration-300;
+  }
+
+  .show {
+    @apply opacity-100;
+  }
+
+  .hide {
+    @apply opacity-0;
+  }
 }

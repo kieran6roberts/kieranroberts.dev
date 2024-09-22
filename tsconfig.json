@@ -1,35 +1,19 @@
 {
-  "extends": [
-    "astro/tsconfigs/strict"
-  ],
+  "extends": ["astro/tsconfigs/strict"],
   "compilerOptions": {
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@layouts/*": [
-        "src/layouts/*"
-      ],
-      "@assets/*": [
-        "src/assets/*"
-      ],
-      "@utils/*": [
-        "src/utils/*"
-      ],
-      "@hooks/*": [
-        "src/hooks/*"
-      ],
-      "@styles/*": [
-        "src/styles/*"
-      ],
-      "@stores/*": [
-        "src/stores/*"
-      ],
-      "@modules/*": [
-        "src/modules/*"
-      ],
-    },
+      // "react": ["./node_modules/react"],
+      // "react-dom": ["./node_modules/react-dom"],
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@assets/*": ["src/assets/*"],
+      "@utils/*": ["src/utils/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@styles/*": ["src/styles/*"],
+      "@stores/*": ["src/stores/*"],
+      "@modules/*": ["src/modules/*"]
+    }
   }
 }

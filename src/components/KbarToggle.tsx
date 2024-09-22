@@ -4,7 +4,6 @@ import { animated } from "react-spring";
 
 import { SearchSVG } from "@components/icons";
 import { useBoop } from "@hooks/useBoop";
-import type { BoopConfig } from "@hooks/useBoop";
 
 export const KBarToggle = () => {
   const { query } = useKBar();
@@ -23,7 +22,7 @@ export const KBarToggle = () => {
       ref={btnRef}
       {...(styleToApplyOnBoop && { style: styleToApplyOnBoop })}
       onMouseEnter={handleBoopTrigger}
-      className="flex items-center justify-center px-2 rounded-md text-white border border-d-tertiary-2 outline-none focus:ring ring-offset-gray-900 ring-offset-4 ring-d-tertiary-2 icon-button-hover"
+      className="hidden md:flex items-center justify-center px-2 rounded-md text-l-secondary dark:text-d-tertiary-2 border border-l-secondary dark:border-d-tertiary-2 outline-none link-focus icon-button-hover"
       type="button"
       onMouseDown={query.toggle}
       onKeyDown={(e) => {
@@ -34,10 +33,10 @@ export const KBarToggle = () => {
       aria-label="Open site search"
     >
       <SearchSVG />
-      <kbd className="flex gap-px items-center">
+      <kbd className="flex gap-px text-sm items-center">
         <animated.span
           {...(styleToApplyOnBoop && { style: styleToApplyOnBoop })}
-          className="text-2xl"
+          className="text-xl"
         >
           ⌘
         </animated.span>

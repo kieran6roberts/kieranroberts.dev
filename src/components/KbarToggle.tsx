@@ -4,7 +4,6 @@ import { animated } from "react-spring";
 
 import { SearchSVG } from "@components/icons";
 import { useBoop } from "@hooks/useBoop";
-import type { BoopConfig } from "@hooks/useBoop";
 
 export const KBarToggle = () => {
   const { query } = useKBar();

@@ -1,6 +1,4 @@
 ---
-import { HoverUnderline } from "@components/navigation/HoverUnderline";
-
 interface Props {
   href: string;
   isExternal?: boolean;
@@ -17,5 +15,4 @@ const { href, isExternal } = Astro.props;
   >
     <slot />
   </a>
-  <HoverUnderline />
 </div>

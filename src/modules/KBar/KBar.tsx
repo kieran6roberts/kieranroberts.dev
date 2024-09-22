@@ -1,12 +1,5 @@
 import * as React from "react";
-import {
-  KBarProvider,
-  KBarPortal,
-  KBarPositioner,
-  KBarAnimator,
-  KBarSearch,
-  useKBar,
-} from "kbar";
+import { KBarPortal, KBarPositioner, KBarAnimator, KBarSearch } from "kbar";
 import { KBarResults } from "@modules/KBar/KBarResults";
 
 export const KBar = () => {

@@ -46,6 +46,8 @@ const NavMenuContactContentItem = React.forwardRef<
     copy: string;
     label: string;
     href: string;
+    target?: string;
+    rel?: string;
     Icon?: React.ReactNode;
   }
 >(({ title, copy, label, href, Icon = null, ...rest }, ref) => {

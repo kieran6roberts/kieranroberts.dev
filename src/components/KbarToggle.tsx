@@ -34,10 +34,10 @@ export const KBarToggle = () => {
       aria-label="Open site search"
     >
       <SearchSVG />
-      <kbd className="flex gap-px items-center">
+      <kbd className="flex gap-px text-sm items-center">
         <animated.span
           {...(styleToApplyOnBoop && { style: styleToApplyOnBoop })}
-          className="text-2xl"
+          className="text-xl"
         >
           ⌘
         </animated.span>

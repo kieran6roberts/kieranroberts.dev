@@ -5,9 +5,7 @@ import * as React from "react";
 
 import { useBoop } from "@hooks/useBoop";
 
-import { MainNavLinks } from "@components/navigation/MainNavLinks";
 import { LockBodyScroll } from "@components/navigation/MobileSidebar/LockBodyScroll";
-import { SocialLinks } from "@components/navigation/SocialLinkFloatingBar";
 
 import {
   getFocusableElements,

@@ -26,7 +26,7 @@ const Trigger = ({ pathname }: Props) => {
       <animated.button
         aria-label="Open sidebar navigation menu"
         ref={triggerRef}
-        className="flex items-center justify-center md:hidden link-focus p-2 rounded-full icon-button-hover"
+        className="flex items-center justify-center lg:hidden link-focus p-2 rounded-full icon-button-hover"
         onClick={toggleOpenDrawer}
         onMouseEnter={handleBoopTrigger}
       >

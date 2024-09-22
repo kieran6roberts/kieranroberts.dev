@@ -1,27 +1,5 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import { Code } from "astro-expressive-code/components";
-import { SocialLinks } from "@components/navigation/SocialLinkFloatingBar";
-import { MainNavLinks } from "@components/navigation/MainNavLinks";
-import SectionTitle from "@components/landing/SectionTitle.astro";
-import SectionDescription from "@components/landing/SectionDescription.astro";
-import { Button } from "@components/Button";
-import {
-  landingPageCodeDesktopExample,
-  landingPageCodeMobileExample,
-} from "../utils/code";
-import { ArrowDownSVG, ArrowRightSVG } from "@components/icons";
-import MobileStatusCard from "@components/skills/StatusCard.astro";
-import { JOB_DATE, JOB_DESCRIPTION, JOB_TITLE } from "@utils/consts";
-import Hero from "@components/landing/Hero.astro";
-import TechCarousel from "@components/landing/TechCarousel.astro";
-import { Image } from "astro:assets";
-import { fetchPaginatedBlogPosts, getPostsPaginatedData } from "@utils/blog";
-// import GithubStats from "@components/GithubStats.astro";
-
-// const postsData = await fetchPaginatedBlogPosts({ first: 1 });
-// const { postsArray } = getPostsPaginatedData(postsData as any);
-// const latestPost = postsArray[0];
 ---
 
 <Layout url="kieranroberts.dev" showFooter={false}>

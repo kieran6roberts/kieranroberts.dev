@@ -9,9 +9,11 @@ import { ArrowUpSVG, RSSSVG } from "@components/icons";
 import { Button } from "@components/base/Button";
 
 const blogPosts = await fetchPaginatedBlogPosts({ first: null, after: null });
-const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(
-  blogPosts as any
-);
+
+if (!blogPosts) {
+  throw new Error("Error fetching blog posts");
+}
+const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(blogPosts);
 ---
 
 <Layout
@@ -70,7 +72,7 @@ const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(
             <LoadMorePosts
               client:visible
               hasNextPage={hasNextPage}
-              cursor={cursor as any}
+              cursor={cursor}
             />
           ) : null
         }

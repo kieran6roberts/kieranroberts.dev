@@ -18,6 +18,7 @@ import ThemeToggle from "@components/ThemeToggle.tsx";
 import { RSSLink } from "@components/navigation/RSSLink";
 import { Trigger as SidebarTrigger } from "@components/navigation/MobileSidebar/Trigger";
 import { KBarToggle } from "@modules/KBar/KbarToggle";
+import { getPostsPaginatedData, type PostPagePosts } from "@utils/blog";
 
 import useStickyScroll from "@hooks/useStickyHeader";
 import { usePrefersReducedMotion } from "@hooks/usePrefersReducedMotion";
@@ -34,7 +35,9 @@ import AvatarImage from "@assets/Kieran-Avatar-funky-min_80x80.webp";
 
 interface Props {
   pathname: string;
-  blogPosts: any;
+  blogPosts: ReturnType<
+    typeof getPostsPaginatedData<PostPagePosts>
+  >["postsArray"];
 }
 
 export const KBarProvider = ({ children }: { children: React.ReactNode }) => {

@@ -21,6 +21,10 @@ query BlogPosts($host: String!, $after: String, $first: Int!) {
             name
             profilePicture
           }
+          content {
+            markdown
+            html
+          }
           coverImage {
             __typename
             url

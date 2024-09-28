@@ -4,17 +4,20 @@ import {
   fetchPaginatedBlogPosts,
   INITIAL_POST_COUNT,
   getPostsPaginatedData,
+  type PostPagePosts,
 } from "@utils/blog";
 import { ArticleCard } from "@modules/blog/ArticleCard";
 import { Button } from "@components/base/Button";
 
 interface ILoadMorePosts {
-  cursor: string;
+  cursor: string | null | undefined;
   hasNextPage: boolean;
 }
 
 export const LoadMorePosts = ({ cursor, hasNextPage }: ILoadMorePosts) => {
-  const [posts, setPosts] = React.useState<any[]>([]);
+  const [posts, setPosts] = React.useState<
+    ReturnType<typeof getPostsPaginatedData<PostPagePosts>>["postsArray"]
+  >([]);
   const [hasNext, setHasNext] = React.useState(hasNextPage);
   const [currentCursor, setCurrentCursor] = React.useState(cursor);
   const [loading, setLoading] = React.useState(false);
@@ -29,10 +32,10 @@ export const LoadMorePosts = ({ cursor, hasNextPage }: ILoadMorePosts) => {
       cursor,
       hasNextPage: _hasNextPage,
       postsArray,
-    } = getPostsPaginatedData(blogPosts as any);
+    } = getPostsPaginatedData(blogPosts!);
     setPosts(postsArray);
-    setCurrentCursor(cursor as any);
-    setHasNext(_hasNextPage as any);
+    setCurrentCursor(cursor);
+    setHasNext(_hasNextPage!);
     setLoading(false);
   };
 

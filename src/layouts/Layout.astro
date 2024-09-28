@@ -25,7 +25,7 @@ const {
 const pathname = new URL(Astro.request.url).pathname;
 
 const postsData = await fetchPaginatedBlogPosts({ first: 2 });
-const { postsArray } = getPostsPaginatedData(postsData as any);
+const { postsArray } = getPostsPaginatedData(postsData!);
 ---
 
 <html

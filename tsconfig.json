@@ -4,8 +4,6 @@
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
-      // "react": ["./node_modules/react"],
-      // "react-dom": ["./node_modules/react-dom"],
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
       "@assets/*": ["src/assets/*"],
@@ -13,7 +11,8 @@
       "@hooks/*": ["src/hooks/*"],
       "@styles/*": ["src/styles/*"],
       "@stores/*": ["src/stores/*"],
-      "@modules/*": ["src/modules/*"]
+      "@modules/*": ["src/modules/*"],
+      "@consts/*": ["src/consts/*"]
     }
   }
 }

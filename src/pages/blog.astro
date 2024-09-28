@@ -1,12 +1,12 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import { LoadMorePosts } from "@components/blog/LoadMorePosts";
+import { LoadMorePosts } from "@modules/blog/LoadMorePosts";
 import { fetchPaginatedBlogPosts, getPostsPaginatedData } from "@utils/blog";
 import PageTitle from "@layouts/PageTitle.astro";
 import ScrollUp from "@components/navigation/ScrollUp.astro";
-import { ArticleCard } from "@components/ArticleCard";
+import { ArticleCard } from "@modules/blog/ArticleCard";
 import { ArrowUpSVG, RSSSVG } from "@components/icons";
-import { Button } from "@components/Button";
+import { Button } from "@components/base/Button";
 
 const blogPosts = await fetchPaginatedBlogPosts({ first: null, after: null });
 const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(

@@ -1,4 +1,4 @@
-import { Button } from "@components/Button";
+import { Button } from "@components/base/Button";
 import * as React from "react";
 import { FavoriteBookSVG, SendMailSVG } from "@components/icons/index";
 import { useHover } from "@uidotdev/usehooks";

@@ -8,8 +8,8 @@ import {
 } from "generated/graphql";
 import { request } from "graphql-request";
 
-const BLOG_HOSTNAME = import.meta.env.PUBLIC_BLOG_HOSTNAME;
-const HASHNODE_API_URL = import.meta.env.PUBLIC_HASHNODE_API_URL;
+const BLOG_HOSTNAME = "blog.kieranroberts.dev";
+const HASHNODE_API_URL = "https://gql.hashnode.com";
 
 export const INITIAL_POST_COUNT = 10;
 

@@ -5,8 +5,8 @@ import {
   INITIAL_POST_COUNT,
   getPostsPaginatedData,
 } from "@utils/blog";
-import { ArticleCard } from "@components/ArticleCard";
-import { Button } from "@components/Button";
+import { ArticleCard } from "@modules/blog/ArticleCard";
+import { Button } from "@components/base/Button";
 
 interface ILoadMorePosts {
   cursor: string;

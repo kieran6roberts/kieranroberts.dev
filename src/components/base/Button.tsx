@@ -82,7 +82,7 @@ export const Button = React.forwardRef<
       href,
       ...restOfProps
     },
-    forwardedRef
+    forwardedRef,
   ) => {
     const {
       styleToApplyOnBoop: iconStyleToApply,
@@ -165,5 +165,5 @@ export const Button = React.forwardRef<
         ) : null}
       </animated.button>
     );
-  }
+  },
 );

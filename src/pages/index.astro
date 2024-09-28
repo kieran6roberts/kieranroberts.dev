@@ -1,8 +1,9 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import { DOMAIN_NAME } from "@consts/urls";
 ---
 
-<Layout url="kieranroberts.dev" showFooter={false}>
+<Layout url={DOMAIN_NAME} showFooter={false}>
   <main
     id="main"
     class="flex items-center justify-center dark:bg-[#100114] max-w-[1600px] h-[80vh] mx-auto"

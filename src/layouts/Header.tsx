@@ -17,11 +17,18 @@ import { CodeSVG } from "@components/icons";
 import ThemeToggle from "@components/ThemeToggle.tsx";
 import { RSSLink } from "@components/navigation/RSSLink";
 import { Trigger as SidebarTrigger } from "@components/navigation/MobileSidebar/Trigger";
-import { KBarToggle } from "@components/KbarToggle";
+import { KBarToggle } from "@modules/KBar/KbarToggle";
 
 import useStickyScroll from "@hooks/useStickyHeader";
 import { usePrefersReducedMotion } from "@hooks/usePrefersReducedMotion";
 import { KBar, actions as kBarActions } from "@modules/KBar";
+import {
+  BLOG_URL,
+  DOMAIN_NAME,
+  X_PROFILE_URL,
+  GITHUB_PROFILE_URL,
+  LINKEDIN_PROFILE_URL,
+} from "@consts/urls";
 
 import AvatarImage from "@assets/Kieran-Avatar-funky-min_80x80.webp";
 
@@ -58,7 +65,7 @@ const NavMenuContactContentItem = React.forwardRef<
       aria-label={label}
       href={href}
       onMouseEnter={handleBoopTrigger}
-      className="flex flex-row items-center h-full gap-x-4 border-2 dark:border-gray-800 hover:border-l-secondary dark:hover:border-d-secondary row-span-1 bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-100 rounded-xl px-4 py-2"
+      className="flex flex-row items-center h-full gap-x-4 border dark:border-gray-800 hover:border-l-secondary dark:hover:border-d-secondary row-span-1 bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-100 rounded-xl px-4 py-2 link-focus"
       {...rest}
     >
       {Icon ? (
@@ -81,17 +88,56 @@ const NavMenuContactContentItem = React.forwardRef<
   );
 });
 
+const BlogPostCard = React.forwardRef<
+  HTMLAnchorElement,
+  {
+    slug: string;
+    coverImage: string;
+    title: string;
+  }
+>(({ slug, coverImage, title, ...rest }, ref) => {
+  const {
+    styleToApplyOnBoop: blogBoopStyle,
+    handleBoopTrigger: handleBlogBoopTrigger,
+  } = useBoop({ x: 4 });
+  return (
+    <a
+      href={`${BLOG_URL}/${slug}`}
+      onMouseEnter={handleBlogBoopTrigger}
+      className="group relative h-full flex justify-center rounded-xl overflow-hidden bg-black border dark:border-gray-800 hover:border-l-secondary dark:hover:border-d-secondary link-focus"
+      ref={ref}
+      {...rest}
+    >
+      <div className="absolute inset-0 w-full h-full opacity-75 group-hover:opacity-90 group-hover:scale-105 transition duration-200">
+        <img
+          className="object-cover object-right h-full"
+          alt={title}
+          src={coverImage}
+        />
+      </div>
+      <div className="relative bottom-0 p-2 h-max z-10 bg-slate-50 dark:bg-gray-900">
+        <h2 className="font-semibold text-sm text-black dark:text-white line-clamp-1">
+          {title}
+        </h2>
+        <p className="flex items-center gap-2 text-gray-900 dark:text-gray-100 group-hover:text-l-secondary group-hover:dark:text-d-secondary transition-colors duration-100 text-xs">
+          Read more
+          <animated.span
+            {...(blogBoopStyle && {
+              style: blogBoopStyle,
+            })}
+            className="block text-black dark:text-white w-3 h-3"
+          >
+            <ArrowRightSVG />
+          </animated.span>
+        </p>
+      </div>
+    </a>
+  );
+});
+
 export const Header = ({ pathname, blogPosts }: Props) => {
   const headerRef = React.useRef<HTMLElement>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
-  const {
-    styleToApplyOnBoop: firstblogBoopStyle,
-    handleBoopTrigger: handleFirstBlogBoopTrigger,
-  } = useBoop({ x: 4 });
-  const {
-    styleToApplyOnBoop: secondBlogBoopStyle,
-    handleBoopTrigger: handleSecondBlogBoopTrigger,
-  } = useBoop({ x: 4 });
 
   const isActive = pathname === "/";
 
@@ -100,6 +146,7 @@ export const Header = ({ pathname, blogPosts }: Props) => {
   const latestPost = blogPosts[0];
   const secondLatestPost = blogPosts[1];
   const showBlogLink = latestPost && secondLatestPost;
+  const isBlogPage = pathname === "/blog" || pathname.startsWith("/blog");
 
   return (
     <KBarProvider>
@@ -134,7 +181,7 @@ export const Header = ({ pathname, blogPosts }: Props) => {
                 />
               </div>
               <h1 className="flex items-center text-black dark:text-white text-base sm:text-lg font-light gap-x-2">
-                kieranroberts.dev
+                {DOMAIN_NAME}
                 <span
                   className={`block w-6 h-6 ${
                     isActive
@@ -152,10 +199,10 @@ export const Header = ({ pathname, blogPosts }: Props) => {
                   <NavigationMenuList className="flex items-center gap-x-4">
                     {showBlogLink ? (
                       <NavigationMenuItem>
-                        <NavigationMenuTrigger asChild>
+                        <NavigationMenuTrigger active={isBlogPage} asChild>
                           <button
                             type="button"
-                            className="!px-4 !py-1.5 transition duration-150 ease-in-out outline-none link-focus icon-button-hover"
+                            className={`${isBlogPage ? "text-l-primary-darkest dark:text-d-tertiary-2" : ""} !px-4 !py-1.5 transition duration-150 ease-in-out outline-none link-focus icon-button-hover`}
                           >
                             Blog
                           </button>
@@ -167,77 +214,37 @@ export const Header = ({ pathname, blogPosts }: Props) => {
                           >
                             <div className="relative col-span-2 row-span-4">
                               {latestPost.coverImage?.url ? (
-                                <a
-                                  href={`/blog/${latestPost.slug}`}
-                                  onMouseEnter={handleFirstBlogBoopTrigger}
-                                  className="group relative h-full flex justify-center rounded-xl overflow-hidden bg-black border-2 dark:border-gray-800 hover:border-l-secondary dark:hover:border-d-secondary"
-                                >
-                                  <div className="absolute inset-0 w-full h-full opacity-75 group-hover:opacity-90 group-hover:scale-105 transition duration-200">
-                                    <img
-                                      className="object-cover object-right h-full"
-                                      alt="Blog post cover"
-                                      src={latestPost.coverImage?.url}
-                                    />
-                                  </div>
-                                  <div className="relative bottom-0 p-2 h-max z-10 bg-slate-50 dark:bg-gray-900">
-                                    <h2 className="font-semibold text-sm text-black dark:text-white line-clamp-1">
-                                      {latestPost.title}
-                                    </h2>
-                                    <p className="flex items-center gap-2 text-gray-900 dark:text-gray-100 group-hover:text-l-secondary group-hover:dark:text-d-secondary transition-colors duration-100 text-xs">
-                                      Read more
-                                      <animated.span
-                                        {...(firstblogBoopStyle && {
-                                          style: firstblogBoopStyle,
-                                        })}
-                                        className="block text-black dark:text-white w-3 h-3"
-                                      >
-                                        <ArrowRightSVG />
-                                      </animated.span>
-                                    </p>
-                                  </div>
-                                </a>
+                                <NavigationMenuLink asChild>
+                                  <BlogPostCard
+                                    slug={latestPost.slug}
+                                    coverImage={latestPost.coverImage?.url}
+                                    title={latestPost.title}
+                                  />
+                                </NavigationMenuLink>
                               ) : null}
                             </div>
                             <div className="col-span-2 row-span-3">
                               {secondLatestPost.coverImage?.url ? (
-                                <a
-                                  onMouseEnter={handleSecondBlogBoopTrigger}
-                                  href={`/blog/${secondLatestPost.slug}`}
-                                  className="group relative h-full flex justify-center rounded-xl overflow-hidden bg-black border-2 dark:border-gray-800 hover:border-l-secondary dark:hover:border-d-secondary"
-                                >
-                                  <div className="absolute inset-0 w-full h-full opacity-75 group-hover:opacity-90 group-hover:scale-105 transition duration-200">
-                                    <img
-                                      className="object-cover object-right h-full"
-                                      alt="Blog post cover"
-                                      src={secondLatestPost.coverImage?.url}
-                                    />
-                                  </div>
-                                  <div className="relative bottom-0 p-2 h-max z-10 bg-slate-50 dark:bg-gray-900">
-                                    <h2 className="font-semibold text-sm text-black dark:text-white line-clamp-1">
-                                      {secondLatestPost.title}
-                                    </h2>
-                                    <p className="flex items-center gap-2 text-gray-900 dark:text-gray-100 group-hover:text-l-secondary group-hover:dark:text-d-secondary text-xs">
-                                      Read more
-                                      <animated.span
-                                        {...(secondBlogBoopStyle && {
-                                          style: secondBlogBoopStyle,
-                                        })}
-                                        className="block text-black dark:text-white w-3 h-3"
-                                      >
-                                        <ArrowRightSVG />
-                                      </animated.span>
-                                    </p>
-                                  </div>
-                                </a>
+                                <NavigationMenuLink asChild>
+                                  <BlogPostCard
+                                    slug={secondLatestPost.slug}
+                                    coverImage={
+                                      secondLatestPost.coverImage?.url
+                                    }
+                                    title={secondLatestPost.title}
+                                  />
+                                </NavigationMenuLink>
                               ) : null}
                             </div>
                             <div className="col-span-2 row-span-1">
-                              <NavMenuContactContentItem
-                                title="More posts"
-                                copy="React, Next.js and much more..."
-                                label="My blog post page"
-                                href="/blog"
-                              />
+                              <NavigationMenuLink asChild>
+                                <NavMenuContactContentItem
+                                  title="More posts"
+                                  copy="React, Next.js and much more..."
+                                  label="My blog post page"
+                                  href={BLOG_URL}
+                                />
+                              </NavigationMenuLink>
                             </div>
                           </div>
                         </NavigationMenuContent>
@@ -257,9 +264,9 @@ export const Header = ({ pathname, blogPosts }: Props) => {
                           <NavigationMenuLink asChild>
                             <NavMenuContactContentItem
                               title="X"
-                              copy="Follow me on X @Kieran6Dev"
+                              copy="Follow me on X @Kieran6dev"
                               label="Kieran Roberts' X profile, opens in new tab"
-                              href="https://twitter.com/Kieran6dev"
+                              href={X_PROFILE_URL}
                               Icon={<XSVG />}
                               target="_blank"
                               rel="noreferrer"
@@ -270,7 +277,7 @@ export const Header = ({ pathname, blogPosts }: Props) => {
                               title="LinkedIn"
                               copy="Connect with me on LinkedIn"
                               label="Kieran Roberts' LinkedIn profile, opens in new tab"
-                              href="https://www.linkedin.com/in/kieran-roberts-00517b178/"
+                              href={LINKEDIN_PROFILE_URL}
                               Icon={<LinkedInSVG />}
                               target="_blank"
                               rel="noreferrer"
@@ -281,7 +288,7 @@ export const Header = ({ pathname, blogPosts }: Props) => {
                               title="GitHub"
                               copy="Check out my GitHub profile"
                               label="Kieran Roberts' GitHub profile, opens in new tab"
-                              href="https://github.com/kieran6roberts"
+                              href={GITHUB_PROFILE_URL}
                               Icon={<GithubSVG />}
                               target="_blank"
                               rel="noreferrer"

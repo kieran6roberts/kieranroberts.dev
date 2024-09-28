@@ -3,6 +3,7 @@ import { animated } from "react-spring";
 
 import { RSSSVG } from "@components/icons";
 import { useBoop } from "@hooks/useBoop";
+import { BLOG_URL } from "@consts/urls";
 
 export const RSSLink = () => {
   const { styleToApplyOnBoop, handleBoopTrigger } = useBoop({
@@ -10,7 +11,7 @@ export const RSSLink = () => {
   });
   return (
     <a
-      href="/blog/rss.xml"
+      href={`${BLOG_URL}/rss.xml`}
       title="Kieran6Dev RSS feed"
       className="flex items-center justify-center p-1.5 rounded-full outline-none link-focus icon-button-hover"
       onMouseEnter={handleBoopTrigger}

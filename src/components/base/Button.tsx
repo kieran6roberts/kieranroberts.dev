@@ -1,5 +1,6 @@
 import { animated } from "react-spring";
 import * as React from "react";
+import cn from "clsx";
 
 import { useBoop } from "@hooks/useBoop";
 import type { BoopConfig } from "@hooks/useBoop";
@@ -100,9 +101,12 @@ export const Button = React.forwardRef<
           {...{ "data-astro-prefetch": "hover" }}
           ref={forwardedRef as React.ForwardedRef<HTMLAnchorElement>}
           href={href}
-          className={`flex items-center gap-2 font-medium rounded-full transition-colors duration-100 focus:ring outline-none ring-offset-4 px-3 py-2 md:px-4 md:py-3 ${
-            className ?? ""
-          } ${buttonVariants[variant]} ${buttonWidth[width]}`}
+          className={cn(
+            "flex items-center gap-2 font-medium rounded-full transition-colors duration-100 focus:ring outline-none ring-offset-4 px-3 py-2 md:px-4 md:py-3",
+            className ?? "",
+            buttonVariants[variant],
+            buttonWidth[width],
+          )}
           onMouseEnter={() => {
             if (iconAnimationSettings) handleIconTrigger();
             if (buttonAnimationSettings) handleButtonTrigger();
@@ -135,9 +139,12 @@ export const Button = React.forwardRef<
         ref={forwardedRef as React.ForwardedRef<HTMLButtonElement>}
         type={type}
         disabled={disabled}
-        className={`flex items-center justify-center gap-2 font-medium transition-colors duration-100 rounded-full focus:ring outline-none ring-offset-4 px-3 py-2 lg:px-4 lg:py-3 ${
-          className ?? ""
-        } ${buttonVariants[variant]} ${buttonWidth[width]}`}
+        className={cn(
+          "flex items-center justify-center gap-2 font-medium transition-colors duration-100 rounded-full focus:ring outline-none ring-offset-4 px-3 py-2 lg:px-4 lg:py-3",
+          className ?? "",
+          buttonVariants[variant],
+          buttonWidth[width],
+        )}
         onMouseEnter={() => {
           if (iconAnimationSettings) handleIconTrigger();
           if (buttonAnimationSettings) handleButtonTrigger();

@@ -1,10 +1,12 @@
 ---
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
-import { ArrowUpSVG } from "@components/icons";
+
 import Layout from "@layouts/Layout.astro";
-import { getAllPostPagePosts } from "@utils/blog";
 import MarkdownToHTML from "@modules/blog/MarkdownToHTML.astro";
+import { ArrowUpSVG } from "@components/icons";
 import ScrollUp from "@components/navigation/ScrollUp.astro";
+import { DOMAIN_NAME } from "@consts/urls";
+import { getAllPostPagePosts } from "@utils/blog";
 
 import "@styles/highlight.css";
 
@@ -27,7 +29,7 @@ const contentMarkdown = post.content.markdown;
 <Layout
   title={`${post.title} | Kieran Roberts`}
   description={post.brief}
-  url={`kieranroberts.dev/${post.slug}`}
+  url={`${DOMAIN_NAME}/${post.slug}`}
 >
   <main id="main" class="px-4 md:px-16 py-16 w-full flex flex-col">
     <h1

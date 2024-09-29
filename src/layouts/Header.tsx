@@ -1,6 +1,7 @@
 import * as React from "react";
 import { KBarProvider as KBarProv } from "kbar";
 import { animated } from "react-spring";
+import cn from "clsx";
 import {
   NavigationMenuContent,
   NavigationMenuItem,
@@ -56,11 +57,12 @@ const NavMenuContactContentItem = React.forwardRef<
     copy: string;
     label: string;
     href: string;
+    className?: string;
     target?: string;
     rel?: string;
     Icon?: React.ReactNode;
   }
->(({ title, copy, label, href, Icon = null, ...rest }, ref) => {
+>(({ title, copy, label, href, className = "", Icon = null, ...rest }, ref) => {
   const { styleToApplyOnBoop, handleBoopTrigger } = useBoop({ scale: 1.05 });
   return (
     <a
@@ -68,7 +70,11 @@ const NavMenuContactContentItem = React.forwardRef<
       aria-label={label}
       href={href}
       onMouseEnter={handleBoopTrigger}
-      className="flex flex-row items-center h-full gap-x-4 border dark:border-gray-800 hover:border-l-secondary dark:hover:border-d-secondary row-span-1 bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-100 rounded-xl px-4 py-2 link-focus"
+      className={cn(
+        "flex flex-row items-center bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 h-full gap-x-4 border row-span-1 transition-colors duration-100 rounded-xl px-4 py-2 link-focus",
+        className ||
+          "dark:border-gray-800 hover:border-l-secondary dark:hover:border-d-secondary",
+      )}
       {...rest}
     >
       {Icon ? (
@@ -186,11 +192,12 @@ export const Header = ({ pathname, blogPosts }: Props) => {
               <h1 className="flex items-center text-black dark:text-white text-base sm:text-lg font-light gap-x-2">
                 {DOMAIN_NAME}
                 <span
-                  className={`block w-6 h-6 ${
+                  className={cn(
+                    "block w-6 h-6",
                     isActive
                       ? "text-l-secondary dark:text-d-tertiary-2"
-                      : "text-black dark:text-white"
-                  }`}
+                      : "text-black dark:text-white",
+                  )}
                 >
                   <CodeSVG />
                 </span>
@@ -205,7 +212,12 @@ export const Header = ({ pathname, blogPosts }: Props) => {
                         <NavigationMenuTrigger active={isBlogPage} asChild>
                           <button
                             type="button"
-                            className={`${isBlogPage ? "text-l-primary-darkest dark:text-d-tertiary-2" : ""} !px-4 !py-1.5 transition duration-150 ease-in-out outline-none link-focus icon-button-hover`}
+                            className={cn(
+                              "!px-4 !py-1.5 transition duration-150 ease-in-out outline-none link-focus icon-button-hover",
+                              isBlogPage
+                                ? "text-l-primary-darkest dark:text-d-tertiary-2"
+                                : "",
+                            )}
                           >
                             Blog
                           </button>
@@ -242,9 +254,10 @@ export const Header = ({ pathname, blogPosts }: Props) => {
                             <div className="col-span-2 row-span-1">
                               <NavigationMenuLink asChild>
                                 <NavMenuContactContentItem
-                                  title="More posts"
+                                  title="All posts"
                                   copy="React, Next.js and much more..."
                                   label="My blog post page"
+                                  className="border-l-secondary/50 hover:border-l-secondary"
                                   href={BLOG_URL}
                                 />
                               </NavigationMenuLink>
@@ -271,6 +284,7 @@ export const Header = ({ pathname, blogPosts }: Props) => {
                               label="Kieran Roberts' X profile, opens in new tab"
                               href={X_PROFILE_URL}
                               Icon={<XSVG />}
+                              className="border-l-secondary/50 hover:border-l-secondary"
                               target="_blank"
                               rel="noreferrer"
                             />
@@ -282,6 +296,7 @@ export const Header = ({ pathname, blogPosts }: Props) => {
                               label="Kieran Roberts' LinkedIn profile, opens in new tab"
                               href={LINKEDIN_PROFILE_URL}
                               Icon={<LinkedInSVG />}
+                              className="border-l-tertiary-1/50 hover:border-l-tertiary-1"
                               target="_blank"
                               rel="noreferrer"
                             />
@@ -293,6 +308,7 @@ export const Header = ({ pathname, blogPosts }: Props) => {
                               label="Kieran Roberts' GitHub profile, opens in new tab"
                               href={GITHUB_PROFILE_URL}
                               Icon={<GithubSVG />}
+                              className="border-l-tertiary-2/50 hover:border-l-tertiary-2"
                               target="_blank"
                               rel="noreferrer"
                             />

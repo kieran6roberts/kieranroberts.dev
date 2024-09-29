@@ -1,5 +1,6 @@
 import { KBarResults as KResults, useMatches } from "kbar";
 import * as React from "react";
+import cn from "clsx";
 
 export const KBarResults = () => {
   const { results } = useMatches();
@@ -16,17 +17,19 @@ export const KBarResults = () => {
             </div>
           ) : (
             <div
-              className={`group capitalize flex items-center justify-between px-8 py-3 cursor-pointer hover:bg-d-tertiary-2/50 dark:hover:bg-l-primary-darkest/40 ${
-                active ? "bg-d-tertiary-2/50 dark:bg-l-primary-darkest/20" : ""
-              }`}
+              className={cn(
+                "group capitalize flex items-center justify-between px-8 py-3 cursor-pointer hover:bg-d-tertiary-2/50 dark:hover:bg-l-primary-darkest/40",
+                active ? "bg-d-tertiary-2/50 dark:bg-l-primary-darkest/20" : "",
+              )}
             >
               {item.name}
               <div>
                 {item.section === "navigation" ? (
                   <span
-                    className={`${
-                      active ? "block" : "hidden group-hover:block"
-                    } p-1 roumded-lg text-xs font-medium`}
+                    className={cn(
+                      "p-1 rounded-lg text-xs font-medium",
+                      active ? "block" : "hidden group-hover:block",
+                    )}
                   >
                     Jump to
                   </span>

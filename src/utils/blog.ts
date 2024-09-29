@@ -72,7 +72,7 @@ export const getAllPostPagePosts = async () => {
     });
     if (blogPostData) {
       const { cursor, hasNextPage, postsArray } =
-        getPostsPaginatedData(blogPostData);
+        getPostsPaginatedData<PostPagePosts>(blogPostData);
 
       posts = [...posts, ...postsArray];
       currentCursor = cursor;

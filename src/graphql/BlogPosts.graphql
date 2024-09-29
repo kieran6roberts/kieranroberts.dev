@@ -21,6 +21,9 @@ query BlogPosts($host: String!, $after: String, $first: Int!) {
             name
             profilePicture
           }
+          seo {
+            description
+          }
           content {
             markdown
             html

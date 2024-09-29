@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { NavArrowDownSVG, EmojiLookDownSVG } from "@components/icons";
 import {
   fetchPaginatedBlogPosts,
@@ -8,6 +9,7 @@ import {
 } from "@utils/blog";
 import { ArticleCard } from "@modules/blog/ArticleCard";
 import { Button } from "@components/base/Button";
+import { BLOG_URL } from "@consts/urls";
 
 interface ILoadMorePosts {
   cursor: string | null | undefined;
@@ -42,7 +44,7 @@ export const LoadMorePosts = ({ cursor, hasNextPage }: ILoadMorePosts) => {
   return (
     <>
       {posts.map((post) => (
-        <a href={`/blog/${post.slug}`} key={post.id} className="block">
+        <a href={`${BLOG_URL}/${post.slug}`} key={post.id} className="block">
           <ArticleCard
             title={post.title}
             description={post.brief}
@@ -53,7 +55,6 @@ export const LoadMorePosts = ({ cursor, hasNextPage }: ILoadMorePosts) => {
       ))}
       {loading ? (
         <Button
-          onClick={() => {}}
           startIcon={
             <span className="block w-6 h-6 text-white">
               <EmojiLookDownSVG />

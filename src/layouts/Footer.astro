@@ -1,5 +1,8 @@
 ---
+import cn from "clsx";
+
 import { SocialLinks } from "@components/navigation/SocialLinkFloatingBar";
+import { DOMAIN_NAME } from "@consts/urls";
 // import GithubStats from "@components/GithubStats.astro";
 
 const { asDark } = Astro.props;
@@ -7,22 +10,28 @@ const { asDark } = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class={`main-footer relative border-t dark:border-slate-900`}>
+<footer class="main-footer relative border-t dark:border-slate-900">
   <div
     class="flex flex-col md:flex-row justify-between gap-y-4 px-4 md:px-8 xl:px-12 py-8 xl:py-16 items-center max-w-[1600px] mx-auto"
   >
     <div class="flex flex-col gap-4 items-center md:items-start">
       <a
         href="/"
-        class={`text-3xl font-medium ${asDark ? "text-white" : "text-black dark:text-white"}`}
+        class={cn(
+          "text-3xl font-medium",
+          asDark ? "text-white" : "text-black dark:text-white"
+        )}
       >
-        kieranroberts.dev
+        {DOMAIN_NAME}
       </a>
       <div class="flex flex-row items-center">
         <SocialLinks client:visible />
       </div>
       <div
-        class={`text-center md:text-start ${asDark ? "text-white" : "text-black dark:text-white"} text-sm`}
+        class={cn(
+          "text-center md:text-start text-sm",
+          asDark ? "text-white" : "text-black dark:text-white"
+        )}
       >
         Design & build by Kieran Roberts &#169;{currentYear}
       </div>

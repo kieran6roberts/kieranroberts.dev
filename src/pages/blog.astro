@@ -4,7 +4,7 @@ import { LoadMorePosts } from "@modules/blog/LoadMorePosts";
 import { fetchPaginatedBlogPosts, getPostsPaginatedData } from "@utils/blog";
 import PageTitle from "@layouts/PageTitle.astro";
 import ScrollUp from "@components/navigation/ScrollUp.astro";
-import { ArticleCard } from "@modules/blog/ArticleCard";
+import { BlogCard } from "@modules/blog/BlogCard";
 import { ArrowUpSVG, RSSSVG } from "@components/icons";
 import { Button } from "@components/base/Button";
 import { BLOG_URL, DOMAIN_NAME, X_PROFILE_URL } from "@consts/urls";
@@ -24,7 +24,11 @@ const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(blogPosts);
 >
   <main id="main" class="px-8 md:px-16 py-16 w-full flex flex-col gap-4">
     <PageTitle>
-      <a href={X_PROFILE_URL} class="text-[1.2em] p-1 rounded-lg">@Kieran6Dev</a
+      <a
+        href={X_PROFILE_URL}
+        target="_blank"
+        rel="noreferrer"
+        class="text-[1.2em] p-1 rounded-lg">@Kieran6Dev</a
       >
       <br />Blog
     </PageTitle>
@@ -55,11 +59,12 @@ const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(blogPosts);
               href={`${BLOG_URL}/${post.slug}`}
               class="group link-focus rounded-xl"
             >
-              <ArticleCard
+              <BlogCard
                 title={post.title}
                 description={post.brief}
                 date={post.publishedAt}
                 options={{ formatDate: true }}
+                client:load
               />
             </a>
           ))

@@ -7,7 +7,7 @@ import {
   getPostsPaginatedData,
   type PostPagePosts,
 } from "@utils/blog";
-import { ArticleCard } from "@modules/blog/ArticleCard";
+import { BlogCard } from "@modules/blog/BlogCard";
 import { Button } from "@components/base/Button";
 import { BLOG_URL } from "@consts/urls";
 
@@ -45,7 +45,7 @@ export const LoadMorePosts = ({ cursor, hasNextPage }: ILoadMorePosts) => {
     <>
       {posts.map((post) => (
         <a href={`${BLOG_URL}/${post.slug}`} key={post.id} className="block">
-          <ArticleCard
+          <BlogCard
             title={post.title}
             description={post.brief}
             date={post.publishedAt}

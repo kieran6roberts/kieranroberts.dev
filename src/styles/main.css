@@ -65,26 +65,8 @@
     z-index: 1;
   }
 
-  .cursor {
-    animation: blink 1s linear infinite;
-  }
-
-  @keyframes blink {
-    0% {
-      opacity: 0;
-    }
-
-    50% {
-      opacity: 100;
-    }
-
-    100% {
-      opacity: 0;
-    }
-  }
-
   .link-focus {
-    @apply outline-none focus:ring dark:focus:ring-offset-gray-900 focus:ring-offset-4 focus:ring-l-secondary dark:focus:ring-d-tertiary-2 !important;
+    @apply outline-none focus-visible:ring dark:focus-visible:ring-offset-gray-900 focus-visible:ring-offset-4 focus-visible:ring-l-secondary dark:focus-visible:ring-d-tertiary-2 !important;
   }
   .icon-button-hover {
     @apply hover:bg-opacity-25 dark:hover:bg-opacity-25 hover:bg-l-tertiary-2 dark:hover:bg-d-primary-dark !important;
@@ -108,5 +90,21 @@
 
   .hide {
     @apply opacity-0;
+  }
+
+  .glow-overlay {
+    --glow-size: 25rem;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    user-select: none;
+    opacity: var(--glow-opacity, 0);
+    mask: radial-gradient(
+      var(--glow-size) var(--glow-size) at var(--glow-x) var(--glow-y),
+      var(--glow-color) 1%,
+      transparent 50%
+    );
+    transition: 400ms mask ease;
+    will-change: mask;
   }
 }

@@ -48,7 +48,7 @@ const NavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps>(
             href={href}
             target={isExternal ? "_blank" : "_self"}
             ref={ref}
-            className={`flex items-center gap-x-2 px-4 py-1.5 rounded-full whitespace-nowrap text-sm font-medium transition duration-150 ease-in-out outline-none link-focus icon-button-hover 
+            className={`flex items-center gap-x-2 px-4 py-1.5 rounded-full whitespace-nowrap text-base font-medium transition duration-150 ease-in-out outline-none link-focus icon-button-hover 
               
           ${
             isActive

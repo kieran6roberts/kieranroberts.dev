@@ -1,6 +1,7 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 import "../styles/main.css";
+import { DOMAIN_NAME } from "@consts/urls";
 
 interface Props {
   title?: string;
@@ -11,7 +12,7 @@ interface Props {
 const DEFAULT_TITLE = "Kieran Roberts | Software Developer";
 const DEFAULT_DESCRIPTION =
   "Hi, I'm a React & TypeScript focused web developer with multiple years worth of industry experience. Let's talk";
-const DEFAULT_URL = "kieranroberts.dev";
+const DEFAULT_URL = DOMAIN_NAME;
 
 const {
   title = DEFAULT_TITLE,
@@ -125,7 +126,7 @@ const isProd = import.meta.env.PROD;
     }
   </script>
 
-  {
+  <!-- {
     isProd ? (
       <script
         is:inline
@@ -134,5 +135,5 @@ const isProd = import.meta.env.PROD;
         src="/discover/js/discover.js"
       />
     ) : null
-  }
+  } -->
 </head>

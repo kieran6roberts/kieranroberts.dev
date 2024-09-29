@@ -1,15 +1,12 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import { DOMAIN_NAME } from "@consts/urls";
+
+import { Hero } from "@modules/landing/Hero";
 ---
 
 <Layout url={DOMAIN_NAME} showFooter={false}>
-  <main
-    id="main"
-    class="flex items-center justify-center dark:bg-[#100114] max-w-[1600px] h-[80vh] mx-auto"
-  >
-    <h1 class="text-lg md:text-2xl text-center font-medium">
-      New landing page coming soon...
-    </h1>
+  <main id="main" class="dark:bg-[#100114] w-full max-w-[1600px] mx-auto">
+    <Hero client:load />
   </main>
 </Layout>

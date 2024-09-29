@@ -1,6 +1,7 @@
 import * as React from "react";
 import { KBarProvider as KBarProv } from "kbar";
 import { animated } from "react-spring";
+import cn from "clsx";
 import {
   NavigationMenuContent,
   NavigationMenuItem,
@@ -10,7 +11,12 @@ import {
   NavigationMenuTrigger,
 } from "@hashnode/matrix-ui";
 
-import { XSVG, LinkedInSVG, GithubSVG, ArrowRightSVG } from "@components/icons";
+import {
+  XSVG,
+  LinkedInSVG,
+  GithubSVG,
+  //ArrowRightSVG
+} from "@components/icons";
 import { useBoop } from "@hooks/useBoop";
 
 import { CodeSVG } from "@components/icons";
@@ -18,6 +24,7 @@ import ThemeToggle from "@components/ThemeToggle.tsx";
 import { RSSLink } from "@components/navigation/RSSLink";
 import { Trigger as SidebarTrigger } from "@components/navigation/MobileSidebar/Trigger";
 import { KBarToggle } from "@modules/KBar/KbarToggle";
+import { getPostsPaginatedData, type PostPagePosts } from "@utils/blog";
 
 import useStickyScroll from "@hooks/useStickyHeader";
 import { usePrefersReducedMotion } from "@hooks/usePrefersReducedMotion";
@@ -34,7 +41,9 @@ import AvatarImage from "@assets/Kieran-Avatar-funky-min_80x80.webp";
 
 interface Props {
   pathname: string;
-  blogPosts: any;
+  blogPosts: ReturnType<
+    typeof getPostsPaginatedData<PostPagePosts>
+  >["postsArray"];
 }
 
 export const KBarProvider = ({ children }: { children: React.ReactNode }) => {
@@ -53,11 +62,12 @@ const NavMenuContactContentItem = React.forwardRef<
     copy: string;
     label: string;
     href: string;
+    className?: string;
     target?: string;
     rel?: string;
     Icon?: React.ReactNode;
   }
->(({ title, copy, label, href, Icon = null, ...rest }, ref) => {
+>(({ title, copy, label, href, className = "", Icon = null, ...rest }, ref) => {
   const { styleToApplyOnBoop, handleBoopTrigger } = useBoop({ scale: 1.05 });
   return (
     <a
@@ -65,11 +75,17 @@ const NavMenuContactContentItem = React.forwardRef<
       aria-label={label}
       href={href}
       onMouseEnter={handleBoopTrigger}
-      className="flex flex-row items-center h-full gap-x-4 border dark:border-gray-800 hover:border-l-secondary dark:hover:border-d-secondary row-span-1 bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-100 rounded-xl px-4 py-2 link-focus"
+      className={cn(
+        "group",
+        "flex flex-row items-center bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 h-full gap-x-4 border border-transparent row-span-1 transition-colors duration-100 rounded-xl px-4 py-2 link-focus",
+        className ||
+          "dark:border-gray-800 hover:border-l-secondary dark:hover:border-d-secondary",
+      )}
       {...rest}
     >
       {Icon ? (
         <animated.span
+          className="opacity-50 group-hover:opacity-100"
           {...(styleToApplyOnBoop && {
             style: styleToApplyOnBoop,
           })}
@@ -88,54 +104,54 @@ const NavMenuContactContentItem = React.forwardRef<
   );
 });
 
-const BlogPostCard = React.forwardRef<
-  HTMLAnchorElement,
-  {
-    slug: string;
-    coverImage: string;
-    title: string;
-  }
->(({ slug, coverImage, title, ...rest }, ref) => {
-  const {
-    styleToApplyOnBoop: blogBoopStyle,
-    handleBoopTrigger: handleBlogBoopTrigger,
-  } = useBoop({ x: 4 });
-  return (
-    <a
-      href={`${BLOG_URL}/${slug}`}
-      onMouseEnter={handleBlogBoopTrigger}
-      className="group relative h-full flex justify-center rounded-xl overflow-hidden bg-black border dark:border-gray-800 hover:border-l-secondary dark:hover:border-d-secondary link-focus"
-      ref={ref}
-      {...rest}
-    >
-      <div className="absolute inset-0 w-full h-full opacity-75 group-hover:opacity-90 group-hover:scale-105 transition duration-200">
-        <img
-          className="object-cover object-right h-full"
-          alt={title}
-          src={coverImage}
-        />
-      </div>
-      <div className="relative bottom-0 p-2 h-max z-10 bg-slate-50 dark:bg-gray-900">
-        <h2 className="font-semibold text-sm text-black dark:text-white line-clamp-1">
-          {title}
-        </h2>
-        <p className="flex items-center gap-2 text-gray-900 dark:text-gray-100 group-hover:text-l-secondary group-hover:dark:text-d-secondary transition-colors duration-100 text-xs">
-          Read more
-          <animated.span
-            {...(blogBoopStyle && {
-              style: blogBoopStyle,
-            })}
-            className="block text-black dark:text-white w-3 h-3"
-          >
-            <ArrowRightSVG />
-          </animated.span>
-        </p>
-      </div>
-    </a>
-  );
-});
+// const BlogPostCard = React.forwardRef<
+//   HTMLAnchorElement,
+//   {
+//     slug: string;
+//     coverImage: string;
+//     title: string;
+//   }
+// >(({ slug, coverImage, title, ...rest }, ref) => {
+//   const {
+//     styleToApplyOnBoop: blogBoopStyle,
+//     handleBoopTrigger: handleBlogBoopTrigger,
+//   } = useBoop({ x: 4 });
+//   return (
+//     <a
+//       href={`${BLOG_URL}/${slug}`}
+//       onMouseEnter={handleBlogBoopTrigger}
+//       className="group relative h-full flex justify-center rounded-xl overflow-hidden link-focus"
+//       ref={ref}
+//       {...rest}
+//     >
+//       <div className="absolute inset-0 w-full h-full opacity-75 group-hover:opacity-90 group-hover:scale-105 transition duration-200">
+//         <img
+//           className="object-cover object-right h-full"
+//           alt={title}
+//           src={coverImage}
+//         />
+//       </div>
+//       <div className="relative p-2 h-max z-10 bg-gray-900">
+//         <h2 className="font-semibold text-sm text-black dark:text-white line-clamp-1">
+//           {title}
+//         </h2>
+//         <p className="flex items-center gap-2 text-gray-900 dark:text-gray-100 group-hover:text-l-secondary group-hover:dark:text-d-secondary transition-colors duration-100 text-xs">
+//           Read more
+//           <animated.span
+//             {...(blogBoopStyle && {
+//               style: blogBoopStyle,
+//             })}
+//             className="block text-black dark:text-white w-3 h-3"
+//           >
+//             <ArrowRightSVG />
+//           </animated.span>
+//         </p>
+//       </div>
+//     </a>
+//   );
+// });
 
-export const Header = ({ pathname, blogPosts }: Props) => {
+export const Header = ({ pathname }: Props) => {
   const headerRef = React.useRef<HTMLElement>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -143,9 +159,9 @@ export const Header = ({ pathname, blogPosts }: Props) => {
 
   useStickyScroll({ elRef: headerRef, prefersReducedMotion });
 
-  const latestPost = blogPosts[0];
-  const secondLatestPost = blogPosts[1];
-  const showBlogLink = latestPost && secondLatestPost;
+  // const latestPost = blogPosts[0];
+  // const secondLatestPost = blogPosts[1];
+  // const showBlogLink = latestPost && secondLatestPost;
   const isBlogPage = pathname === "/blog" || pathname.startsWith("/blog");
 
   return (
@@ -183,11 +199,12 @@ export const Header = ({ pathname, blogPosts }: Props) => {
               <h1 className="flex items-center text-black dark:text-white text-base sm:text-lg font-light gap-x-2">
                 {DOMAIN_NAME}
                 <span
-                  className={`block w-6 h-6 ${
+                  className={cn(
+                    "block w-6 h-6",
                     isActive
                       ? "text-l-secondary dark:text-d-tertiary-2"
-                      : "text-black dark:text-white"
-                  }`}
+                      : "text-black dark:text-white",
+                  )}
                 >
                   <CodeSVG />
                 </span>
@@ -195,14 +212,31 @@ export const Header = ({ pathname, blogPosts }: Props) => {
             </a>
             <section>
               <div className="hidden lg:flex md:items-center md:gap-x-4">
+                <a
+                  href={BLOG_URL}
+                  className={cn(
+                    "font-medium text-sm rounded-3xl px-4 py-1.5 transition duration-150 ease-in-out outline-none link-focus icon-button-hover",
+                    isBlogPage
+                      ? "text-l-secondary dark:text-d-tertiary-2"
+                      : "text-slate-600 dark:text-slate-300",
+                  )}
+                >
+                  Blog
+                </a>
+
                 <NavigationMenu delayDuration={0}>
                   <NavigationMenuList className="flex items-center gap-x-4">
-                    {showBlogLink ? (
+                    {/* {showBlogLink ? (
                       <NavigationMenuItem>
                         <NavigationMenuTrigger active={isBlogPage} asChild>
                           <button
                             type="button"
-                            className={`${isBlogPage ? "text-l-primary-darkest dark:text-d-tertiary-2" : ""} !px-4 !py-1.5 transition duration-150 ease-in-out outline-none link-focus icon-button-hover`}
+                            className={cn(
+                              "!px-4 !py-1.5 transition duration-150 ease-in-out outline-none link-focus icon-button-hover",
+                              isBlogPage
+                                ? "text-l-primary-darkest dark:text-d-tertiary-2"
+                                : "",
+                            )}
                           >
                             Blog
                           </button>
@@ -239,9 +273,10 @@ export const Header = ({ pathname, blogPosts }: Props) => {
                             <div className="col-span-2 row-span-1">
                               <NavigationMenuLink asChild>
                                 <NavMenuContactContentItem
-                                  title="More posts"
+                                  title="All posts"
                                   copy="React, Next.js and much more..."
                                   label="My blog post page"
+                                  className="border-l-secondary/50 hover:border-l-secondary"
                                   href={BLOG_URL}
                                 />
                               </NavigationMenuLink>
@@ -249,7 +284,7 @@ export const Header = ({ pathname, blogPosts }: Props) => {
                           </div>
                         </NavigationMenuContent>
                       </NavigationMenuItem>
-                    ) : null}
+                    ) : null} */}
                     <NavigationMenuItem>
                       <NavigationMenuTrigger asChild>
                         <button
@@ -268,6 +303,7 @@ export const Header = ({ pathname, blogPosts }: Props) => {
                               label="Kieran Roberts' X profile, opens in new tab"
                               href={X_PROFILE_URL}
                               Icon={<XSVG />}
+                              className="dark:border-l-secondary/50 dark:hover:border-l-secondary"
                               target="_blank"
                               rel="noreferrer"
                             />
@@ -279,6 +315,7 @@ export const Header = ({ pathname, blogPosts }: Props) => {
                               label="Kieran Roberts' LinkedIn profile, opens in new tab"
                               href={LINKEDIN_PROFILE_URL}
                               Icon={<LinkedInSVG />}
+                              className="dark:border-l-tertiary-1/50 dark:hover:border-l-tertiary-1"
                               target="_blank"
                               rel="noreferrer"
                             />
@@ -290,6 +327,7 @@ export const Header = ({ pathname, blogPosts }: Props) => {
                               label="Kieran Roberts' GitHub profile, opens in new tab"
                               href={GITHUB_PROFILE_URL}
                               Icon={<GithubSVG />}
+                              className="dark:border-l-tertiary-2/50 dark:hover:border-l-tertiary-2"
                               target="_blank"
                               rel="noreferrer"
                             />

@@ -1,23 +1,26 @@
 ---
-import Layout from "@layouts/Layout.astro";
-import { LoadMorePosts } from "@modules/blog/LoadMorePosts";
-import { fetchPaginatedBlogPosts, getPostsPaginatedData } from "@utils/blog";
-import PageTitle from "@layouts/PageTitle.astro";
-import ScrollUp from "@components/navigation/ScrollUp.astro";
-import { BlogCard } from "@modules/blog/BlogCard";
-import { ArrowUpSVG, RSSSVG } from "@components/icons";
-import { Button } from "@components/base/Button";
-import { BLOG_URL, DOMAIN_NAME, X_PROFILE_URL } from "@consts/urls";
+// import Layout from "@layouts/Layout.astro";
+// import { LoadMorePosts } from "@modules/blog/LoadMorePosts";
+// import { fetchPaginatedBlogPosts, getPostsPaginatedData } from "@utils/blog";
+// import PageTitle from "@layouts/PageTitle.astro";
+// import ScrollUp from "@components/navigation/ScrollUp.astro";
+// import { BlogCard } from "@modules/blog/BlogCard";
+// import { ArrowUpSVG, RSSSVG } from "@components/icons";
+// import { Button } from "@components/base/Button";
+// import { BLOG_URL, DOMAIN_NAME, X_PROFILE_URL } from "@consts/urls";
 
-const blogPosts = await fetchPaginatedBlogPosts({ first: null, after: null });
+// const blogPosts = await fetchPaginatedBlogPosts({ first: null, after: null });
 
-if (!blogPosts) {
-  throw new Error("Error fetching blog posts");
-}
-const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(blogPosts);
+// if (!blogPosts) {
+//   throw new Error("Error fetching blog posts");
+// }
+// const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(blogPosts);
+
+// Set the response status to 404
+Astro.response.status = 404;
 ---
 
-<Layout
+<!-- <Layout
   title="Blog | Kieran Roberts"
   description="I like about React, Next.js, TypeScript, and web development in general. Find something you like here."
   url={`${DOMAIN_NAME}${BLOG_URL}`}
@@ -86,4 +89,4 @@ const { cursor, hasNextPage, postsArray } = getPostsPaginatedData(blogPosts);
       <ArrowUpSVG />
     </span>
   </ScrollUp>
-</Layout>
+</Layout> -->

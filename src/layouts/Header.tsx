@@ -21,9 +21,9 @@ import { useBoop } from "@hooks/useBoop";
 
 import { CodeSVG } from "@components/icons";
 import ThemeToggle from "@components/ThemeToggle.tsx";
-import { RSSLink } from "@components/navigation/RSSLink";
-import { Trigger as SidebarTrigger } from "@components/navigation/MobileSidebar/Trigger";
-import { KBarToggle } from "@modules/KBar/KbarToggle";
+// import { RSSLink } from "@components/navigation/RSSLink";
+// import { Trigger as SidebarTrigger } from "@components/navigation/MobileSidebar/Trigger";
+// import { KBarToggle } from "@modules/KBar/KbarToggle";
 import { getPostsPaginatedData, type PostPagePosts } from "@utils/blog";
 
 import useStickyScroll from "@hooks/useStickyHeader";
@@ -212,7 +212,7 @@ export const Header = ({ pathname }: Props) => {
             </a>
             <section>
               <div className="hidden lg:flex md:items-center md:gap-x-4">
-                <a
+                {/* <a
                   href={BLOG_URL}
                   className={cn(
                     "font-medium text-sm rounded-3xl px-4 py-1.5 transition duration-150 ease-in-out outline-none link-focus icon-button-hover",
@@ -222,7 +222,7 @@ export const Header = ({ pathname }: Props) => {
                   )}
                 >
                   Blog
-                </a>
+                </a> */}
 
                 <NavigationMenu delayDuration={0}>
                   <NavigationMenuList className="flex items-center gap-x-4">
@@ -344,10 +344,10 @@ export const Header = ({ pathname }: Props) => {
           <section className="flex items-center gap-x-8">
             <div className="flex items-center gap-x-2 md:gap-x-6">
               <ThemeToggle />
-              <RSSLink />
-              <KBarToggle />
+              {/* <RSSLink /> */}
+              {/* <KBarToggle /> */}
 
-              <SidebarTrigger pathname={pathname} />
+              {/* <SidebarTrigger pathname={pathname} /> */}
             </div>
           </section>
         </nav>

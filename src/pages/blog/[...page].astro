@@ -1,32 +1,39 @@
 ---
-import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+import type { GetStaticPaths /*, InferGetStaticPropsType */ } from "astro";
 
-import Layout from "@layouts/Layout.astro";
-import MarkdownToHTML from "@modules/blog/MarkdownToHTML.astro";
-import { ArrowUpSVG } from "@components/icons";
-import ScrollUp from "@components/navigation/ScrollUp.astro";
-import { DOMAIN_NAME } from "@consts/urls";
-import { getAllPostPagePosts } from "@utils/blog";
+// import Layout from "@layouts/Layout.astro";
+// import MarkdownToHTML from "@modules/blog/MarkdownToHTML.astro";
+// import { ArrowUpSVG } from "@components/icons";
+// import ScrollUp from "@components/navigation/ScrollUp.astro";
+// import { DOMAIN_NAME } from "@consts/urls";
+// import { getAllPostPagePosts } from "@utils/blog";
 
-import "@styles/highlight.css";
+// import "@styles/highlight.css";
+
+// export const getStaticPaths = (async () => {
+//   const allBlogPosts = await getAllPostPagePosts();
+
+//   return allBlogPosts.map((post) => ({
+//     params: { page: post.slug },
+//     props: { post: post },
+//   }));
+// }) satisfies GetStaticPaths;
 
 export const getStaticPaths = (async () => {
-  const allBlogPosts = await getAllPostPagePosts();
-
-  return allBlogPosts.map((post) => ({
-    params: { page: post.slug },
-    props: { post: post },
-  }));
+  return [];
 }) satisfies GetStaticPaths;
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+// type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { post } = Astro.props;
+// const { post } = Astro.props;
 
-const contentMarkdown = post.content.markdown;
+// const contentMarkdown = post.content.markdown;
+
+// Set the response status to 404
+Astro.response.status = 404;
 ---
 
-<Layout
+<!-- <Layout
   title={`${post.title} | Kieran Roberts`}
   description={post.brief}
   url={`${DOMAIN_NAME}/${post.slug}`}
@@ -59,4 +66,4 @@ const contentMarkdown = post.content.markdown;
       <ArrowUpSVG />
     </span>
   </ScrollUp>
-</Layout>
+</Layout> -->

@@ -17,6 +17,7 @@ import {
   LINKEDIN_PROFILE_URL,
 } from "@consts/urls";
 import { GithubSVG, LinkedInSVG, XSVG } from "@components/icons";
+import { Button } from "@components/base/Button";
 
 const EMAIL_ADDRESS = "kieranroberts6dev@gmail.com";
 
@@ -33,7 +34,7 @@ const SocialLink = ({
     href={href}
     target="_blank"
     rel="noreferrer"
-    className="text-black/75 dark:text-white/75 hover:text-black dark:hover:text-white link-focus rounded-md"
+    className="text-zinc-600 dark:text-zinc-300 hover:text-d dark:hover:text-l link-focus rounded-md"
   >
     <span className="hidden md:block">{label}</span>
     <span className="block w-5 h-5 md:hidden">{Icon}</span>
@@ -62,13 +63,13 @@ export const Header = () => {
         role="navigation"
         className="relative flex items-center max-w-[1728px] h-[65px] mx-auto justify-between px-4 md:px-8 lg:px-16 py-3.5"
       >
-        {/* Skip to content link */}
-        <a
-          className="hidden absolute pointer-events-none lg:flex items-center h-1/2 justify-center m-auto inset-0 w-44 bg-accent-darkest dark:bg-accent-brightest text-l dark:text-d font-medium rounded-lg text-center outline-none opacity-0 transition-opacity focus:pointer-events-auto focus:opacity-100 link-focus"
+        <Button
+          className="hidden lg:flex m-auto inset-0 h-max absolute pointer-events-none opacity-0 transition-opacity focus:pointer-events-auto focus:opacity-100 link-focus"
+          asLink
           href="#main"
         >
           Skip to content
-        </a>
+        </Button>
         <section>
           <TooltipProvider delayDuration={0}>
             <Tooltip>
@@ -77,7 +78,7 @@ export const Header = () => {
                   ref={emailTriggerRef}
                   onClick={onEmailCopy}
                   aria-label={`Copy ${EMAIL_ADDRESS} to clipboard`}
-                  className="flex items-center font-medium text-d/75 dark:text-l/75 text-sm rounded-md link-focus hover:text-d dark:hover:text-l"
+                  className="flex items-center font-medium text-zinc-600 dark:text-zinc-300 text-sm rounded-md link-focus hover:text-d dark:hover:text-l"
                 >
                   <span className="hidden sm:block">{EMAIL_ADDRESS}</span>
                   <span className="block sm:hidden">

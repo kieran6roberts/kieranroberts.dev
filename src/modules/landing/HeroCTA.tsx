@@ -2,7 +2,7 @@ import * as React from "react";
 import { useHover } from "@uidotdev/usehooks";
 
 import { Button } from "@components/base/Button";
-import { FavoriteBookSVG } from "@components/icons/index";
+import { ArrowSquareRightSVG } from "@components/icons/index";
 import { LINKEDIN_PROFILE_URL } from "@consts/urls";
 
 export const HeroCTA = () => {
@@ -15,10 +15,10 @@ export const HeroCTA = () => {
         asLink
         href={LINKEDIN_PROFILE_URL}
         target="_blank"
-        iconAnimationSettings={{ scale: 1.1 }}
+        iconAnimationSettings={{ rotation: 10, timing: 300, scale: 1.05 }}
         endIcon={
-          <span className="block text-slate-500 w-6 h-6">
-            <FavoriteBookSVG hoverFill={isHoveringConnectBtn} />
+          <span className="block text-accent-brightest dark:text-d w-5 h-5">
+            <ArrowSquareRightSVG />
           </span>
         }
       >

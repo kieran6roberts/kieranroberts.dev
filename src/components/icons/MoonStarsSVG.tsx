@@ -1,14 +1,13 @@
 import * as React from "react";
 
-export const LinkedInSVG = () => (
+export const MoonStarsSVG = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
     <rect width="256" height="256" fill="none" />
-    <rect
-      x="32"
-      y="32"
-      width="192"
-      height="192"
-      rx="8"
+    <line
+      x1="208"
+      y1="120"
+      x2="208"
+      y2="72"
       fill="none"
       stroke="currentColor"
       strokeLinecap="round"
@@ -16,10 +15,10 @@ export const LinkedInSVG = () => (
       strokeWidth="16"
     />
     <line
-      x1="120"
-      y1="112"
-      x2="120"
-      y2="176"
+      x1="232"
+      y1="96"
+      x2="184"
+      y2="96"
       fill="none"
       stroke="currentColor"
       strokeLinecap="round"
@@ -27,10 +26,21 @@ export const LinkedInSVG = () => (
       strokeWidth="16"
     />
     <line
-      x1="88"
-      y1="112"
-      x2="88"
-      y2="176"
+      x1="160"
+      y1="32"
+      x2="160"
+      y2="64"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="16"
+    />
+    <line
+      x1="176"
+      y1="48"
+      x2="144"
+      y2="48"
       fill="none"
       stroke="currentColor"
       strokeLinecap="round"
@@ -38,13 +48,12 @@ export const LinkedInSVG = () => (
       strokeWidth="16"
     />
     <path
-      d="M120,140a28,28,0,0,1,56,0v36"
+      d="M210.69,158.18A96.78,96.78,0,0,1,192,160,96.08,96.08,0,0,1,97.82,45.31,88,88,0,1,0,210.69,158.18Z"
       fill="none"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="16"
     />
-    <circle cx="88" cy="84" r="12" />
   </svg>
 );

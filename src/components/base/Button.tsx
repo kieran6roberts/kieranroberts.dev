@@ -7,7 +7,7 @@ import type { BoopConfig } from "@hooks/useBoop";
 
 const buttonVariants = {
   "solid-dark":
-    "bg-d dark:bg-l hover:bg-black/80 border-2 border-transparent text-l dark:text-d ring-offset-l dark:ring-offset-d ring-accent-darkest dark:ring-accent-brightest disabled:opacity-90",
+    "bg-d dark:bg-l hover:bg-d/90 dark:hover:bg-l/90 border-2 border-transparent text-l dark:text-d ring-offset-l dark:ring-offset-d ring-accent-darkest dark:ring-accent-brightest disabled:opacity-90",
   // TODO: Update colors
   "solid-white":
     "bg-white text-black hover:bg-gray-50 border-2 border-transparent ring-offset-black ring-d-tertiary-2 disabled:opacity-90",

@@ -1,50 +1,16 @@
 ---
-import cn from "clsx";
-
-import { SocialLinks } from "@components/navigation/SocialLinkFloatingBar";
 import { DOMAIN_NAME } from "@consts/urls";
-// import GithubStats from "@components/GithubStats.astro";
-
-const { asDark } = Astro.props;
-
-const currentYear = new Date().getFullYear();
 ---
 
-<footer class="main-footer relative border-t dark:border-slate-900">
+<footer
+  class="border-t dark:border-zinc-900 max-w-[1600px] mx-auto px-4 md:px-8 lg:px-16 py-6"
+>
   <div
-    class="flex flex-col md:flex-row justify-between gap-y-4 px-4 md:px-8 xl:px-12 py-8 xl:py-16 items-center max-w-[1600px] mx-auto"
+    class="flex flex-col gap-1 items-center text-zinc-600 dark:text-zinc-300"
   >
-    <div class="flex flex-col gap-4 items-center md:items-start">
-      <a
-        href="/"
-        class={cn(
-          "text-3xl font-medium",
-          asDark ? "text-white" : "text-black dark:text-white"
-        )}
-      >
-        {DOMAIN_NAME}
-      </a>
-      <div class="flex flex-row items-center">
-        <SocialLinks client:visible />
-      </div>
-      <div
-        class={cn(
-          "text-center md:text-start text-sm",
-          asDark ? "text-white" : "text-black dark:text-white"
-        )}
-      >
-        Design & build by Kieran Roberts &#169;{currentYear}
-      </div>
-    </div>
-    <div class="flex flex-col gap-4 self-center md:self-end">
-      <!-- <div class="hidden md:block text-black dark:text-white self-end">
-        <GithubStats client:load />
-      </div> -->
-      <!-- <div
-        class="flex items-center justify-center md:justify-start border bg-[#100114] font-light px-6 gap-4 py-2 rounded-xl"
-      >
-        <MainNavLinks asDark client:visible />
-      </div> -->
-    </div>
+    <a href="/" class="text-sm font-medium hover:text-d dark:hover:text-l">
+      {DOMAIN_NAME}
+    </a>
+    <div class="text-center text-xs">Design & build by me.</div>
   </div>
 </footer>

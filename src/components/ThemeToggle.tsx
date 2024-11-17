@@ -1,4 +1,4 @@
-import { SunLightSVG, HalfMoonSVG } from "@components/icons";
+import { SunLightSVG, MoonStarsSVG } from "@components/icons";
 import * as React from "react";
 import { animated } from "react-spring";
 import { useStore } from "@nanostores/react";
@@ -8,7 +8,7 @@ import { useBoop } from "@hooks/useBoop";
 import { toggleTheme, theme } from "src/stores/themeStore";
 
 const ThemeButtonLoader = () => (
-  <span className="w-[32px] h-[32px] rounded-full bg-zinc-50 dark:bg-zinc-900" />
+  <span className="w-[36px] h-[36px] rounded-full bg-zinc-50 dark:bg-zinc-900" />
 );
 
 const ThemeToggle = () => {
@@ -43,9 +43,9 @@ const ThemeToggle = () => {
     >
       <animated.span
         style={styleToApplyOnBoop}
-        className="block text-d dark:text-l w-5 h-5"
+        className="block text-d dark:text-l w-6 h-6"
       >
-        {isDarkTheme ? <SunLightSVG /> : <HalfMoonSVG />}
+        {isDarkTheme ? <SunLightSVG /> : <MoonStarsSVG />}
       </animated.span>
     </button>
   );

@@ -46,10 +46,10 @@ export const BlogCard = (props: Props) => {
       </article>
       <div
         ref={overlayCardRef}
-        className="glow-overlay"
+        className="hidden dark:blockglow-overlay"
         style={
           {
-            "--glow-color": "#6B7FD7",
+            "--glow-color": "#100114",
           } as React.CSSProperties
         }
       />

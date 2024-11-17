@@ -3,29 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  @font-face {
-    font-family: "Junegull-Regular";
-    font-style: normal;
-    font-weight: normal;
-    font-display: swap;
-    src: url("/fonts/junegull.woff") format("woff2");
-  }
-
-  @font-face {
-    font-family: "Quicksand";
-    font-weight: 400;
-    font-display: swap;
-    font-style: normal;
-    src: url("/fonts/Quicksand-Regular.woff2") format("woff2");
-  }
-  @font-face {
-    font-family: "Quicksand";
-    font-weight: 500;
-    font-display: swap;
-    font-style: normal;
-    src: url("/fonts/Quicksand-Medium.woff2") format("woff2");
-  }
-
   @keyframes carousel {
     from {
       transform: translateX(0);
@@ -66,22 +43,10 @@
   }
 
   .link-focus {
-    @apply outline-none focus-visible:ring dark:focus-visible:ring-offset-gray-900 focus-visible:ring-offset-4 focus-visible:ring-l-secondary dark:focus-visible:ring-d-tertiary-2 !important;
+    @apply outline-none focus-visible:ring dark:focus-visible:ring-offset-d focus-visible:ring-offset-4 focus-visible:ring-accent-darkest dark:focus-visible:ring-accent-brightest !important;
   }
   .icon-button-hover {
-    @apply hover:bg-opacity-25 dark:hover:bg-opacity-25 hover:bg-l-tertiary-2 dark:hover:bg-d-primary-dark !important;
-  }
-
-  .timeline-card {
-    @apply opacity-0 transition-opacity duration-700;
-  }
-
-  .timeline-date:has(+ * + .timeline-card:hover) {
-    @apply text-l-tertiary-2;
-  }
-
-  .floating-social-bar {
-    @apply opacity-100 transition-opacity duration-300;
+    @apply hover:ring ring-offset-4 dark:hover:ring-offset-d hover:ring-accent-darkest dark:hover:ring-accent-brightest !important;
   }
 
   .show {

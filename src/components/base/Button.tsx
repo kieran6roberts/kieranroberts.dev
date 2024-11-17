@@ -7,7 +7,8 @@ import type { BoopConfig } from "@hooks/useBoop";
 
 const buttonVariants = {
   "solid-dark":
-    "bg-primary-dark hover:bg-black/80 border-2 border-transparent text-white ring-offset-white ring-d-secondary disabled:opacity-90",
+    "bg-d dark:bg-l hover:bg-black/80 border-2 border-transparent text-l dark:text-d ring-offset-l dark:ring-offset-d ring-accent-darkest dark:ring-accent-brightest disabled:opacity-90",
+  // TODO: Update colors
   "solid-white":
     "bg-white text-black hover:bg-gray-50 border-2 border-transparent ring-offset-black ring-d-tertiary-2 disabled:opacity-90",
   "transparent-dark":
@@ -37,6 +38,7 @@ type ButtonProps =
       onClick?: never;
       asLink: boolean;
       href: string;
+      target?: string;
       disabled?: never;
       childrenIsIcon?: boolean;
       type?: never;
@@ -102,7 +104,7 @@ export const Button = React.forwardRef<
           ref={forwardedRef as React.ForwardedRef<HTMLAnchorElement>}
           href={href}
           className={cn(
-            "flex items-center gap-2 font-medium rounded-full transition-colors duration-100 focus:ring outline-none ring-offset-4 px-3 py-2 md:px-4 md:py-3",
+            "flex items-center gap-2 text-sm font-medium rounded-full transition-colors duration-100 focus:ring outline-none ring-offset-4 px-3 py-2 lg:px-4 lg:py-2",
             className ?? "",
             buttonVariants[variant],
             buttonWidth[width],
@@ -140,7 +142,7 @@ export const Button = React.forwardRef<
         type={type}
         disabled={disabled}
         className={cn(
-          "flex items-center justify-center gap-2 font-medium transition-colors duration-100 rounded-full focus:ring outline-none ring-offset-4 px-3 py-2 lg:px-4 lg:py-3",
+          "flex items-center justify-center gap-2 text-sm font-medium transition-colors duration-100 rounded-full focus:ring outline-none ring-offset-4 px-3 py-2 lg:px-4 lg:py-2",
           className ?? "",
           buttonVariants[variant],
           buttonWidth[width],

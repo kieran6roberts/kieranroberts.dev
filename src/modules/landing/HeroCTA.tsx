@@ -1,22 +1,13 @@
 import * as React from "react";
-import { useHover } from "@uidotdev/usehooks";
-
 import { Button } from "@components/base/Button";
-import {
-  SendMailSVG,
-  LinkedInSVG,
-  DownloadCircle,
-} from "@components/icons/index";
+import { LinkedInSVG, DownloadCircle } from "@components/icons/index";
 import { LINKEDIN_PROFILE_URL } from "@consts/urls";
 import { EMAIL_ADDRESS } from "@consts/index";
 
 export const HeroCTA = () => {
-  const [connectBtnRef, isHoveringConnectBtn] = useHover();
-
   return (
-    <div className="flex gap-4">
+    <div className="flex flex-col justify-center items-center lg:justify-start sm:flex-row gap-4">
       <Button
-        ref={connectBtnRef}
         asLink
         href={LINKEDIN_PROFILE_URL}
         target="_blank"
@@ -30,7 +21,6 @@ export const HeroCTA = () => {
         Connect with me
       </Button>
       <Button
-        ref={connectBtnRef}
         variant="secondary"
         asLink
         href={`mailto:${EMAIL_ADDRESS}`}

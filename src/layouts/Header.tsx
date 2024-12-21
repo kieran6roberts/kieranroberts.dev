@@ -61,7 +61,7 @@ export const Header = () => {
   return (
     <header
       ref={headerRef}
-      className="z-[9999] transform-none sticky top-4 mx-4 left-0 bg-l dark:bg-d"
+      className="z-[9999] transform-none sticky mt-4 mx-4 left-0 bg-l dark:bg-d"
     >
       <nav
         role="navigation"

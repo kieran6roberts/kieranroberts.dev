@@ -60,7 +60,6 @@ export const LoadMorePosts = ({ cursor, hasNextPage }: ILoadMorePosts) => {
               <EmojiLookDownSVG />
             </span>
           }
-          variant="transparent"
           width="full"
           disabled
           type="button"
@@ -75,7 +74,6 @@ export const LoadMorePosts = ({ cursor, hasNextPage }: ILoadMorePosts) => {
             </span>
           }
           iconAnimationSettings={{ y: 4 }}
-          variant="transparent"
           width="full"
           type="button"
         >

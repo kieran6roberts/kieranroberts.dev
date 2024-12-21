@@ -14,7 +14,7 @@ export const useGlowEffect = ({
     const y = pageY - glowCaptureRef.current.offsetTop;
     glowCaptureRef.current.style.setProperty("--glow-x", `${x}px`);
     glowCaptureRef.current.style.setProperty("--glow-y", `${y}px`);
-    glowCaptureRef.current.style.setProperty("--glow-opacity", "1");
+    glowCaptureRef.current.style.setProperty("--glow-opacity", "0.5");
   };
 
   const onMouseLeave = () => {

@@ -2,11 +2,11 @@
 import Layout from "@layouts/Layout.astro";
 import { DOMAIN_NAME } from "@consts/urls";
 
-import { Hero } from "@modules/landing/Hero";
+import Hero from "@modules/landing/Hero.astro";
 ---
 
-<Layout url={DOMAIN_NAME} showFooter={false}>
-  <main id="main" class="dark:bg-[#100114] w-full max-w-[1600px] mx-auto">
-    <Hero client:load />
+<Layout url={DOMAIN_NAME} showFooter={true}>
+  <main id="main" class="w-full max-w-[1600px] mx-auto">
+    <Hero />
   </main>
 </Layout>

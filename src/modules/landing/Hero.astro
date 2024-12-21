@@ -1,98 +1,70 @@
 ---
-import { CTAButtons } from "@modules/landing/CTAButtons";
+import cn from "clsx";
+
+import { HeroCTA } from "@modules/landing/HeroCTA";
 ---
 
-<script type="module">
-  const sleep = (ms) => {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  };
-
-  const phrases = ["Full Stack Dev", "UI/UX Specialist", "Builder"];
-  const sleepTime = 100;
-  let currentPhraseIndex = 0;
-
-  const heroAnimation = async () => {
-    const el = document.getElementById("typewriter");
-
-    while (true) {
-      let currentWord = phrases[currentPhraseIndex];
-
-      if (currentPhraseIndex === 1) {
-        el.style.color = "#6B7FD7";
-      } else if (currentPhraseIndex === 2) {
-        el.style.color = "#71DAEC";
-      } else {
-        el.style.color = "#97EC77";
-      }
-
-      for (let i = 0; i < currentWord.length; i++) {
-        el.innerText = currentWord.substring(0, i + 1);
-        await sleep(sleepTime);
-      }
-
-      await sleep(sleepTime * 10);
-
-      for (let i = currentWord.length; i > 0; i--) {
-        el.innerText = currentWord.substring(0, i - 1);
-        await sleep(sleepTime);
-      }
-      await sleep(sleepTime * 5);
-
-      if (currentPhraseIndex === phrases.length - 1) {
-        currentPhraseIndex = 0;
-      } else {
-        currentPhraseIndex++;
-      }
-    }
-  };
-
-  heroAnimation();
-</script>
-
 <section
-  class="flex flex-col items-center justify-center h-[75vh] max-h-[1000px] rounded-bl-3xl rounded-br-3xl gap-y-4 px-4 lg:px-16"
+  class={cn(
+    "flex flex-col items-center justify-center relative h-full mx-4 mt-8 md:mx-8 lg:mx-16 bg-l dark:bg-d min-h-[calc(100vh-199px)]",
+    "bg-[url('/hashnode-dashboard-light.png')] dark:bg-[url('/hashnode-dashboard-dark.png')] bg-cover"
+  )}
 >
-  <div class="flex flex-col justify-center items-center mx-auto w-[90%]">
-    <div
-      class="w-[90vw] lg:w-[75vw] max-w-[1000px] whitespace-nowrap font-header text-white mb-6 capitalize font-normal text-center"
-    >
-      <span
-        class="flex flex-col lg:flex-row items-center gap-2 lg:gap-6 justify-center rounded-lg py-1 px-2"
+  <div
+    class="absolute inset-0 bg-gradient-to-t from-l/100 via-l/85 to-l/100 dark:from-d/100 dark:via-d/85 dark:to-d/100"
+  >
+  </div>
+  <div
+    class={cn(
+      "relative flex flex-col lg:flex-row-reverse gap-8 items-center justify-center h-full"
+    )}
+  >
+    <div class="relative">
+      <div
+        class="relative flex items-center bg-l dark:bg-d justify-center h-40 w-40 lg:h-64 lg:w-64 rounded-full"
       >
-        <span class="inline-block text-white text-4xl md:text-5xl lg:text-6xl"
-          >Hi! I'm a</span
+        <img
+          src="/Kieran-Avatar.webp"
+          alt="Kieran Roberts header picture"
+          width={256}
+          height={256}
+          loading="eager"
+          class="opacity-75 hover:opacity-100 hover:scale-105 transition-all duration-300"
+        />
+      </div>
+      <div
+        class="absolute left-1/2 -translate-x-1/2 -bottom-2 w-max text-center bg-l dark:bg-d text-zinc-500 dark:text-zinc-400 px-4 py-1 lg:py-4 whitespace-nowrap text-sm lg:text-base"
+      >
+        Software developer{" "}
+        <a
+          href="https://hashnode.com"
+          target="_blank"
+          rel="noreferrer"
+          class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 cursor-pointer rounded-md font-semibold outline-none link-focus"
         >
+          @Hashnode
+        </a>
+      </div>
+    </div>
+    <div class="flex flex-col items-center lg:items-start gap-4">
+      <div class="flex flex-col gap-8 mb-8">
+        <h1
+          class="font-heading tracking-tight font-semibold max-w-[450px] sm:max-w-[550px] lg:max-w-[675px] text-center lg:text-left bg-gradient-to-r from-black/95 via-black/80 to-black/75 dark:from-white/95 dark:via-white/80 dark:to-white/75 bg-clip-text text-transparent text-3xl sm:text-5xl lg:text-6xl"
+        >
+          Turning complex web <br />
+          problems into lightning fast business solutions.
+        </h1>
 
-        <span
-          class="flex items-center justify-center text-4xl md:text-6xl lg:text-7xl border-b-4 flex-1 w-[50%] min-h-[80px]"
+        <p
+          class="text-base text-center lg:text-left tracking-tight sm:text-xl text-zinc-600 dark:text-zinc-300 max-w-[550px] mx-auto lg:mx-0"
         >
-          <span
-            id="typewriter"
-            class="text-[1em] bg-clip-text text-transparent bg-gradient-to-br from-blue-300 via-violet-300 to-violet-400 bg-transparent bg-[length:400%_400%] rounded-lg"
-          >
-          </span>
-          <span class="cursor inline-block text-white text-5xl opacity-100">
-            |
-          </span>
-        </span>
-      </span>
+          I am a problem solver with a passion for building interactive UI's and
+          delivering a top UX. With multiple years worth of industry experience,
+          I build fast & accessible products for the web that last.
+        </p>
+
+        <HeroCTA client:load />
+      </div>
     </div>
   </div>
-  <p
-    class="hidden lg:block text-white prose mb-6 text-xl max-w-[75%] lg:max-w-[620px] mx-auto lg:mx-0 text-left"
-  >
-    I build <span
-      class="bg-l-tertiary-1 text-[1.1em] text-black inline-block w-max transform -rotate-1 transition-transform duration-300 hover:rotate-0 font-medium px-px rounded-md"
-      >fast</span
-    >,
-    <span
-      class="bg-l-tertiary-2 text-[1.1em] text-black inline-block w-max transform rotate-1 transition-transform duration-300 hover:rotate-0 font-medium px-px rounded-md"
-      >accessible</span
-    >, and <span
-      class="bg-d-secondary text-[1.1em] text-white inline-block w-max transform -rotate-1 transition-transform duration-300 hover:rotate-0 font-medium px-px rounded-md"
-      >responsive</span
-    > sites for the modern web. With mutliple years worth of industry experience
-    working on projects supporting thousands of active users. I love what I do!
-  </p>
-  <CTAButtons client:load />
 </section>

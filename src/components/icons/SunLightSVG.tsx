@@ -1,66 +1,105 @@
 import * as React from "react";
 
 export const SunLightSVG = () => (
-  <svg
-    strokeWidth="1.5"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className="stroke-current"
-  >
-    <path
-      d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z"
-      strokeWidth="1.5"
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+    <rect width="256" height="256" fill="none" />
+    <line
+      x1="128"
+      y1="40"
+      x2="128"
+      y2="16"
+      fill="none"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-    ></path>
-    <path
-      d="M22 12L23 12"
-      strokeWidth="1.5"
+      strokeWidth="16"
+    />
+    <circle
+      cx="128"
+      cy="128"
+      r="56"
+      fill="none"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-    ></path>
-    <path
-      d="M12 2V1"
-      strokeWidth="1.5"
+      strokeWidth="16"
+    />
+    <line
+      x1="64"
+      y1="64"
+      x2="48"
+      y2="48"
+      fill="none"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-    ></path>
-    <path
-      d="M12 23V22"
-      strokeWidth="1.5"
+      strokeWidth="16"
+    />
+    <line
+      x1="64"
+      y1="192"
+      x2="48"
+      y2="208"
+      fill="none"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-    ></path>
-    <path
-      d="M20 20L19 19"
-      strokeWidth="1.5"
+      strokeWidth="16"
+    />
+    <line
+      x1="192"
+      y1="64"
+      x2="208"
+      y2="48"
+      fill="none"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-    ></path>
-    <path
-      d="M20 4L19 5"
-      strokeWidth="1.5"
+      strokeWidth="16"
+    />
+    <line
+      x1="192"
+      y1="192"
+      x2="208"
+      y2="208"
+      fill="none"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-    ></path>
-    <path
-      d="M4 20L5 19"
-      strokeWidth="1.5"
+      strokeWidth="16"
+    />
+    <line
+      x1="40"
+      y1="128"
+      x2="16"
+      y2="128"
+      fill="none"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-    ></path>
-    <path
-      d="M4 4L5 5"
-      strokeWidth="1.5"
+      strokeWidth="16"
+    />
+    <line
+      x1="128"
+      y1="216"
+      x2="128"
+      y2="240"
+      fill="none"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-    ></path>
-    <path
-      d="M1 12L2 12"
-      strokeWidth="1.5"
+      strokeWidth="16"
+    />
+    <line
+      x1="216"
+      y1="128"
+      x2="240"
+      y2="128"
+      fill="none"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-    ></path>
+      strokeWidth="16"
+    />
   </svg>
 );

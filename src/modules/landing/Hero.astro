@@ -6,7 +6,8 @@ import { HeroCTA } from "@modules/landing/HeroCTA";
 
 <section
   class={cn(
-    "relative mx-4 md:mx-8 lg:mx-16 bg-l dark:bg-d bg-[url('/hashnode-dashboard-light.png')] dark:bg-[url('/hashnode-dashboard-dark.png')] bg-no-repeat bg-[top_bottom] bg-cover"
+    "relative mx-4 md:mx-8 lg:mx-16 bg-l dark:bg-d"
+    // "bg-[url('/hashnode-dashboard-light.png')] dark:bg-[url('/hashnode-dashboard-dark.png')] bg-cover",
   )}
 >
   <div
@@ -24,45 +25,46 @@ import { HeroCTA } from "@modules/landing/HeroCTA";
           class="flex items-center bg-accent-dark dark:bg-accent-brightest justify-center border-2 border-d dark:border-l h-32 w-32 rounded-full overflow-hidden"
         >
           <img
-            src="/avatar.png"
+            src="/Kieran-Avatar.webp"
             alt="Kieran Roberts header picture"
             width={128}
             height={128}
             loading="eager"
           />
         </div>
-        <div
-          class="absolute left-1/2 -translate-x-1/2 bottom-0 border-2 border-l dark:border-d w-max text-center bg-d dark:bg-l text-l dark:text-d rounded-lg px-4 py-1.5 whitespace-nowrap text-xs"
+        <!-- <div
+          class="absolute left-1/2 -translate-x-1/2 -bottom-1 border-2 border-l dark:border-d w-max text-center bg-d dark:bg-l text-l dark:text-d rounded-lg px-3 py-1 whitespace-nowrap text-xs sm:text-sm"
         >
           Software developer{" "}
           <a
             href="https://hashnode.com"
             target="_blank"
             rel="noreferrer"
-            class="text-l/80 dark:text-d/80 hover:text-l dark:hover:text-d font-semibold link-focus"
+            class="text-l dark:text-d rounded-md font-semibold outline-none focus-visible:ring focus-visible:ring-offset-d dark:focus-visible:ring-offset-l focus-visible:ring-offset-2 focus-visible:ring-accent-brightest dark:focus-visible:ring-accent-darkest"
           >
             @Hashnode
           </a>
-        </div>
+        </div> -->
       </div>
 
-      <div class="flex flex-col gap-2 mb-8">
+      <div class="flex flex-col gap-8 mb-8">
         <h1
-          class="max-w-[450px] md:max-w-[650px] bg-gradient-to-r from-black/95 via-black/80 to-black/75 dark:from-white/95 dark:via-white/80 dark:to-white/75 bg-clip-text text-transparent font-sans text-3xl font-semibold tracking-tight md:text-6xl"
+          class="max-w-[450px] md:max-w-[550px] bg-gradient-to-r from-black/95 via-accent-darkest to-black/75 dark:from-white/95 dark:via-accent-brightest dark:to-white/75 bg-clip-text text-transparent font-sans text-3xl font-semibold tracking-tight md:text-5xl"
         >
           Turning complex web <br />
           problems into lightning-fast business solutions.
         </h1>
 
         <p
-          class="text-2xl text-zinc-600 dark:text-zinc-400 max-w-[450px] md:max-w-[650px]"
+          class="text-base tracking-tight sm:text-xl text-zinc-600 dark:text-zinc-300 max-w-[450px] md:max-w-[450px]"
         >
-          At my core I am a problem solver. I build things for the web to
-          satisfy that need and my passion is UI/UX. Let's connect.
+          At my core I am a problem solver and my passion is in UI & UX. With
+          multiple years worth of industry experience, I build products for the
+          web that last.
         </p>
-      </div>
 
-      <HeroCTA client:load />
+        <HeroCTA client:load />
+      </div>
     </div>
   </div>
 </section>

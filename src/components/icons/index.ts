@@ -36,3 +36,5 @@ export * from "./ArrowRightSVG";
 export * from "./ArrowDownSVG";
 export * from "./SearchSVG";
 export * from "./ArrowSquareRightSVG";
+export * from "./BlueSkySVG";
+export * from "./DownloadCircle";

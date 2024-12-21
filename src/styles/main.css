@@ -43,10 +43,10 @@
   }
 
   .link-focus {
-    @apply outline-none focus-visible:ring dark:focus-visible:ring-offset-d focus-visible:ring-offset-4 focus-visible:ring-accent-darkest dark:focus-visible:ring-accent-brightest !important;
+    @apply outline-none focus-visible:ring dark:focus-visible:ring-offset-d focus-visible:ring-offset-2 focus-visible:ring-accent-darkest dark:focus-visible:ring-accent-brightest !important;
   }
   .icon-button-hover {
-    @apply hover:ring ring-offset-4 dark:hover:ring-offset-d hover:ring-accent-darkest dark:hover:ring-accent-brightest !important;
+    @apply hover:ring ring-offset-2 dark:hover:ring-offset-d hover:ring-accent-darkest dark:hover:ring-accent-brightest !important;
   }
 
   .show {

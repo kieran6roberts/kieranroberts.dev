@@ -7,14 +7,16 @@ import type { BoopConfig } from "@hooks/useBoop";
 
 const buttonVariants = {
   "solid-dark":
-    "bg-d dark:bg-l hover:bg-d/90 dark:hover:bg-l/90 border-2 border-transparent text-l dark:text-d ring-offset-l dark:ring-offset-d ring-accent-darkest dark:ring-accent-brightest disabled:opacity-90",
+    "bg-d dark:bg-l hover:bg-zinc-800 dark:hover:bg-l/90 border-2 border-transparent text-l dark:text-d ring-offset-l dark:ring-offset-d ring-accent-darkest dark:ring-accent-brightest disabled:opacity-90",
   // TODO: Update colors
-  "solid-white":
-    "bg-white text-black hover:bg-gray-50 border-2 border-transparent ring-offset-black ring-d-tertiary-2 disabled:opacity-90",
-  "transparent-dark":
-    "bg-primary-dark border-2 text-white border-d-tertiary-2 hover:bg-d-primary-darkest ring-offset-black ring-d-tertiary-2 disabled:opacity-90",
-  transparent:
-    "bg-primary-dark dark:text-white border-2 border-transparent text-white link-focus dark:border-d-tertiary-2 hover:bg-l-primary-darkest dark:hover:bg-d-primary-darkest ring-offset-secondary ring-d-tertiary-2 disabled:opacity-90",
+  secondary:
+    "bg-l dark:bg-d border-2 border-d/75 dark:border-l hover:bg-zinc-100 dark:hover:bg-zinc-800 text-d dark:text-l ring-offset-l dark:ring-offset-d ring-accent-darkest dark:ring-accent-brightest disabled:opacity-90",
+  // "solid-white":
+  //   "bg-l text-d hover:bg-zinc-50 border-2 border-transparent ring-offset-d ring-accent-darkest dark:ring-accent-brightest disabled:opacity-90",
+  // "transparent-dark":
+  //   "bg-primary-dark border-2 text-white border-d-tertiary-2 hover:bg-d-primary-darkest ring-offset-black ring-d-tertiary-2 disabled:opacity-90",
+  // transparent:
+  //   "bg-primary-dark dark:text-white border-2 border-transparent text-white link-focus dark:border-d-tertiary-2 hover:bg-l-primary-darkest dark:hover:bg-d-primary-darkest ring-offset-secondary ring-d-tertiary-2 disabled:opacity-90",
 };
 
 const buttonWidth = {
@@ -104,7 +106,7 @@ export const Button = React.forwardRef<
           ref={forwardedRef as React.ForwardedRef<HTMLAnchorElement>}
           href={href}
           className={cn(
-            "flex items-center gap-2 text-sm font-medium rounded-full transition-colors duration-100 focus:ring outline-none ring-offset-4 px-3 py-2 lg:px-4 lg:py-2",
+            "flex items-center gap-2 text-sm font-medium rounded-full transition-colors duration-100 focus:ring outline-none ring-offset-2 px-3 py-2 lg:px-4 lg:py-2",
             className ?? "",
             buttonVariants[variant],
             buttonWidth[width],
@@ -142,7 +144,7 @@ export const Button = React.forwardRef<
         type={type}
         disabled={disabled}
         className={cn(
-          "flex items-center justify-center gap-2 text-sm font-medium transition-colors duration-100 rounded-full focus:ring outline-none ring-offset-4 px-3 py-2 lg:px-4 lg:py-2",
+          "flex items-center justify-center gap-2 text-sm font-medium transition-colors duration-100 rounded-full focus:ring outline-none ring-offset-2 px-3 py-2 lg:px-4 lg:py-2",
           className ?? "",
           buttonVariants[variant],
           buttonWidth[width],

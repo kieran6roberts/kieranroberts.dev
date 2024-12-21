@@ -1,35 +1,30 @@
 import * as React from "react";
 
-interface Props {
-  hoverFill?: boolean;
-}
-
-export const SendMailSVG = ({ hoverFill }: Props) => (
+export const SendMailSVG = () => (
   <svg
     viewBox="0 0 24 24"
     strokeWidth="1.5"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    color="#ffffff"
     className="stroke-current"
   >
     <path
       d="M9 9L13.5 12L18 9"
-      stroke={hoverFill ? "#97EC77" : "#ffffff"}
+      stroke="stroke-current"
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
     ></path>
     <path
       d="M3 13.5H5"
-      stroke={hoverFill ? "#97EC77" : "#ffffff"}
+      stroke="stroke-current"
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
     ></path>
     <path
       d="M1 10.5H5"
-      stroke={hoverFill ? "#97EC77" : "#ffffff"}
+      stroke="stroke-current"
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"

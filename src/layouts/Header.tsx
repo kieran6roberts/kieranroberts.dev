@@ -7,19 +7,20 @@ import {
   TooltipProvider,
 } from "@components/base/Tooltip";
 import ThemeToggle from "@components/ThemeToggle.tsx";
+import cn from "clsx";
 // import { getPostsPaginatedData, type PostPagePosts } from "@utils/blog";
 
-import useStickyScroll from "@hooks/useStickyHeader";
-import { usePrefersReducedMotion } from "@hooks/usePrefersReducedMotion";
+// import useStickyScroll from "@hooks/useStickyHeader";
+// import { usePrefersReducedMotion } from "@hooks/usePrefersReducedMotion";
 import {
   X_PROFILE_URL,
   GITHUB_PROFILE_URL,
   LINKEDIN_PROFILE_URL,
+  BLUESKY_PROFILE_URL,
 } from "@consts/urls";
-import { GithubSVG, LinkedInSVG, XSVG } from "@components/icons";
+import { GithubSVG, LinkedInSVG, XSVG, BlueSkySVG } from "@components/icons";
 import { Button } from "@components/base/Button";
-
-const EMAIL_ADDRESS = "kieranroberts6dev@gmail.com";
+import { EMAIL_ADDRESS } from "@consts/index";
 
 const SocialLink = ({
   href,
@@ -34,34 +35,37 @@ const SocialLink = ({
     href={href}
     target="_blank"
     rel="noreferrer"
-    className="text-zinc-600 dark:text-zinc-300 hover:text-d dark:hover:text-l link-focus rounded-md"
+    className={cn(
+      "text-zinc-600 dark:text-zinc-300 hover:text-d dark:hover:text-l link-focus rounded-md",
+    )}
   >
     <span className="hidden md:block">{label}</span>
-    <span className="block w-5 h-5 md:hidden">{Icon}</span>
+    <span
+      className={cn(
+        "block w-5 h-5 md:hidden",
+        label === "Bluesky" &&
+          "fill-current stroke-current text-zinc-600 dark:text-zinc-300",
+      )}
+    >
+      {Icon}
+    </span>
   </a>
 );
 
 export const Header = () => {
-  const [isEmailCopied, setIsEmailCopied] = React.useState(false);
   const headerRef = React.useRef<HTMLElement>(null);
-  const emailTriggerRef = React.useRef<HTMLButtonElement>(null);
-  const prefersReducedMotion = usePrefersReducedMotion();
+  // const prefersReducedMotion = usePrefersReducedMotion();
 
-  useStickyScroll({ elRef: headerRef, prefersReducedMotion });
-
-  const onEmailCopy = () => {
-    navigator.clipboard.writeText(EMAIL_ADDRESS);
-    setIsEmailCopied(true);
-  };
+  // useStickyScroll({ elRef: headerRef, prefersReducedMotion });
 
   return (
     <header
       ref={headerRef}
-      className="z-[9999] transform-none sticky top-0 left-0 bg-l dark:bg-d"
+      className="z-[9999] transform-none sticky top-4 mx-4 left-0 bg-l dark:bg-d"
     >
       <nav
         role="navigation"
-        className="relative flex items-center max-w-[1728px] h-[65px] mx-auto justify-between px-4 md:px-8 lg:px-16 py-3.5"
+        className="relative flex items-center max-w-[1250px] bg-zinc-50 dark:bg-zinc-900 backdrop-opacity-90 backdrop-blur-xl shadow-[0px_148px_41px_0px_rgba(0,0,0,0.00),0px_94px_38px_0px_rgba(0,0,0,0.00),0px_53px_32px_0px_rgba(0,0,0,-0.01),0px_24px_24px_0px_rgba(0,0,0,0.02),0px_6px_13px_0px_rgba(0,0,0,0.02)] border border-zinc-200 dark:border-zinc-800 rounded-full h-[60px] mx-auto justify-between gap-x-4 px-4 md:px-8 lg:px-16 py-3.5"
       >
         <Button
           className="hidden lg:flex m-auto inset-0 h-max absolute pointer-events-none opacity-0 transition-opacity focus:pointer-events-auto focus:opacity-100 link-focus"
@@ -70,30 +74,20 @@ export const Header = () => {
         >
           Skip to content
         </Button>
-        <section>
+        <section className="flex-1 min-w-0 max-w-[230px]">
           <TooltipProvider delayDuration={0}>
             <Tooltip>
-              <TooltipTrigger onClick={(e) => e.preventDefault()} asChild>
-                <button
-                  ref={emailTriggerRef}
-                  onClick={onEmailCopy}
-                  aria-label={`Copy ${EMAIL_ADDRESS} to clipboard`}
-                  className="flex items-center font-medium text-zinc-600 dark:text-zinc-300 text-sm rounded-md link-focus hover:text-d dark:hover:text-l"
+              <TooltipTrigger asChild>
+                <a
+                  className="block w-full truncate text-zinc-600 dark:text-zinc-300 text-sm sm:text-base hover:text-zinc-900 dark:hover:text-zinc-100 cursor-pointer underline link-focus rounded-md"
+                  href={`mailto:${EMAIL_ADDRESS}`}
+                  target="_blank"
                 >
-                  <span className="hidden sm:block">{EMAIL_ADDRESS}</span>
-                  <span className="block sm:hidden">
-                    {EMAIL_ADDRESS.slice(0, 16)}...
-                  </span>
-                </button>
+                  {EMAIL_ADDRESS}
+                </a>
               </TooltipTrigger>
-              <TooltipContent
-                onPointerDownOutside={(event) => {
-                  if (event.target === emailTriggerRef.current)
-                    event.preventDefault();
-                }}
-                side="bottom"
-              >
-                {isEmailCopied ? "Copied!" : "Copy email"}
+              <TooltipContent align="center" side="bottom">
+                Email me
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
@@ -106,14 +100,26 @@ export const Header = () => {
               label="LinkedIn"
               Icon={<LinkedInSVG />}
             />
-            <span className="hidden md:block">|</span>
+            <span className="hidden md:block text-zinc-400 dark:text-zinc-500">
+              |
+            </span>
             <SocialLink
               href={GITHUB_PROFILE_URL}
               label="GitHub"
               Icon={<GithubSVG />}
             />
-            <span className="hidden md:block">|</span>
+            <span className="hidden md:block text-zinc-400 dark:text-zinc-500">
+              |
+            </span>
             <SocialLink href={X_PROFILE_URL} label="X" Icon={<XSVG />} />
+            <span className="hidden md:block text-zinc-400 dark:text-zinc-500">
+              |
+            </span>
+            <SocialLink
+              href={BLUESKY_PROFILE_URL}
+              label="Bluesky"
+              Icon={<BlueSkySVG />}
+            />
           </div>
           <ThemeToggle />
         </section>

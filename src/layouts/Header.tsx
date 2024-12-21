@@ -74,7 +74,18 @@ export const Header = () => {
         >
           Skip to content
         </Button>
-        <section className="flex-1 min-w-0 max-w-[230px]">
+        <section className="flex items-center gap-2 flex-1 min-w-0 max-w-[275px]">
+          <div className="relative flex items-center bg-l dark:bg-d justify-center h-10 w-10 rounded-full">
+            <a href="/" className="link-focus rounded-full">
+              <img
+                src="/Kieran-Avatar.webp"
+                alt="Kieran Roberts header picture"
+                width={40}
+                height={40}
+                loading="eager"
+              />
+            </a>
+          </div>
           <TooltipProvider delayDuration={0}>
             <Tooltip>
               <TooltipTrigger asChild>
@@ -124,6 +135,17 @@ export const Header = () => {
           <ThemeToggle />
         </section>
       </nav>
+      <div className="max-w-[1250px] flex justify-end px-4 md:px-8 lg:px-32 mx-auto text-center bg-l dark:bg-d text-zinc-500 dark:text-zinc-400 py-4 whitespace-nowrap text-sm lg:text-base">
+        Software developer{" "}
+        <a
+          href="https://hashnode.com"
+          target="_blank"
+          rel="noreferrer"
+          className="block justify-self-end text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 cursor-pointer rounded-md font-semibold outline-none link-focus"
+        >
+          @Hashnode
+        </a>
+      </div>
     </header>
   );
 };

@@ -26,7 +26,10 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily: {},
+      fontFamily: {
+        sans: ["Lato", "sans-serif"],
+        heading: ["Barlow", "sans-serif"],
+      },
       colors: {
         // New set
         "l": "#fdfdfd",

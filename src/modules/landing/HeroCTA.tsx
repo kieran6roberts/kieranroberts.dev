@@ -1,6 +1,10 @@
 import * as React from "react";
 import { Button } from "@components/base/Button";
-import { LinkedInSVG, DownloadCircle } from "@components/icons/index";
+import {
+  LinkedInSVG,
+  DownloadCircle,
+  SendMailSVG,
+} from "@components/icons/index";
 import { LINKEDIN_PROFILE_URL } from "@consts/urls";
 import { EMAIL_ADDRESS } from "@consts/index";
 
@@ -20,7 +24,7 @@ export const HeroCTA = () => {
       >
         Connect with me
       </Button>
-      <Button
+      {/* <Button
         variant="secondary"
         asLink
         href={`mailto:${EMAIL_ADDRESS}`}
@@ -33,6 +37,20 @@ export const HeroCTA = () => {
         }
       >
         Download CV
+      </Button> */}
+      <Button
+        variant="secondary"
+        asLink
+        href={`mailto:${EMAIL_ADDRESS}`}
+        target="self"
+        iconAnimationSettings={{ rotation: 10, timing: 300, scale: 1.05 }}
+        endIcon={
+          <span className="block text-d dark:text-l w-5 h-5">
+            <SendMailSVG />
+          </span>
+        }
+      >
+        Email me
       </Button>
     </div>
   );

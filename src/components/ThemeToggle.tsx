@@ -1,6 +1,6 @@
 import { SunLightSVG, MoonStarsSVG } from "@components/icons";
 import * as React from "react";
-import { animated } from "react-spring";
+import { animated } from "@react-spring/web";
 import { useStore } from "@nanostores/react";
 
 import { getThemePreference } from "@utils/theme";

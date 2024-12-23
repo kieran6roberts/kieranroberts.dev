@@ -1,4 +1,4 @@
-import { animated } from "react-spring";
+import { animated } from "@react-spring/web";
 import * as React from "react";
 import cn from "clsx";
 
@@ -8,7 +8,6 @@ import type { BoopConfig } from "@hooks/useBoop";
 const buttonVariants = {
   "solid-dark":
     "bg-d dark:bg-l hover:bg-zinc-800 dark:hover:bg-l/90 border-2 border-transparent text-l dark:text-d ring-offset-l dark:ring-offset-d ring-accent-darkest dark:ring-accent-brightest disabled:opacity-90",
-  // TODO: Update colors
   secondary:
     "bg-l dark:bg-d border-2 border-d/75 dark:border-l hover:bg-zinc-100 dark:hover:bg-zinc-800 text-d dark:text-l ring-offset-l dark:ring-offset-d ring-accent-darkest dark:ring-accent-brightest disabled:opacity-90",
   // "solid-white":

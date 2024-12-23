@@ -15,7 +15,13 @@ import {
   LINKEDIN_PROFILE_URL,
   BLUESKY_PROFILE_URL,
 } from "@consts/urls";
-import { GithubSVG, LinkedInSVG, XSVG, BlueSkySVG } from "@components/icons";
+import {
+  GithubSVG,
+  LinkedInSVG,
+  XSVG,
+  BlueSkySVG,
+  StarSVG,
+} from "@components/icons";
 import { Button } from "@components/base/Button";
 import { EMAIL_ADDRESS } from "@consts/index";
 
@@ -23,43 +29,65 @@ const SocialLink = ({
   href,
   label,
   Icon,
+  githubStars,
 }: {
   href: string;
   label: string;
   Icon: React.ReactNode;
-}) => (
-  <a
-    href={href}
-    target="_blank"
-    rel="noreferrer"
-    className={cn(
-      "text-zinc-600 dark:text-zinc-300 hover:text-d dark:hover:text-l link-focus rounded-md",
-    )}
-  >
-    <span className="hidden md:block">{label}</span>
-    <span
+  githubStars?: number | null | undefined;
+}) => {
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  const handleMouseEnter = React.useCallback(() => setIsHovered(true), []);
+  const handleMouseLeave = React.useCallback(() => setIsHovered(false), []);
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       className={cn(
-        "block w-5 h-5 md:hidden",
-        label === "Bluesky" &&
-          "fill-current stroke-current text-zinc-600 dark:text-zinc-300",
+        "group flex items-center gap-1 text-zinc-600 dark:text-zinc-300 hover:text-d dark:hover:text-l link-focus rounded-md",
       )}
     >
-      {Icon}
-    </span>
-  </a>
-);
+      <span className="hidden md:block">{label}</span>
+      <span
+        className={cn(
+          "block w-5 h-5 md:hidden",
+          label === "Bluesky" &&
+            "fill-current stroke-current text-zinc-600 dark:text-zinc-300",
+        )}
+      >
+        {Icon}
+      </span>
+      {githubStars ? (
+        <span className="hidden sm:flex gap-1 items-center rounded-xl px-1 py-0.5 border border-zinc-200 dark:border-zinc-800 group-hover:border-zinc-300 dark:group-hover:border-zinc-700 text-xs">
+          <span className="block w-3 h-3 text-zinc-400 group-hover:text-zinc-600 dark:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors duration-200 ease-in">
+            <StarSVG fill={isHovered ? "#FACC15" : "none"} />
+          </span>
+          <span className="text-zinc-500 group-hover:text-zinc-700 dark:text-zinc-400 dark:group-hover:text-zinc-200">
+            {githubStars}
+          </span>
+        </span>
+      ) : null}
+    </a>
+  );
+};
 
-export const Header = () => {
+interface HeaderProps {
+  githubStars: number | null | undefined;
+}
+
+export const Header = ({ githubStars }: HeaderProps) => {
   const headerRef = React.useRef<HTMLElement>(null);
 
   return (
-    <header
-      ref={headerRef}
-      className="z-[9999] sticky mx-4 mt-4 top-0 bg-l dark:bg-d"
-    >
+    <header ref={headerRef} className="z-[9999] mx-4 mt-4 bg-l dark:bg-d">
       <nav
         role="navigation"
-        className="relative flex items-center max-w-[1250px] bg-zinc-50 dark:bg-zinc-900 backdrop-opacity-90 backdrop-blur-xl shadow-[0px_148px_41px_0px_rgba(0,0,0,0.00),0px_94px_38px_0px_rgba(0,0,0,0.00),0px_53px_32px_0px_rgba(0,0,0,-0.01),0px_24px_24px_0px_rgba(0,0,0,0.02),0px_6px_13px_0px_rgba(0,0,0,0.02)] border border-zinc-200 dark:border-zinc-800 rounded-full h-[60px] mx-auto justify-between gap-x-4 px-4 md:px-8 lg:px-16 py-3.5"
+        className="flex items-center max-w-[1250px] bg-zinc-50 dark:bg-zinc-900 backdrop-opacity-90 backdrop-blur-xl shadow-[0px_148px_41px_0px_rgba(0,0,0,0.00),0px_94px_38px_0px_rgba(0,0,0,0.00),0px_53px_32px_0px_rgba(0,0,0,-0.01),0px_24px_24px_0px_rgba(0,0,0,0.02),0px_6px_13px_0px_rgba(0,0,0,0.02)] border border-zinc-200 dark:border-zinc-800 rounded-full h-[60px] mx-auto justify-between gap-x-4 px-4 md:px-8 lg:px-16 py-3.5"
       >
         <Button
           className="hidden lg:flex m-auto inset-0 h-max absolute pointer-events-none opacity-0 transition-opacity focus:pointer-events-auto focus:opacity-100 link-focus"
@@ -86,7 +114,6 @@ export const Header = () => {
                 <a
                   className="block w-full truncate text-zinc-600 dark:text-zinc-300 text-sm sm:text-base hover:text-zinc-900 dark:hover:text-zinc-100 cursor-pointer underline link-focus rounded-md"
                   href={`mailto:${EMAIL_ADDRESS}`}
-                  // target="_blank"
                 >
                   {EMAIL_ADDRESS}
                 </a>
@@ -112,6 +139,7 @@ export const Header = () => {
               href={GITHUB_PROFILE_URL}
               label="GitHub"
               Icon={<GithubSVG />}
+              githubStars={githubStars}
             />
             <span className="hidden md:block text-zinc-400 dark:text-zinc-500">
               |

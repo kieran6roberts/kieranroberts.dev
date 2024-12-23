@@ -20,6 +20,13 @@ const {
   url = DEFAULT_URL,
   showFooter = true,
 } = Astro.props;
+
+const githubUrl = "https://api.github.com/users/kieran6roberts/repos";
+const response = await fetch(githubUrl);
+const data = await response.json();
+const totalGitStars = (data || []).reduce((cur: any, next: any) => {
+  return cur + next.stargazers_count;
+}, 0);
 ---
 
 <html
@@ -36,7 +43,7 @@ const {
     class="bg-l dark:bg-d dark:text-l"
   >
     <div class="flex flex-col">
-      <Header client:load />
+      <Header client:load githubStars={totalGitStars} />
       <slot />
     </div>
     {showFooter ? <Footer /> : null}

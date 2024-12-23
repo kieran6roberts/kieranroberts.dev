@@ -8,10 +8,7 @@ import {
 } from "@components/base/Tooltip";
 import ThemeToggle from "@components/ThemeToggle.tsx";
 import cn from "clsx";
-// import { getPostsPaginatedData, type PostPagePosts } from "@utils/blog";
 
-// import useStickyScroll from "@hooks/useStickyHeader";
-// import { usePrefersReducedMotion } from "@hooks/usePrefersReducedMotion";
 import {
   X_PROFILE_URL,
   GITHUB_PROFILE_URL,
@@ -54,14 +51,11 @@ const SocialLink = ({
 
 export const Header = () => {
   const headerRef = React.useRef<HTMLElement>(null);
-  // const prefersReducedMotion = usePrefersReducedMotion();
-
-  // useStickyScroll({ elRef: headerRef, prefersReducedMotion });
 
   return (
     <header
       ref={headerRef}
-      className="z-[9999] transform-none sticky mt-4 mx-4 left-0 bg-l dark:bg-d"
+      className="z-[9999] sticky mx-4 mt-4 top-0 bg-l dark:bg-d"
     >
       <nav
         role="navigation"
@@ -135,13 +129,13 @@ export const Header = () => {
           <ThemeToggle />
         </section>
       </nav>
-      <div className="max-w-[1250px] flex justify-end px-4 md:px-8 lg:px-32 mx-auto text-center bg-l dark:bg-d text-zinc-500 dark:text-zinc-400 py-4 whitespace-nowrap text-sm lg:text-base">
+      <div className="max-w-[1250px] flex justify-end px-4 md:px-8 lg:px-16 mx-auto text-center bg-l dark:bg-d text-zinc-500 dark:text-zinc-400 py-4 text-sm lg:text-base">
         Software developer{" "}
         <a
           href="https://hashnode.com"
           target="_blank"
           rel="noreferrer"
-          className="block justify-self-end text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 cursor-pointer rounded-md font-semibold outline-none link-focus"
+          className="block ml-1 text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 cursor-pointer rounded-md font-semibold outline-none link-focus"
         >
           @Hashnode
         </a>

@@ -11,7 +11,7 @@ export const HeroCTA = () => {
         asLink
         href={LINKEDIN_PROFILE_URL}
         target="_blank"
-        iconAnimationSettings={{ rotation: 10, timing: 300, scale: 1.05 }}
+        iconAnimationSettings={{ timing: 300, scale: 1.05, x: 2 }}
         endIcon={
           <span className="block text-l dark:text-d w-5 h-5">
             <LinkedInSVG />
@@ -39,7 +39,7 @@ export const HeroCTA = () => {
         asLink
         href={`mailto:${EMAIL_ADDRESS}`}
         target="self"
-        iconAnimationSettings={{ rotation: 10, timing: 300, scale: 1.05 }}
+        iconAnimationSettings={{ timing: 300, scale: 1.05, x: 2 }}
         endIcon={
           <span className="block text-d dark:text-l w-5 h-5">
             <SendMailSVG />

@@ -33,6 +33,12 @@
     font-weight: 600;
     font-display: swap;
   }
+  @font-face {
+    font-family: "Barlow";
+    src: url("/fonts/Barlow/Barlow-Medium.ttf");
+    font-weight: 500;
+    font-display: swap;
+  }
   @keyframes carousel {
     from {
       transform: translateX(0);

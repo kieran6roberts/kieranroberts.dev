@@ -1,5 +1,5 @@
 import * as React from "react";
-import { animated } from "react-spring";
+import { animated } from "@react-spring/web";
 
 import { RSSSVG } from "@components/icons";
 import { useBoop } from "@hooks/useBoop";

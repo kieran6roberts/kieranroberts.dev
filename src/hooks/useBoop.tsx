@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useSpring } from "react-spring";
+import { useSpring } from "@react-spring/web";
 import { usePrefersReducedMotion } from "@hooks/usePrefersReducedMotion";
 
 export type BoopConfig = {

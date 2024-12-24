@@ -21,12 +21,18 @@ const {
   showFooter = true,
 } = Astro.props;
 
-const githubUrl = "https://api.github.com/users/kieran6roberts/repos";
-const response = await fetch(githubUrl);
-const data = await response.json();
-const totalGitStars = (data || []).reduce((cur: any, next: any) => {
-  return cur + next.stargazers_count;
-}, 0);
+let totalGitStars = 0;
+
+try {
+  const githubUrl = "https://api.github.com/users/kieran6roberts/repos";
+  const response = await fetch(githubUrl);
+  const data = await response.json();
+  totalGitStars = (data || []).reduce((cur: any, next: any) => {
+    return cur + next.stargazers_count;
+  }, 0);
+} catch (e) {
+  console.error(e);
+}
 ---
 
 <html

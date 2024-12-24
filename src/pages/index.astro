@@ -4,15 +4,18 @@ import { DOMAIN_NAME } from "@consts/urls";
 
 import Hero from "@modules/landing/Hero.astro";
 import { TechCarousel } from "@modules/landing/TechCarousel";
-// import { testimonials } from "@consts/testimonials";
-// import TestimonialCard from "@modules/landing/TestimonialCard.astro";
 import { SectionHeading } from "@modules/landing/SectionHeading";
+import { BlogCard } from "@modules/landing/BlogCard";
+import { fetchPaginatedBlogPosts, getPostsPaginatedData } from "@utils/blog";
+
+const postsData = await fetchPaginatedBlogPosts({ first: 2 });
+const { postsArray } = getPostsPaginatedData(postsData!);
 ---
 
 <Layout url={DOMAIN_NAME} showFooter={true}>
   <main id="main" class="w-full max-w-[1600px] mx-auto">
     <Hero />
-    <div class="flex flex-col items-center py-4 px-4 md:px-8 lg:px-16 mb-24">
+    <div class="flex flex-col items-center py-4 px-4 md:px-8 lg:px-16">
       <TechCarousel client:load />
       <SectionHeading
         client:load
@@ -36,5 +39,27 @@ import { SectionHeading } from "@modules/landing/SectionHeading";
         }
       </div>
     </section> -->
+    <section id="blog" class="mx-4 md:mx-8 lg:mx-16 mb-24">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[1000px] mx-auto py-12"
+      >
+        {
+          postsArray.map((post) => (
+            <BlogCard
+              client:load
+              title={post.title}
+              description={post.brief}
+              date={post.publishedAt}
+              link={post.url}
+            />
+          ))
+        }
+      </div>
+      <SectionHeading
+        client:load
+        title="Blog"
+        copy="I write about various topics in the web development space. From React & Next.js, to software testing, UI/UX content, and much more."
+      />
+    </section>
   </main>
 </Layout>

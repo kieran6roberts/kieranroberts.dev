@@ -3,10 +3,38 @@ import Layout from "@layouts/Layout.astro";
 import { DOMAIN_NAME } from "@consts/urls";
 
 import Hero from "@modules/landing/Hero.astro";
+import { TechCarousel } from "@modules/landing/TechCarousel";
+// import { testimonials } from "@consts/testimonials";
+// import TestimonialCard from "@modules/landing/TestimonialCard.astro";
+import { SectionHeading } from "@modules/landing/SectionHeading";
 ---
 
 <Layout url={DOMAIN_NAME} showFooter={true}>
   <main id="main" class="w-full max-w-[1600px] mx-auto">
     <Hero />
+    <div class="flex flex-col items-center py-4 px-4 md:px-8 lg:px-16 mb-24">
+      <TechCarousel client:load />
+      <SectionHeading
+        client:load
+        copy="I work with various modern web technologies to build products from the ground up."
+      />
+    </div>
+
+    <!-- <section
+      id="testimonials"
+      class="flex flex-col gap-12 my-12 md:my-24 px-4 md:px-8 lg:px-16"
+    >
+      <SectionHeading
+        title="Testimonials"
+        copy="Here are some testimonials from people who I have previously worked with."
+      />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {
+          testimonials.map((testimonial, index) => (
+            <TestimonialCard testimonial={testimonial} isMiddle={index === 1} />
+          ))
+        }
+      </div>
+    </section> -->
   </main>
 </Layout>

@@ -1,4 +1,3 @@
-import * as React from "react";
 import { useInView, animated } from "@react-spring/web";
 
 export const HeroCopy = () => {
@@ -29,12 +28,12 @@ export const HeroCopy = () => {
     <animated.p
       ref={ref}
       style={copySprings}
-      className="text-base text-center lg:text-left tracking-tight sm:text-xl text-zinc-600 dark:text-zinc-300 max-w-[80%] lg:max-w-[525px] mx-auto lg:mx-0"
+      className="text-base text-center lg:text-left tracking-tight text-zinc-600 dark:text-zinc-300 max-w-[90%] md:max-w-[525px] mx-auto lg:mx-0"
     >
-      I am a JavaScript focused problem solver with a passion for building
-      interactive UI's and delivering a top UX. With multiple years worth of
-      industry experience, I build fast & accessible products for the web that
-      last.
+      I am a JavaScript-focused problem solver with a passion for building
+      interactive UIs and delivering an exceptional user experience. With
+      several years of industry experience, I create fast and accessible web
+      products that last.
     </animated.p>
   );
 };

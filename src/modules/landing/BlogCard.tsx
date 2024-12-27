@@ -20,14 +20,14 @@ export const BlogCard = ({ title, description, date, link }: Props) => {
       href={link}
       target="_blank"
       className={cn(
-        "group blog-card-hover flex flex-col gap-4 rounded-xl pl-4 py-4 pr-6 border border-zinc-200 dark:border-zinc-800 link-focus",
+        "group blog-card-hover bg-l dark:bg-d flex flex-col gap-4 rounded-xl pl-4 py-4 pr-6 border border-zinc-200 dark:border-zinc-800 link-focus",
       )}
       onMouseEnter={handleBoopTrigger}
     >
       <div className="pb-2">
-        <h3 className="font-heading text-2xl text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-800 dark:group-hover:text-zinc-200 font-medium transition-all duration-300">
+        <h2 className="font-heading text-2xl text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-800 dark:group-hover:text-zinc-200 font-medium transition-all duration-300">
           {title}
-        </h3>
+        </h2>
         <time className="text-sm text-zinc-600 dark:text-zinc-400">
           {new Date(date).toLocaleDateString("en-US", {
             year: "numeric",

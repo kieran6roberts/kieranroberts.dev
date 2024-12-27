@@ -39,6 +39,7 @@ type ButtonProps =
       onClick?: never;
       asLink: boolean;
       href: string;
+      download?: boolean;
       target?: string;
       disabled?: never;
       childrenIsIcon?: boolean;

@@ -14,7 +14,7 @@ import {
   X_PROFILE_URL,
   GITHUB_PROFILE_URL,
   LINKEDIN_PROFILE_URL,
-  BLUESKY_PROFILE_URL,
+  BLOG_URL,
 } from "@consts/urls";
 import {
   GithubSVG,
@@ -22,6 +22,7 @@ import {
   XSVG,
   BlueSkySVG,
   StarSVG,
+  FavoriteBookSVG,
 } from "@components/icons";
 import { Button } from "@components/base/Button";
 import { EMAIL_ADDRESS } from "@consts/index";
@@ -155,9 +156,9 @@ export const Header = ({ githubStars }: HeaderProps) => {
                 |
               </span>
               <SocialLink
-                href={BLUESKY_PROFILE_URL}
-                label="Bluesky"
-                Icon={<BlueSkySVG />}
+                href={BLOG_URL}
+                label="Blog"
+                Icon={<FavoriteBookSVG />}
               />
             </div>
             <ThemeToggle />

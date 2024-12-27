@@ -1,4 +1,5 @@
-export const BLOG_URL = "/blog";
+// export const BLOG_URL = "/blog";
+export const BLOG_URL = "https://blog.kieranroberts.dev";
 
 export const DOMAIN_NAME = "kieranroberts.dev";
 

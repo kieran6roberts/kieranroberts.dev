@@ -1,6 +1,4 @@
-import * as React from "react";
-
-export const DownloadCircle = () => {
+export const DownloadCircleSVG = () => {
   return (
     <svg
       strokeWidth="1.5"

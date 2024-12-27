@@ -108,7 +108,7 @@ export const TechCarousel = () => {
           <span
             title={tech.title}
             className={cn(
-              "inline-block w-[35px] h-[35px] mx-6 rounded-full opacity-15 hover:opacity-80 hover:scale-105 transition-all duration-150 cursor-pointer",
+              "inline-block w-[35px] h-[35px] mx-6 rounded-full opacity-30 hover:opacity-80 hover:scale-105 transition-all duration-150 cursor-pointer",
               tech.white && "dark:bg-white/75",
             )}
           >

@@ -82,6 +82,10 @@
   .link-focus {
     @apply outline-none focus-visible:ring dark:focus-visible:ring-offset-d focus-visible:ring-offset-2 focus-visible:ring-accent-darkest dark:focus-visible:ring-accent-brightest !important;
   }
+  .blog-card-hover {
+    @apply outline-none ring-offset-0 hover:ring dark:hover:ring-offset-d hover:ring-offset-2 hover:ring-accent-darkest dark:hover:ring-offset-2 dark:hover:ring-accent-brightest transition-all duration-300 !important;
+  }
+
   .icon-button-hover {
     @apply hover:ring ring-offset-2 dark:hover:ring-offset-d hover:ring-accent-darkest dark:hover:ring-accent-brightest !important;
   }

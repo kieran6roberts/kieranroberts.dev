@@ -20,7 +20,6 @@ import {
   GithubSVG,
   LinkedInSVG,
   XSVG,
-  BlueSkySVG,
   StarSVG,
   FavoriteBookSVG,
 } from "@components/icons";

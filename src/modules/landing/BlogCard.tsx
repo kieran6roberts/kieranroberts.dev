@@ -39,7 +39,7 @@ export const BlogCard = ({ title, description, date, link }: Props) => {
       <p className="text-base text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-all duration-300">
         {description}
       </p>
-      <span className="flex mt-auto items-center gap-2 text-base text-zinc-500 dark:text-zinc-500 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-all duration-300">
+      <span className="flex mt-auto items-center gap-2 text-base text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-all duration-300">
         Read more
         <animated.span
           style={styleToApplyOnBoop}

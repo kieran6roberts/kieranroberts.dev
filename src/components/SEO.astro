@@ -1,5 +1,5 @@
 ---
-import { ClientRouter } from "astro:transitions";
+// import { ClientRouter } from "astro:transitions";
 import "../styles/main.css";
 import { DOMAIN_NAME } from "@consts/urls";
 
@@ -20,7 +20,7 @@ const {
   url = DEFAULT_URL,
 } = Astro.props;
 
-const isProd = import.meta.env.PROD;
+// const isProd = import.meta.env.PROD;
 ---
 
 <head>
@@ -67,7 +67,7 @@ const isProd = import.meta.env.PROD;
   <title>{title}</title>
 
   {/* Page transition animations */}
-  <ClientRouter transition:animate="slide" />
+  <!-- <ClientRouter transition:animate="slide" /> -->
 
   {/* Fonts */}
   <link
@@ -126,12 +126,10 @@ const isProd = import.meta.env.PROD;
       ) {
         document.documentElement.className = "";
         document.documentElement.classList.add("dark");
-        document.documentElement.dataset.theme = "rose-pine-moon";
         document
           .querySelector("#theme-toggle")
           ?.setAttribute("aria-label", "dark");
       } else {
-        // document.documentElement.dataset.theme = "slack-ochin";
       }
     });
     if (
@@ -141,12 +139,10 @@ const isProd = import.meta.env.PROD;
     ) {
       document.documentElement.className = "";
       document.documentElement.classList.add("dark");
-      document.documentElement.dataset.theme = "rose-pine-moon";
       document
         .querySelector("#theme-toggle")
         ?.setAttribute("aria-label", "dark");
     } else {
-      // document.documentElement.dataset.theme = "slack-ochin";
     }
   </script>
 </head>

@@ -43,10 +43,10 @@ export const HeroIllustration = () => {
   );
   return (
     <section className="w-full bg-gray-50 dark:bg-zinc-900 border-y dark:border-zinc-800 relative w-full mb-20 flex flex-col items-center justify-center gap-4 py-16 px-4">
-      <p className="relative -top-8 text-center text-zinc-400 dark:text-zinc-600">
+      <p className="relative text-center text-zinc-600 dark:text-zinc-400">
         I love to collaborate with others
-        <div className="absolute -bottom-1 left-0 right-0 w-3/4 mx-auto h-px bg-zinc-200 dark:bg-zinc-800 rounded-full" />
       </p>
+      <div className="w-40 mx-auto h-px bg-zinc-200 dark:bg-zinc-800 rounded-full" />
 
       <div className="relative w-full flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-0 [&>div:hover~div]:scale-90 [&>div:hover~div]:brightness-50 [&>div:has(~div:hover)]:scale-90 [&>div:has(~div:hover)]:brightness-50">
         <animated.div

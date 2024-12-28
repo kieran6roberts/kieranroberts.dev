@@ -1,6 +1,6 @@
 # kieranroberts.dev
 
-My home on the web. Blog, portfolio, and my general place to experiment.
+Welcome to kieranroberts.dev. This is my personal portfolio for the web.
 
 ## Tech
 

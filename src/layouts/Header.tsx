@@ -88,10 +88,7 @@ export const Header = ({ githubStars }: HeaderProps) => {
 
   return (
     <>
-      <header
-        ref={headerRef}
-        className="sticky top-4 z-[9999] mx-4 bg-l dark:bg-d"
-      >
+      <header ref={headerRef} className="sticky top-4 z-[9999] mx-4">
         <nav
           role="navigation"
           className="flex items-center max-w-[1250px] bg-zinc-50 dark:bg-zinc-900 backdrop-opacity-90 backdrop-blur-xl shadow-[0px_148px_41px_0px_rgba(0,0,0,0.00),0px_94px_38px_0px_rgba(0,0,0,0.00),0px_53px_32px_0px_rgba(0,0,0,-0.01),0px_24px_24px_0px_rgba(0,0,0,0.02),0px_6px_13px_0px_rgba(0,0,0,0.02)] border border-zinc-200 dark:border-zinc-800 rounded-full h-[60px] mx-auto justify-between gap-x-4 px-4 md:px-8 lg:px-16 py-3.5"

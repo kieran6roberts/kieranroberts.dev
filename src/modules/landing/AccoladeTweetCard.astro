@@ -1,0 +1,20 @@
+---
+import { Tweet } from "astro-embed";
+import { XSVG } from "@components/icons/index.ts";
+
+interface Props {
+  id: string;
+  className?: string;
+}
+
+const { id, className } = Astro.props;
+---
+
+<div
+  class={`relative bg-zinc-50 dark:bg-zinc-900 col-span-1 h-max border border-zinc-200 dark:border-zinc-800 rounded-lg flex items-center justify-center ${className}`}
+>
+  <Tweet id={id} />
+  <div class="absolute bottom-4 right-4 text-zinc-500 w-6 h-6">
+    <XSVG client:visible />
+  </div>
+</div>

@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
-import expressiveCode from "astro-expressive-code";
 import { FontaineTransform } from "fontaine";
 import sitemap from "@astrojs/sitemap";
 
@@ -32,7 +31,6 @@ export default defineConfig({
     }),
     react(),
     sitemap(),
-    expressiveCode(),
     (await import("astro-compress")).default({
       Path: ["./dist"],
       Image: false,

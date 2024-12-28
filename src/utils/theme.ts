@@ -1,29 +1,22 @@
-type Theme = 'light' | "dark";
-const STORAGE_KEY = 'theme';
-export const EXPRESSIVE_CODE_THEMES = {
-  // light: 'slack-ochin',
-  dark: 'rose-pine-moon'
-};
+type Theme = "light" | "dark";
+const STORAGE_KEY = "theme";
 
 export const getThemePreference = (): Theme => {
- if (localStorage.getItem(STORAGE_KEY))
-   return (localStorage.getItem(STORAGE_KEY) as Theme) || 'light'
- else
-   return window.matchMedia('(prefers-color-scheme: dark)').matches
-     ? 'dark'
-     : 'light'
+  if (localStorage.getItem(STORAGE_KEY))
+    return (localStorage.getItem(STORAGE_KEY) as Theme) || "light";
+  else
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
 };
 
 export const reflectThemePreference = (theme: Theme) => {
- document.documentElement.className = '';
- document.documentElement.classList.add(theme)
- document.documentElement.setAttribute('data-theme', EXPRESSIVE_CODE_THEMES['dark']);
- document
-   .querySelector('#theme-toggle')
-   ?.setAttribute('aria-label', theme)
+  document.documentElement.className = "";
+  document.documentElement.classList.add(theme);
+  document.querySelector("#theme-toggle")?.setAttribute("aria-label", theme);
 };
 
 export const setThemePreference = (theme: Theme) => {
- window.localStorage.setItem(STORAGE_KEY, theme)
- reflectThemePreference(theme)
+  window.localStorage.setItem(STORAGE_KEY, theme);
+  reflectThemePreference(theme);
 };

@@ -17,7 +17,7 @@ export default defineConfig({
           "Arial",
           "Noto Sans",
         ],
-        resolvePath: (id) => new URL(`./public${id}`, import.meta.url),
+        resolvePath: (id: string) => new URL(`./public${id}`, import.meta.url),
       }),
     ],
   },

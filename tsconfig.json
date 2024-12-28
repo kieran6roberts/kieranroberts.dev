@@ -12,9 +12,10 @@
       "@styles/*": ["src/styles/*"],
       "@stores/*": ["src/stores/*"],
       "@modules/*": ["src/modules/*"],
-      "@consts/*": ["src/consts/*"]
+      "@consts/*": ["src/consts/*"],
+      "@types/*": ["src/types/*"]
     }
   },
   "include": ["src/**/*", "./*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "tsconfig.json", "generated"]
 }

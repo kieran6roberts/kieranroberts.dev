@@ -1,16 +1,15 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const TRANSLATE_BUFFER = 30;
+const QUERY_NAME = "(prefers-reduced-motion: no-preference)";
 
 interface UseStickyScrollProps {
   elRef: React.RefObject<HTMLElement>;
-  prefersReducedMotion?: boolean;
 }
 
-export const useStickyScroll = ({
-  elRef,
-  prefersReducedMotion,
-}: UseStickyScrollProps) => {
+export const useStickyScroll = ({ elRef }: UseStickyScrollProps) => {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(true);
+
   const scrollRef = useRef<{ prevScrollTop: number; animation?: number }>({
     prevScrollTop: 0,
   });
@@ -83,4 +82,20 @@ export const useStickyScroll = ({
         cancelAnimationFrame(scrollRef.current.animation);
     };
   }, [prefersReducedMotion]);
+
+  useEffect(() => {
+    const mediaQueryList = window.matchMedia(QUERY_NAME);
+
+    setPrefersReducedMotion(!mediaQueryList.matches);
+
+    const updateMotionSettings = (event: MediaQueryListEvent) => {
+      setPrefersReducedMotion(!event.matches);
+    };
+
+    mediaQueryList.addEventListener("change", updateMotionSettings);
+
+    return () => {
+      mediaQueryList.removeEventListener("change", updateMotionSettings);
+    };
+  }, []);
 };

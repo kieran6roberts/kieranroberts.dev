@@ -14,27 +14,34 @@ import AccoladeTweetCard from '@modules/landing/AccoladeTweetCard.astro';
 // import { Calendar } from '@modules/landing/Calendar';
 import { ExperienceList } from '@modules/landing/ExperienceList';
 import { SectionContainer } from '@modules/landing/SectionContainer';
+import { HeroCloudsSVG } from '@components/icons';
 
 const postsData = await fetchPaginatedBlogPosts({ first: 3 });
 const { postsArray } = getPostsPaginatedData(postsData!);
 ---
 
 <Layout url={DOMAIN_NAME} showFooter={true}>
-  <main id="main" class="">
+  <div id="hero" class="relative overflow-hidden">
+    <div class="absolute bottom-0 z-0 w-full opacity-25 pointer-events-none">
+      <HeroCloudsSVG />
+    </div>
     <section
-      class="flex flex-col items-center justify-center relative h-full mt-20 bg-l dark:bg-d min-h-[calc(70vh)] w-full max-w-[1600px] mx-auto"
+      class="z-10 flex flex-col items-center justify-center relative h-full mt-20 min-h-[calc(70vh)] w-full max-w-[1600px] mx-auto"
     >
       <SectionContainer>
         <Hero />
       </SectionContainer>
     </section>
-  </main>
+  </div>
   <section class="bg-gray-50 dark:bg-zinc-900 border-y dark:border-zinc-800">
     <div class="max-w-[1600px] mx-auto gap-8 pt-12 pb-24 px-4 md:px-16 lg:px-24">
       <HeroIllustration client:load />
     </div>
   </section>
-  <section class="border-b border-zinc-200 dark:border-zinc-800 min-h-[810px]">
+  <section class="relative border-b border-zinc-200 dark:border-zinc-800">
+    <div class="absolute bottom-0 z-0 w-full opacity-10 pointer-events-none">
+      <HeroCloudsSVG />
+    </div>
     <SectionContainer>
       <SectionHeading client:load title="Career & Experience" />
       <ExperienceList client:load />
@@ -42,8 +49,11 @@ const { postsArray } = getPostsPaginatedData(postsData!);
   </section>
   <section
     id="blog"
-    class="bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800"
+    class="relative overflow-hidden bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800"
   >
+    <div class="absolute bottom-0 z-0 w-full opacity-10 pointer-events-none">
+      <HeroCloudsSVG />
+    </div>
     <SectionContainer>
       <SectionHeading
         client:load
@@ -77,7 +87,10 @@ const { postsArray } = getPostsPaginatedData(postsData!);
       </Button>
     </SectionContainer>
   </section>
-  <section id="accolades">
+  <section id="accolades" class="relative overflow-hidden">
+    <div class="absolute bottom-0 z-0 w-full opacity-10 pointer-events-none">
+      <HeroCloudsSVG />
+    </div>
     <SectionContainer>
       <SectionHeading
         client:load

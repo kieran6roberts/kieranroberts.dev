@@ -37,7 +37,9 @@ const {
   >
     <div class="flex flex-col">
       <Header client:load />
-      <slot />
+      <main>
+        <slot />
+      </main>
     </div>
     {showFooter ? <Footer /> : null}
   </body>

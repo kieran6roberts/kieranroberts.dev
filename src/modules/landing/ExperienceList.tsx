@@ -67,7 +67,7 @@ export const ExperienceList = () => {
         <TabsTrigger value="education">Education</TabsTrigger>
       </TabsList>
 
-      <TabsContent value="experience" className="max-w-[1400px]">
+      <TabsContent value="experience">
         {experienceList.map((experience) => (
           <div className="flex flex-col items-start" key={experience.company}>
             <ExperienceCard experience={experience} />

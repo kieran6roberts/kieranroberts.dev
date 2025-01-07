@@ -28,7 +28,7 @@ export const HeroCopy = () => {
     <animated.p
       ref={ref}
       style={copySprings}
-      className="text-base md:text-lg text-center tracking-tight text-zinc-500 dark:text-zinc-400 max-w-[90%] md:max-w-[625px] mx-auto"
+      className="text-base md:text-lg text-center font-medium tracking-tight text-zinc-700 dark:text-zinc-200 max-w-[90%] md:max-w-[625px] mx-auto"
     >
       I am a JavaScript-focused problem solver with a passion for building interactive user
       interfaces, and delivering an exceptional user experience. With several years of industry

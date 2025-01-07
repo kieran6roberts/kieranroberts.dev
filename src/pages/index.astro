@@ -3,7 +3,6 @@ import { LinkPreview } from '@astro-community/astro-embed-link-preview';
 
 import Layout from '@layouts/Layout.astro';
 import Hero from '@modules/landing/Hero.astro';
-// import { TechCarousel } from '@modules/landing/TechCarousel';
 import { SectionHeading } from '@modules/landing/SectionHeading';
 import { HeroIllustration } from '@modules/landing/HeroIllustration';
 import { BlogCard } from '@modules/landing/BlogCard';
@@ -12,64 +11,47 @@ import { Button } from '@components/base/Button';
 import { BLOG_URL } from '@consts/urls';
 import { DOMAIN_NAME } from '@consts/urls';
 import AccoladeTweetCard from '@modules/landing/AccoladeTweetCard.astro';
-import { Calendar } from '@modules/landing/Calendar';
+// import { Calendar } from '@modules/landing/Calendar';
 import { ExperienceList } from '@modules/landing/ExperienceList';
+import { SectionContainer } from '@modules/landing/SectionContainer';
+
 const postsData = await fetchPaginatedBlogPosts({ first: 3 });
 const { postsArray } = getPostsPaginatedData(postsData!);
 ---
 
 <Layout url={DOMAIN_NAME} showFooter={true}>
 	<main id="main" class="">
-		<Hero />
-		<HeroIllustration client:load />
-		<!-- <section class="mx-4 md:mx-8 lg:mx-16 pb-12">
+		<section
+			class="flex flex-col items-center justify-center relative h-full mt-20 bg-l dark:bg-d min-h-[calc(70vh)] w-full max-w-[1600px] mx-auto"
+		>
+			<SectionContainer>
+				<Hero />
+			</SectionContainer>
+		</section>
+	</main>
+	<section class="bg-gray-50 dark:bg-zinc-900 border-y dark:border-zinc-800">
+		<div class="max-w-[1600px] mx-auto gap-8 pt-12 pb-24 px-4 md:px-8 lg:px-16">
+			<HeroIllustration client:load />
+		</div>
+	</section>
+	<section class="border-b border-zinc-200 dark:border-zinc-800 min-h-[810px]">
+		<SectionContainer>
+			<SectionHeading client:load title="Career & Experience" />
+			<ExperienceList client:load />
+		</SectionContainer>
+	</section>
+	<section
+		id="blog"
+		class="bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800"
+	>
+		<SectionContainer>
 			<SectionHeading
 				client:load
-				copy="I work with various modern web technologies to build products from the ground up."
+				title="Blog"
+				copy="I write about various topics in the web development space. From React & Next.js specifics, to software testing, UI/UX content, and much more."
 			/>
-			<TechCarousel client:load />
-		</section> -->
 
-		<!-- <section
-      id="testimonials"
-      class="flex flex-col gap-12 my-12 md:my-24 px-4 md:px-8 lg:px-16"
-      >
-      <SectionHeading
-      title="Testimonials"
-      copy="Here are some testimonials from people who I have previously worked with."
-      />
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {
-          testimonials.map((testimonial, index) => (
-          <TestimonialCard testimonial={testimonial} isMiddle={index === 1} />
-          ))
-          }
-          </div>
-          </section> -->
-		<section
-			class="border-b border-zinc-200 dark:border-zinc-800 min-h-[810px]"
-		>
-			<div
-				class="flex flex-col items-center justify-center max-w-[1200px] mx-auto gap-8 pt-12 pb-24 px-4 md:px-8 lg:px-16"
-			>
-				<SectionHeading client:load title="Career & Experience" />
-				<ExperienceList client:load />
-			</div>
-		</section>
-		<section
-			id="blog"
-			class="py-12 bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800"
-		>
-			<div class="flex flex-col items-center gap-8 px-4 md:px-8 lg:px-16">
-				<SectionHeading
-					client:load
-					title="Blog"
-					copy="I write about various topics in the web development space. From React & Next.js specifics, to software testing, UI/UX content, and much more."
-				/>
-			</div>
-			<div
-				class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-[1400px] mx-auto py-12 xl:pb-16 px-4 md:px-8 lg:px-16"
-			>
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 				{
 					postsArray.map((post) => (
 						<BlogCard
@@ -93,17 +75,17 @@ const { postsArray } = getPostsPaginatedData(postsData!);
 			>
 				View all posts
 			</Button>
-		</section>
-		<section class="">
-			<div class="flex flex-col items-center gap-8 py-12 px-4 md:px-8 lg:px-16">
-				<SectionHeading
-					client:load
-					title="Accolades & Achievements"
-					copy="Here are some of my personal accomplishments in the web development space that I am proud of."
-				/>
-			</div>
+		</SectionContainer>
+	</section>
+	<section id="accolades">
+		<SectionContainer>
+			<SectionHeading
+				client:load
+				title="Accolades & Achievements"
+				copy="Here are some of my personal accomplishments in the web development space that I am proud of."
+			/>
 			<div
-				class="grid grid-flow-dense grid-cols-1 lg:grid-cols-6 lg:auto-rows-[minmax(0, 1fr)] gap-6 max-w-[1200px] mx-auto pb-12 xl:pb-16 px-4 md:px-8 lg:px-16"
+				class="grid grid-flow-dense grid-cols-1 lg:grid-cols-6 lg:auto-rows-[minmax(0, 1fr)] gap-6"
 			>
 				<AccoladeTweetCard
 					id="https://twitter.com/Kieran6dev/status/1699795885037883568?ref_src=twsrc%5Etfw"
@@ -129,12 +111,12 @@ const { postsArray } = getPostsPaginatedData(postsData!);
 					className="lg:col-span-4 lg:row-span-3"
 				/>
 			</div>
-		</section>
-		<section>
+		</SectionContainer>
+	</section>
+	<!-- <section>
 			<div class="flex flex-col items-center gap-8 py-12 px-4 md:px-8 lg:px-16">
 				<SectionHeading client:load title="Book a meeting with me" />
 				<Calendar client:load />
 			</div>
-		</section>
-	</main>
+		</section> -->
 </Layout>

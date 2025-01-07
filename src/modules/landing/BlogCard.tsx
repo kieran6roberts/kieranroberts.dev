@@ -21,7 +21,7 @@ export const BlogCard = ({ title, description, date, link, image }: Props) => {
       href={link}
       target="_blank"
       className={cn(
-        "group blog-card-hover flex flex-col gap-4 rounded-xl pl-4 py-4 pr-6 link-focus",
+        "group blog-card-hover flex flex-col gap-4 rounded-xl pl-4 py-4 pr-6 border border-zinc-200 dark:border-zinc-800 link-focus",
       )}
       onMouseEnter={handleBoopTrigger}
     >
@@ -33,10 +33,10 @@ export const BlogCard = ({ title, description, date, link, image }: Props) => {
           width={250}
           height={250}
         />
-        <h2 className="font-heading mt-4 text-2xl text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-800 dark:group-hover:text-zinc-200 font-medium transition-all duration-300">
+        <h2 className="font-heading mt-4 mb-2 text-2xl xl:text-3xl text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-800 dark:group-hover:text-zinc-200 font-medium transition-all duration-300">
           {title}
         </h2>
-        <time className="text-sm text-zinc-600 dark:text-zinc-400">
+        <time className="text-sm xl:text-base text-zinc-600 dark:text-zinc-400">
           {new Date(date).toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",
@@ -44,7 +44,7 @@ export const BlogCard = ({ title, description, date, link, image }: Props) => {
           })}
         </time>
       </div>
-      <p className="text-sm text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-all duration-300">
+      <p className="text-sm xl:text-base text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-all duration-300">
         {description}
       </p>
       <span className="flex mt-auto items-center gap-2 text-base text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-all duration-300">

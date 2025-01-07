@@ -161,7 +161,7 @@ export const Header = ({ githubStars }: HeaderProps) => {
           </section>
         </nav>
       </header>
-      <div className="max-w-[1250px] w-full flex gap-1 justify-end mx-auto px-4 md:px-8 lg:px-16 text-center bg-l dark:bg-d text-zinc-500 dark:text-zinc-400 py-6 text-sm lg:text-base">
+      {/* <div className="max-w-[1250px] w-full flex gap-1 justify-end mx-auto px-4 md:px-8 lg:px-16 text-center bg-l dark:bg-d text-zinc-500 dark:text-zinc-400 py-6 text-sm lg:text-base">
         <span className="">Software developer</span>
         <a
           href="https://hashnode.com"
@@ -171,7 +171,7 @@ export const Header = ({ githubStars }: HeaderProps) => {
         >
           @Hashnode
         </a>
-      </div>
+      </div> */}
     </>
   );
 };

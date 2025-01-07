@@ -15,12 +15,12 @@ export const Calendar = () => {
           light: { "cal-brand": "#fdfdfd" },
           dark: { "cal-brand": "#100114" },
         },
-        theme: $theme,
+        // theme: $theme,
         hideEventTypeDetails: false,
         layout: "month_view",
       });
     })();
-  }, [$theme]);
+  }, []);
   return (
     <Cal
       namespace="15min"

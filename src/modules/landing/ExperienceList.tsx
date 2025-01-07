@@ -20,11 +20,11 @@ const ExperienceCard = ({ experience }: { experience: ExperienceType }) => {
       </div>
       <div className="flex flex-col gap-8">
         <div className="flex flex-col gap-2">
-          <span className="text-2xl text-zinc-700 dark:text-zinc-300">
+          <span className="text-xl xl:text-2xl text-zinc-700 dark:text-zinc-300">
             {experience.company}
           </span>
           <div className="flex flex-row items-center gap-2">
-            <h2 className="text-3xl md:text-2xl font-medium text-zinc-700 dark:text-zinc-300">
+            <h2 className="text-3xl xl:text-4xl font-medium text-zinc-700 dark:text-zinc-300">
               {experience.title}
             </h2>
             <Badge>{experience.type}</Badge>
@@ -33,7 +33,7 @@ const ExperienceCard = ({ experience }: { experience: ExperienceType }) => {
             {experience.location} | <time>{experience.date}</time>
           </span>
           <div className="w-full h-px bg-zinc-200 dark:bg-zinc-800" />
-          <ul className="list-disc space-y-4 p-4 list-outside text-sm text-zinc-600 dark:text-zinc-300">
+          <ul className="list-disc space-y-4 p-4 list-outside text-sm md:text-base text-zinc-600 dark:text-zinc-300">
             {experience.responsibilities.map((responsibility) => (
               <li key={responsibility}>{responsibility}</li>
             ))}
@@ -42,20 +42,20 @@ const ExperienceCard = ({ experience }: { experience: ExperienceType }) => {
         </div>
 
         {experience.image && (
-          <div className="flex justify-center w-full h-[300px]">
+          <div className="flex justify-start w-full h-[300px]">
             <img
               src={experience.image}
               alt={`${experience.company} highlight`}
               width={650}
               height={300}
               loading="lazy"
-              className="rounded-md object-cover object-top"
+              className="rounded-md object-cover object-top shadow-xl"
             />
           </div>
         )}
 
         {experience.company === "Hashnode" ? (
-          <span className="text-base text-end text-zinc-500 dark:text-zinc-400">
+          <span className="text-base text-zinc-500 dark:text-zinc-400">
             Check out my CV for more details.
           </span>
         ) : null}
@@ -66,15 +66,15 @@ const ExperienceCard = ({ experience }: { experience: ExperienceType }) => {
 
 export const ExperienceList = () => {
   return (
-    <Tabs defaultValue="experience" className="w-full max-w-[800px]">
+    <Tabs defaultValue="experience" className="w-full max-w-[1000px]">
       <TabsList className="grid w-full grid-cols-2">
         <TabsTrigger value="experience">Experience</TabsTrigger>
         <TabsTrigger value="education">Education</TabsTrigger>
       </TabsList>
 
-      <TabsContent value="experience">
+      <TabsContent value="experience" className="max-w-[1400px]">
         {experienceList.map((experience) => (
-          <div className="flex flex-col items-end" key={experience.company}>
+          <div className="flex flex-col items-start" key={experience.company}>
             <ExperienceCard experience={experience} />
             <Button
               asLink

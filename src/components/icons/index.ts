@@ -38,3 +38,4 @@ export * from "./SearchSVG";
 export * from "./ArrowSquareRightSVG";
 export * from "./BlueSkySVG";
 export * from "./DownloadCircleSVG";
+export * from "./BangorUniversitySVG";

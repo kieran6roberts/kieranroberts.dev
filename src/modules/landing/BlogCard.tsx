@@ -1,7 +1,7 @@
-import { ArrowRightSVG } from "@components/icons/ArrowRightSVG";
-import { useBoop } from "@hooks/useBoop";
-import { animated } from "@react-spring/web";
-import cn from "clsx";
+import { ArrowRightSVG } from '@components/icons/ArrowRightSVG';
+import { useBoop } from '@hooks/useBoop';
+import { animated } from '@react-spring/web';
+import cn from 'clsx';
 
 interface Props {
   title: string;
@@ -21,7 +21,7 @@ export const BlogCard = ({ title, description, date, link, image }: Props) => {
       href={link}
       target="_blank"
       className={cn(
-        "group blog-card-hover flex flex-col gap-4 rounded-xl pl-4 py-4 pr-6 border border-zinc-200 dark:border-zinc-800 link-focus",
+        'group blog-card-hover flex flex-col gap-4 rounded-xl pl-4 py-4 pr-6 border border-zinc-200 dark:border-zinc-800 link-focus'
       )}
       onMouseEnter={handleBoopTrigger}
     >
@@ -37,10 +37,10 @@ export const BlogCard = ({ title, description, date, link, image }: Props) => {
           {title}
         </h2>
         <time className="text-sm xl:text-base text-zinc-600 dark:text-zinc-400">
-          {new Date(date).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
+          {new Date(date).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
           })}
         </time>
       </div>
@@ -49,10 +49,7 @@ export const BlogCard = ({ title, description, date, link, image }: Props) => {
       </p>
       <span className="flex mt-auto items-center gap-2 text-base text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-all duration-300">
         Read more
-        <animated.span
-          style={styleToApplyOnBoop}
-          className="inline-block w-3 h-3"
-        >
+        <animated.span style={styleToApplyOnBoop} className="inline-block w-3 h-3">
           <ArrowRightSVG />
         </animated.span>
       </span>

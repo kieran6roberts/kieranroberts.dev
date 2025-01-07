@@ -1,6 +1,6 @@
-import * as React from "react";
-import { useSpring } from "@react-spring/web";
-import { usePrefersReducedMotion } from "@hooks/usePrefersReducedMotion";
+import * as React from 'react';
+import { useSpring } from '@react-spring/web';
+import { usePrefersReducedMotion } from '@hooks/usePrefersReducedMotion';
 
 export type BoopConfig = {
   x?: number;
@@ -58,9 +58,7 @@ const useBoop = ({
     setIsBooped(true);
   }, []);
 
-  const styleToApply: React.CSSProperties | {} = !prefersReducedMotion
-    ? style
-    : {};
+  const styleToApply: React.CSSProperties | {} = !prefersReducedMotion ? style : {};
 
   return {
     styleToApplyOnBoop: styleToApply,

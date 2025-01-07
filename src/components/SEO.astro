@@ -1,7 +1,7 @@
 ---
 // import { ClientRouter } from "astro:transitions";
-import "../styles/main.css";
-import { DOMAIN_NAME } from "@consts/urls";
+import '../styles/main.css';
+import { DOMAIN_NAME } from '@consts/urls';
 
 interface Props {
   title?: string;
@@ -9,26 +9,19 @@ interface Props {
   url?: string;
 }
 
-const DEFAULT_TITLE = "Kieran Roberts | Software Developer";
+const DEFAULT_TITLE = 'Kieran Roberts | Software Developer';
 const DEFAULT_DESCRIPTION =
   "Hi, I'm a React & TypeScript focused web developer with multiple years worth of industry experience. Let's talk";
 const DEFAULT_URL = DOMAIN_NAME;
 
-const {
-  title = DEFAULT_TITLE,
-  description = DEFAULT_DESCRIPTION,
-  url = DEFAULT_URL,
-} = Astro.props;
+const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION, url = DEFAULT_URL } = Astro.props;
 
 // const isProd = import.meta.env.PROD;
 ---
 
 <head>
   <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, shrink-to-fit=no"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -70,20 +63,8 @@ const {
   <!-- <ClientRouter transition:animate="slide" /> -->
 
   {/* Fonts */}
-  <link
-    rel="preload"
-    href="/fonts/Lato/Lato-Regular.ttf"
-    as="font"
-    type="font/ttf"
-    crossorigin
-  />
-  <link
-    rel="preload"
-    href="/fonts/Lato/Lato-Bold.ttf"
-    as="font"
-    type="font/ttf"
-    crossorigin
-  />
+  <link rel="preload" href="/fonts/Lato/Lato-Regular.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="preload" href="/fonts/Lato/Lato-Bold.ttf" as="font" type="font/ttf" crossorigin />
   <link
     rel="preload"
     href="/fonts/Barlow/Barlow-SemiBold.ttf"
@@ -105,43 +86,31 @@ const {
     type="font/ttf"
     crossorigin
   />
-  <link
-    rel="preload"
-    href="/fonts/Barlow/Barlow-Bold.ttf"
-    as="font"
-    type="font/ttf"
-    crossorigin
-  />
+  <link rel="preload" href="/fonts/Barlow/Barlow-Bold.ttf" as="font" type="font/ttf" crossorigin />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <script is:inline>
     // Necessary for view transitions
-    document.addEventListener("astro:after-swap", () => {
+    document.addEventListener('astro:after-swap', () => {
       if (
-        localStorage.theme === "dark" ||
-        (!("theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
+        localStorage.theme === 'dark' ||
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
       ) {
-        document.documentElement.className = "";
-        document.documentElement.classList.add("dark");
-        document
-          .querySelector("#theme-toggle")
-          ?.setAttribute("aria-label", "dark");
+        document.documentElement.className = '';
+        document.documentElement.classList.add('dark');
+        document.querySelector('#theme-toggle')?.setAttribute('aria-label', 'dark');
       } else {
       }
     });
     if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
+      localStorage.theme === 'dark' ||
+      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
     ) {
-      document.documentElement.className = "";
-      document.documentElement.classList.add("dark");
-      document
-        .querySelector("#theme-toggle")
-        ?.setAttribute("aria-label", "dark");
+      document.documentElement.className = '';
+      document.documentElement.classList.add('dark');
+      document.querySelector('#theme-toggle')?.setAttribute('aria-label', 'dark');
     } else {
     }
   </script>

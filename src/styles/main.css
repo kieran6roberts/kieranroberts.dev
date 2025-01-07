@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Embeds */
 .link-preview {
   display: flex;
   flex-direction: column;
@@ -46,117 +47,8 @@ html.dark .twitter-tweet a {
   color: #d5ffe4;
 }
 
+/* Fonts */
 @layer base {
-  @font-face {
-    font-family: "Lato";
-    src: url("/fonts/Lato/Lato-Regular.ttf");
-    font-weight: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Lato";
-    src: url("/fonts/Lato/Lato-Bold.ttf");
-    font-weight: bold;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Barlow";
-    src: url("/fonts/Barlow/Barlow-Regular.ttf");
-    font-weight: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Barlow";
-    src: url("/fonts/Barlow/Barlow-Bold.ttf");
-    font-weight: bold;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Barlow";
-    src: url("/fonts/Barlow/Barlow-SemiBold.ttf");
-    font-weight: 600;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Barlow";
-    src: url("/fonts/Barlow/Barlow-Medium.ttf");
-    font-weight: 500;
-    font-display: swap;
-  }
-  @keyframes carousel {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-100%);
-    }
-  }
-
-  .hero-carousel {
-    animation: carousel 50s linear infinite normal none running;
-  }
-
-  .hero-logos:hover .hero-carousel {
-    animation-play-state: paused;
-  }
-
-  .hero-logos:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 150px;
-    height: 100%;
-    z-index: 1;
-    background: linear-gradient(to left, transparent, #100114);
-    pointer-events: none;
-  }
-
-  .hero-logos:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 150px;
-    height: 100%;
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  .link-focus {
-    @apply outline-none focus-visible:ring dark:focus-visible:ring-offset-d focus-visible:ring-offset-2 focus-visible:ring-accent-darkest dark:focus-visible:ring-accent-brightest !important;
-  }
-  .blog-card-hover {
-    @apply outline-none ring-offset-0 hover:ring dark:hover:ring-offset-d hover:ring-offset-2 hover:ring-accent-darkest dark:hover:ring-offset-2 dark:hover:ring-accent-brightest transition-all duration-300 !important;
-  }
-
-  .icon-button-hover {
-    @apply hover:ring ring-offset-2 dark:hover:ring-offset-d hover:ring-accent-darkest dark:hover:ring-accent-brightest !important;
-  }
-
-  .show {
-    @apply opacity-100;
-  }
-
-  .hide {
-    @apply opacity-0;
-  }
-
-  .glow-overlay {
-    --glow-size: 25rem;
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    user-select: none;
-    opacity: var(--glow-opacity, 0);
-    mask: radial-gradient(
-      var(--glow-size) var(--glow-size) at var(--glow-x) var(--glow-y),
-      var(--glow-color) 1%,
-      transparent 50%
-    );
-    transition: 400ms mask ease;
-    will-change: mask;
-  }
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
@@ -210,13 +102,59 @@ html.dark .twitter-tweet a {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  @font-face {
+    font-family: 'Lato';
+    src: url('/fonts/Lato/Lato-Regular.ttf');
+    font-weight: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Lato';
+    src: url('/fonts/Lato/Lato-Bold.ttf');
+    font-weight: bold;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Barlow';
+    src: url('/fonts/Barlow/Barlow-Regular.ttf');
+    font-weight: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Barlow';
+    src: url('/fonts/Barlow/Barlow-Bold.ttf');
+    font-weight: bold;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Barlow';
+    src: url('/fonts/Barlow/Barlow-SemiBold.ttf');
+    font-weight: 600;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Barlow';
+    src: url('/fonts/Barlow/Barlow-Medium.ttf');
+    font-weight: 500;
+    font-display: swap;
+  }
+
+  .link-focus {
+    @apply outline-none focus-visible:ring dark:focus-visible:ring-offset-d focus-visible:ring-offset-2 focus-visible:ring-accent-darkest dark:focus-visible:ring-accent-brightest !important;
+  }
+  .blog-card-hover {
+    @apply outline-none ring-offset-0 hover:ring dark:hover:ring-offset-d hover:ring-offset-2 hover:ring-accent-darkest dark:hover:ring-offset-2 dark:hover:ring-accent-brightest transition-all duration-300 !important;
+  }
+
+  .icon-button-hover {
+    @apply hover:ring ring-offset-2 dark:hover:ring-offset-d hover:ring-accent-darkest dark:hover:ring-accent-brightest !important;
   }
 }

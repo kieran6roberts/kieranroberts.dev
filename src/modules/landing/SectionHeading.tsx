@@ -1,4 +1,4 @@
-import { useInView, animated } from "@react-spring/web";
+import { useInView, animated } from '@react-spring/web';
 
 interface Props {
   title?: string;
@@ -24,9 +24,9 @@ export const SectionHeading = ({ title, copy }: Props) => {
       },
     }),
     {
-      rootMargin: "0px",
+      rootMargin: '0px',
       once: true,
-    },
+    }
   );
 
   const [copyRef, copySprings] = useInView(
@@ -47,9 +47,9 @@ export const SectionHeading = ({ title, copy }: Props) => {
       },
     }),
     {
-      rootMargin: "0px 0px 0px 0px",
+      rootMargin: '0px 0px 0px 0px',
       once: true,
-    },
+    }
   );
   return (
     <div className="flex flex-col items-center gap-4 py-4">

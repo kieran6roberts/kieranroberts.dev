@@ -1,6 +1,6 @@
-import { Button } from "@components/base/Button";
-import { LinkedInSVG, DownloadCircleSVG } from "@components/icons/index";
-import { LINKEDIN_PROFILE_URL } from "@consts/urls";
+import { Button } from '@components/base/Button';
+import { LinkedInSVG, DownloadCircleSVG } from '@components/icons/index';
+import { LINKEDIN_PROFILE_URL } from '@consts/urls';
 
 export const HeroCTA = () => {
   return (

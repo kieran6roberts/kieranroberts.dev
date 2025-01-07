@@ -1,6 +1,6 @@
-import * as React from "react";
+import * as React from 'react';
 
-const QUERY_NAME = "(prefers-reduced-motion: no-preference)";
+const QUERY_NAME = '(prefers-reduced-motion: no-preference)';
 
 const usePrefersReducedMotion = () => {
   /**
@@ -18,10 +18,10 @@ const usePrefersReducedMotion = () => {
       setPrefersReducedMotion(!event.matches);
     };
 
-    mediaQueryList.addEventListener("change", listener);
+    mediaQueryList.addEventListener('change', listener);
 
     return () => {
-      mediaQueryList.removeEventListener("change", listener);
+      mediaQueryList.removeEventListener('change', listener);
     };
   }, []);
   return prefersReducedMotion;

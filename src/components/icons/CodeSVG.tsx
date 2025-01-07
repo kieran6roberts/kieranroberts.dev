@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 export const CodeSVG = () => (
   <svg
@@ -8,12 +8,7 @@ export const CodeSVG = () => (
     xmlns="http://www.w3.org/2000/svg"
     className="stroke-current"
   >
-    <path
-      d="M13.5 6L10 18.5"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    ></path>
+    <path d="M13.5 6L10 18.5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
     <path
       d="M6.5 8.5L3 12L6.5 15.5"
       strokeWidth="1.5"

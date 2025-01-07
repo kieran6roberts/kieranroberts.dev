@@ -1,4 +1,4 @@
-import { useInView, animated } from "@react-spring/web";
+import { useInView, animated } from '@react-spring/web';
 
 export const HeroCopy = () => {
   const [ref, copySprings] = useInView(
@@ -19,9 +19,9 @@ export const HeroCopy = () => {
       },
     }),
     {
-      rootMargin: "0px",
+      rootMargin: '0px',
       once: true,
-    },
+    }
   );
 
   return (
@@ -30,10 +30,9 @@ export const HeroCopy = () => {
       style={copySprings}
       className="text-base md:text-lg text-center tracking-tight text-zinc-500 dark:text-zinc-400 max-w-[90%] md:max-w-[625px] mx-auto"
     >
-      I am a JavaScript-focused problem solver with a passion for building
-      interactive user interfaces, and delivering an exceptional user
-      experience. With several years of industry experience, I create fast and
-      accessible web products that last.
+      I am a JavaScript-focused problem solver with a passion for building interactive user
+      interfaces, and delivering an exceptional user experience. With several years of industry
+      experience, I create fast and accessible web products that last.
     </animated.p>
   );
 };

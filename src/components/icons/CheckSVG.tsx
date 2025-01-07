@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 export const CheckSVG = () => (
   <svg
@@ -8,11 +8,6 @@ export const CheckSVG = () => (
     className="stroke-current"
     fill="none"
   >
-    <path
-      d="M5 13L9 17L19 7"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    ></path>
+    <path d="M5 13L9 17L19 7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
   </svg>
 );

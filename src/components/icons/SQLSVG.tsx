@@ -1,11 +1,7 @@
-import * as React from "react";
+import * as React from 'react';
 
 export const SQLSVG = () => (
-  <svg
-    viewBox="0 0 32 32"
-    xmlns="http://www.w3.org/2000/svg"
-    className="fill-current"
-  >
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" className="fill-current">
     <title>file_type_sql</title>
     <path
       d="M8.562,15.256A21.159,21.159,0,0,0,16,16.449a21.159,21.159,0,0,0,7.438-1.194c1.864-.727,2.525-1.535,2.525-2V9.7a10.357,10.357,0,0,1-2.084,1.076A22.293,22.293,0,0,1,16,12.078a22.36,22.36,0,0,1-7.879-1.3A10.28,10.28,0,0,1,6.037,9.7v3.55C6.037,13.724,6.7,14.528,8.562,15.256Z"

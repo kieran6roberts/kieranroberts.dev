@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 export const NodejsSVG = () => (
   <svg
@@ -37,13 +37,7 @@ export const NodejsSVG = () => (
         <stop stopColor="#66B848" offset="71.36%"></stop>
         <stop stopColor="#6CC04A" offset="90.81%"></stop>
       </linearGradient>
-      <linearGradient
-        x1="-4413.77%"
-        y1="13.43%"
-        x2="5327.93%"
-        y2="13.43%"
-        id="linearGradient-5"
-      >
+      <linearGradient x1="-4413.77%" y1="13.43%" x2="5327.93%" y2="13.43%" id="linearGradient-5">
         <stop stopColor="#6CC04A" offset="9.191646%"></stop>
         <stop stopColor="#66B848" offset="28.64%"></stop>
         <stop stopColor="#54A044" offset="59.68%"></stop>
@@ -61,13 +55,7 @@ export const NodejsSVG = () => (
         <stop stopColor="#54A044" offset="59.68%"></stop>
         <stop stopColor="#41873F" offset="86.24%"></stop>
       </linearGradient>
-      <linearGradient
-        x1="-9713.77%"
-        y1="36.21%"
-        x2="27.93%"
-        y2="36.21%"
-        id="linearGradient-7"
-      >
+      <linearGradient x1="-9713.77%" y1="36.21%" x2="27.93%" y2="36.21%" id="linearGradient-7">
         <stop stopColor="#6CC04A" offset="9.191646%"></stop>
         <stop stopColor="#66B848" offset="28.64%"></stop>
         <stop stopColor="#54A044" offset="59.68%"></stop>

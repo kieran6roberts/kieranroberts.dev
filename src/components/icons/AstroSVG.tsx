@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 export const AstroSVG = () => (
   <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">

@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
 const TRANSLATE_BUFFER = 30;
-const QUERY_NAME = "(prefers-reduced-motion: no-preference)";
+const QUERY_NAME = '(prefers-reduced-motion: no-preference)';
 
 interface UseStickyScrollProps {
   elRef: React.RefObject<HTMLElement>;
@@ -20,8 +20,7 @@ export const useStickyScroll = ({ elRef }: UseStickyScrollProps) => {
   };
 
   const performTranslate = (amount: number) => {
-    if (elRef.current)
-      elRef.current.style.transform = `translateY(${amount}px)`;
+    if (elRef.current) elRef.current.style.transform = `translateY(${amount}px)`;
   };
 
   const getScrollDistance = () => {
@@ -44,13 +43,10 @@ export const useStickyScroll = ({ elRef }: UseStickyScrollProps) => {
       Math.min(
         headerTop -
           topOffset +
-          (scrollDistance < 0
-            ? Math.abs(scrollDistance)
-            : -Math.abs(scrollDistance)) *
-            1,
-        0,
+          (scrollDistance < 0 ? Math.abs(scrollDistance) : -Math.abs(scrollDistance)) * 1,
+        0
       ),
-      -navHeight,
+      -navHeight
     );
   };
 
@@ -74,12 +70,11 @@ export const useStickyScroll = ({ elRef }: UseStickyScrollProps) => {
     if (prefersReducedMotion) {
       return;
     }
-    window.addEventListener("scroll", handleNavScroll);
+    window.addEventListener('scroll', handleNavScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleNavScroll);
-      if (scrollRef.current.animation)
-        cancelAnimationFrame(scrollRef.current.animation);
+      window.removeEventListener('scroll', handleNavScroll);
+      if (scrollRef.current.animation) cancelAnimationFrame(scrollRef.current.animation);
     };
   }, [prefersReducedMotion]);
 
@@ -92,10 +87,10 @@ export const useStickyScroll = ({ elRef }: UseStickyScrollProps) => {
       setPrefersReducedMotion(!event.matches);
     };
 
-    mediaQueryList.addEventListener("change", updateMotionSettings);
+    mediaQueryList.addEventListener('change', updateMotionSettings);
 
     return () => {
-      mediaQueryList.removeEventListener("change", updateMotionSettings);
+      mediaQueryList.removeEventListener('change', updateMotionSettings);
     };
   }, []);
 };

@@ -1,4 +1,4 @@
-import { useInView, animated } from "@react-spring/web";
+import { useInView, animated } from '@react-spring/web';
 
 export const HeroIllustration = () => {
   const [firstImageRef, firstImageSprings] = useInView(
@@ -17,9 +17,9 @@ export const HeroIllustration = () => {
       },
     }),
     {
-      rootMargin: "0px",
+      rootMargin: '0px',
       once: true,
-    },
+    }
   );
   const [secondImageRef, secondImageSprings] = useInView(
     () => ({
@@ -37,9 +37,9 @@ export const HeroIllustration = () => {
       },
     }),
     {
-      rootMargin: "0px",
+      rootMargin: '0px',
       once: true,
-    },
+    }
   );
   const [thirdImageRef, thirdImageSprings] = useInView(
     () => ({
@@ -57,9 +57,9 @@ export const HeroIllustration = () => {
       },
     }),
     {
-      rootMargin: "0px",
+      rootMargin: '0px',
       once: true,
-    },
+    }
   );
   return (
     <>

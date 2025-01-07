@@ -1,14 +1,9 @@
-import { Button } from "@components/base/Button";
-import { DownloadCircleSVG } from "@components/icons";
-import { education, experience as experienceList } from "@consts/index";
-import type { Experience as ExperienceType } from "@consts/index";
-import {
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  TabsContent,
-} from "@components/base/Tabs";
-import { Badge } from "@components/base/Badge";
+import { Button } from '@components/base/Button';
+import { DownloadCircleSVG } from '@components/icons';
+import { education, experience as experienceList } from '@consts/index';
+import type { Experience as ExperienceType } from '@consts/index';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@components/base/Tabs';
+import { Badge } from '@components/base/Badge';
 
 const ExperienceCard = ({ experience }: { experience: ExperienceType }) => {
   return (
@@ -54,7 +49,7 @@ const ExperienceCard = ({ experience }: { experience: ExperienceType }) => {
           </div>
         )}
 
-        {experience.company === "Hashnode" ? (
+        {experience.company === 'Hashnode' ? (
           <span className="text-base text-zinc-500 dark:text-zinc-400">
             Check out my CV for more details.
           </span>

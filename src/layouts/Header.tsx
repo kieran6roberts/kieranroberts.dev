@@ -1,20 +1,11 @@
-import * as React from "react";
-import { useStickyScroll } from "@hooks/useStickyHeader";
+import * as React from 'react';
+import { useStickyScroll } from '@hooks/useStickyHeader';
 
-import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-  TooltipProvider,
-} from "@components/base/Tooltip";
-import ThemeToggle from "@components/ThemeToggle.tsx";
-import { Button } from "@components/base/Button";
-import { EMAIL_ADDRESS } from "@consts/index";
-import { Socials } from "@components/Socials";
-
-// interface HeaderProps {
-//   githubStars?: number | null | undefined;
-// }
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from '@components/base/Tooltip';
+import ThemeToggle from '@components/ThemeToggle.tsx';
+import { Button } from '@components/base/Button';
+import { EMAIL_ADDRESS } from '@consts/index';
+import { Socials } from '@components/Socials';
 
 export const Header = () => {
   const headerRef = React.useRef<HTMLElement>(null);

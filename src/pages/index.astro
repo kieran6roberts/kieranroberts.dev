@@ -20,102 +20,100 @@ const { postsArray } = getPostsPaginatedData(postsData!);
 ---
 
 <Layout url={DOMAIN_NAME} showFooter={true}>
-	<main id="main" class="">
-		<section
-			class="flex flex-col items-center justify-center relative h-full mt-20 bg-l dark:bg-d min-h-[calc(70vh)] w-full max-w-[1600px] mx-auto"
-		>
-			<SectionContainer>
-				<Hero />
-			</SectionContainer>
-		</section>
-	</main>
-	<section class="bg-gray-50 dark:bg-zinc-900 border-y dark:border-zinc-800">
-		<div
-			class="max-w-[1600px] mx-auto gap-8 pt-12 pb-24 px-4 md:px-16 lg:px-24"
-		>
-			<HeroIllustration client:load />
-		</div>
-	</section>
-	<section class="border-b border-zinc-200 dark:border-zinc-800 min-h-[810px]">
-		<SectionContainer>
-			<SectionHeading client:load title="Career & Experience" />
-			<ExperienceList client:load />
-		</SectionContainer>
-	</section>
-	<section
-		id="blog"
-		class="bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800"
-	>
-		<SectionContainer>
-			<SectionHeading
-				client:load
-				title="Blog"
-				copy="I write about various topics in the web development space. From React & Next.js specifics, to software testing, UI/UX content, and much more."
-			/>
+  <main id="main" class="">
+    <section
+      class="flex flex-col items-center justify-center relative h-full mt-20 bg-l dark:bg-d min-h-[calc(70vh)] w-full max-w-[1600px] mx-auto"
+    >
+      <SectionContainer>
+        <Hero />
+      </SectionContainer>
+    </section>
+  </main>
+  <section class="bg-gray-50 dark:bg-zinc-900 border-y dark:border-zinc-800">
+    <div class="max-w-[1600px] mx-auto gap-8 pt-12 pb-24 px-4 md:px-16 lg:px-24">
+      <HeroIllustration client:load />
+    </div>
+  </section>
+  <section class="border-b border-zinc-200 dark:border-zinc-800 min-h-[810px]">
+    <SectionContainer>
+      <SectionHeading client:load title="Career & Experience" />
+      <ExperienceList client:load />
+    </SectionContainer>
+  </section>
+  <section
+    id="blog"
+    class="bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800"
+  >
+    <SectionContainer>
+      <SectionHeading
+        client:load
+        title="Blog"
+        copy="I write about various topics in the web development space. From React & Next.js specifics, to software testing, UI/UX content, and much more."
+      />
 
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-				{
-					postsArray.map((post) => (
-						<BlogCard
-							client:load
-							title={post.title}
-							description={post.brief}
-							date={post.publishedAt}
-							link={post.url}
-							image={post.coverImage?.url || ''}
-						/>
-					))
-				}
-			</div>
-			<Button
-				client:visible
-				target="_blank"
-				asLink
-				href={BLOG_URL}
-				variant="secondary"
-				className="mx-auto"
-			>
-				View all posts
-			</Button>
-		</SectionContainer>
-	</section>
-	<section id="accolades">
-		<SectionContainer>
-			<SectionHeading
-				client:load
-				title="Accolades & Achievements"
-				copy="Here are some of my personal accomplishments in the web development space that I am proud of."
-			/>
-			<div
-				class="grid grid-flow-dense grid-cols-1 lg:grid-cols-6 lg:auto-rows-[minmax(0, 1fr)] gap-6"
-			>
-				<AccoladeTweetCard
-					id="https://twitter.com/Kieran6dev/status/1699795885037883568?ref_src=twsrc%5Etfw"
-					className="lg:row-span-2 lg:col-span-2"
-				/>
-				<AccoladeTweetCard
-					id="https://twitter.com/Kieran6dev/status/1378027456561565701?ref_src=twsrc%5Etfw"
-					className="lg:col-span-4 lg:row-span-2"
-				/>
-				<AccoladeTweetCard
-					id="https://twitter.com/Kieran6dev/status/1362110408581140481?ref_src=twsrc%5Etfw"
-					className="lg:col-span-3 lg:row-span-3"
-				/>
-				<div
-					class="relative col-span-1 lg:col-span-2 lg:row-span-3 h-max w-full border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 rounded-lg overflow-hidden"
-				>
-					<LinkPreview
-						id="https://townhall.hashnode.com/winners-of-buy-me-a-coffee-april-giveaway"
-					/>
-				</div>
-				<AccoladeTweetCard
-					id="https://twitter.com/QANewsletter/status/1375486529112571910?ref_src=twsrc%5Etfw"
-					className="lg:col-span-4 lg:row-span-3"
-				/>
-			</div>
-		</SectionContainer>
-	</section>
-	<!-- <section>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {
+          postsArray.map((post) => (
+            <BlogCard
+              client:load
+              title={post.title}
+              description={post.brief}
+              date={post.publishedAt}
+              link={post.url}
+              image={post.coverImage?.url || ''}
+            />
+          ))
+        }
+      </div>
+      <Button
+        client:visible
+        target="_blank"
+        asLink
+        href={BLOG_URL}
+        variant="secondary"
+        className="mx-auto"
+      >
+        View all posts
+      </Button>
+    </SectionContainer>
+  </section>
+  <section id="accolades">
+    <SectionContainer>
+      <SectionHeading
+        client:load
+        title="Accolades & Achievements"
+        copy="Here are some of my personal accomplishments in the web development space that I am proud of."
+      />
+      <div
+        class="grid grid-flow-dense grid-cols-1 lg:grid-cols-6 lg:auto-rows-[minmax(0, 1fr)] gap-6"
+      >
+        <AccoladeTweetCard
+          id="https://twitter.com/Kieran6dev/status/1699795885037883568?ref_src=twsrc%5Etfw"
+          className="lg:row-span-2 lg:col-span-2"
+        />
+        <AccoladeTweetCard
+          id="https://twitter.com/Kieran6dev/status/1378027456561565701?ref_src=twsrc%5Etfw"
+          className="lg:col-span-4 lg:row-span-2"
+        />
+        <AccoladeTweetCard
+          id="https://twitter.com/Kieran6dev/status/1362110408581140481?ref_src=twsrc%5Etfw"
+          className="lg:col-span-3 lg:row-span-3"
+        />
+        <div
+          class="relative col-span-1 lg:col-span-2 lg:row-span-3 h-max w-full border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 rounded-lg overflow-hidden"
+        >
+          <LinkPreview
+            id="https://townhall.hashnode.com/winners-of-buy-me-a-coffee-april-giveaway"
+          />
+        </div>
+        <AccoladeTweetCard
+          id="https://twitter.com/QANewsletter/status/1375486529112571910?ref_src=twsrc%5Etfw"
+          className="lg:col-span-4 lg:row-span-3"
+        />
+      </div>
+    </SectionContainer>
+  </section>
+  <!-- <section>
 			<div class="flex flex-col items-center gap-8 py-12 px-4 md:px-8 lg:px-16">
 				<SectionHeading client:load title="Book a meeting with me" />
 				<Calendar client:load />

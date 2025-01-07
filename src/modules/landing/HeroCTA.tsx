@@ -1,10 +1,10 @@
-import { Button } from "@components/base/Button";
-import { LinkedInSVG, DownloadCircleSVG } from "@components/icons/index";
-import { LINKEDIN_PROFILE_URL } from "@consts/urls";
+import { Button } from '@components/base/Button';
+import { LinkedInSVG, DownloadCircleSVG } from '@components/icons/index';
+import { LINKEDIN_PROFILE_URL } from '@consts/urls';
 
 export const HeroCTA = () => {
   return (
-    <div className="flex flex-col justify-center items-center lg:justify-start sm:flex-row gap-4">
+    <div className="flex flex-col justify-center items-center sm:flex-row gap-4">
       <Button
         asLink
         href="/kieran-roberts-CV.pdf"

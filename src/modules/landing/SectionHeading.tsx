@@ -1,4 +1,4 @@
-import { useInView, animated } from "@react-spring/web";
+import { useInView, animated } from '@react-spring/web';
 
 interface Props {
   title?: string;
@@ -24,9 +24,9 @@ export const SectionHeading = ({ title, copy }: Props) => {
       },
     }),
     {
-      rootMargin: "0px",
+      rootMargin: '0px',
       once: true,
-    },
+    }
   );
 
   const [copyRef, copySprings] = useInView(
@@ -47,9 +47,9 @@ export const SectionHeading = ({ title, copy }: Props) => {
       },
     }),
     {
-      rootMargin: "0px 0px 0px 0px",
+      rootMargin: '0px 0px 0px 0px',
       once: true,
-    },
+    }
   );
   return (
     <div className="flex flex-col items-center gap-4 py-4">
@@ -57,7 +57,7 @@ export const SectionHeading = ({ title, copy }: Props) => {
         <animated.h2
           ref={titleRef}
           style={titleSprings}
-          className="text-4xl text-center text-zinc-800 dark:text-zinc-200 font-bold"
+          className="text-4xl text-center text-zinc-800 dark:text-zinc-200 xl:text-5xl font-bold"
         >
           {title}
         </animated.h2>
@@ -66,7 +66,7 @@ export const SectionHeading = ({ title, copy }: Props) => {
         <animated.p
           ref={copyRef}
           style={copySprings}
-          className="text-center text-sm md:text-base border-t pt-4 dark:border-zinc-800 max-w-[400px] mx-auto text-zinc-600 dark:text-zinc-400"
+          className="text-center text-sm md:text-base xl:text-lg border-t pt-4 dark:border-zinc-800 max-w-[400px] xl:max-w-[500px] mx-auto text-zinc-600 dark:text-zinc-400"
         >
           {copy}
         </animated.p>

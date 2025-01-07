@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 export const GitForkSVG = () => (
   <svg
@@ -26,12 +26,7 @@ export const GitForkSVG = () => (
       strokeLinecap="round"
       strokeLinejoin="round"
     ></path>
-    <path
-      d="M7 7V17"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    ></path>
+    <path d="M7 7V17" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
     <path
       d="M17 7V8C17 10.5 15 11 15 11L9 13C9 13 7 13.5 7 16V17"
       strokeWidth="1.5"

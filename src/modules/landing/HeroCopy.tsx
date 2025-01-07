@@ -1,4 +1,4 @@
-import { useInView, animated } from "@react-spring/web";
+import { useInView, animated } from '@react-spring/web';
 
 export const HeroCopy = () => {
   const [ref, copySprings] = useInView(
@@ -19,21 +19,20 @@ export const HeroCopy = () => {
       },
     }),
     {
-      rootMargin: "0px",
+      rootMargin: '0px',
       once: true,
-    },
+    }
   );
 
   return (
     <animated.p
       ref={ref}
       style={copySprings}
-      className="text-base text-center lg:text-left tracking-tight text-zinc-600 dark:text-zinc-300 max-w-[90%] md:max-w-[525px] mx-auto lg:mx-0"
+      className="text-base md:text-lg text-center font-medium tracking-tight text-zinc-700 dark:text-zinc-200 max-w-[90%] md:max-w-[625px] mx-auto"
     >
-      I am a JavaScript-focused problem solver with a passion for building
-      interactive UIs and delivering an exceptional user experience. With
-      several years of industry experience, I create fast and accessible web
-      products that last.
+      I am a JavaScript-focused problem solver with a passion for building interactive user
+      interfaces, and delivering an exceptional user experience. With several years of industry
+      experience, I create fast and accessible web products that last.
     </animated.p>
   );
 };

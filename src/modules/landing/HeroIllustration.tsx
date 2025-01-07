@@ -64,7 +64,7 @@ export const HeroIllustration = () => {
   return (
     <>
       <div className="flex flex-col items-center justify-center gap-4">
-        <p className="relative text-center text-zinc-600 dark:text-zinc-400">
+        <p className="relative text-center text-sm lg:text-lg text-zinc-600 dark:text-zinc-400">
           I love to collaborate with others
         </p>
         <div className="w-40 mx-auto h-px bg-zinc-200 dark:bg-zinc-800 rounded-full" />

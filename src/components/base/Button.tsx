@@ -94,7 +94,7 @@ export const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, Co
           ref={forwardedRef as React.ForwardedRef<HTMLAnchorElement>}
           href={href}
           className={cn(
-            'flex items-center gap-2 text-sm font-medium rounded-full transition-colors duration-100 focus:ring outline-none ring-offset-2 px-3 py-2 lg:px-4 lg:py-2',
+            'flex items-center gap-2 text-sm lg:text-base font-medium rounded-full transition-colors duration-100 focus:ring outline-none ring-offset-2 px-3 py-2 lg:px-4 lg:py-2',
             className ?? '',
             buttonVariants[variant],
             buttonWidth[width]
@@ -130,7 +130,7 @@ export const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, Co
         type={type}
         disabled={disabled}
         className={cn(
-          'flex items-center justify-center gap-2 text-sm font-medium transition-colors duration-100 rounded-full focus:ring outline-none ring-offset-2 px-3 py-2 lg:px-4 lg:py-2',
+          'flex items-center justify-center gap-2 text-sm lg:text-base font-medium transition-colors duration-100 rounded-full focus:ring outline-none ring-offset-2 px-3 py-2 lg:px-4 lg:py-2',
           className ?? '',
           buttonVariants[variant],
           buttonWidth[width]

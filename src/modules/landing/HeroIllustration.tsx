@@ -77,7 +77,7 @@ export const HeroIllustration = () => {
           className="object-cover z-20 h-[290px] shadow-xl w-full lg:max-w-[550px] xl:max-w-[650px] transition-all duration-300 lg:translate-x-20 lg:rotate-6 lg:hover:rotate-0 rounded-xl lg:hover:z-50 lg:hover:scale-105 hover:brightness-100 brightness-[0.8]"
         >
           <img
-            src="/hashnode-team.webp"
+            src="/hashnode-team-2022.webp"
             alt="Hashnode Team from 2022 posing for a team photo"
             className="w-full h-full object-cover rounded-xl object-center"
             loading="lazy"

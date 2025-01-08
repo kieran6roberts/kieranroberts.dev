@@ -53,7 +53,7 @@ const ExperienceCard = ({ experience }: { experience: ExperienceType }) => {
 
 export const ExperienceList = () => {
   return (
-    <Tabs defaultValue="experience" className="w-full max-w-[1000px]">
+    <Tabs defaultValue="experience" className="relative z-10 w-full max-w-[1000px]">
       <TabsList className="grid w-full grid-cols-2">
         <TabsTrigger value="experience">Experience</TabsTrigger>
         <TabsTrigger value="education">Education</TabsTrigger>
@@ -71,7 +71,7 @@ export const ExperienceList = () => {
                 download
                 variant="secondary"
                 endIcon={
-                  <span className="block text-l dark:text-d w-5 h-5">
+                  <span className="block w-5 h-5">
                     <DownloadCircleSVG />
                   </span>
                 }

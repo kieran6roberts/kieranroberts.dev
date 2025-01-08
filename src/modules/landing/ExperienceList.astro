@@ -1,7 +1,7 @@
 ---
 import { experience, education } from '@consts';
 import ExperienceCard from '@/modules/landing/ExperienceCard.astro';
-import { Button } from '@/components/base/Button';
+import Button from '@/components/base/Button.astro';
 ---
 
 <script>
@@ -84,11 +84,11 @@ import { Button } from '@/components/base/Button';
 						<ExperienceCard {...experience} />
 						<div class="flex flex-row flex-wrap items-center gap-4">
 							<Button
-								asLink
+								as="a"
 								href="/kieran-roberts-CV.pdf"
 								target="_blank"
 								download
-								variant="secondary"
+								intent="secondary"
 							>
 								Download CV
 							</Button>

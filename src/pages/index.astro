@@ -9,11 +9,11 @@ import BlogCard from '@modules/landing/BlogCard.astro';
 import SectionContainer from '@modules/landing/SectionContainer.astro';
 import AccoladeTweetCard from '@modules/landing/AccoladeTweetCard.astro';
 import ExperienceList from '@modules/landing/ExperienceList.astro';
+import Button from '@components/base/Button.astro';
 
 import { BLOG_URL } from '@consts/urls';
 import { DOMAIN_NAME } from '@consts/urls';
 import { fetchPaginatedBlogPosts, getPostsPaginatedData } from '@utils/blog';
-import { Button } from '@components/base/Button';
 import { HeroCloudsSVG } from '@components/icons';
 
 const postsData = await fetchPaginatedBlogPosts({ first: 3 });
@@ -77,12 +77,11 @@ const { postsArray } = getPostsPaginatedData(postsData!);
 				}
 			</div>
 			<Button
-				client:visible
 				target="_blank"
-				asLink
+				as="a"
 				href={BLOG_URL}
-				variant="secondary"
-				className="relative z-10 mx-auto"
+				intent="secondary"
+				class="relative z-10 mx-auto"
 			>
 				View all posts
 			</Button>

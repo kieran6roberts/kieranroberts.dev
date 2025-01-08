@@ -1,6 +1,6 @@
 ---
-import { Button } from '@components/base/Button';
 import { LINKEDIN_PROFILE_URL } from '@consts/urls';
+import Button from '@components/base/Button.astro';
 ---
 
 <div>
@@ -21,24 +21,10 @@ import { LINKEDIN_PROFILE_URL } from '@consts/urls';
 				experience, I create fast and accessible web products that last.
 			</p>
 			<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
-				<Button
-					client:load
-					asLink
-					href="/kieran-roberts-CV.pdf"
-					target="_blank"
-					download
-					iconAnimationSettings={{ timing: 300, scale: 1.05, x: 2 }}
-				>
+				<Button as="a" href="/kieran-roberts-CV.pdf" target="_blank" download>
 					Download my CV
 				</Button>
-				<Button
-					client:load
-					variant="secondary"
-					asLink
-					href={LINKEDIN_PROFILE_URL}
-					target="_blank"
-					iconAnimationSettings={{ timing: 300, scale: 1.05, x: 2 }}
-				>
+				<Button intent="secondary" as="a" href={LINKEDIN_PROFILE_URL} target="_blank">
 					Find me on LinkedIn
 				</Button>
 			</div>

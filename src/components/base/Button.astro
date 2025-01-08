@@ -1,0 +1,39 @@
+---
+import type { HTMLTag, Polymorphic } from 'astro/types';
+import { cva, type VariantProps } from 'class-variance-authority';
+
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & VariantProps<typeof button>;
+
+const button = cva('group rounded-full', {
+	variants: {
+		intent: {
+			'solid-dark': [
+				'bg-d dark:bg-l hover:bg-zinc-800 dark:hover:bg-l/90 border-2 border-transparent text-l dark:text-d ring-offset-l dark:ring-offset-d ring-accent-darkest dark:ring-accent-brightest disabled:opacity-90',
+			],
+			secondary: [
+				'bg-l dark:bg-d border-2 border-d/75 dark:border-l hover:bg-zinc-100 dark:hover:bg-zinc-800 text-d dark:text-l ring-offset-l dark:ring-offset-d ring-accent-darkest dark:ring-accent-brightest disabled:opacity-90',
+			],
+		},
+		size: {
+			sm: ['w-max', 'text-sm', 'py-1.5', 'px-2.5'],
+			md: ['w-max', 'text-base', 'py-2', 'px-5'],
+			full: ['w-full'],
+		},
+	},
+});
+
+const {
+	as: Tag = 'button',
+	intent = 'solid-dark',
+	size = 'md',
+	class: className = '',
+	...restOfProps
+} = Astro.props;
+---
+
+<Tag class={button({ intent, size, className })} {...restOfProps}>
+	<slot />
+	<span class="inline-block transition-transform duration-200 group-hover:translate-x-2">
+		<slot name="endIcon" />
+	</span>
+</Tag>

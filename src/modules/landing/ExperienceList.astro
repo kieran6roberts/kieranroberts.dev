@@ -36,9 +36,9 @@ import { Icon } from 'astro-icon/components';
 	});
 </script>
 
-<div class="relative z-10 w-full max-w-[1000px]">
+<div class="relative z-10 w-full">
 	<ul
-		class="grid w-full list-none grid-cols-2 rounded-full border border-zinc-200 p-1 dark:border-zinc-800"
+		class="mx-auto grid w-full max-w-[800px] list-none grid-cols-2 gap-2 rounded-full border border-zinc-200 p-1 dark:border-zinc-800"
 		role="tablist"
 		aria-orientation="horizontal"
 	>
@@ -50,7 +50,7 @@ import { Icon } from 'astro-icon/components';
 				aria-controls="experience"
 				aria-selected="true"
 				type="button"
-				class="h-full w-full rounded-full bg-white px-3 py-2 text-base font-medium text-zinc-900 data-[state=active]:bg-zinc-900 data-[state=active]:text-white dark:bg-transparent dark:text-white dark:data-[state=active]:bg-white dark:data-[state=active]:text-zinc-900"
+				class="h-full w-full rounded-full bg-white px-3 py-2 text-base font-medium text-zinc-900 hover:bg-zinc-100 data-[state=active]:bg-zinc-900 data-[state=active]:text-white hover:data-[state=active]:bg-zinc-800 dark:bg-transparent dark:text-white dark:hover:bg-zinc-900 dark:data-[state=active]:bg-white dark:data-[state=active]:text-zinc-900 dark:hover:data-[state=active]:bg-zinc-100"
 			>
 				Experience
 			</button>
@@ -63,14 +63,14 @@ import { Icon } from 'astro-icon/components';
 				aria-controls="education"
 				aria-selected="false"
 				type="button"
-				class="h-full w-full rounded-full bg-white px-3 py-2 text-base font-medium text-zinc-900 data-[state=active]:bg-zinc-900 data-[state=active]:text-white dark:bg-transparent dark:text-white dark:data-[state=active]:bg-white dark:data-[state=active]:text-zinc-900"
+				class="h-full w-full rounded-full bg-white px-3 py-2 text-base font-medium text-zinc-900 hover:bg-zinc-100 data-[state=active]:bg-zinc-900 data-[state=active]:text-white hover:data-[state=active]:bg-zinc-800 dark:bg-transparent dark:text-white dark:hover:bg-zinc-900 dark:data-[state=active]:bg-white dark:data-[state=active]:text-zinc-900 dark:hover:data-[state=active]:bg-zinc-100"
 			>
 				Education
 			</button>
 		</li>
 	</ul>
 
-	<div class="tab-content min-h-[700px] w-full">
+	<div class="tab-content mx-auto min-h-[700px] w-full max-w-[1000px]">
 		<div
 			id="experience"
 			data-tab-content

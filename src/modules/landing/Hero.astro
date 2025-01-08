@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 import { LINKEDIN_PROFILE_URL } from '@consts/urls';
 import Button from '@components/base/Button.astro';
 ---
@@ -23,9 +24,21 @@ import Button from '@components/base/Button.astro';
 			<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
 				<Button as="a" href="/kieran-roberts-CV.pdf" target="_blank" download>
 					Download my CV
+					<Icon
+						name="download-circle"
+						width={20}
+						height={20}
+						class="stroke-current text-white transition-transform duration-200 group-hover:translate-y-1 dark:text-black"
+					/>
 				</Button>
 				<Button intent="secondary" as="a" href={LINKEDIN_PROFILE_URL} target="_blank">
 					Find me on LinkedIn
+					<Icon
+						name="linked-in"
+						width={20}
+						height={20}
+						class="stroke-current text-black transition-transform duration-200 group-hover:translate-x-1 dark:text-white"
+					/>
 				</Button>
 			</div>
 		</div>

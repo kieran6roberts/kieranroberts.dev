@@ -1,5 +1,6 @@
 ---
 import { LinkPreview } from '@astro-community/astro-embed-link-preview';
+import { Icon } from 'astro-icon/components';
 
 import Layout from '@layouts/Layout.astro';
 import Hero from '@modules/landing/Hero.astro';
@@ -84,6 +85,12 @@ const { postsArray } = getPostsPaginatedData(postsData!);
 				class="relative z-10 mx-auto"
 			>
 				View all posts
+				<Icon
+					name="arrow-right"
+					width={16}
+					height={16}
+					class="stroke-current text-black transition-transform duration-200 group-hover:translate-x-1 dark:text-white"
+				/>
 			</Button>
 		</SectionContainer>
 	</section>

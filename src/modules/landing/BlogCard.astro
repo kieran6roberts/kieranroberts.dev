@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { ArrowRightSVG } from '@components/icons';
+import { Icon } from 'astro-icon/components';
 
 interface Props {
 	title: string;
@@ -51,8 +52,11 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
 		class="mt-auto flex items-center gap-2 text-base text-zinc-600 transition-all duration-300 group-hover:text-zinc-700 dark:text-zinc-400 dark:group-hover:text-zinc-300"
 	>
 		Read more
-		<span class="inline-block h-3 w-3">
-			<ArrowRightSVG />
-		</span>
+		<Icon
+			name="arrow-right"
+			width={16}
+			height={16}
+			class="stroke-current text-black transition-transform duration-200 group-hover:translate-x-1 dark:text-white"
+		/>
 	</span>
 </a>

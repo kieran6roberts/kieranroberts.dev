@@ -2,6 +2,7 @@
 import { experience, education } from '@consts';
 import ExperienceCard from '@/modules/landing/ExperienceCard.astro';
 import Button from '@/components/base/Button.astro';
+import { Icon } from 'astro-icon/components';
 ---
 
 <script>
@@ -91,6 +92,12 @@ import Button from '@/components/base/Button.astro';
 								intent="secondary"
 							>
 								Download CV
+								<Icon
+									name="download-circle"
+									width={20}
+									height={20}
+									class="stroke-current text-black transition-transform duration-200 group-hover:translate-y-1 dark:text-white"
+								/>
 							</Button>
 							<span class="text-sm text-zinc-500 dark:text-zinc-400">
 								See my CV for more details.

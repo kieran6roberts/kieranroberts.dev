@@ -43,7 +43,11 @@ const { postsArray } = getPostsPaginatedData(postsData!);
       <HeroCloudsSVG />
     </div>
     <SectionContainer>
-      <SectionHeading client:load title="Career & Experience" />
+      <SectionHeading
+        client:load
+        title="Career & Experience"
+        copy="Here are some of my relevant professional career experience. To see more, you can check out my attached CV."
+      />
       <ExperienceList client:load />
     </SectionContainer>
   </section>
@@ -58,7 +62,7 @@ const { postsArray } = getPostsPaginatedData(postsData!);
       <SectionHeading
         client:load
         title="Blog"
-        copy="I write about various topics in the web development space. From React & Next.js specifics, to software testing, UI/UX content, and much more."
+        copy="I write about topics that interest me in the web development space. UI/UX tutorials, React, testing, and more."
       />
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -81,7 +85,7 @@ const { postsArray } = getPostsPaginatedData(postsData!);
         asLink
         href={BLOG_URL}
         variant="secondary"
-        className="mx-auto"
+        className="relative z-10 mx-auto"
       >
         View all posts
       </Button>
@@ -95,7 +99,7 @@ const { postsArray } = getPostsPaginatedData(postsData!);
       <SectionHeading
         client:load
         title="Accolades & Achievements"
-        copy="Here are some of my personal accomplishments in the web development space that I am proud of."
+        copy="Here are some personal accomplishments from the web development space that I am proud of."
       />
       <div
         class="grid grid-flow-dense grid-cols-1 lg:grid-cols-6 lg:auto-rows-[minmax(0, 1fr)] gap-6"

@@ -21,7 +21,8 @@ export const BlogCard = ({ title, description, date, link, image }: Props) => {
       href={link}
       target="_blank"
       className={cn(
-        'group blog-card-hover flex flex-col gap-4 rounded-xl pl-4 py-4 pr-6 border border-zinc-200 dark:border-zinc-800 link-focus'
+        'group blog-card-hover flex flex-col gap-4 rounded-xl pl-4 py-4 pr-6 border border-zinc-200 dark:border-zinc-800 link-focus',
+        'bg-white dark:bg-zinc-900 relative z-10'
       )}
       onMouseEnter={handleBoopTrigger}
     >

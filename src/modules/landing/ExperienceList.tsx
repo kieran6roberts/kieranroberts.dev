@@ -9,9 +9,7 @@ const ExperienceCard = ({ experience }: { experience: ExperienceType }) => {
   return (
     <article className="flex flex-col justify-center gap-4 py-8 w-full pb-8">
       <div>
-        <span className="w-12 md:w-20 block">
-          <experience.logo />
-        </span>
+        <span className="w-12 md:w-20 block">{experience.logo}</span>
       </div>
       <div className="flex flex-col gap-8">
         <div className="flex flex-col gap-2">
@@ -48,12 +46,6 @@ const ExperienceCard = ({ experience }: { experience: ExperienceType }) => {
             />
           </div>
         )}
-
-        {experience.company === 'Hashnode' ? (
-          <span className="text-base text-zinc-500 dark:text-zinc-400">
-            Check out my CV for more details.
-          </span>
-        ) : null}
       </div>
     </article>
   );
@@ -67,28 +59,34 @@ export const ExperienceList = () => {
         <TabsTrigger value="education">Education</TabsTrigger>
       </TabsList>
 
-      <TabsContent value="experience">
+      <TabsContent value="experience" className="min-h-[700px]">
         {experienceList.map((experience) => (
-          <div className="flex flex-col items-start" key={experience.company}>
+          <div className="flex flex-col items-start gap-6" key={experience.company}>
             <ExperienceCard experience={experience} />
-            <Button
-              asLink
-              href="/kieran-roberts-CV.pdf"
-              target="_blank"
-              download
-              endIcon={
-                <span className="block text-l dark:text-d w-5 h-5">
-                  <DownloadCircleSVG />
-                </span>
-              }
-            >
-              Download CV
-            </Button>
+            <div className="flex flex-row flex-wrap gap-4 items-center">
+              <Button
+                asLink
+                href="/kieran-roberts-CV.pdf"
+                target="_blank"
+                download
+                variant="secondary"
+                endIcon={
+                  <span className="block text-l dark:text-d w-5 h-5">
+                    <DownloadCircleSVG />
+                  </span>
+                }
+              >
+                Download CV
+              </Button>
+              <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                See my CV for more details.
+              </span>
+            </div>
           </div>
         ))}
       </TabsContent>
 
-      <TabsContent value="education">
+      <TabsContent value="education" className="min-h-[700px]">
         {education.map((education) => (
           <div className="flex flex-col items-end" key={education.company}>
             <ExperienceCard experience={education} />

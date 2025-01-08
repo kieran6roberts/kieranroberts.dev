@@ -1,8 +1,8 @@
 ---
 import { Image } from 'astro:assets';
 import type { Experience } from '@env';
-import { HashnodeSVG, BangorUniversitySVG } from '@components/icons';
-
+import { Icon } from 'astro-icon/components';
+import { BangorUniversitySVG } from '@components/icons/BangorUniversitySVG';
 type Props = Experience;
 const { logo, company, title, type, location, date, responsibilities, image } = Astro.props;
 ---
@@ -11,11 +11,9 @@ const { logo, company, title, type, location, date, responsibilities, image } = 
 	<div>
 		{
 			logo === 'hashnode' ? (
-				<span class="block w-12 md:w-16">
-					<HashnodeSVG />
-				</span>
+				<Icon name="hashnode" width="48" height="48" />
 			) : logo === 'bangor' ? (
-				<span class="block w-20 md:w-24">
+				<span class="block w-16 md:w-20">
 					<BangorUniversitySVG />
 				</span>
 			) : null

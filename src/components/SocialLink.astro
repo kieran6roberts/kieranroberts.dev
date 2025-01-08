@@ -1,0 +1,21 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+	href: string;
+	label: string;
+	iconName: string;
+}
+
+const { href, label, iconName } = Astro.props;
+---
+
+<a
+	{href}
+	target="_blank"
+	rel="noreferrer"
+	class="link-focus group flex items-center gap-1 rounded-md text-zinc-600 hover:text-d dark:text-zinc-300 dark:hover:text-l"
+>
+	<span class="hidden md:block">{label}</span>
+	<span class="md:hidden"><Icon name={iconName} class="h-5 w-5 stroke-current" /></span>
+</a>

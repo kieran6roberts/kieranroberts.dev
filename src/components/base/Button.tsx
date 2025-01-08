@@ -56,7 +56,6 @@ type ButtonProps =
       type: 'submit' | 'button';
     };
 
-// Todo update with element attributes;
 type ComponentType = ButtonProps;
 
 export const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, ComponentType>(

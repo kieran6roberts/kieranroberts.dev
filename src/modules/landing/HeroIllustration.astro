@@ -1,0 +1,84 @@
+---
+import { Image } from 'astro:assets';
+import kieranAtWorkImage from '@images/kieran-at-work.webp';
+import hashnodeTeam2022Image from '@images/hashnode-team-2022.webp';
+import hashnodeTeam2024Image from '@images/hashnode-team-2024.webp';
+---
+
+<script>
+	function setupAnimations() {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						const element = entry.target;
+						observer.unobserve(element);
+					}
+				});
+			},
+			{
+				rootMargin: '0px',
+				threshold: 0,
+			},
+		);
+
+		document.querySelectorAll('[data-animate]').forEach((element) => {
+			observer.observe(element);
+		});
+	}
+
+	setupAnimations();
+</script>
+
+<div class="flex flex-col items-center justify-center gap-4">
+	<p class="relative text-center text-sm text-zinc-600 dark:text-zinc-400 lg:text-lg">
+		I love to collaborate
+	</p>
+	<div class="mx-auto h-px w-40 rounded-full bg-zinc-200 dark:bg-zinc-800"></div>
+</div>
+
+<div
+	class="relative mt-12 flex w-full flex-col items-center justify-center gap-4 lg:flex-row lg:gap-0 [&>div:has(~div:hover)]:scale-90 [&>div:has(~div:hover)]:brightness-50 [&>div:hover~div]:scale-90 [&>div:hover~div]:brightness-50"
+>
+	<div
+		data-animate
+		class="z-20 h-[290px] w-full rounded-xl object-cover shadow-xl brightness-[0.8] transition-transform duration-150 ease-in animate-in fade-in hover:brightness-100 lg:max-w-[550px] lg:translate-x-20 lg:rotate-6 lg:hover:z-50 lg:hover:rotate-0 lg:hover:scale-105 xl:max-w-[650px]"
+	>
+		<Image
+			src={hashnodeTeam2022Image}
+			alt="Hashnode Team from 2022 posing for a team photo"
+			class="h-full w-full rounded-xl object-cover object-center"
+			loading="lazy"
+			width={650}
+			height={650}
+		/>
+	</div>
+
+	<div
+		data-animate
+		class="z-30 h-[290px] w-full transform rounded-xl object-cover shadow-xl brightness-[0.8] transition-transform duration-150 ease-in animate-in fade-in lg:max-w-[550px] lg:-rotate-[5deg] lg:hover:z-30 lg:hover:-rotate-0 lg:hover:scale-105 lg:hover:brightness-100 xl:max-w-[650px]"
+	>
+		<Image
+			src={kieranAtWorkImage}
+			alt="Kieran discussing a project with a coworker in person while sharing his laptop screen"
+			class="h-full w-full rounded-xl object-cover"
+			loading="lazy"
+			width={650}
+			height={650}
+		/>
+	</div>
+
+	<div
+		data-animate
+		class="z-20 h-[290px] w-full rounded-xl object-cover shadow-xl brightness-[0.8] transition-transform duration-150 ease-in animate-in fade-in hover:brightness-100 lg:max-w-[550px] lg:-translate-x-20 lg:rotate-6 lg:hover:z-50 lg:hover:rotate-0 lg:hover:scale-105 xl:max-w-[650px]"
+	>
+		<Image
+			src={hashnodeTeam2024Image}
+			alt="Kieran discussing a project with a coworker in person while sharing his laptop screen"
+			class="h-full w-full rounded-xl object-cover"
+			loading="lazy"
+			width={650}
+			height={650}
+		/>
+	</div>
+</div>

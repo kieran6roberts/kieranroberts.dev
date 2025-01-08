@@ -1,15 +1,46 @@
 ---
-import { HeroCTA } from '@modules/landing/HeroCTA';
-import { HeroTitle } from '@modules/landing/HeroTitle';
-import { HeroCopy } from '@modules/landing/HeroCopy';
+import { Icon } from 'astro-icon/components';
+import { LINKEDIN_PROFILE_URL } from '@consts/urls';
+import Button from '@components/base/Button.astro';
 ---
 
 <div>
-  <div class="relative flex flex-col items-center lg:items-start gap-4">
-    <div class="z-10 flex flex-col gap-8 mb-8">
-      <HeroTitle client:load />
-      <HeroCopy client:load />
-      <HeroCTA client:load />
-    </div>
-  </div>
+	<div class="relative flex flex-col items-center gap-4 lg:items-start">
+		<div class="z-10 mb-8 flex flex-col gap-8">
+			<h1
+				class="mx-auto max-w-[450px] bg-gradient-to-r from-black/95 via-black/80 to-black/75 bg-clip-text text-center font-heading text-4xl font-semibold tracking-tight text-transparent duration-300 ease-in animate-in fade-in dark:from-white/95 dark:via-white/80 dark:to-white/75 sm:max-w-[600px] sm:text-6xl lg:mx-0 lg:max-w-[850px] lg:text-7xl/[75px] 2xl:max-w-[1000px] 2xl:text-[84px]/[90px]"
+			>
+				I turn complex web <mark class="bg-yellow-300/50 dark:bg-yellow-100/90">problems</mark>{' '}
+				into lightning fast business{' '}
+				<mark class="bg-yellow-300/50 dark:bg-yellow-100/90">solutions.</mark>
+			</h1>
+			<p
+				class="mx-auto max-w-[90%] text-center text-base font-medium tracking-tight text-zinc-700 duration-300 ease-in animate-in fade-in slide-in-from-top dark:text-zinc-200 md:max-w-[625px] md:text-lg"
+			>
+				I am a JavaScript-focused problem solver with a passion for building interactive user
+				interfaces, and delivering an exceptional user experience. With several years of industry
+				experience, I create fast and accessible web products that last.
+			</p>
+			<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+				<Button as="a" href="/kieran-roberts-CV.pdf" target="_blank" download>
+					Download my CV
+					<Icon
+						name="download-circle"
+						width={20}
+						height={20}
+						class="stroke-current text-white transition-transform duration-200 group-hover:translate-y-1 dark:text-black"
+					/>
+				</Button>
+				<Button intent="secondary" as="a" href={LINKEDIN_PROFILE_URL} target="_blank">
+					Find me on LinkedIn
+					<Icon
+						name="linked-in"
+						width={16}
+						height={16}
+						class="stroke-current text-black transition-transform duration-200 group-hover:translate-x-1 dark:text-white"
+					/>
+				</Button>
+			</div>
+		</div>
+	</div>
 </div>

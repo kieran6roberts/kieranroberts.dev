@@ -6,41 +6,41 @@ import Footer from '@layouts/Footer.astro';
 import { DOMAIN_NAME } from '@consts/urls';
 
 type Props = ComponentProps<typeof SEO> & {
-  showFooter?: boolean;
+	showFooter?: boolean;
 };
 
 const DEFAULT_TITLE = 'Kieran Roberts | Software Developer';
 const DEFAULT_DESCRIPTION =
-  "Hi, I'm a React & TypeScript focused web developer with multiple years worth of industry experience. Let's talk";
+	"Hi, I'm a React & TypeScript focused web developer with multiple years worth of industry experience. Let's talk";
 const DEFAULT_URL = DOMAIN_NAME;
 
 const {
-  title = DEFAULT_TITLE,
-  description = DEFAULT_DESCRIPTION,
-  url = DEFAULT_URL,
-  showFooter = true,
+	title = DEFAULT_TITLE,
+	description = DEFAULT_DESCRIPTION,
+	url = DEFAULT_URL,
+	showFooter = true,
 } = Astro.props;
 ---
 
 <html
-  style={{
-    scrollBehavior: 'smooth',
-  }}
-  lang="en"
+	style={{
+		scrollBehavior: 'smooth',
+	}}
+	lang="en"
 >
-  <SEO title={title} description={description} url={url} />
-  <body
-    style={{
-      scrollBehavior: 'smooth',
-    }}
-    class="bg-l dark:bg-d dark:text-l"
-  >
-    <div class="flex flex-col">
-      <Header client:load />
-      <main>
-        <slot />
-      </main>
-    </div>
-    {showFooter ? <Footer /> : null}
-  </body>
+	<SEO {title} {description} {url} />
+	<body
+		style={{
+			scrollBehavior: 'smooth',
+		}}
+		class="bg-l dark:bg-d dark:text-l"
+	>
+		<div class="flex flex-col">
+			<Header client:load />
+			<main>
+				<slot />
+			</main>
+		</div>
+		{showFooter ? <Footer /> : null}
+	</body>
 </html>

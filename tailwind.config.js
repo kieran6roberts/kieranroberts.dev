@@ -2,7 +2,7 @@
 
 export default {
   content: ['./src/**/*.{astro,html,js,ts,jsx,tsx}'],
-  plugins: [require('@tailwindcss/typography'), require('tailwindcss-animate')],
+  plugins: [require('tailwindcss-animate')],
   theme: {
     extend: {
       fontFamily: {

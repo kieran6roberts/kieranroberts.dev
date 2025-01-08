@@ -1,0 +1,126 @@
+---
+import { experience, education } from '@consts';
+import ExperienceCard from '@/modules/landing/ExperienceCard.astro';
+import Button from '@/components/base/Button.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const tabs = document.querySelectorAll('[data-tab-target]');
+		const tabContents = document.querySelectorAll('[data-tab-content]');
+
+		tabs.forEach((tab) => {
+			tab.addEventListener('click', () => {
+				const targetAttribute = tab.getAttribute('data-tab-target');
+				if (!targetAttribute) return;
+
+				const target = document.querySelector(targetAttribute);
+				if (!target) return;
+
+				// Update active classes
+				tabContents.forEach((tabContent) => {
+					tabContent.removeAttribute('data-tab-content-active');
+				});
+				tabs.forEach((t) => {
+					t.setAttribute('data-state', 'inactive');
+					t.setAttribute('aria-selected', 'false');
+				});
+
+				// Set active states
+				tab.setAttribute('data-state', 'active');
+				tab.setAttribute('aria-selected', 'true');
+				target.setAttribute('data-tab-content-active', 'true');
+			});
+		});
+	});
+</script>
+
+<div class="relative z-10 w-full">
+	<ul
+		class="mx-auto grid w-full max-w-[800px] list-none grid-cols-2 gap-2 rounded-full border border-zinc-200 p-1 dark:border-zinc-800"
+		role="tablist"
+		aria-orientation="horizontal"
+	>
+		<li>
+			<button
+				data-tab-target="#experience"
+				data-state="active"
+				role="tab"
+				aria-controls="experience"
+				aria-selected="true"
+				type="button"
+				class="h-full w-full rounded-full bg-white px-3 py-2 text-base font-medium text-zinc-900 hover:bg-zinc-100 data-[state=active]:bg-zinc-900 data-[state=active]:text-white hover:data-[state=active]:bg-zinc-800 dark:bg-transparent dark:text-white dark:hover:bg-zinc-900 dark:data-[state=active]:bg-white dark:data-[state=active]:text-zinc-900 dark:hover:data-[state=active]:bg-zinc-100"
+			>
+				Experience
+			</button>
+		</li>
+		<li>
+			<button
+				data-tab-target="#education"
+				data-state="inactive"
+				role="tab"
+				aria-controls="education"
+				aria-selected="false"
+				type="button"
+				class="h-full w-full rounded-full bg-white px-3 py-2 text-base font-medium text-zinc-900 hover:bg-zinc-100 data-[state=active]:bg-zinc-900 data-[state=active]:text-white hover:data-[state=active]:bg-zinc-800 dark:bg-transparent dark:text-white dark:hover:bg-zinc-900 dark:data-[state=active]:bg-white dark:data-[state=active]:text-zinc-900 dark:hover:data-[state=active]:bg-zinc-100"
+			>
+				Education
+			</button>
+		</li>
+	</ul>
+
+	<div class="tab-content mx-auto min-h-[700px] w-full max-w-[1000px]">
+		<div
+			id="experience"
+			data-tab-content
+			data-tab-content-active
+			aria-labelledby="experience"
+			role="tabpanel"
+			class="hidden data-[tab-content-active]:block"
+		>
+			{
+				experience.map((experience) => (
+					<div class="flex flex-col items-start gap-6">
+						<ExperienceCard {...experience} />
+						<div class="flex flex-row flex-wrap items-center gap-4">
+							<Button
+								as="a"
+								href="/kieran-roberts-CV.pdf"
+								target="_blank"
+								download
+								intent="secondary"
+							>
+								Download CV
+								<Icon
+									name="download-circle"
+									width={20}
+									height={20}
+									class="stroke-current text-black transition-transform duration-200 group-hover:translate-y-1 dark:text-white"
+								/>
+							</Button>
+							<span class="text-sm text-zinc-500 dark:text-zinc-400">
+								See my CV for more details.
+							</span>
+						</div>
+					</div>
+				))
+			}
+		</div>
+		<div
+			id="education"
+			data-tab-content
+			aria-labelledby="education"
+			role="tabpanel"
+			class="hidden data-[tab-content-active]:block"
+		>
+			{
+				education.map((education) => (
+					<div class="flex flex-col items-end">
+						<ExperienceCard {...education} />
+					</div>
+				))
+			}
+		</div>
+	</div>
+</div>

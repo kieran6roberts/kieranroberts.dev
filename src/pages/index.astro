@@ -11,11 +11,11 @@ import SectionContainer from '@modules/landing/SectionContainer.astro';
 import AccoladeTweetCard from '@modules/landing/AccoladeTweetCard.astro';
 import ExperienceList from '@modules/landing/ExperienceList.astro';
 import Button from '@components/base/Button.astro';
+import CloudBG from '@modules/landing/CloudBG.astro';
 
 import { BLOG_URL } from '@consts/urls';
 import { DOMAIN_NAME } from '@consts/urls';
 import { fetchPaginatedBlogPosts, getPostsPaginatedData } from '@utils/blog';
-import { HeroCloudsSVG } from '@components/icons';
 
 const postsData = await fetchPaginatedBlogPosts({ first: 3 });
 const { postsArray } = getPostsPaginatedData(postsData!);
@@ -23,9 +23,7 @@ const { postsArray } = getPostsPaginatedData(postsData!);
 
 <Layout url={DOMAIN_NAME} showFooter={true}>
 	<div id="hero" class="relative overflow-hidden">
-		<div class="pointer-events-none absolute bottom-0 z-0 w-full opacity-25">
-			<HeroCloudsSVG />
-		</div>
+		<CloudBG />
 		<section
 			class="relative z-10 mx-auto mt-20 flex h-full min-h-[calc(70vh)] w-full max-w-[1600px] flex-col items-center justify-center"
 		>
@@ -40,9 +38,7 @@ const { postsArray } = getPostsPaginatedData(postsData!);
 		</div>
 	</section>
 	<section class="relative border-b border-zinc-200 dark:border-zinc-800">
-		<div class="pointer-events-none absolute bottom-0 z-0 w-full opacity-10">
-			<HeroCloudsSVG />
-		</div>
+		<CloudBG />
 		<SectionContainer>
 			<SectionHeading
 				title="Career & Experience"
@@ -55,9 +51,7 @@ const { postsArray } = getPostsPaginatedData(postsData!);
 		id="blog"
 		class="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900"
 	>
-		<div class="pointer-events-none absolute bottom-0 z-0 w-full opacity-10">
-			<HeroCloudsSVG />
-		</div>
+		<CloudBG />
 		<SectionContainer>
 			<SectionHeading
 				title="Blog"
@@ -95,9 +89,7 @@ const { postsArray } = getPostsPaginatedData(postsData!);
 		</SectionContainer>
 	</section>
 	<section id="accolades" class="relative overflow-hidden">
-		<div class="pointer-events-none absolute bottom-0 z-0 w-full opacity-10">
-			<HeroCloudsSVG />
-		</div>
+		<CloudBG />
 		<SectionContainer>
 			<SectionHeading
 				title="Accolades & Achievements"

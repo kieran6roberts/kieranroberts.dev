@@ -1,53 +1,43 @@
 import { SunLightSVG, MoonStarsSVG } from '@components/icons';
 import * as React from 'react';
-import { animated } from '@react-spring/web';
 import { useStore } from '@nanostores/react';
 
 import { getThemePreference } from '@utils/theme';
-import { useBoop } from '@hooks/useBoop';
 import { toggleTheme, theme } from 'src/stores/themeStore';
 
 const ThemeButtonLoader = () => (
-  <span className="w-[36px] h-[36px] rounded-full bg-zinc-50 dark:bg-zinc-900" />
+	<span className="h-[36px] w-[36px] rounded-full bg-zinc-50 dark:bg-zinc-900" />
 );
 
-const ThemeToggle = () => {
-  const { styleToApplyOnBoop, handleBoopTrigger } = useBoop({
-    rotation: 30,
-    timing: 300,
-  });
-  const [isMounted, setIsMounted] = React.useState(false);
-  const $theme = useStore(theme);
-  const isDarkTheme = $theme === 'dark';
+export const ThemeToggle = () => {
+	const [isMounted, setIsMounted] = React.useState(false);
+	const $theme = useStore(theme);
+	const isDarkTheme = $theme === 'dark';
 
-  React.useEffect(() => {
-    const themePreference = getThemePreference();
-    theme.set(themePreference);
-    setIsMounted(true);
-  }, []);
+	React.useEffect(() => {
+		const themePreference = getThemePreference();
+		theme.set(themePreference);
+		setIsMounted(true);
+	}, []);
 
-  if (!isMounted) {
-    return <ThemeButtonLoader />;
-  }
+	if (!isMounted) {
+		return <ThemeButtonLoader />;
+	}
 
-  const themeButton = (
-    <button
-      id="theme-toggle"
-      title="Toggles light & dark theme"
-      aria-live="polite"
-      className="flex items-center justify-center p-1.5 rounded-full link-focus icon-button-hover"
-      onMouseEnter={handleBoopTrigger}
-      onClick={toggleTheme}
-      disabled={$theme === null}
-      {...(styleToApplyOnBoop && { style: styleToApplyOnBoop })}
-    >
-      <animated.span style={styleToApplyOnBoop} className="block text-d dark:text-l w-6 h-6">
-        {isDarkTheme ? <SunLightSVG /> : <MoonStarsSVG />}
-      </animated.span>
-    </button>
-  );
+	const themeButton = (
+		<button
+			id="theme-toggle"
+			title="Toggles light & dark theme"
+			aria-live="polite"
+			className="link-focus icon-button-hover group flex items-center justify-center rounded-full p-1.5"
+			onClick={toggleTheme}
+			disabled={$theme === null}
+		>
+			<span className="duration-400 block h-6 w-6 text-d transition-transform ease-in-out group-hover:-rotate-90 dark:text-l">
+				{isDarkTheme ? <SunLightSVG /> : <MoonStarsSVG />}
+			</span>
+		</button>
+	);
 
-  return themeButton;
+	return themeButton;
 };
-
-export default ThemeToggle;

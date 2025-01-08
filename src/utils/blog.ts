@@ -1,18 +1,11 @@
-import {
-  BlogPostsDocument,
-  PostPagePostsDocument,
-  type BlogPostsQuery,
-  type PostPagePostsQuery,
-} from 'generated/graphql';
+import { BlogPostsDocument, PostPagePostsDocument } from 'generated/graphql';
 import { request } from 'graphql-request';
+import type { BlogPosts, PostPagePosts } from '@/env';
 
 const BLOG_HOSTNAME = 'blog.kieranroberts.dev';
 const HASHNODE_API_URL = 'https://gql.hashnode.com';
 
 export const INITIAL_POST_COUNT = 10;
-
-export type BlogPosts = NonNullable<BlogPostsQuery['publication']>['posts'];
-export type PostPagePosts = NonNullable<PostPagePostsQuery['publication']>['posts'];
 
 export const fetchPaginatedBlogPosts = async ({
   first,

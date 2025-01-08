@@ -3,17 +3,17 @@ import { LinkPreview } from '@astro-community/astro-embed-link-preview';
 
 import Layout from '@layouts/Layout.astro';
 import Hero from '@modules/landing/Hero.astro';
-import { SectionHeading } from '@modules/landing/SectionHeading';
-import { HeroIllustration } from '@modules/landing/HeroIllustration';
-import { BlogCard } from '@modules/landing/BlogCard';
-import { fetchPaginatedBlogPosts, getPostsPaginatedData } from '@utils/blog';
-import { Button } from '@components/base/Button';
+import SectionHeading from '@modules/landing/SectionHeading.astro';
+import HeroIllustration from '@modules/landing/HeroIllustration.astro';
+import BlogCard from '@modules/landing/BlogCard.astro';
+import SectionContainer from '@modules/landing/SectionContainer.astro';
+import AccoladeTweetCard from '@modules/landing/AccoladeTweetCard.astro';
+import ExperienceList from '@modules/landing/ExperienceList.astro';
+
 import { BLOG_URL } from '@consts/urls';
 import { DOMAIN_NAME } from '@consts/urls';
-import AccoladeTweetCard from '@modules/landing/AccoladeTweetCard.astro';
-// import { Calendar } from '@modules/landing/Calendar';
-import { ExperienceList } from '@modules/landing/ExperienceList';
-import { SectionContainer } from '@modules/landing/SectionContainer';
+import { fetchPaginatedBlogPosts, getPostsPaginatedData } from '@utils/blog';
+import { Button } from '@components/base/Button';
 import { HeroCloudsSVG } from '@components/icons';
 
 const postsData = await fetchPaginatedBlogPosts({ first: 3 });
@@ -21,119 +21,109 @@ const { postsArray } = getPostsPaginatedData(postsData!);
 ---
 
 <Layout url={DOMAIN_NAME} showFooter={true}>
-  <div id="hero" class="relative overflow-hidden">
-    <div class="absolute bottom-0 z-0 w-full opacity-25 pointer-events-none">
-      <HeroCloudsSVG />
-    </div>
-    <section
-      class="z-10 flex flex-col items-center justify-center relative h-full mt-20 min-h-[calc(70vh)] w-full max-w-[1600px] mx-auto"
-    >
-      <SectionContainer>
-        <Hero />
-      </SectionContainer>
-    </section>
-  </div>
-  <section class="bg-gray-50 dark:bg-zinc-900 border-y dark:border-zinc-800">
-    <div class="max-w-[1600px] mx-auto gap-8 pt-12 pb-24 px-4 md:px-16 lg:px-24">
-      <HeroIllustration client:load />
-    </div>
-  </section>
-  <section class="relative border-b border-zinc-200 dark:border-zinc-800">
-    <div class="absolute bottom-0 z-0 w-full opacity-10 pointer-events-none">
-      <HeroCloudsSVG />
-    </div>
-    <SectionContainer>
-      <SectionHeading
-        client:load
-        title="Career & Experience"
-        copy="Here are some of my relevant professional career experience. To see more, you can check out my attached CV."
-      />
-      <ExperienceList client:load />
-    </SectionContainer>
-  </section>
-  <section
-    id="blog"
-    class="relative overflow-hidden bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800"
-  >
-    <div class="absolute bottom-0 z-0 w-full opacity-10 pointer-events-none">
-      <HeroCloudsSVG />
-    </div>
-    <SectionContainer>
-      <SectionHeading
-        client:load
-        title="Blog"
-        copy="I write about topics that interest me in the web development space. UI/UX tutorials, React, testing, and more."
-      />
+	<div id="hero" class="relative overflow-hidden">
+		<div class="pointer-events-none absolute bottom-0 z-0 w-full opacity-25">
+			<HeroCloudsSVG />
+		</div>
+		<section
+			class="relative z-10 mx-auto mt-20 flex h-full min-h-[calc(70vh)] w-full max-w-[1600px] flex-col items-center justify-center"
+		>
+			<SectionContainer>
+				<Hero />
+			</SectionContainer>
+		</section>
+	</div>
+	<section class="border-y bg-gray-50 dark:border-zinc-800 dark:bg-zinc-900">
+		<div class="mx-auto max-w-[1600px] gap-8 px-4 pb-24 pt-12 md:px-16 lg:px-24">
+			<HeroIllustration />
+		</div>
+	</section>
+	<section class="relative border-b border-zinc-200 dark:border-zinc-800">
+		<div class="pointer-events-none absolute bottom-0 z-0 w-full opacity-10">
+			<HeroCloudsSVG />
+		</div>
+		<SectionContainer>
+			<SectionHeading
+				title="Career & Experience"
+				copy="Here are some of my relevant professional career experience. To see more, you can check out my attached CV."
+			/>
+			<ExperienceList />
+		</SectionContainer>
+	</section>
+	<section
+		id="blog"
+		class="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900"
+	>
+		<div class="pointer-events-none absolute bottom-0 z-0 w-full opacity-10">
+			<HeroCloudsSVG />
+		</div>
+		<SectionContainer>
+			<SectionHeading
+				title="Blog"
+				copy="I write about topics that interest me in the web development space. UI/UX tutorials, React, testing, and more."
+			/>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {
-          postsArray.map((post) => (
-            <BlogCard
-              client:load
-              title={post.title}
-              description={post.brief}
-              date={post.publishedAt}
-              link={post.url}
-              image={post.coverImage?.url || ''}
-            />
-          ))
-        }
-      </div>
-      <Button
-        client:visible
-        target="_blank"
-        asLink
-        href={BLOG_URL}
-        variant="secondary"
-        className="relative z-10 mx-auto"
-      >
-        View all posts
-      </Button>
-    </SectionContainer>
-  </section>
-  <section id="accolades" class="relative overflow-hidden">
-    <div class="absolute bottom-0 z-0 w-full opacity-10 pointer-events-none">
-      <HeroCloudsSVG />
-    </div>
-    <SectionContainer>
-      <SectionHeading
-        client:load
-        title="Accolades & Achievements"
-        copy="Here are some personal accomplishments from the web development space that I am proud of."
-      />
-      <div
-        class="grid grid-flow-dense grid-cols-1 lg:grid-cols-6 lg:auto-rows-[minmax(0, 1fr)] gap-6"
-      >
-        <AccoladeTweetCard
-          id="https://twitter.com/Kieran6dev/status/1699795885037883568?ref_src=twsrc%5Etfw"
-          className="lg:row-span-2 lg:col-span-2"
-        />
-        <AccoladeTweetCard
-          id="https://twitter.com/Kieran6dev/status/1378027456561565701?ref_src=twsrc%5Etfw"
-          className="lg:col-span-4 lg:row-span-2"
-        />
-        <AccoladeTweetCard
-          id="https://twitter.com/Kieran6dev/status/1362110408581140481?ref_src=twsrc%5Etfw"
-          className="lg:col-span-3 lg:row-span-3"
-        />
-        <div
-          class="relative col-span-1 lg:col-span-3 lg:row-span-3 h-max w-full border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 rounded-lg overflow-hidden"
-        >
-          <LinkPreview
-            id="https://townhall.hashnode.com/winners-of-buy-me-a-coffee-april-giveaway"
-          />
-        </div>
-        <AccoladeTweetCard
-          id="https://twitter.com/QANewsletter/status/1375486529112571910?ref_src=twsrc%5Etfw"
-          className="lg:col-span-6 lg:row-span-3"
-        />
-      </div>
-    </SectionContainer>
-  </section>
-  <!-- <section>
-			<div class="flex flex-col items-center gap-8 py-12 px-4 md:px-8 lg:px-16">
-				<SectionHeading client:load title="Book a meeting with me" />
-				<Calendar client:load />
+			<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+				{
+					postsArray.map((post) => (
+						<BlogCard
+							title={post.title}
+							description={post.brief}
+							date={post.publishedAt}
+							link={post.url}
+							image={post.coverImage?.url || ''}
+						/>
+					))
+				}
 			</div>
-		</section> -->
+			<Button
+				client:visible
+				target="_blank"
+				asLink
+				href={BLOG_URL}
+				variant="secondary"
+				className="relative z-10 mx-auto"
+			>
+				View all posts
+			</Button>
+		</SectionContainer>
+	</section>
+	<section id="accolades" class="relative overflow-hidden">
+		<div class="pointer-events-none absolute bottom-0 z-0 w-full opacity-10">
+			<HeroCloudsSVG />
+		</div>
+		<SectionContainer>
+			<SectionHeading
+				title="Accolades & Achievements"
+				copy="Here are some personal accomplishments from the web development space that I am proud of."
+			/>
+			<div
+				class="lg:auto-rows-[minmax(0, 1fr)] grid grid-flow-dense grid-cols-1 gap-6 lg:grid-cols-6"
+			>
+				<AccoladeTweetCard
+					id="https://twitter.com/Kieran6dev/status/1699795885037883568?ref_src=twsrc%5Etfw"
+					className="lg:col-span-2 lg:row-span-2"
+				/>
+				<AccoladeTweetCard
+					id="https://twitter.com/Kieran6dev/status/1378027456561565701?ref_src=twsrc%5Etfw"
+					className="lg:col-span-4 lg:row-span-2"
+				/>
+				<AccoladeTweetCard
+					id="https://twitter.com/Kieran6dev/status/1362110408581140481?ref_src=twsrc%5Etfw"
+					className="lg:col-span-3 lg:row-span-3"
+				/>
+				<div
+					class="relative col-span-1 h-max w-full overflow-hidden rounded-lg border border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900 lg:col-span-3 lg:row-span-3"
+				>
+					<LinkPreview
+						id="https://townhall.hashnode.com/winners-of-buy-me-a-coffee-april-giveaway"
+					/>
+				</div>
+				<AccoladeTweetCard
+					id="https://twitter.com/QANewsletter/status/1375486529112571910?ref_src=twsrc%5Etfw"
+					className="lg:col-span-6 lg:row-span-3"
+				/>
+			</div>
+		</SectionContainer>
+	</section>
 </Layout>

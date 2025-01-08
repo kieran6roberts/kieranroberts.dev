@@ -1,0 +1,56 @@
+---
+interface Props {
+	title?: string;
+	copy?: string;
+}
+
+const { title, copy } = Astro.props;
+---
+
+<script>
+	function setupAnimations() {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						(entry.target as HTMLElement).style.opacity = '1';
+						observer.unobserve(entry.target);
+					}
+				});
+			},
+			{
+				rootMargin: '0px',
+				threshold: 0,
+			},
+		);
+
+		document.querySelectorAll('[data-animate]').forEach((element) => {
+			observer.observe(element);
+		});
+	}
+
+	setupAnimations();
+</script>
+
+<div class="flex flex-col items-center gap-4 py-4">
+	{
+		title && (
+			<h2
+				class="text-center text-4xl font-bold text-zinc-800 ease-in animate-in fade-in dark:text-zinc-200 xl:text-5xl"
+				data-animate
+			>
+				{title}
+			</h2>
+		)
+	}
+	{
+		copy && (
+			<p
+				class="mx-auto max-w-[400px] border-t pt-4 text-center text-sm text-zinc-600 ease-in animate-in fade-in slide-in-from-bottom dark:border-zinc-800 dark:text-zinc-400 md:text-base xl:max-w-[500px] xl:text-lg"
+				data-animate
+			>
+				{copy}
+			</p>
+		)
+	}
+</div>

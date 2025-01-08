@@ -46,7 +46,6 @@ html.dark .link-preview__title {
 html.dark .twitter-tweet a {
   color: #d5ffe4;
 }
-
 /* Fonts */
 @layer base {
   :root {

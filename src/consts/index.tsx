@@ -1,5 +1,6 @@
 export const EMAIL_ADDRESS = 'kieranroberts6dev@gmail.com';
 import { HashnodeSVG, BangorUniversitySVG } from '@components/icons';
+import universityImage from '@images/university.webp';
 
 export type Experience = {
   title: string;
@@ -7,9 +8,9 @@ export type Experience = {
   location: string;
   date: string;
   type: string;
-  logo: React.ReactNode;
+  logo: string;
   responsibilities: string[];
-  image: string | null;
+  image: ImageMetadata | null;
 };
 
 export const experience: Experience[] = [
@@ -19,11 +20,7 @@ export const experience: Experience[] = [
     location: 'Remote',
     date: 'May 2021 - Present',
     type: 'Full-time',
-    logo: (
-      <span className="w-14 h-14 block">
-        <HashnodeSVG />
-      </span>
-    ),
+    logo: 'hashnode',
     responsibilities: [
       'Working closely with a dynamic 10 person developer team writing code largely in TypeScript and React, tending to a +100k active user base.',
       'Coordinating with a product manager and design team to deliver several key features for our popular blog product. Contributing to a roughly 250% increase in new blogs created per month since joining the team.',
@@ -41,14 +38,10 @@ export const education = [
     location: 'Bangor, Wales',
     type: 'Full-time',
     date: '2013 - 2017',
-    logo: (
-      <span className="w-18 h-18 block">
-        <BangorUniversitySVG />
-      </span>
-    ),
+    logo: 'bangor',
     responsibilities: [
       'Integrated Masters Degree in Electronic Engineering (MEng) with first-class honors.',
     ],
-    image: 'university.webp',
+    image: universityImage,
   },
 ];

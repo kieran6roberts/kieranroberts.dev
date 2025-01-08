@@ -30,7 +30,7 @@ export const Header = () => {
             <div className="relative flex items-center bg-l dark:bg-d justify-center h-10 w-10 rounded-full">
               <a href="/" className="link-focus rounded-full">
                 <img
-                  src="/Kieran-Avatar.webp"
+                  src="src/images/Kieran-Avatar.webp"
                   alt="Kieran Roberts header picture"
                   width={40}
                   height={40}

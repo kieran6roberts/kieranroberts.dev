@@ -11,7 +11,7 @@ const { iconName, company, title, type, location, date, responsibilities, image,
 ---
 
 <article
-	class="relative z-10 flex flex-col gap-4 rounded-xl border border-zinc-200 bg-white py-4 pl-4 pr-6 dark:border-zinc-800 dark:bg-zinc-900"
+	class="relative z-10 flex flex-col gap-4 rounded-xl border border-zinc-200 bg-white py-4 pl-4 pr-8 dark:border-zinc-800 dark:bg-zinc-900 lg:py-8 lg:pl-8 lg:pr-12"
 >
 	<div>
 		{
@@ -20,6 +20,7 @@ const { iconName, company, title, type, location, date, responsibilities, image,
 					name={iconName}
 					width={iconName === 'bangor-university' ? 65 : 48}
 					height={iconName === 'bangor-university' ? 65 : 48}
+					class={iconName === 'bangor-university' ? 'rounded bg-white p-px' : ''}
 				/>
 			)
 		}
@@ -34,7 +35,7 @@ const { iconName, company, title, type, location, date, responsibilities, image,
 					{title}
 				</h2>
 				<div
-					class="inline-flex items-center whitespace-nowrap rounded-md border border-transparent bg-zinc-900 px-2.5 py-0.5 text-xs font-semibold text-zinc-50 shadow"
+					class="inline-flex items-center whitespace-nowrap rounded-md border border-transparent bg-zinc-900 px-2.5 py-0.5 text-xs font-semibold text-zinc-50 shadow dark:bg-zinc-100 dark:text-zinc-900"
 				>
 					{type}
 				</div>
@@ -42,7 +43,7 @@ const { iconName, company, title, type, location, date, responsibilities, image,
 			<span class="text-sm font-medium text-zinc-500 dark:text-zinc-400">
 				{location} | <time>{date}</time>
 			</span>
-			<div class="h-px w-full bg-zinc-200 dark:bg-zinc-800"></div>
+			<div class="h-px w-1/2 bg-zinc-200 dark:bg-zinc-800"></div>
 			<ul
 				class="list-outside list-disc space-y-4 p-4 text-sm text-zinc-600 dark:text-zinc-300 md:text-base"
 			>

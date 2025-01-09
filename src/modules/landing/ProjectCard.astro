@@ -10,12 +10,12 @@ interface Props extends Project {}
 const { title, description, githubLink, liveLink, caseStudyLink, image, status } = Astro.props;
 
 const statusStyles = cva(
-	['mt-auto w-max rounded-full border border-zinc-200 px-3 py-px dark:border-zinc-800'],
+	['mt-auto w-max rounded-full capitalize border border-zinc-200 px-3 py-px dark:border-zinc-800'],
 	{
 		variants: {
 			status: {
 				complete: ['bg-green-500', 'text-white'],
-				'in-progress': ['bg-yellow-500', 'text-white'],
+				'in progress': ['bg-yellow-500', 'text-white'],
 				planned: ['bg-blue-500', 'text-white'],
 			},
 		},

@@ -55,7 +55,7 @@ export const projects: Project[] = [
 		liveLink: null,
 		caseStudyLink: null,
 		image: PortfolioImage,
-		status: 'in-progress',
+		status: 'in progress',
 	},
 	{
 		title: 'CoverSnap',
@@ -66,6 +66,6 @@ export const projects: Project[] = [
 		liveLink: 'https://coversnap.pages.dev/',
 		caseStudyLink: null,
 		image: CoverSnapImage,
-		status: 'in-progress',
+		status: 'in progress',
 	},
 ];

@@ -46,5 +46,5 @@ export type Project = {
 	liveLink: string | null;
 	caseStudyLink: string | null;
 	image: ImageMetadata;
-	status: 'complete' | 'in-progress' | 'planned';
+	status: 'complete' | 'in progress' | 'planned';
 };

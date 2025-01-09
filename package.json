@@ -2,6 +2,8 @@
 	"name": "kieranroberts.dev",
 	"type": "module",
 	"version": "0.0.1",
+	"author": "Kieran Roberts",
+	"license": "ISC",
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",

@@ -1,9 +1,11 @@
 export const EMAIL_ADDRESS = 'kieranroberts6dev@gmail.com';
 import CoverSnapImage from '@images/cover-snap.webp';
-import PortfolioImage from '@images/portfolio.webp';
 import universityImage from '@images/university.webp';
+import PortfolioImage from '@images/portfolio.webp';
+import TestimonialImage1 from '@images/testimonial-1.webp';
+import TestimonialImage2 from '@images/testimonial-2.webp';
 export const THEME_STORAGE_KEY = 'theme';
-import type { Experience, Project } from '@env';
+import type { Experience, Project, Testimonial } from '@env';
 
 export const Themes = {
 	light: 'light',
@@ -26,6 +28,7 @@ export const experience: Experience[] = [
 		],
 		image: null,
 		showCV: true,
+		companyURL: 'https://hashnode.com',
 	},
 ];
 
@@ -42,6 +45,7 @@ export const education: Experience[] = [
 		],
 		image: universityImage,
 		showCV: false,
+		companyURL: 'https://www.bangor.ac.uk/',
 	},
 ];
 
@@ -67,5 +71,26 @@ export const projects: Project[] = [
 		caseStudyLink: null,
 		image: CoverSnapImage,
 		status: 'in progress',
+	},
+];
+
+export const testimonials: Testimonial[] = [
+	{
+		name: 'Lakshya Thakur',
+		company: 'Hashnode',
+		role: 'Senior Software Engineer',
+		description:
+			'I have worked with Kieran on several significant projects at Hashnode. I can vouch for his attention to detail, web accessibility standards, and attention to a delivering a great user experience. He iterates quickly on feedback and ensures that there is a harmony between user experience and developer experience while building features.',
+		image: TestimonialImage1,
+		profileURL: 'https://www.linkedin.com/in/lakshyathakur/',
+	},
+	{
+		name: 'Sam Adebayo',
+		company: 'Hashnode',
+		role: 'Software Engineer',
+		description:
+			'Kieran is an exceptional professional with a strong commitment to web accessibility, consistently going the extra mile to ensure high standards in product development. He excels in code testing, provides thoughtful feedback during code reviews, and showcases remarkable skill in analyzing and simplifying complex requirements like UI component libraries to enhance team understanding and implementation. His dedication, expertise, and attention to detail make him an invaluable asset to any team or project.',
+		image: TestimonialImage2,
+		profileURL: 'https://www.linkedin.com/in/unclebigbay/',
 	},
 ];

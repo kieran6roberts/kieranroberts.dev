@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
 import icon from 'astro-icon';
@@ -19,7 +18,6 @@ export default defineConfig({
 		tailwind({
 			applyBaseStyles: false,
 		}),
-		react(),
 		sitemap(),
 		(await import('astro-compress')).default({
 			Path: ['./dist'],

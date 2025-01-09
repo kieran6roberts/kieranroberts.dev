@@ -1,0 +1,67 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<style>
+	.sun {
+		display: block;
+	}
+	.moon {
+		display: none;
+	}
+
+	:global(.dark) .sun {
+		display: none;
+	}
+	:global(.dark) .moon {
+		display: block;
+	}
+</style>
+
+<script>
+	import { Themes, THEME_STORAGE_KEY } from '../consts/index';
+	import type { Theme } from '../env';
+
+	const button = document.getElementById('theme-toggle');
+
+	const theme = (() => {
+		if (typeof localStorage !== 'undefined') {
+			if (localStorage.getItem(THEME_STORAGE_KEY)) {
+				return (localStorage.getItem(THEME_STORAGE_KEY) as Theme) || Themes.light;
+			}
+		}
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? Themes.dark : Themes.light;
+	})();
+
+	const reflectThemePreference = (theme: Theme) => {
+		document.documentElement.className = '';
+		document.documentElement.classList.add(theme);
+		button?.setAttribute('aria-label', theme);
+	};
+
+	reflectThemePreference(theme);
+	window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+
+	const handleToggleClick = () => {
+		const element = document.documentElement;
+		const newTheme = element.classList.contains('dark') ? Themes.light : Themes.dark;
+		reflectThemePreference(newTheme);
+		localStorage.setItem(THEME_STORAGE_KEY, newTheme);
+	};
+
+	document.getElementById('theme-toggle')?.addEventListener('click', handleToggleClick);
+</script>
+
+<button
+	id="theme-toggle"
+	title="Toggles light & dark theme"
+	aria-live="polite"
+	class="link-focus icon-button-hover group flex items-center justify-center rounded-full p-1.5"
+>
+	<span
+		class="duration-400 block text-d transition-transform ease-in-out group-hover:-rotate-90 dark:text-l"
+	>
+		<Icon name="sun" class="sun" width="24" height="24" />
+		<Icon name="moon" class="moon" width="24" height="24" />
+	</span>
+</button>

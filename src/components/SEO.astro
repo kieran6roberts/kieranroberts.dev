@@ -9,9 +9,9 @@ interface Props {
 	url?: string;
 }
 
-const DEFAULT_TITLE = 'Kieran Roberts | Software Developer';
+const DEFAULT_TITLE = 'Kieran Roberts - Software Developer';
 const DEFAULT_DESCRIPTION =
-	"Hi, I'm a React & TypeScript focused web developer with multiple years worth of industry experience. Let's talk";
+	"Hi, I'm a React & TypeScript web builder with multiple years worth of industry experience. Let's talk";
 const DEFAULT_URL = DOMAIN_NAME;
 
 const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION, url = DEFAULT_URL } = Astro.props;
@@ -50,8 +50,6 @@ const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION, url = DEFAULT_
 
 	<link rel="sitemap" href="/sitemap-index.xml" />
 
-	<link rel="alternate" type="application/rss+xml" {title} href={`${Astro.site}/blog/rss.xml`} />
-
 	<title>{title}</title>
 
 	{/* Page transition animations */}
@@ -88,17 +86,17 @@ const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION, url = DEFAULT_
 
 	<script is:inline>
 		// Necessary for view transitions
-		document.addEventListener('astro:after-swap', () => {
-			if (
-				localStorage.theme === 'dark' ||
-				(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-			) {
-				document.documentElement.className = '';
-				document.documentElement.classList.add('dark');
-				document.querySelector('#theme-toggle')?.setAttribute('aria-label', 'dark');
-			} else {
-			}
-		});
+		// document.addEventListener('astro:after-swap', () => {
+		// 	if (
+		// 		localStorage.theme === 'dark' ||
+		// 		(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+		// 	) {
+		// 		document.documentElement.className = '';
+		// 		document.documentElement.classList.add('dark');
+		// 		document.querySelector('#theme-toggle')?.setAttribute('aria-label', 'dark');
+		// 	} else {
+		// 	}
+		// });
 		if (
 			localStorage.theme === 'dark' ||
 			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)

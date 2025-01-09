@@ -1,0 +1,86 @@
+---
+import { Image } from 'astro:assets';
+import Button from '@components/base/Button.astro';
+import type { Project } from '@env';
+import { Icon } from 'astro-icon/components';
+import { cva } from 'class-variance-authority';
+
+interface Props extends Project {}
+
+const { title, description, githubLink, liveLink, caseStudyLink, image, status } = Astro.props;
+
+const statusStyles = cva(
+	['mt-auto w-max rounded-full capitalize border border-zinc-200 px-3 py-px dark:border-zinc-800'],
+	{
+		variants: {
+			status: {
+				complete: ['bg-green-500', 'text-white'],
+				'in progress': ['bg-yellow-500', 'text-white'],
+				planned: ['bg-blue-500', 'text-white'],
+			},
+		},
+	},
+);
+---
+
+<article
+	class="blog-card-hover group relative z-10 flex w-full flex-col gap-4 rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-900 lg:max-w-[450px]"
+>
+	<a href={liveLink} target="_blank" class="link-focus">
+		<div
+			class="mb-4 flex overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800 lg:max-h-[250px]"
+		>
+			<Image
+				src={image}
+				alt="Hashnode Team"
+				width={700}
+				height={500}
+				class="rounded-lg bg-cover bg-center"
+				loading="lazy"
+				decoding="async"
+				quality={100}
+			/>
+		</div>
+
+		<h2
+			class="font-heading text-2xl font-semibold text-zinc-700 transition-all duration-300 group-hover:text-zinc-800 dark:text-zinc-300 dark:group-hover:text-zinc-200"
+		>
+			{title}
+		</h2>
+	</a>
+	<div class="flex flex-row gap-2">
+		<Button size="sm" as="a" href={githubLink} target="_blank">
+			Code
+			<Icon name="github" width={16} height={16} class="" />
+		</Button>
+		{
+			liveLink ? (
+				<Button intent="secondary" size="sm" as="a" href={liveLink} target="_blank">
+					Visit site
+					<Icon name="arrow-right" width={14} height={14} class="stroke-current" />
+				</Button>
+			) : null
+		}
+		{
+			caseStudyLink ? (
+				<Button size="sm" as="a" href={caseStudyLink} target="_blank">
+					Case study
+				</Button>
+			) : (
+				<Button size="sm" as="button" disabled>
+					{' '}
+					Case study{' '}
+				</Button>
+			)
+		}
+	</div>
+	<p
+		class="text-zinc-600 transition-all duration-300 group-hover:text-zinc-700 dark:text-zinc-400 dark:group-hover:text-zinc-300"
+	>
+		{description}
+	</p>
+
+	<div class={statusStyles({ status })}>
+		{status}
+	</div>
+</article>

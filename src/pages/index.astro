@@ -15,15 +15,18 @@ import CloudBG from '@modules/landing/CloudBG.astro';
 
 import { BLOG_URL } from '@consts/urls';
 import { DOMAIN_NAME } from '@consts/urls';
-import { fetchPaginatedBlogPosts, getPostsPaginatedData } from '@utils/blog';
+import { fetchBlogPosts } from '@utils/blog';
+import ProjectGroup from '@modules/landing/ProjectGroup.astro';
 
-const postsData = await fetchPaginatedBlogPosts({ first: 3 });
-const { postsArray } = getPostsPaginatedData(postsData!);
+const postsData = await fetchBlogPosts({ first: 3 });
 ---
 
 <Layout url={DOMAIN_NAME} showFooter={true}>
+	<Icon
+		name="hero-clouds"
+		class="pointer-events-none absolute top-0 z-0 h-max w-full rotate-180 transform opacity-75"
+	/>
 	<div id="hero" class="relative overflow-hidden">
-		<CloudBG />
 		<section
 			class="relative z-10 mx-auto mt-20 flex h-full min-h-[calc(70vh)] w-full max-w-[1600px] flex-col items-center justify-center"
 		>
@@ -33,7 +36,7 @@ const { postsArray } = getPostsPaginatedData(postsData!);
 		</section>
 	</div>
 	<section class="border-y bg-gray-50 dark:border-zinc-800 dark:bg-zinc-900">
-		<div class="mx-auto max-w-[1600px] gap-8 px-4 pb-24 pt-12 md:px-16 lg:px-24">
+		<div class="relative mx-auto max-w-[1600px] gap-8 px-4 pb-24 pt-12 md:px-16 lg:px-24">
 			<HeroIllustration />
 		</div>
 	</section>
@@ -55,12 +58,12 @@ const { postsArray } = getPostsPaginatedData(postsData!);
 		<SectionContainer>
 			<SectionHeading
 				title="Blog"
-				copy="I write about topics that interest me in the web development space. UI/UX tutorials, React, testing, and more."
+				copy="I write about topics that interest me in the web development space. UI/UX tutorials, React, software testing, and more."
 			/>
 
 			<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
 				{
-					postsArray.map((post) => (
+					postsData.map((post) => (
 						<BlogCard
 							title={post.title}
 							description={post.brief}
@@ -86,6 +89,16 @@ const { postsArray } = getPostsPaginatedData(postsData!);
 					class="stroke-current text-black transition-transform duration-200 group-hover:translate-x-1 dark:text-white"
 				/>
 			</Button>
+		</SectionContainer>
+	</section>
+	<section class="relative overflow-hidden">
+		<CloudBG />
+		<SectionContainer>
+			<SectionHeading
+				title="Personal Projects"
+				copy="I like to build projects that help my make my life easier and develop my skills. Check out some of my projects below."
+			/>
+			<ProjectGroup />
 		</SectionContainer>
 	</section>
 	<section id="accolades" class="relative overflow-hidden">

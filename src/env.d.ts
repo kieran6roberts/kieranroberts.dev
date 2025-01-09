@@ -1,12 +1,6 @@
-import {
-	BlogPostsDocument,
-	PostPagePostsDocument,
-	type BlogPostsQuery,
-	type PostPagePostsQuery,
-} from 'generated/graphql';
+import { Themes } from '@consts';
 
-export type BlogPosts = NonNullable<BlogPostsQuery['publication']>['posts'];
-export type PostPagePosts = NonNullable<PostPagePostsQuery['publication']>['posts'];
+export type Theme = (typeof Themes)[keyof typeof Themes];
 
 export type Experience = {
 	title: string;
@@ -14,7 +8,43 @@ export type Experience = {
 	location: string;
 	date: string;
 	type: string;
-	logo: React.ReactNode;
+	iconName: string;
 	responsibilities: string[];
 	image: ImageMetadata | null;
+	showCV: boolean;
+};
+
+export type BlogPost = {
+	id: string;
+	title: string;
+	slug: string;
+	publishedAt: string;
+	url: string;
+	brief: string;
+	readTimeInMinutes: number;
+	coverImage: {
+		url: string;
+	};
+};
+
+export type BlogPostsQueryResponse = {
+	publication: {
+		id: string;
+		posts: {
+			edges: {
+				node: BlogPost;
+			}[];
+		};
+	};
+};
+
+export type Project = {
+	title: string;
+	description: string;
+	date: string;
+	githubLink: string;
+	liveLink: string | null;
+	caseStudyLink: string | null;
+	image: ImageMetadata;
+	status: 'complete' | 'in progress' | 'planned';
 };

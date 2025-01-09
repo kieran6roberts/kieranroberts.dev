@@ -11,6 +11,7 @@ export type Experience = {
 	iconName: string;
 	responsibilities: string[];
 	image: ImageMetadata | null;
+	showCV: boolean;
 };
 
 export type BlogPost = {

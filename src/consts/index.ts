@@ -17,6 +17,7 @@ export type Experience = {
 	iconName: string;
 	responsibilities: string[];
 	image: ImageMetadata | null;
+	showCV: boolean;
 };
 
 export const experience: Experience[] = [
@@ -34,6 +35,7 @@ export const experience: Experience[] = [
 			'Spearheaded an end-to-end test setup for the frontend including a continuous integration pipeline using GitHub Actions that helped increase confidence in code and decrease the number of bugs.',
 		],
 		image: null,
+		showCV: true,
 	},
 ];
 
@@ -49,5 +51,6 @@ export const education = [
 			'Integrated Masters Degree in Electronic Engineering (MEng) with first-class honors.',
 		],
 		image: universityImage,
+		showCV: false,
 	},
 ];

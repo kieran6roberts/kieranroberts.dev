@@ -1,12 +1,18 @@
 ---
 import { Image } from 'astro:assets';
-import type { Experience } from '@env';
 import { Icon } from 'astro-icon/components';
+
+import Button from '@components/base/Button.astro';
+import type { Experience } from '@env';
+
 type Props = Experience;
-const { iconName, company, title, type, location, date, responsibilities, image } = Astro.props;
+const { iconName, company, title, type, location, date, responsibilities, image, showCV } =
+	Astro.props;
 ---
 
-<article class="flex w-full flex-col justify-center gap-4 py-8 pb-8">
+<article
+	class="relative z-10 flex flex-col gap-4 rounded-xl border border-zinc-200 bg-white py-4 pl-4 pr-6 dark:border-zinc-800 dark:bg-zinc-900"
+>
 	<div>
 		{
 			(
@@ -42,24 +48,47 @@ const { iconName, company, title, type, location, date, responsibilities, image 
 			>
 				{responsibilities.map((responsibility) => <li>{responsibility}</li>)}
 			</ul>
-			<div class="h-px w-full bg-zinc-200 dark:bg-zinc-800"></div>
+			{
+				image ? (
+					<div class="flex max-h-[250px] w-full max-w-[400px] justify-start">
+						<Image
+							src={image}
+							alt={`${company} highlight`}
+							width={925}
+							height={731}
+							loading="lazy"
+							decoding="async"
+							quality={100}
+							class="rounded-md object-cover object-top shadow-xl"
+						/>
+					</div>
+				) : null
+			}
+			{
+				showCV ? (
+					<div class="flex flex-row flex-wrap items-center gap-4">
+						<Button
+							as="a"
+							href="/kieran-roberts-CV.pdf"
+							target="_blank"
+							download
+							intent="secondary"
+						>
+							Download CV
+							<Icon
+								name="download-circle"
+								width={20}
+								height={20}
+								class="stroke-current text-black transition-transform duration-200 group-hover:translate-y-1 dark:text-white"
+							/>
+						</Button>
+						<span class="text-sm text-zinc-500 dark:text-zinc-400">
+							{' '}
+							See my CV for more details.{' '}
+						</span>
+					</div>
+				) : null
+			}
 		</div>
-
-		{
-			image ? (
-				<div class="flex max-h-[250px] w-full max-w-[400px] justify-start">
-					<Image
-						src={image}
-						alt={`${company} highlight`}
-						width={925}
-						height={731}
-						loading="lazy"
-						decoding="async"
-						quality={100}
-						class="rounded-md object-cover object-top shadow-xl"
-					/>
-				</div>
-			) : null
-		}
 	</div>
 </article>

@@ -1,20 +1,34 @@
-import {
-	BlogPostsDocument,
-	PostPagePostsDocument,
-	type BlogPostsQuery,
-	type PostPagePostsQuery,
-} from 'generated/graphql';
-
-export type BlogPosts = NonNullable<BlogPostsQuery['publication']>['posts'];
-export type PostPagePosts = NonNullable<PostPagePostsQuery['publication']>['posts'];
-
 export type Experience = {
 	title: string;
 	company: string;
 	location: string;
 	date: string;
 	type: string;
-	logo: React.ReactNode;
+	iconName: string;
 	responsibilities: string[];
 	image: ImageMetadata | null;
+};
+
+export type BlogPost = {
+	id: string;
+	title: string;
+	slug: string;
+	publishedAt: string;
+	url: string;
+	brief: string;
+	readTimeInMinutes: number;
+	coverImage: {
+		url: string;
+	};
+};
+
+export type BlogPostsQueryResponse = {
+	publication: {
+		id: string;
+		posts: {
+			edges: {
+				node: BlogPost;
+			}[];
+		};
+	};
 };

@@ -2,21 +2,20 @@
 import { Image } from 'astro:assets';
 import type { Experience } from '@env';
 import { Icon } from 'astro-icon/components';
-import { BangorUniversitySVG } from '@components/icons/BangorUniversitySVG';
 type Props = Experience;
-const { logo, company, title, type, location, date, responsibilities, image } = Astro.props;
+const { iconName, company, title, type, location, date, responsibilities, image } = Astro.props;
 ---
 
 <article class="flex w-full flex-col justify-center gap-4 py-8 pb-8">
 	<div>
 		{
-			logo === 'hashnode' ? (
-				<Icon name="hashnode" width="48" height="48" />
-			) : logo === 'bangor' ? (
-				<span class="block w-16 md:w-20">
-					<BangorUniversitySVG />
-				</span>
-			) : null
+			(
+				<Icon
+					name={iconName}
+					width={iconName === 'bangor-university' ? 65 : 48}
+					height={iconName === 'bangor-university' ? 65 : 48}
+				/>
+			)
 		}
 	</div>
 	<div class="flex flex-col gap-8">

@@ -7,7 +7,7 @@ export type Experience = {
 	location: string;
 	date: string;
 	type: string;
-	logo: string;
+	iconName: string;
 	responsibilities: string[];
 	image: ImageMetadata | null;
 };
@@ -19,7 +19,7 @@ export const experience: Experience[] = [
 		location: 'Remote',
 		date: 'May 2021 - Present',
 		type: 'Full-time',
-		logo: 'hashnode',
+		iconName: 'hashnode',
 		responsibilities: [
 			'Working closely with a dynamic 10 person developer team writing code largely in TypeScript and React, tending to a +100k active user base.',
 			'Coordinating with a product manager and design team to deliver several key features for our popular blog product. Contributing to a roughly 250% increase in new blogs created per month since joining the team.',
@@ -37,7 +37,7 @@ export const education = [
 		location: 'Bangor, Wales',
 		type: 'Full-time',
 		date: '2013 - 2017',
-		logo: 'bangor',
+		iconName: 'bangor-university',
 		responsibilities: [
 			'Integrated Masters Degree in Electronic Engineering (MEng) with first-class honors.',
 		],

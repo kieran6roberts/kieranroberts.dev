@@ -15,10 +15,9 @@ import CloudBG from '@modules/landing/CloudBG.astro';
 
 import { BLOG_URL } from '@consts/urls';
 import { DOMAIN_NAME } from '@consts/urls';
-import { fetchPaginatedBlogPosts, getPostsPaginatedData } from '@utils/blog';
+import { fetchBlogPosts } from '@utils/blog';
 
-const postsData = await fetchPaginatedBlogPosts({ first: 3 });
-const { postsArray } = getPostsPaginatedData(postsData!);
+const postsData = await fetchBlogPosts({ first: 3 });
 ---
 
 <Layout url={DOMAIN_NAME} showFooter={true}>
@@ -60,7 +59,7 @@ const { postsArray } = getPostsPaginatedData(postsData!);
 
 			<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
 				{
-					postsArray.map((post) => (
+					postsData.map((post) => (
 						<BlogCard
 							title={post.title}
 							description={post.brief}

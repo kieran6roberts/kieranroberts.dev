@@ -4,23 +4,26 @@ import { cva, type VariantProps } from 'class-variance-authority';
 
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & VariantProps<typeof button>;
 
-const button = cva('group flex items-center justify-center gap-2 rounded-full', {
-	variants: {
-		intent: {
-			'solid-dark': [
-				'bg-d dark:bg-l hover:bg-zinc-800 dark:hover:bg-l/90 border-2 border-transparent text-l dark:text-d link-focus',
-			],
-			secondary: [
-				'bg-l dark:bg-d border-2 border-d/75 dark:border-l hover:bg-zinc-100 dark:hover:bg-zinc-800 text-d dark:text-l link-focus',
-			],
-		},
-		size: {
-			sm: ['w-max', 'text-sm', 'py-1.5', 'px-2.5'],
-			md: ['w-max', 'text-base', 'py-2', 'px-5'],
-			full: ['w-full'],
+const button = cva(
+	'group flex items-center justify-center gap-2 rounded-full disabled:cursor-not-allowed disabled:opacity-90',
+	{
+		variants: {
+			intent: {
+				'solid-dark': [
+					'bg-zinc-900 dark:bg-zinc-50 hover:bg-zinc-700 dark:hover:bg-zinc-100 border-2 border-transparent text-zinc-50 dark:text-zinc-900 link-focus disabled:bg-zinc-500',
+				],
+				secondary: [
+					'bg-zinc-50 dark:bg-zinc-900 border-2 border-zinc-900/75 dark:border-zinc-50 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-50 link-focus disabled:bg-zinc-500',
+				],
+			},
+			size: {
+				sm: ['w-max', 'text-sm', 'py-1', 'px-2.5'],
+				md: ['w-max', 'text-base', 'py-2', 'px-5'],
+				full: ['w-full'],
+			},
 		},
 	},
-});
+);
 
 const {
 	as: Tag = 'button',

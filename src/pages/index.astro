@@ -16,6 +16,7 @@ import CloudBG from '@modules/landing/CloudBG.astro';
 import { BLOG_URL } from '@consts/urls';
 import { DOMAIN_NAME } from '@consts/urls';
 import { fetchBlogPosts } from '@utils/blog';
+import ProjectGroup from '@modules/landing/ProjectGroup.astro';
 
 const postsData = await fetchBlogPosts({ first: 3 });
 ---
@@ -88,6 +89,16 @@ const postsData = await fetchBlogPosts({ first: 3 });
 					class="stroke-current text-black transition-transform duration-200 group-hover:translate-x-1 dark:text-white"
 				/>
 			</Button>
+		</SectionContainer>
+	</section>
+	<section class="relative overflow-hidden">
+		<CloudBG />
+		<SectionContainer>
+			<SectionHeading
+				title="Personal Projects"
+				copy="I like to build projects that help my make my life easier and develop my skills. Check out some of my projects below."
+			/>
+			<ProjectGroup />
 		</SectionContainer>
 	</section>
 	<section id="accolades" class="relative overflow-hidden">

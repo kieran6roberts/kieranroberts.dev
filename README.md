@@ -16,7 +16,7 @@ Always open to a coffee chat, you can find me on X [@Kieran6Dev](https://x.com/K
 
 ## Tech Stack
 
-- Astro.js
+- Astro
 - TypeScript
 - TailwindCSS
 

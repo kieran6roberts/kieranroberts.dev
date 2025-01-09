@@ -49,7 +49,7 @@ export const projects: Project[] = [
 	{
 		title: 'kieranroberts.dev (This site)',
 		description:
-			'My personal developer portfolio and playground showcasing my skills, projects, and blog. Built using Astro.js to reduce JavaScript overhead and optimize for performance.',
+			'My personal developer portfolio and playground showcasing my skills, projects, and blog. Built using Astro to reduce JavaScript overhead and optimize for performance.',
 		date: '2024',
 		githubLink: 'https://github.com/kieran6roberts/kieranroberts.dev',
 		liveLink: null,

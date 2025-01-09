@@ -1,3 +1,7 @@
+import { Themes } from '@consts';
+
+export type Theme = (typeof Themes)[keyof typeof Themes];
+
 export type Experience = {
 	title: string;
 	company: string;

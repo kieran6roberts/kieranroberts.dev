@@ -2,9 +2,12 @@ type Theme = 'light' | 'dark';
 const STORAGE_KEY = 'theme';
 
 export const getThemePreference = (): Theme => {
-	if (localStorage.getItem(STORAGE_KEY))
-		return (localStorage.getItem(STORAGE_KEY) as Theme) || 'light';
-	else return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	if (typeof localStorage !== 'undefined') {
+		if (localStorage.getItem(STORAGE_KEY)) {
+			return (localStorage.getItem(STORAGE_KEY) as Theme) || 'light';
+		}
+	}
+	return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 };
 
 export const reflectThemePreference = (theme: Theme) => {

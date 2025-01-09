@@ -1,6 +1,13 @@
 export const EMAIL_ADDRESS = 'kieranroberts6dev@gmail.com';
 import universityImage from '@images/university.webp';
 
+export const THEME_STORAGE_KEY = 'theme';
+
+export const Themes = {
+	light: 'light',
+	dark: 'dark',
+} as const;
+
 export type Experience = {
 	title: string;
 	company: string;

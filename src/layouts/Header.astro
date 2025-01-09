@@ -1,10 +1,11 @@
 ---
 import { Image } from 'astro:assets';
+
 import Button from '@components/base/Button.astro';
 import SocialLinkGroup from '@components/SocialLinkGroup.astro';
-import { EMAIL_ADDRESS } from '@consts/index';
 import KieranAvatar from '@images/Kieran-Avatar.webp';
-import { ThemeToggle } from '@components/ThemeToggle';
+import ThemeToggleAstro from '@components/ThemeToggle.astro';
+import { EMAIL_ADDRESS } from '@consts/index';
 import { StickyHeader } from '@components/StickyHeader';
 ---
 
@@ -41,7 +42,7 @@ import { StickyHeader } from '@components/StickyHeader';
 
 		<section class="flex items-center gap-x-4 md:gap-x-12">
 			<SocialLinkGroup />
-			<ThemeToggle client:load />
+			<ThemeToggleAstro />
 		</section>
 	</nav>
 </StickyHeader>

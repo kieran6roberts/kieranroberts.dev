@@ -47,13 +47,15 @@ const { iconName, company, title, type, location, date, responsibilities, image 
 
 		{
 			image ? (
-				<div class="flex h-[300px] w-full justify-start">
+				<div class="flex max-h-[400px] w-full max-w-[650px] justify-start">
 					<Image
 						src={image}
 						alt={`${company} highlight`}
-						width={650}
-						height={300}
+						width={925}
+						height={731}
 						loading="lazy"
+						decoding="async"
+						quality={100}
 						class="rounded-md object-cover object-top shadow-xl"
 					/>
 				</div>

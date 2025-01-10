@@ -10,8 +10,6 @@ export default {
 				heading: ['Barlow', 'sans-serif'],
 			},
 			colors: {
-				l: '#fdfdfd',
-				d: '#100114',
 				'accent-darkest': '#6F61C0',
 				'accent-dark': '#A084E8',
 				'accent-bright': '#8BE8E5',

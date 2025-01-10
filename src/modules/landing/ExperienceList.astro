@@ -35,38 +35,35 @@ import ExperienceCard from '@/modules/landing/ExperienceCard.astro';
 </script>
 
 <div class="relative z-10 flex w-full flex-col items-center justify-center gap-8">
-	<ul
-		class="mx-auto grid w-full max-w-[800px] list-none grid-cols-2 gap-2 rounded-full border border-zinc-200 p-1 dark:border-zinc-800"
+	<div
+		class="mx-auto grid w-full max-w-[800px] grid-cols-2 gap-2 rounded-full border border-zinc-200 p-1 dark:border-zinc-800"
 		role="tablist"
 		aria-orientation="horizontal"
 	>
-		<li>
-			<button
-				data-tab-target="#experience"
-				data-state="active"
-				role="tab"
-				aria-controls="experience"
-				aria-selected="true"
-				type="button"
-				class="link-focus h-full w-full rounded-full bg-white px-3 py-2 text-base font-medium text-zinc-900 hover:bg-zinc-100 data-[state=active]:bg-zinc-900 data-[state=active]:text-white hover:data-[state=active]:bg-zinc-800 dark:bg-transparent dark:text-white dark:hover:bg-zinc-900 dark:data-[state=active]:bg-white dark:data-[state=active]:text-zinc-900 dark:hover:data-[state=active]:bg-zinc-100"
-			>
-				Experience
-			</button>
-		</li>
-		<li>
-			<button
-				data-tab-target="#education"
-				data-state="inactive"
-				role="tab"
-				aria-controls="education"
-				aria-selected="false"
-				type="button"
-				class="link-focus h-full w-full rounded-full bg-white px-3 py-2 text-base font-medium text-zinc-900 hover:bg-zinc-100 data-[state=active]:bg-zinc-900 data-[state=active]:text-white hover:data-[state=active]:bg-zinc-800 dark:bg-transparent dark:text-white dark:hover:bg-zinc-900 dark:data-[state=active]:bg-white dark:data-[state=active]:text-zinc-900 dark:hover:data-[state=active]:bg-zinc-100"
-			>
-				Education
-			</button>
-		</li>
-	</ul>
+		<button
+			data-tab-target="#experience"
+			data-state="active"
+			role="tab"
+			aria-controls="experience"
+			aria-selected="true"
+			type="button"
+			class="link-focus h-full w-full rounded-full bg-white px-3 py-2 text-base font-medium text-zinc-900 hover:bg-zinc-100 data-[state=active]:bg-zinc-900 data-[state=active]:text-white hover:data-[state=active]:bg-zinc-800 dark:bg-transparent dark:text-white dark:hover:bg-zinc-900 dark:data-[state=active]:bg-white dark:data-[state=active]:text-zinc-900 dark:hover:data-[state=active]:bg-zinc-100"
+		>
+			Experience
+		</button>
+
+		<button
+			data-tab-target="#education"
+			data-state="inactive"
+			role="tab"
+			aria-controls="education"
+			aria-selected="false"
+			type="button"
+			class="link-focus h-full w-full rounded-full bg-white px-3 py-2 text-base font-medium text-zinc-900 hover:bg-zinc-100 data-[state=active]:bg-zinc-900 data-[state=active]:text-white hover:data-[state=active]:bg-zinc-800 dark:bg-transparent dark:text-white dark:hover:bg-zinc-900 dark:data-[state=active]:bg-white dark:data-[state=active]:text-zinc-900 dark:hover:data-[state=active]:bg-zinc-100"
+		>
+			Education
+		</button>
+	</div>
 
 	<div class="tab-content mx-auto min-h-[650px] w-full max-w-[1000px]">
 		<div

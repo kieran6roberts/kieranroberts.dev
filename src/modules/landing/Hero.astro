@@ -4,45 +4,43 @@ import { LINKEDIN_PROFILE_URL } from '@consts/urls';
 import Button from '@components/base/Button.astro';
 ---
 
-<div>
-	<div class="relative flex flex-col items-center gap-4 lg:items-start">
-		<div class="z-10 mb-8 flex flex-col gap-8">
-			<h1
-				class="mx-auto max-w-[450px] text-center font-heading text-4xl font-bold tracking-tight text-zinc-950 duration-300 ease-in animate-in fade-in dark:text-zinc-50 sm:max-w-[600px] sm:text-6xl lg:mx-0 lg:max-w-[850px] lg:text-7xl/[75px] 2xl:max-w-[1000px] 2xl:text-[90px]/[98px]"
-			>
-				I turn complex web <mark class="rounded-md bg-accent-bright/50 dark:bg-accent-bright/90"
-					>problems</mark
-				>{' '}
-				into lightning fast business{' '}
-				<mark class="rounded-md bg-accent-brightest/50 dark:bg-accent-darkest/90">solutions.</mark>
-			</h1>
-			<p
-				class="mx-auto max-w-[90%] text-center text-sm font-medium tracking-tight text-zinc-700 duration-300 ease-in animate-in fade-in slide-in-from-top dark:text-zinc-200 sm:text-base md:max-w-[625px] md:text-lg"
-			>
-				I am a JavaScript-focused Software Engineer with a passion for building interactive user
-				interfaces, and delivering an exceptional user experience. With several years of industry
-				experience, I create fast and accessible web products that last.
-			</p>
-			<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
-				<Button as="a" href="/kieran-roberts-CV.pdf" target="_blank" download>
-					Download my CV
-					<Icon
-						name="download-circle"
-						width={20}
-						height={20}
-						class="stroke-current text-white transition-transform duration-200 group-hover:translate-y-1 group-hover:text-accent-brightest dark:text-black dark:group-hover:text-accent-darkest"
-					/>
-				</Button>
-				<Button intent="secondary" as="a" href={LINKEDIN_PROFILE_URL} target="_blank">
-					Find me on LinkedIn
-					<Icon
-						name="linked-in"
-						width={16}
-						height={16}
-						class="stroke-current text-black transition-transform duration-200 group-hover:translate-x-1 group-hover:text-accent-darkest dark:text-white dark:group-hover:text-accent-brightest"
-					/>
-				</Button>
-			</div>
+<div class="relative flex flex-col items-center gap-4 lg:items-start">
+	<div class="z-10 mb-8 flex flex-col gap-8">
+		<h1
+			class="mx-auto max-w-[450px] text-center font-heading text-4xl font-bold tracking-tight text-zinc-950 duration-300 ease-in animate-in fade-in dark:text-zinc-50 sm:max-w-[600px] sm:text-6xl lg:mx-0 lg:max-w-[850px] lg:text-7xl/[75px] 2xl:max-w-[1000px] 2xl:text-[90px]/[98px]"
+		>
+			I turn complex web <mark class="rounded-md bg-accent-bright/50 dark:bg-accent-bright/90"
+				>problems</mark
+			>{' '}
+			into lightning fast business{' '}
+			<mark class="rounded-md bg-accent-brightest/50 dark:bg-accent-darkest/90">solutions.</mark>
+		</h1>
+		<p
+			class="mx-auto max-w-[90%] text-center text-sm font-medium tracking-tight text-zinc-700 duration-300 ease-in animate-in fade-in slide-in-from-top dark:text-zinc-200 sm:text-base md:max-w-[625px] md:text-lg"
+		>
+			I am a JavaScript-focused Software Engineer with a passion for building interactive user
+			interfaces, and delivering an exceptional user experience. With several years of industry
+			experience, I create fast and accessible web products that last.
+		</p>
+		<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+			<Button as="a" href="/kieran-roberts-CV.pdf" target="_blank" download>
+				Download my CV
+				<Icon
+					name="download-circle"
+					width={20}
+					height={20}
+					class="stroke-current text-white transition-transform duration-200 group-hover:translate-y-1 group-hover:text-accent-brightest dark:text-black dark:group-hover:text-accent-darkest"
+				/>
+			</Button>
+			<Button intent="secondary" as="a" href={LINKEDIN_PROFILE_URL} target="_blank">
+				Find me on LinkedIn
+				<Icon
+					name="linked-in"
+					width={16}
+					height={16}
+					class="stroke-current text-black transition-transform duration-200 group-hover:translate-x-1 group-hover:text-accent-darkest dark:text-white dark:group-hover:text-accent-brightest"
+				/>
+			</Button>
 		</div>
 	</div>
 </div>

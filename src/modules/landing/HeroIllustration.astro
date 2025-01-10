@@ -12,8 +12,11 @@ import { Icon } from 'astro-icon/components';
 			(entries) => {
 				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
-						const element = entry.target;
-						observer.unobserve(element);
+						const animateAttr = entry.target.getAttribute('data-hero-image-animate');
+						if (animateAttr) {
+							entry.target.classList.add(...animateAttr.split(' '));
+						}
+						observer.unobserve(entry.target);
 					}
 				});
 			},
@@ -23,7 +26,7 @@ import { Icon } from 'astro-icon/components';
 			},
 		);
 
-		document.querySelectorAll('[data-animate]').forEach((element) => {
+		document.querySelectorAll('[data-hero-image-animate]').forEach((element) => {
 			observer.observe(element);
 		});
 	}
@@ -39,7 +42,8 @@ import { Icon } from 'astro-icon/components';
 </div>
 
 <div
-	class="pointer-events-none absolute left-[58%] top-[78%] z-50 hidden -translate-x-1/2 -translate-y-1/2 xl:block"
+	data-hero-image-animate="opacity-100"
+	class="pointer-events-none absolute left-[58%] top-[78%] z-50 hidden -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity delay-300 duration-300 xl:block"
 >
 	<div class="rotate-[180deg] transform">
 		<Icon name="styleised-arrow" width={256} height={256} />
@@ -53,8 +57,8 @@ import { Icon } from 'astro-icon/components';
 	class="relative z-10 mt-12 flex w-full flex-col items-center justify-center gap-4 lg:flex-row lg:gap-0 [&>div:has(~div:hover)]:scale-90 [&>div:has(~div:hover)]:brightness-50 [&>div:hover~div]:scale-90 [&>div:hover~div]:brightness-50"
 >
 	<div
-		data-animate
-		class="z-20 h-[290px] w-full rounded-xl object-cover shadow-xl brightness-[0.8] transition-transform duration-150 ease-in animate-in fade-in hover:brightness-100 lg:max-w-[550px] lg:translate-x-20 lg:rotate-6 lg:hover:z-50 lg:hover:rotate-0 lg:hover:scale-105 xl:max-w-[650px]"
+		data-hero-image-animate="opacity-100"
+		class="z-20 h-[290px] w-full rounded-xl object-cover opacity-0 shadow-xl brightness-[0.8] transition-all duration-150 ease-in hover:brightness-100 lg:max-w-[550px] lg:translate-x-20 lg:rotate-6 lg:hover:z-50 lg:hover:rotate-0 lg:hover:scale-105 xl:max-w-[650px]"
 	>
 		<Image
 			src={hashnodeTeam2022Image}
@@ -69,8 +73,8 @@ import { Icon } from 'astro-icon/components';
 	</div>
 
 	<div
-		data-animate
-		class="z-30 h-[290px] w-full transform rounded-xl object-cover shadow-xl brightness-[0.8] transition-transform duration-150 ease-in animate-in fade-in lg:max-w-[550px] lg:-rotate-[5deg] lg:hover:z-30 lg:hover:-rotate-0 lg:hover:scale-105 lg:hover:brightness-100 xl:max-w-[650px]"
+		data-hero-image-animate="opacity-100"
+		class="z-30 h-[290px] w-full transform rounded-xl object-cover opacity-0 shadow-xl brightness-[0.8] transition-all duration-150 ease-in lg:max-w-[550px] lg:-rotate-[5deg] lg:hover:z-30 lg:hover:-rotate-0 lg:hover:scale-105 lg:hover:brightness-100 xl:max-w-[650px]"
 	>
 		<Image
 			src={kieranAtWorkImage}
@@ -85,8 +89,8 @@ import { Icon } from 'astro-icon/components';
 	</div>
 
 	<div
-		data-animate
-		class="z-20 h-[290px] w-full rounded-xl object-cover shadow-xl brightness-[0.8] transition-transform duration-150 ease-in animate-in fade-in hover:brightness-100 lg:max-w-[550px] lg:-translate-x-20 lg:rotate-6 lg:hover:z-50 lg:hover:rotate-0 lg:hover:scale-105 xl:max-w-[650px]"
+		data-hero-image-animate="opacity-100"
+		class="pacity-0 z-20 h-[290px] w-full rounded-xl object-cover opacity-0 shadow-xl brightness-[0.8] transition-all duration-150 ease-in hover:brightness-100 lg:max-w-[550px] lg:-translate-x-20 lg:rotate-6 lg:hover:z-50 lg:hover:rotate-0 lg:hover:scale-105 xl:max-w-[650px]"
 	>
 		<Image
 			src={hashnodeTeam2024Image}

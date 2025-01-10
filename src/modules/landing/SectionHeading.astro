@@ -13,7 +13,10 @@ const { title, copy } = Astro.props;
 			(entries) => {
 				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
-						(entry.target as HTMLElement).style.opacity = '1';
+						const animateAttr = entry.target.getAttribute('data-animate');
+						if (animateAttr) {
+							entry.target.classList.add(...animateAttr.split(' '));
+						}
 						observer.unobserve(entry.target);
 					}
 				});
@@ -36,8 +39,8 @@ const { title, copy } = Astro.props;
 	{
 		title && (
 			<h2
-				class="text-center text-4xl font-bold text-zinc-800 ease-in animate-in fade-in dark:text-zinc-200 xl:text-5xl"
-				data-animate
+				class="text-center text-4xl font-bold text-zinc-800 opacity-0 duration-500 ease-in dark:text-zinc-200 xl:text-5xl"
+				data-animate="opacity-100"
 			>
 				{title}
 			</h2>
@@ -46,8 +49,8 @@ const { title, copy } = Astro.props;
 	{
 		copy && (
 			<p
-				class="mx-auto max-w-[400px] border-t pt-4 text-center text-sm text-zinc-600 ease-in animate-in fade-in slide-in-from-bottom dark:border-zinc-800 dark:text-zinc-400 md:text-base xl:max-w-[500px] xl:text-lg"
-				data-animate
+				class="mx-auto max-w-[400px] translate-y-12 transform border-t pt-4 text-center text-sm text-zinc-600 opacity-0 duration-500 ease-in dark:border-zinc-800 dark:text-zinc-400 md:text-base xl:max-w-[500px] xl:text-lg"
+				data-animate="translate-y-0 opacity-100"
 			>
 				{copy}
 			</p>

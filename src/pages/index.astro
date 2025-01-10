@@ -1,5 +1,4 @@
 ---
-import { LinkPreview } from '@astro-community/astro-embed-link-preview';
 import { Icon } from 'astro-icon/components';
 
 import Layout from '@layouts/Layout.astro';
@@ -28,7 +27,7 @@ const postsData = await fetchBlogPosts({ first: 3 });
 	/>
 	<div id="hero" class="relative overflow-hidden">
 		<section
-			class="relative z-10 mx-auto mt-20 flex h-full min-h-[calc(70vh)] w-full max-w-[1600px] flex-col items-center justify-center"
+			class="relative z-10 mx-auto flex h-full w-full max-w-[1600px] flex-col items-center justify-center"
 		>
 			<SectionContainer>
 				<Hero />
@@ -86,7 +85,7 @@ const postsData = await fetchBlogPosts({ first: 3 });
 					name="arrow-right"
 					width={16}
 					height={16}
-					class="stroke-current text-black transition-transform duration-200 group-hover:translate-x-1 dark:text-white"
+					class="stroke-current text-black transition-transform duration-200 group-hover:translate-x-1 group-hover:text-accent-darkest dark:text-white dark:group-hover:text-accent-brightest"
 				/>
 			</Button>
 		</SectionContainer>
@@ -112,26 +111,23 @@ const postsData = await fetchBlogPosts({ first: 3 });
 				class="lg:auto-rows-[minmax(0, 1fr)] grid grid-flow-dense grid-cols-1 gap-6 lg:grid-cols-6"
 			>
 				<AccoladeTweetCard
-					id="https://twitter.com/Kieran6dev/status/1699795885037883568?ref_src=twsrc%5Etfw"
+					id="https://twitter.com/Kieran6dev/status/1699795885037883568"
 					className="lg:col-span-2 lg:row-span-2"
 				/>
 				<AccoladeTweetCard
-					id="https://twitter.com/Kieran6dev/status/1378027456561565701?ref_src=twsrc%5Etfw"
+					id="https://twitter.com/Kieran6dev/status/1378027456561565701"
 					className="lg:col-span-4 lg:row-span-2"
 				/>
 				<AccoladeTweetCard
-					id="https://twitter.com/Kieran6dev/status/1362110408581140481?ref_src=twsrc%5Etfw"
+					id="https://twitter.com/Kieran6dev/status/1362110408581140481"
 					className="lg:col-span-3 lg:row-span-3"
 				/>
-				<div
-					class="relative col-span-1 h-max w-full overflow-hidden rounded-lg border border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900 lg:col-span-3 lg:row-span-3"
-				>
-					<LinkPreview
-						id="https://townhall.hashnode.com/winners-of-buy-me-a-coffee-april-giveaway"
-					/>
-				</div>
 				<AccoladeTweetCard
-					id="https://twitter.com/QANewsletter/status/1375486529112571910?ref_src=twsrc%5Etfw"
+					id="https://x.com/Kieran6dev/status/1793995027016012259"
+					className="lg:col-span-3 lg:row-span-3"
+				/>
+				<AccoladeTweetCard
+					id="https://twitter.com/QANewsletter/status/1375486529112571910"
 					className="lg:col-span-6 lg:row-span-3"
 				/>
 			</div>

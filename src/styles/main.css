@@ -86,13 +86,13 @@ html.dark .twitter-tweet a {
 	}
 
 	.link-focus {
-		@apply outline-none focus-visible:ring focus-visible:ring-accent-darkest focus-visible:ring-offset-2 dark:focus-visible:ring-accent-brightest dark:focus-visible:ring-offset-d !important;
+		@apply outline-none focus-visible:ring focus-visible:ring-accent-darkest focus-visible:ring-offset-2 dark:focus-visible:ring-accent-brightest dark:focus-visible:ring-offset-zinc-900 !important;
 	}
 	.blog-card-hover {
-		@apply outline-none ring-offset-0 transition-all duration-300 hover:ring hover:ring-accent-darkest hover:ring-offset-2 dark:hover:ring-accent-brightest dark:hover:ring-offset-2 dark:hover:ring-offset-d !important;
+		@apply outline-none ring-offset-0 transition-all duration-300 hover:ring hover:ring-accent-darkest hover:ring-offset-2 dark:hover:ring-accent-brightest dark:hover:ring-offset-2 dark:hover:ring-offset-zinc-900 !important;
 	}
 
 	.icon-button-hover {
-		@apply ring-offset-2 hover:ring hover:ring-accent-darkest dark:hover:ring-accent-brightest dark:hover:ring-offset-d !important;
+		@apply ring-offset-2 hover:ring hover:ring-accent-darkest dark:hover:ring-accent-brightest dark:hover:ring-offset-zinc-900 !important;
 	}
 }

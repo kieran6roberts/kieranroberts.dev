@@ -29,108 +29,110 @@ const postsData = await fetchBlogPosts({ first: 3 });
 		<section
 			class="relative z-10 mx-auto flex h-full w-full max-w-[1600px] flex-col items-center justify-center"
 		>
-			<SectionContainer>
+			<div
+				class="mx-auto mb-4 flex max-w-[1400px] flex-col items-center justify-center gap-8 px-4 pt-16 md:mb-8 md:px-16 md:pt-24 lg:mb-12 lg:pt-40"
+			>
 				<Hero />
+			</div>
+		</section>
+		<section class="border-y bg-gray-50 dark:border-zinc-800 dark:bg-zinc-900">
+			<div class="relative mx-auto max-w-[1600px] gap-8 px-4 pb-24 pt-12 md:px-16 lg:px-24">
+				<HeroIllustration />
+			</div>
+		</section>
+		<section class="relative border-b border-zinc-200 dark:border-zinc-800">
+			<CloudBG />
+			<SectionContainer>
+				<SectionHeading
+					title="Career & Experience"
+					copy="Here are some of my relevant professional career experience. To see more, you can check out my attached CV."
+				/>
+				<ExperienceList />
+			</SectionContainer>
+		</section>
+		<section
+			id="blog"
+			class="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900"
+		>
+			<CloudBG />
+			<SectionContainer>
+				<SectionHeading
+					title="Blog"
+					copy="I write about topics that interest me in the web development space. UI/UX tutorials, React, software testing, and more."
+				/>
+
+				<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+					{
+						postsData.map((post) => (
+							<BlogCard
+								title={post.title}
+								description={post.brief}
+								date={post.publishedAt}
+								link={post.url}
+								image={post.coverImage?.url || ''}
+							/>
+						))
+					}
+				</div>
+				<Button
+					target="_blank"
+					as="a"
+					href={BLOG_URL}
+					intent="secondary"
+					class="relative z-10 mx-auto"
+				>
+					View all posts
+					<Icon
+						name="arrow-right"
+						width={16}
+						height={16}
+						class="stroke-current text-black transition-transform duration-200 group-hover:translate-x-1 group-hover:text-accent-darkest dark:text-white dark:group-hover:text-accent-brightest"
+					/>
+				</Button>
+			</SectionContainer>
+		</section>
+		<section class="relative overflow-hidden">
+			<CloudBG />
+			<SectionContainer>
+				<SectionHeading
+					title="Personal Projects"
+					copy="I like to build projects that help my make my life easier and develop my skills. Check out some of my projects below."
+				/>
+				<ProjectGroup />
+			</SectionContainer>
+		</section>
+		<section id="accolades" class="relative overflow-hidden">
+			<CloudBG />
+			<SectionContainer>
+				<SectionHeading
+					title="Accolades & Achievements"
+					copy="Here are some personal accomplishments from the web development space that I am proud of."
+				/>
+				<div
+					class="lg:auto-rows-[minmax(0, 1fr)] grid grid-flow-dense grid-cols-1 gap-6 lg:grid-cols-6"
+				>
+					<AccoladeTweetCard
+						id="https://twitter.com/Kieran6dev/status/1699795885037883568"
+						className="lg:col-span-2 lg:row-span-2"
+					/>
+					<AccoladeTweetCard
+						id="https://twitter.com/Kieran6dev/status/1378027456561565701"
+						className="lg:col-span-4 lg:row-span-2"
+					/>
+					<AccoladeTweetCard
+						id="https://twitter.com/Kieran6dev/status/1362110408581140481"
+						className="lg:col-span-3 lg:row-span-3"
+					/>
+					<AccoladeTweetCard
+						id="https://x.com/Kieran6dev/status/1793995027016012259"
+						className="lg:col-span-3 lg:row-span-3"
+					/>
+					<AccoladeTweetCard
+						id="https://twitter.com/QANewsletter/status/1375486529112571910"
+						className="lg:col-span-6 lg:row-span-3"
+					/>
+				</div>
 			</SectionContainer>
 		</section>
 	</div>
-	<section class="border-y bg-gray-50 dark:border-zinc-800 dark:bg-zinc-900">
-		<div class="relative mx-auto max-w-[1600px] gap-8 px-4 pb-24 pt-12 md:px-16 lg:px-24">
-			<HeroIllustration />
-		</div>
-	</section>
-	<section class="relative border-b border-zinc-200 dark:border-zinc-800">
-		<CloudBG />
-		<SectionContainer>
-			<SectionHeading
-				title="Career & Experience"
-				copy="Here are some of my relevant professional career experience. To see more, you can check out my attached CV."
-			/>
-			<ExperienceList />
-		</SectionContainer>
-	</section>
-	<section
-		id="blog"
-		class="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900"
-	>
-		<CloudBG />
-		<SectionContainer>
-			<SectionHeading
-				title="Blog"
-				copy="I write about topics that interest me in the web development space. UI/UX tutorials, React, software testing, and more."
-			/>
-
-			<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
-				{
-					postsData.map((post) => (
-						<BlogCard
-							title={post.title}
-							description={post.brief}
-							date={post.publishedAt}
-							link={post.url}
-							image={post.coverImage?.url || ''}
-						/>
-					))
-				}
-			</div>
-			<Button
-				target="_blank"
-				as="a"
-				href={BLOG_URL}
-				intent="secondary"
-				class="relative z-10 mx-auto"
-			>
-				View all posts
-				<Icon
-					name="arrow-right"
-					width={16}
-					height={16}
-					class="stroke-current text-black transition-transform duration-200 group-hover:translate-x-1 group-hover:text-accent-darkest dark:text-white dark:group-hover:text-accent-brightest"
-				/>
-			</Button>
-		</SectionContainer>
-	</section>
-	<section class="relative overflow-hidden">
-		<CloudBG />
-		<SectionContainer>
-			<SectionHeading
-				title="Personal Projects"
-				copy="I like to build projects that help my make my life easier and develop my skills. Check out some of my projects below."
-			/>
-			<ProjectGroup />
-		</SectionContainer>
-	</section>
-	<section id="accolades" class="relative overflow-hidden">
-		<CloudBG />
-		<SectionContainer>
-			<SectionHeading
-				title="Accolades & Achievements"
-				copy="Here are some personal accomplishments from the web development space that I am proud of."
-			/>
-			<div
-				class="lg:auto-rows-[minmax(0, 1fr)] grid grid-flow-dense grid-cols-1 gap-6 lg:grid-cols-6"
-			>
-				<AccoladeTweetCard
-					id="https://twitter.com/Kieran6dev/status/1699795885037883568"
-					className="lg:col-span-2 lg:row-span-2"
-				/>
-				<AccoladeTweetCard
-					id="https://twitter.com/Kieran6dev/status/1378027456561565701"
-					className="lg:col-span-4 lg:row-span-2"
-				/>
-				<AccoladeTweetCard
-					id="https://twitter.com/Kieran6dev/status/1362110408581140481"
-					className="lg:col-span-3 lg:row-span-3"
-				/>
-				<AccoladeTweetCard
-					id="https://x.com/Kieran6dev/status/1793995027016012259"
-					className="lg:col-span-3 lg:row-span-3"
-				/>
-				<AccoladeTweetCard
-					id="https://twitter.com/QANewsletter/status/1375486529112571910"
-					className="lg:col-span-6 lg:row-span-3"
-				/>
-			</div>
-		</SectionContainer>
-	</section>
 </Layout>

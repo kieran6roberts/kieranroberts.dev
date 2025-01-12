@@ -10,7 +10,6 @@ import SectionContainer from '@modules/landing/SectionContainer.astro';
 import AccoladeTweetCard from '@modules/landing/AccoladeTweetCard.astro';
 import ExperienceList from '@modules/landing/ExperienceList.astro';
 import Button from '@components/base/Button.astro';
-import CloudBG from '@modules/landing/CloudBG.astro';
 
 import { BLOG_URL, GITHUB_PROFILE_URL } from '@consts/urls';
 import { DOMAIN_NAME } from '@consts/urls';
@@ -21,10 +20,6 @@ const postsData = await fetchBlogPosts({ first: 3 });
 ---
 
 <Layout url={DOMAIN_NAME} showFooter={true}>
-	<Icon
-		name="hero-clouds"
-		class="pointer-events-none absolute top-0 z-0 h-max w-full rotate-180 transform opacity-75"
-	/>
 	<div id="hero" class="relative overflow-hidden">
 		<section
 			class="relative z-10 mx-auto flex h-full w-full max-w-[1600px] flex-col items-center justify-center"
@@ -41,7 +36,6 @@ const postsData = await fetchBlogPosts({ first: 3 });
 			</div>
 		</section>
 		<section class="relative border-b border-zinc-200 dark:border-zinc-800">
-			<CloudBG />
 			<SectionContainer>
 				<SectionHeading
 					title="Career & Experience"
@@ -54,7 +48,6 @@ const postsData = await fetchBlogPosts({ first: 3 });
 			id="blog"
 			class="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900"
 		>
-			<CloudBG />
 			<SectionContainer>
 				<SectionHeading
 					title="Blog"
@@ -91,8 +84,7 @@ const postsData = await fetchBlogPosts({ first: 3 });
 				</Button>
 			</SectionContainer>
 		</section>
-		<section class="relative overflow-hidden">
-			<CloudBG />
+		<section class="relative overflow-hidden border-b border-zinc-200 dark:border-zinc-800">
 			<SectionContainer>
 				<SectionHeading
 					title="Personal Projects"
@@ -117,7 +109,6 @@ const postsData = await fetchBlogPosts({ first: 3 });
 			</SectionContainer>
 		</section>
 		<section id="accolades" class="relative overflow-hidden">
-			<CloudBG />
 			<SectionContainer>
 				<SectionHeading
 					title="Accolades & Achievements"

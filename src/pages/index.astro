@@ -12,7 +12,7 @@ import ExperienceList from '@modules/landing/ExperienceList.astro';
 import Button from '@components/base/Button.astro';
 import CloudBG from '@modules/landing/CloudBG.astro';
 
-import { BLOG_URL } from '@consts/urls';
+import { BLOG_URL, GITHUB_PROFILE_URL } from '@consts/urls';
 import { DOMAIN_NAME } from '@consts/urls';
 import { fetchBlogPosts } from '@utils/blog';
 import ProjectGroup from '@modules/landing/ProjectGroup.astro';
@@ -45,7 +45,7 @@ const postsData = await fetchBlogPosts({ first: 3 });
 			<SectionContainer>
 				<SectionHeading
 					title="Career & Experience"
-					copy="Here are some of my relevant professional career experience. To see more, you can check out my attached CV."
+					copy="Some of my relevant professional career experience & education. To see more, find the attached CV."
 				/>
 				<ExperienceList />
 			</SectionContainer>
@@ -99,6 +99,21 @@ const postsData = await fetchBlogPosts({ first: 3 });
 					copy="I like to build projects that help my make my life easier and develop my skills. Check out some of my projects below."
 				/>
 				<ProjectGroup />
+				<Button
+					target="_blank"
+					as="a"
+					href={GITHUB_PROFILE_URL}
+					intent="secondary"
+					class="relative z-10 mx-auto"
+				>
+					More of my work
+					<Icon
+						name="github"
+						width={16}
+						height={16}
+						class="stroke-current text-black transition-transform duration-200 group-hover:translate-x-1 group-hover:text-accent-darkest dark:text-white dark:group-hover:text-accent-brightest"
+					/>
+				</Button>
 			</SectionContainer>
 		</section>
 		<section id="accolades" class="relative overflow-hidden">

@@ -10,6 +10,7 @@ import SectionContainer from '@modules/landing/SectionContainer.astro';
 import AccoladeTweetCard from '@modules/landing/AccoladeTweetCard.astro';
 import ExperienceList from '@modules/landing/ExperienceList.astro';
 import Button from '@components/base/Button.astro';
+import TestimonialGroup from '@modules/landing/TestimonialGroup.astro';
 
 import { BLOG_URL, GITHUB_PROFILE_URL } from '@consts/urls';
 import { DOMAIN_NAME } from '@consts/urls';
@@ -30,7 +31,7 @@ const postsData = await fetchBlogPosts({ first: 3 });
 				<Hero />
 			</div>
 		</section>
-		<section class="border-y bg-gray-50 dark:border-zinc-800 dark:bg-zinc-900">
+		<section class="border-y bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
 			<div class="relative mx-auto max-w-[1600px] gap-8 px-4 pb-24 pt-12 md:px-16 lg:px-24">
 				<HeroIllustration />
 			</div>
@@ -45,15 +46,26 @@ const postsData = await fetchBlogPosts({ first: 3 });
 			</SectionContainer>
 		</section>
 		<section
+			id="testimonials"
+			class="relative overflow-hidden border-b bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900"
+		>
+			<SectionContainer>
+				<SectionHeading
+					title="Testimonials"
+					copy="I have been fortunate to work closely with some awesome people. Here is what they had to say about me."
+				/>
+				<TestimonialGroup />
+			</SectionContainer>
+		</section>
+		<section
 			id="blog"
-			class="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900"
+			class="relative overflow-hidden border-b border-zinc-200 dark:border-zinc-800"
 		>
 			<SectionContainer>
 				<SectionHeading
 					title="Blog"
 					copy="I write about topics that interest me in the web development space. UI/UX tutorials, React, software testing, and more."
 				/>
-
 				<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
 					{
 						postsData.map((post) => (
@@ -67,43 +79,33 @@ const postsData = await fetchBlogPosts({ first: 3 });
 						))
 					}
 				</div>
-				<Button
-					target="_blank"
-					as="a"
-					href={BLOG_URL}
-					intent="secondary"
-					class="relative z-10 mx-auto"
-				>
-					View all posts
+				<Button target="_blank" as="a" href={BLOG_URL} class="relative z-10 mx-auto">
+					My blog
 					<Icon
 						name="arrow-right"
 						width={16}
 						height={16}
-						class="stroke-current text-black transition-transform duration-200 group-hover:translate-x-1 group-hover:text-accent-darkest dark:text-white dark:group-hover:text-accent-brightest"
+						class="stroke-current transition-transform duration-200 group-hover:translate-x-1 group-hover:text-accent-brightest dark:group-hover:text-accent-darkest"
 					/>
 				</Button>
 			</SectionContainer>
 		</section>
-		<section class="relative overflow-hidden border-b border-zinc-200 dark:border-zinc-800">
+		<section
+			class="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900"
+		>
 			<SectionContainer>
 				<SectionHeading
 					title="Personal Projects"
 					copy="I like to build projects that help my make my life easier and develop my skills. Check out some of my projects below."
 				/>
 				<ProjectGroup />
-				<Button
-					target="_blank"
-					as="a"
-					href={GITHUB_PROFILE_URL}
-					intent="secondary"
-					class="relative z-10 mx-auto"
-				>
-					More of my work
+				<Button target="_blank" as="a" href={GITHUB_PROFILE_URL} class="relative z-10 mx-auto">
+					My GitHub profile
 					<Icon
 						name="github"
-						width={16}
-						height={16}
-						class="stroke-current text-black transition-transform duration-200 group-hover:translate-x-1 group-hover:text-accent-darkest dark:text-white dark:group-hover:text-accent-brightest"
+						width={20}
+						height={20}
+						class="stroke-current transition-transform duration-200 group-hover:translate-x-1 group-hover:text-accent-brightest dark:group-hover:text-accent-darkest"
 					/>
 				</Button>
 			</SectionContainer>

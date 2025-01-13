@@ -6,32 +6,46 @@ import Button from '@components/base/Button.astro';
 import type { Experience } from '@env';
 
 type Props = Experience;
-const { iconName, company, title, type, location, date, responsibilities, image, showCV } =
-	Astro.props;
+const {
+	iconName,
+	company,
+	title,
+	type,
+	location,
+	date,
+	responsibilities,
+	image,
+	showCV,
+	companyURL,
+} = Astro.props;
 ---
 
 <article
-	class="relative z-10 flex flex-col gap-4 rounded-xl border border-zinc-200 bg-white py-4 pl-4 pr-8 dark:border-zinc-800 dark:bg-zinc-900 lg:py-8 lg:pl-8 lg:pr-12"
+	class="card-hover group/exp-card relative z-10 flex flex-col gap-4 rounded-xl border border-zinc-200 bg-zinc-50 py-4 pl-4 pr-8 dark:border-zinc-800 dark:bg-zinc-900 lg:py-8 lg:pl-8 lg:pr-12"
 >
-	<div>
-		{
-			(
-				<Icon
-					name={iconName}
-					width={iconName === 'bangor-university' ? 65 : 48}
-					height={iconName === 'bangor-university' ? 65 : 48}
-					class={iconName === 'bangor-university' ? 'rounded bg-white p-px' : ''}
-				/>
-			)
-		}
-	</div>
+	<a href={companyURL} target="_blank" class="flex w-max flex-row items-center gap-4">
+		<div>
+			{
+				(
+					<Icon
+						name={iconName}
+						width={iconName === 'bangor-university' ? 65 : 48}
+						height={iconName === 'bangor-university' ? 65 : 48}
+						class={iconName === 'bangor-university' ? 'rounded bg-white p-px' : ''}
+					/>
+				)
+			}
+		</div>
+		<span class="text-xl text-zinc-700 dark:text-zinc-300 xl:text-2xl">
+			{company}
+		</span>
+	</a>
 	<div class="flex flex-col gap-8">
 		<div class="flex flex-col gap-2">
-			<span class="text-xl text-zinc-700 dark:text-zinc-300 xl:text-2xl">
-				{company}
-			</span>
 			<div class="flex flex-row items-center gap-2">
-				<h2 class="text-3xl font-medium text-zinc-700 dark:text-zinc-300 xl:text-4xl">
+				<h2
+					class="text-3xl font-medium text-zinc-700 group-hover/exp-card:text-zinc-900 dark:text-zinc-300 dark:group-hover/exp-card:text-zinc-100 xl:text-4xl"
+				>
 					{title}
 				</h2>
 				<div
@@ -45,7 +59,7 @@ const { iconName, company, title, type, location, date, responsibilities, image,
 			</span>
 			<div class="h-px w-1/2 bg-zinc-200 dark:bg-zinc-800"></div>
 			<ul
-				class="list-outside list-disc space-y-4 p-4 text-sm text-zinc-600 dark:text-zinc-300 md:text-base"
+				class="list-outside list-disc space-y-4 p-4 text-sm text-zinc-600 group-hover/exp-card:text-zinc-800 dark:text-zinc-300 dark:group-hover/exp-card:text-zinc-200 md:text-base xl:text-lg"
 			>
 				{responsibilities.map((responsibility) => <li>{responsibility}</li>)}
 			</ul>
@@ -68,19 +82,13 @@ const { iconName, company, title, type, location, date, responsibilities, image,
 			{
 				showCV ? (
 					<div class="flex flex-row flex-wrap items-center gap-4">
-						<Button
-							as="a"
-							href="/kieran-roberts-CV.pdf"
-							target="_blank"
-							download
-							intent="secondary"
-						>
+						<Button as="a" href="/kieran-roberts-CV.pdf" target="_blank" download>
 							Download CV
 							<Icon
 								name="download-circle"
 								width={20}
 								height={20}
-								class="stroke-current text-black transition-transform duration-200 group-hover:translate-y-1 group-hover:text-accent-darkest dark:text-white dark:group-hover:text-accent-brightest"
+								class="stroke-current transition-transform duration-200 group-hover:translate-y-1 group-hover:text-accent-brightest dark:group-hover:text-accent-darkest"
 							/>
 						</Button>
 						<span class="text-sm text-zinc-500 dark:text-zinc-400">

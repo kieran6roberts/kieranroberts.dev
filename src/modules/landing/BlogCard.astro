@@ -22,7 +22,7 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
 <a
 	href={link}
 	target="_blank"
-	class="blog-card-hover link-focus group relative z-10 flex flex-col gap-4 rounded-xl border border-zinc-200 bg-white py-4 pl-4 pr-6 dark:border-zinc-800 dark:bg-zinc-900"
+	class="card-hover link-focus group relative z-10 flex flex-col gap-4 rounded-xl border border-zinc-200 bg-white bg-zinc-50 py-4 pl-4 pr-6 dark:border-zinc-800 dark:bg-zinc-900"
 >
 	<div class="pb-2">
 		<Image
@@ -34,7 +34,7 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
 			loading="lazy"
 		/>
 		<h2
-			class="mb-2 mt-4 font-heading text-2xl font-medium text-zinc-700 transition-all duration-300 group-hover:text-zinc-800 dark:text-zinc-300 dark:group-hover:text-zinc-200 xl:text-3xl"
+			class="mb-2 mt-4 font-heading text-2xl font-medium text-zinc-700 transition-all duration-300 group-hover:text-zinc-900 dark:text-zinc-300 dark:group-hover:text-zinc-100 xl:text-3xl"
 		>
 			{title}
 		</h2>
@@ -43,7 +43,7 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
 		</time>
 	</div>
 	<p
-		class="text-sm text-zinc-500 transition-all duration-300 group-hover:text-zinc-600 dark:text-zinc-400 dark:group-hover:text-zinc-300 xl:text-base"
+		class="text-sm text-zinc-500 transition-all duration-300 group-hover:text-zinc-700 dark:text-zinc-400 dark:group-hover:text-zinc-200 xl:text-base"
 	>
 		{description}
 	</p>

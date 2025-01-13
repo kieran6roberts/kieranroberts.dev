@@ -12,6 +12,7 @@ export type Experience = {
 	responsibilities: string[];
 	image: ImageMetadata | null;
 	showCV: boolean;
+	companyURL: string;
 };
 
 export type BlogPost = {
@@ -47,4 +48,13 @@ export type Project = {
 	caseStudyLink: string | null;
 	image: ImageMetadata;
 	status: 'complete' | 'in progress' | 'planned';
+};
+
+export type Testimonial = {
+	name: string;
+	company: string;
+	role: string;
+	description: string;
+	image: ImageMetaData;
+	profileURL: string;
 };

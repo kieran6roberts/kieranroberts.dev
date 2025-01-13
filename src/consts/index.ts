@@ -80,7 +80,7 @@ export const testimonials: Testimonial[] = [
 		company: 'Hashnode',
 		role: 'Senior Software Engineer',
 		description:
-			'I have worked with Kieran on several significant projects at Hashnode. I can vouch for his attention to detail, web accessibility standards, and attention to a delivering a great user experience. He iterates quickly on feedback and ensures that there is a harmony between user experience and developer experience while building features.',
+			'I have worked with Kieran on several significant projects at Hashnode. I can vouch for his attention to detail, web accessibility standards, and ability to deliver a great user experience. He iterates quickly on feedback and ensures that there is a harmony between user experience and developer experience while building features.',
 		image: TestimonialImage1,
 		profileURL: 'https://www.linkedin.com/in/lakshyathakur/',
 	},

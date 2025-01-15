@@ -25,10 +25,8 @@ import { Icon } from 'astro-icon/components';
 	const button = document.getElementById('theme-toggle');
 
 	const theme = (() => {
-		if (typeof localStorage !== 'undefined') {
-			if (localStorage.getItem(THEME_STORAGE_KEY)) {
-				return (localStorage.getItem(THEME_STORAGE_KEY) as Theme) || Themes.light;
-			}
+		if (typeof localStorage !== 'undefined' && localStorage.getItem(THEME_STORAGE_KEY)) {
+			return (localStorage.getItem(THEME_STORAGE_KEY) as Theme) || Themes.light;
 		}
 		return window.matchMedia('(prefers-color-scheme: dark)').matches ? Themes.dark : Themes.light;
 	})();
@@ -36,7 +34,7 @@ import { Icon } from 'astro-icon/components';
 	const reflectThemePreference = (theme: Theme) => {
 		document.documentElement.className = '';
 		document.documentElement.classList.add(theme);
-		button?.setAttribute('aria-label', theme);
+		button?.setAttribute('aria-label', `${theme} theme`);
 	};
 
 	reflectThemePreference(theme);
@@ -49,7 +47,7 @@ import { Icon } from 'astro-icon/components';
 		localStorage.setItem(THEME_STORAGE_KEY, newTheme);
 	};
 
-	document.getElementById('theme-toggle')?.addEventListener('click', handleToggleClick);
+	button?.addEventListener('click', handleToggleClick);
 </script>
 
 <button

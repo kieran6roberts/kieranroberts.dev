@@ -6,11 +6,11 @@ You can find my CV and contact links on the site.
 
 <img width="600" alt="home page screenshot" src="https://github.com/user-attachments/assets/7fd91c54-3e18-4ee4-8094-604595995bef" />
 
-## Authors
+## Author
 
 - [@kieran6roberts](https://www.github.com/kieran6roberts)
 
-## 🚀 About Me
+## About Me
 
 I am a Full-Stack Software Engineer at [Hashnode](https://hashnode.com/), focused mainly on the frontend UI/UX with a touch of AWS focused infra and GraphQL API work. Currently based in Ireland.
 

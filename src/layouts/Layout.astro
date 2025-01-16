@@ -4,7 +4,6 @@ import SEO from '@components/SEO.astro';
 import Header from '@layouts/Header.astro';
 import Footer from '@layouts/Footer.astro';
 import { DEFAULT_SEO_TITLE, DEFAULT_SEO_DESCRIPTION } from '@consts/index';
-import { DOMAIN_NAME } from '@consts/urls';
 
 type Props = ComponentProps<typeof SEO> & {
 	showFooter?: boolean;
@@ -12,13 +11,12 @@ type Props = ComponentProps<typeof SEO> & {
 
 const DEFAULT_TITLE = DEFAULT_SEO_TITLE;
 const DEFAULT_DESCRIPTION = DEFAULT_SEO_DESCRIPTION;
-const DEFAULT_URL = `https://${DOMAIN_NAME}/`;
 
 const {
 	title = DEFAULT_TITLE,
 	description = DEFAULT_DESCRIPTION,
 	showFooter = true,
-	url = DEFAULT_URL,
+	url,
 } = Astro.props;
 ---
 

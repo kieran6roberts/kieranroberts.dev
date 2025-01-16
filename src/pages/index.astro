@@ -13,11 +13,12 @@ import Button from '@components/base/Button.astro';
 import TestimonialGroup from '@modules/landing/TestimonialGroup.astro';
 
 import { BLOG_URL, GITHUB_PROFILE_URL } from '@consts/urls';
-import { DOMAIN_NAME } from '@consts/urls';
 import ProjectGroup from '@modules/landing/ProjectGroup.astro';
+
+const siteURL = import.meta.env.SITE;
 ---
 
-<Layout url={DOMAIN_NAME} showFooter={true}>
+<Layout url={siteURL} showFooter={true}>
 	<div id="hero" class="relative overflow-hidden">
 		<section
 			class="relative z-10 mx-auto flex h-full w-full max-w-[1600px] flex-col items-center justify-center"

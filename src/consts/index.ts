@@ -62,9 +62,10 @@ export const projects: Project[] = [
 		date: '2024',
 		githubLink: 'https://github.com/kieran6roberts/kieranroberts.dev',
 		liveLink: null,
-		caseStudyLink: null,
+		caseStudyLink:
+			'https://blog.kieranroberts.dev/kieranrobertsdev-my-new-dev-portfolio-built-with-astro-tailwindcss-and-typescript',
 		image: PortfolioImage,
-		status: 'in progress',
+		status: 'complete',
 	},
 	{
 		title: 'CoverSnap',

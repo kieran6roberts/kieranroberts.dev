@@ -2,6 +2,7 @@
 // import { ClientRouter } from "astro:transitions";
 import '../styles/main.css';
 import { DOMAIN_NAME } from '@consts/urls';
+import { DEFAULT_SEO_TITLE, DEFAULT_SEO_DESCRIPTION } from '@consts/index';
 
 interface Props {
 	title?: string;
@@ -9,9 +10,8 @@ interface Props {
 	url?: string;
 }
 
-const DEFAULT_TITLE = 'Kieran Roberts - Software Developer';
-const DEFAULT_DESCRIPTION =
-	"Hi, I'm a React & TypeScript web builder with multiple years worth of industry experience. Let's talk";
+const DEFAULT_TITLE = DEFAULT_SEO_TITLE;
+const DEFAULT_DESCRIPTION = DEFAULT_SEO_DESCRIPTION;
 const DEFAULT_URL = DOMAIN_NAME;
 
 const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION, url = DEFAULT_URL } = Astro.props;
@@ -38,7 +38,6 @@ const isProd = import.meta.env.PROD;
 	<meta property="og:site_name" content="kieranroberts.dev" />
 	<meta property="og:description" content={description} />
 	<meta property="og:type" content="website" />
-	<meta name="publish_date" property="og:publish_date" content="2025-01-16T00:00:00-0600" />
 
 	<!-- Twitter Meta Tags -->
 	<meta name="twitter:card" content="summary_large_image" />

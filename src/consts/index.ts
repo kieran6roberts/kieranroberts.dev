@@ -1,11 +1,16 @@
-export const EMAIL_ADDRESS = 'kieranroberts6dev@gmail.com';
+import type { Experience, Project, Testimonial } from '@env';
+
 import CoverSnapImage from '@images/cover-snap.webp';
 import universityImage from '@images/university.webp';
 import PortfolioImage from '@images/portfolio.webp';
 import TestimonialImage1 from '@images/testimonial-1.webp';
 import TestimonialImage2 from '@images/testimonial-2.webp';
+
+export const EMAIL_ADDRESS = 'kieranroberts6dev@gmail.com';
 export const THEME_STORAGE_KEY = 'theme';
-import type { Experience, Project, Testimonial } from '@env';
+export const DEFAULT_SEO_TITLE = 'Kieran Roberts - Software Engineer';
+export const DEFAULT_SEO_DESCRIPTION =
+	"I'm a full-stack JavaScript-focused engineer with multiple years of industry experience working closely on UI/UX, AWS based infra, and GraphQL API's. Let's talk";
 
 export const Themes = {
 	light: 'light',

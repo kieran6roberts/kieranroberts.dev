@@ -12,13 +12,13 @@ type Props = ComponentProps<typeof SEO> & {
 
 const DEFAULT_TITLE = DEFAULT_SEO_TITLE;
 const DEFAULT_DESCRIPTION = DEFAULT_SEO_DESCRIPTION;
-const DEFAULT_URL = DOMAIN_NAME;
+const DEFAULT_URL = `https://${DOMAIN_NAME}/`;
 
 const {
 	title = DEFAULT_TITLE,
 	description = DEFAULT_DESCRIPTION,
-	url = DEFAULT_URL,
 	showFooter = true,
+	url = DEFAULT_URL,
 } = Astro.props;
 ---
 

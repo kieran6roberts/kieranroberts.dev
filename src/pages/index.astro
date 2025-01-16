@@ -5,7 +5,7 @@ import Layout from '@layouts/Layout.astro';
 import Hero from '@modules/landing/Hero.astro';
 import SectionHeading from '@modules/landing/SectionHeading.astro';
 import HeroIllustration from '@modules/landing/HeroIllustration.astro';
-import BlogCard from '@modules/landing/BlogCard.astro';
+import BlogGroup from '@modules/landing/BlogGroup.astro';
 import SectionContainer from '@modules/landing/SectionContainer.astro';
 import AccoladeTweetCard from '@modules/landing/AccoladeTweetCard.astro';
 import ExperienceList from '@modules/landing/ExperienceList.astro';
@@ -14,10 +14,7 @@ import TestimonialGroup from '@modules/landing/TestimonialGroup.astro';
 
 import { BLOG_URL, GITHUB_PROFILE_URL } from '@consts/urls';
 import { DOMAIN_NAME } from '@consts/urls';
-import { fetchBlogPosts } from '@utils/blog';
 import ProjectGroup from '@modules/landing/ProjectGroup.astro';
-
-const postsData = await fetchBlogPosts({ first: 3 });
 ---
 
 <Layout url={DOMAIN_NAME} showFooter={true}>
@@ -69,19 +66,7 @@ const postsData = await fetchBlogPosts({ first: 3 });
 					title="Blog"
 					copy="I write about topics that interest me in the web development space. UI/UX tutorials, React, software testing, and more."
 				/>
-				<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
-					{
-						postsData.map((post) => (
-							<BlogCard
-								title={post.title}
-								description={post.brief}
-								date={post.publishedAt}
-								link={post.url}
-								image={post.coverImage?.url || ''}
-							/>
-						))
-					}
-				</div>
+				<BlogGroup />
 				<Button target="_blank" as="a" href={BLOG_URL} class="relative z-10 mx-auto">
 					My blog
 					<Icon

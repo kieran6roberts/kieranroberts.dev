@@ -3,15 +3,15 @@ import type { ComponentProps } from 'astro/types';
 import SEO from '@components/SEO.astro';
 import Header from '@layouts/Header.astro';
 import Footer from '@layouts/Footer.astro';
+import { DEFAULT_SEO_TITLE, DEFAULT_SEO_DESCRIPTION } from '@consts/index';
 import { DOMAIN_NAME } from '@consts/urls';
 
 type Props = ComponentProps<typeof SEO> & {
 	showFooter?: boolean;
 };
 
-const DEFAULT_TITLE = 'Kieran Roberts - Software Engineer';
-const DEFAULT_DESCRIPTION =
-	"I'm a full-stack JavaScript-focused engineer with multiple years of industry experience working closely on UI/UX, AWS based infra, and GraphQL API's. Let's talk";
+const DEFAULT_TITLE = DEFAULT_SEO_TITLE;
+const DEFAULT_DESCRIPTION = DEFAULT_SEO_DESCRIPTION;
 const DEFAULT_URL = DOMAIN_NAME;
 
 const {

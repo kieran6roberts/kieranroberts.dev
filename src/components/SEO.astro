@@ -1,5 +1,5 @@
 ---
-// import { ClientRouter } from "astro:transitions";
+import { ClientRouter } from 'astro:transitions';
 import '../styles/main.css';
 import { DOMAIN_NAME } from '@consts/urls';
 import { DEFAULT_SEO_TITLE, DEFAULT_SEO_DESCRIPTION } from '@consts/index';
@@ -52,7 +52,7 @@ const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION, url = siteURL 
 	<meta name="msapplication-TileColor" content="#ffffff" />
 
 	{/* Page transition animations */}
-	<!-- <ClientRouter transition:animate="slide" /> -->
+	<ClientRouter transition:animate="slide" />
 
 	{/* Fonts */}
 	<link rel="preload" href="/fonts/Lato/Lato-Regular.ttf" as="font" type="font/ttf" crossorigin />
@@ -85,17 +85,17 @@ const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION, url = siteURL 
 
 	<script is:inline>
 		// Necessary for view transitions
-		// document.addEventListener('astro:after-swap', () => {
-		// 	if (
-		// 		localStorage.theme === 'dark' ||
-		// 		(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-		// 	) {
-		// 		document.documentElement.className = '';
-		// 		document.documentElement.classList.add('dark');
-		// 		document.querySelector('#theme-toggle')?.setAttribute('aria-label', 'dark');
-		// 	} else {
-		// 	}
-		// });
+		document.addEventListener('astro:after-swap', () => {
+			if (
+				localStorage.theme === 'dark' ||
+				(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+			) {
+				document.documentElement.className = '';
+				document.documentElement.classList.add('dark');
+				document.querySelector('#theme-toggle')?.setAttribute('aria-label', 'dark');
+			} else {
+			}
+		});
 		if (
 			localStorage.theme === 'dark' ||
 			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)

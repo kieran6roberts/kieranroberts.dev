@@ -17,8 +17,11 @@ import ProjectGroup from '@modules/landing/ProjectGroup.astro';
 
 const siteURL = import.meta.env.SITE;
 
-Astro.response.headers.set('Cache-Control', 'public, max-age=0, must-revalidate');
-Astro.response.headers.set('Cloudflare-CDN-Cache-Control', 'public, maxage=300');
+Astro.response.headers.set('Cache-Control', 'public, max-age=300, stale-while-revalidate=7200');
+Astro.response.headers.set(
+	'Cloudflare-CDN-Cache-Control',
+	'public, max-age=300, stale-while-revalidate=7200',
+);
 ---
 
 <Layout url={siteURL} showFooter={true}>

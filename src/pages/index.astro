@@ -17,7 +17,7 @@ import ProjectGroup from '@modules/landing/ProjectGroup.astro';
 
 const siteURL = import.meta.env.SITE;
 
-// Astro.response.headers.set("Cache-Control", "public, max-age=0, must-revalidate");
+Astro.response.headers.set('Cache-Control', 'public, max-age=0, must-revalidate');
 Astro.response.headers.set('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=300');
 ---
 
@@ -140,7 +140,7 @@ Astro.response.headers.set('Cache-Control', 'public, s-maxage=300, stale-while-r
 		<section class="bg-zinc-50 dark:bg-zinc-900">
 			<SectionContainer>
 				<SectionHeading
-					title="Book a meeting"
+					title="Book A Meeting"
 					copy="I'm open to discussing work opportunities, collaborations, or just have a coffee chat. Pick a time slot using the link below and provide a brief description of what you'd like to discuss."
 				/>
 				<Button target="_blank" as="a" href={CALENDLY_URL} class="relative z-10 mx-auto">

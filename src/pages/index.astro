@@ -1,19 +1,19 @@
 ---
 import { Icon } from 'astro-icon/components';
 
-import Layout from '@layouts/Layout.astro';
-import Hero from '@modules/landing/Hero.astro';
-import SectionHeading from '@modules/landing/SectionHeading.astro';
-import HeroIllustration from '@modules/landing/HeroIllustration.astro';
-import BlogGroup from '@modules/landing/BlogGroup.astro';
-import SectionContainer from '@modules/landing/SectionContainer.astro';
-import AccoladeTweetCard from '@modules/landing/AccoladeTweetCard.astro';
-import ExperienceList from '@modules/landing/ExperienceList.astro';
-import Button from '@components/base/Button.astro';
-import TestimonialGroup from '@modules/landing/TestimonialGroup.astro';
+import Layout from '@shared/layouts/Layout.astro';
+import Hero from '@features/portfolio/components/Hero.astro';
+import SectionHeading from '@shared/pages/home/SectionHeading.astro';
+import HeroIllustration from '@features/portfolio/components/HeroIllustration.astro';
+import BlogGroup from '@features/blog/components/BlogGroup.astro';
+import SectionContainer from '@shared/pages/home/SectionContainer.astro';
+import AccoladeTweetCard from '@features/accolades/components/AccoladeTweetCard.astro';
+import ExperienceList from '@features/experience/components/ExperienceList.astro';
+import Button from '@shared/components/base/Button.astro';
+import TestimonialGroup from '@features/testimonials/components/TestimonialGroup.astro';
 
-import { BLOG_URL, GITHUB_PROFILE_URL, CALENDLY_URL } from '@consts/urls';
-import ProjectGroup from '@modules/landing/ProjectGroup.astro';
+import { BLOG_URL, GITHUB_PROFILE_URL, CALENDLY_URL } from '@config/consts/urls';
+import ProjectGroup from '@features/projects/components/ProjectGroup.astro';
 
 const siteURL = import.meta.env.SITE;
 ---

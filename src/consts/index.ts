@@ -5,6 +5,7 @@ import universityImage from '@images/university.webp';
 import PortfolioImage from '@images/portfolio.webp';
 import TestimonialImage1 from '@images/testimonial-1.webp';
 import TestimonialImage2 from '@images/testimonial-2.webp';
+import TestimonialImage3 from '@images/testimonial-3.webp';
 
 export const EMAIL_ADDRESS = 'kieranroberts6dev@gmail.com';
 export const THEME_STORAGE_KEY = 'theme';
@@ -81,6 +82,15 @@ export const projects: Project[] = [
 ];
 
 export const testimonials: Testimonial[] = [
+	{
+		name: 'Pritam Paul',
+		company: 'Hashnode',
+		role: 'Lead Product Designer',
+		description:
+			"Kieran has been an absolute rockstar to work with on front-end tasks. His ability to bring my designs, whether landing pages or UI elements, to life with precision and flair is truly impressive. Beyond his prolific development skills, his knack for optimization and making sites faster has been invaluable. On top of that, he's a fantastic friend and teammate who makes every collaboration enjoyable. Can’t recommend him enough!",
+		image: TestimonialImage3,
+		profileURL: 'https://www.linkedin.com/in/pritam-paul360/',
+	},
 	{
 		name: 'Lakshya Thakur',
 		company: 'Hashnode',

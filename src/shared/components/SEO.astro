@@ -1,0 +1,119 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import { DOMAIN_NAME } from '@config/consts/urls';
+import { DEFAULT_SEO_TITLE, DEFAULT_SEO_DESCRIPTION } from '@config/consts';
+import '../styles/main.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+	url?: string;
+}
+
+const isProd = import.meta.env.PROD;
+const siteURL = import.meta.env.SITE;
+const DEFAULT_TITLE = DEFAULT_SEO_TITLE;
+const DEFAULT_DESCRIPTION = DEFAULT_SEO_DESCRIPTION;
+
+const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION, url = siteURL } = Astro.props;
+---
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+	<title>{title}</title>
+	<meta name="description" content={description} />
+
+	<meta property="og:title" content={title} />
+	<meta property="og:image" content="/og-image.png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:image:alt" content={`${DOMAIN_NAME} homepage`} />
+	<meta property="og:locale" content="en" />
+	<meta property="og:url" content={url} />
+	<meta property="og:site_name" content="Kieran Roberts" />
+	<meta property="og:description" content={description} />
+	<meta property="og:type" content="website" />
+
+	<meta name="twitter:creator" content="@Kieran6dev" />
+	<meta name="twitter:site" content="@Kieran6dev" />
+	<meta name="twitter:domain" content={DOMAIN_NAME} />
+	<meta name="twitter:card" content="summary_large_image" />
+
+	<meta name="author" content="Kieran Roberts" />
+	<link rel="sitemap" href="/sitemap-index.xml" />
+
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+	<meta name="generator" content={Astro.generator} />
+	<meta name="theme-color" content="#ffffff" />
+	<meta name="msapplication-TileColor" content="#ffffff" />
+
+	{/* Page transition animations */}
+	<ClientRouter transition:animate="slide" />
+
+	{/* Fonts */}
+	<link rel="preload" href="/fonts/Lato/Lato-Regular.ttf" as="font" type="font/ttf" crossorigin />
+	<link rel="preload" href="/fonts/Lato/Lato-Bold.ttf" as="font" type="font/ttf" crossorigin />
+	<link
+		rel="preload"
+		href="/fonts/Barlow/Barlow-SemiBold.ttf"
+		as="font"
+		type="font/ttf"
+		crossorigin
+	/>
+	<link
+		rel="preload"
+		href="/fonts/Barlow/Barlow-Regular.ttf"
+		as="font"
+		type="font/ttf"
+		crossorigin
+	/>
+	<link
+		rel="preload"
+		href="/fonts/Barlow/Barlow-Medium.ttf"
+		as="font"
+		type="font/ttf"
+		crossorigin
+	/>
+	<link rel="preload" href="/fonts/Barlow/Barlow-Bold.ttf" as="font" type="font/ttf" crossorigin />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+	<script is:inline>
+		// Necessary for view transitions
+		document.addEventListener('astro:after-swap', () => {
+			if (
+				localStorage.theme === 'dark' ||
+				(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+			) {
+				document.documentElement.className = '';
+				document.documentElement.classList.add('dark');
+				document.querySelector('#theme-toggle')?.setAttribute('aria-label', 'dark');
+			} else {
+			}
+		});
+		if (
+			localStorage.theme === 'dark' ||
+			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+		) {
+			document.documentElement.className = '';
+			document.documentElement.classList.add('dark');
+			document.querySelector('#theme-toggle')?.setAttribute('aria-label', 'dark');
+		} else {
+		}
+	</script>
+	{
+		isProd ? (
+			<script
+				is:inline
+				data-domain="kieranroberts.dev"
+				data-api="/discover/anl/event"
+				src="/discover/anl/script.js"
+			/>
+		) : null
+	}
+</head>

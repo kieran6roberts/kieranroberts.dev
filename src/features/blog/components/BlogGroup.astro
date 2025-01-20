@@ -1,0 +1,20 @@
+---
+import { fetchBlogPosts } from '@features/blog/api';
+import BlogCard from '@features/blog/components/BlogCard.astro';
+
+const postsData = await fetchBlogPosts({ first: 3 });
+---
+
+<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+	{
+		postsData.map((post) => (
+			<BlogCard
+				title={post.title}
+				description={post.brief}
+				date={post.publishedAt}
+				link={post.url}
+				image={post.coverImage?.url || ''}
+			/>
+		))
+	}
+</div>

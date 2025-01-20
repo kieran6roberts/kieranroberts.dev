@@ -1,0 +1,124 @@
+---
+import { experience, education } from '@config/consts';
+import ExperienceCard from '@features/experience/components/ExperienceCard.astro';
+---
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const tabs = document.querySelectorAll('[data-tab-target]');
+		const tabContents = document.querySelectorAll('[data-tab-content]');
+
+		const switchTab = (tab: Element) => {
+			const targetAttribute = tab.getAttribute('data-tab-target');
+			if (!targetAttribute) return;
+
+			const target = document.querySelector(targetAttribute);
+			if (!target) return;
+
+			tabContents.forEach((tabContent) => {
+				tabContent.removeAttribute('data-tab-content-active');
+			});
+
+			tabs.forEach((t) => {
+				t.setAttribute('data-state', 'inactive');
+				t.setAttribute('aria-selected', 'false');
+				t.setAttribute('tabindex', t === tab ? '0' : '-1');
+			});
+
+			tab.setAttribute('data-state', 'active');
+			tab.setAttribute('aria-selected', 'true');
+			target.setAttribute('data-tab-content-active', 'true');
+		};
+
+		tabs.forEach((tab) => {
+			if (tab.getAttribute('data-state') !== 'active') {
+				tab.setAttribute('tabindex', '-1');
+			}
+		});
+
+		tabs.forEach((tab) => {
+			tab.addEventListener('click', (e) => {
+				e.preventDefault();
+				switchTab(tab);
+			});
+
+			tab.addEventListener('keydown', (e): void => {
+				const currentIndex = Array.from(tabs).indexOf(tab as HTMLElement);
+
+				switch ((e as KeyboardEvent).key) {
+					case 'ArrowLeft':
+					case 'ArrowRight': {
+						e.preventDefault();
+						const nextIndex =
+							(e as KeyboardEvent).key === 'ArrowLeft'
+								? (currentIndex - 1 + tabs.length) % tabs.length
+								: (currentIndex + 1) % tabs.length;
+						const targetTab = tabs[nextIndex];
+						(targetTab as HTMLElement).focus();
+						switchTab(targetTab);
+						break;
+					}
+				}
+			});
+		});
+	});
+</script>
+
+<div class="relative z-10 flex w-full flex-col items-center justify-center gap-8">
+	<ul
+		class="mx-auto grid w-full max-w-[800px] grid-cols-2 gap-2 rounded-full border border-zinc-200 p-1 dark:border-zinc-800"
+		role="tablist"
+		aria-orientation="horizontal"
+	>
+		<li role="presentation">
+			<button
+				id="experience-tab"
+				data-tab-target="#experience-content"
+				data-state="active"
+				role="tab"
+				aria-controls="experience-content"
+				aria-selected="true"
+				type="button"
+				class="link-focus h-full w-full rounded-full bg-white px-3 py-2 text-base font-medium text-zinc-900 hover:bg-zinc-100 data-[state=active]:bg-zinc-900 data-[state=active]:text-white hover:data-[state=active]:bg-zinc-800 dark:bg-transparent dark:text-white dark:hover:bg-zinc-900 dark:data-[state=active]:bg-white dark:data-[state=active]:text-zinc-900 dark:hover:data-[state=active]:bg-zinc-100"
+			>
+				Experience
+			</button>
+		</li>
+		<li role="presentation">
+			<button
+				id="education-tab"
+				data-tab-target="#education-content"
+				data-state="inactive"
+				role="tab"
+				aria-controls="education-content"
+				aria-selected="false"
+				type="button"
+				class="link-focus h-full w-full rounded-full bg-white px-3 py-2 text-base font-medium text-zinc-900 hover:bg-zinc-100 data-[state=active]:bg-zinc-900 data-[state=active]:text-white hover:data-[state=active]:bg-zinc-800 dark:bg-transparent dark:text-white dark:hover:bg-zinc-900 dark:data-[state=active]:bg-white dark:data-[state=active]:text-zinc-900 dark:hover:data-[state=active]:bg-zinc-100"
+			>
+				Education
+			</button>
+		</li>
+	</ul>
+
+	<div class="tab-content mx-auto min-h-[575px] w-full max-w-[1000px]">
+		<div
+			id="experience-content"
+			data-tab-content
+			data-tab-content-active
+			aria-labelledby="experience-tab"
+			role="tabpanel"
+			class="hidden data-[tab-content-active]:block"
+		>
+			{experience.map((experience) => <ExperienceCard {...experience} />)}
+		</div>
+		<div
+			id="education-content"
+			data-tab-content
+			aria-labelledby="education-tab"
+			role="tabpanel"
+			class="hidden data-[tab-content-active]:block"
+		>
+			{education.map((education) => <ExperienceCard {...education} />)}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,133 @@
+---
+import { Image } from 'astro:assets';
+
+import Button from '@shared/components/base/Button.astro';
+import SocialLinkGroup from '@shared/components/SocialLinkGroup.astro';
+import KieranAvatar from '@images/Kieran-Avatar.webp';
+import ThemeToggleAstro from '@shared/components/ThemeToggle.astro';
+import { EMAIL_ADDRESS } from '@config/consts';
+
+type Props = Record<string, never>;
+---
+
+<script>
+	const TRANSLATE_BUFFER = 30;
+	const QUERY_NAME = '(prefers-reduced-motion: no-preference)';
+
+	let prevScrollTop = window.scrollY;
+	let animation: number | undefined;
+
+	const header = document.getElementById('main-header');
+	const mediaQueryList = window.matchMedia(QUERY_NAME);
+
+	if (mediaQueryList.matches && header) {
+		const headerTop = getHeaderTopValue();
+		const translateAmount = calculateTranslateValue({
+			headerTop,
+			scrollDistance: 0,
+		});
+		performTranslate(translateAmount);
+	}
+
+	function getHeaderTopValue() {
+		const headerPosition = header?.getBoundingClientRect();
+		return headerPosition?.top ?? 0;
+	}
+
+	function performTranslate(amount: number) {
+		if (header) header.style.transform = `translateY(${amount}px)`;
+	}
+
+	function getScrollDistance() {
+		const curScrollTop = window.scrollY;
+		return curScrollTop - prevScrollTop;
+	}
+
+	function calculateTranslateValue({
+		headerTop,
+		scrollDistance,
+	}: {
+		headerTop: number;
+		scrollDistance: number;
+	}) {
+		const navHeight = (header?.offsetHeight || 0) + TRANSLATE_BUFFER;
+		const topOffset = 16;
+
+		return Math.max(
+			Math.min(
+				headerTop -
+					topOffset +
+					(scrollDistance < 0 ? Math.abs(scrollDistance) : -Math.abs(scrollDistance)) * 1,
+				0,
+			),
+			-navHeight,
+		);
+	}
+
+	function handleTranslate() {
+		const curScrollTop = window.scrollY;
+		const scrollDistance = getScrollDistance();
+		const headerTop = getHeaderTopValue();
+		const translateAmount = calculateTranslateValue({
+			headerTop,
+			scrollDistance,
+		});
+		performTranslate(translateAmount);
+		prevScrollTop = curScrollTop;
+	}
+
+	function handleNavScroll() {
+		animation = requestAnimationFrame(handleTranslate);
+	}
+
+	if (mediaQueryList.matches) {
+		window.addEventListener('scroll', handleNavScroll);
+	}
+
+	document.addEventListener('astro:before-swap', () => {
+		window.removeEventListener('scroll', handleNavScroll);
+		if (animation) cancelAnimationFrame(animation);
+	});
+</script>
+
+<header class="sticky top-4 z-[9999] mx-4" id="main-header">
+	<nav
+		class="mx-auto flex h-[60px] max-w-[1250px] items-center justify-between gap-x-4 rounded-full border border-zinc-200 bg-zinc-50 px-4 py-3.5 shadow-[0px_148px_41px_0px_rgba(0,0,0,0.00),0px_94px_38px_0px_rgba(0,0,0,0.00),0px_53px_32px_0px_rgba(0,0,0,-0.01),0px_24px_24px_0px_rgba(0,0,0,0.02),0px_6px_13px_0px_rgba(0,0,0,0.02)] backdrop-blur-xl backdrop-opacity-90 dark:border-zinc-800 dark:bg-zinc-900 md:px-16 lg:px-24"
+	>
+		<Button
+			class="pointer-events-none absolute inset-0 m-auto hidden h-max opacity-0 transition-opacity focus:pointer-events-auto focus:opacity-100 lg:flex"
+			as="a"
+			href="#main"
+		>
+			Skip to content
+		</Button>
+		<section class="flex min-w-0 max-w-[275px] flex-1 items-center gap-2">
+			<div
+				class="relative flex h-10 w-10 items-center justify-center rounded-full bg-white dark:bg-zinc-900"
+			>
+				<a href="/" class="link-focus rounded-full">
+					<Image
+						src={KieranAvatar}
+						alt="Kieran Roberts header picture"
+						width={80}
+						height={80}
+						loading="eager"
+						quality={100}
+						decoding="async"
+					/>
+				</a>
+			</div>
+			<a
+				class="link-focus block w-full cursor-pointer truncate rounded-md text-sm text-zinc-600 underline hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100 sm:text-base"
+				href={`mailto:${EMAIL_ADDRESS}`}
+			>
+				{EMAIL_ADDRESS}
+			</a>
+		</section>
+
+		<section class="flex items-center gap-x-4 md:gap-x-12">
+			<SocialLinkGroup />
+			<ThemeToggleAstro />
+		</section>
+	</nav>
+</header>

@@ -1,0 +1,12 @@
+---
+import { testimonials } from '@config/consts';
+import TestimonialCard from '@features/testimonials/components/TestimonialCard.astro';
+---
+
+<div class="grid grid-cols-1 gap-4 md:grid-flow-row-dense md:grid-cols-6">
+	{
+		testimonials.map((testimonial, index) => (
+			<TestimonialCard {...testimonial} center={index === testimonials.length - 1} />
+		))
+	}
+</div>

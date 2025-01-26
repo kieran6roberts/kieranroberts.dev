@@ -6,18 +6,20 @@ import { cva } from 'class-variance-authority';
 import type { Project } from '@features/projects/types';
 import Button from '@shared/components/base/Button.astro';
 
-interface Props extends Project {}
+export interface Props extends Project {}
 
 const { title, description, githubLink, liveLink, caseStudyLink, image, status } = Astro.props;
 
 const statusStyles = cva(
-	['mt-auto w-max rounded-full capitalize border border-zinc-200 px-3 py-px dark:border-zinc-800'],
+	['w-max rounded-full capitalize border border-zinc-200 px-3 py-px dark:border-zinc-800'],
 	{
 		variants: {
 			status: {
 				complete: ['bg-green-400', 'text-zinc-900'],
 				'in progress': ['bg-yellow-300', 'text-zinc-900'],
-				planned: ['bg-blue-600 dark:bg-blue-400', 'text-white'],
+				planned: ['bg-blue-400', 'text-zinc-900'],
+				'MVP done': ['bg-teal-400', 'text-zinc-900'],
+				'updates planned': ['bg-blue-400', 'text-zinc-900'],
 			},
 		},
 	},
@@ -100,7 +102,7 @@ const statusStyles = cva(
 		{description}
 	</p>
 
-	<div class={statusStyles({ status })}>
-		{status}
+	<div class="mt-auto flex flex-row gap-2">
+		{status.map((status) => <div class={statusStyles({ status })}>{status}</div>)}
 	</div>
 </article>

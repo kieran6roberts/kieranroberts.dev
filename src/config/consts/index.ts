@@ -2,9 +2,10 @@ import type { Experience } from '@features/experience/types';
 import type { Project } from '@features/projects/types';
 import type { Testimonial } from '@features/testimonials/types';
 
-import CoverSnapImage from '@images/cover-snap.webp';
+import CvrSnapImage from '@images/cvrsnap.webp';
 import universityImage from '@images/university.webp';
 import PortfolioImage from '@images/portfolio.webp';
+import SSTReactRouterSPAStarterKitImage from '@images/sst-rr-kit.webp';
 import TestimonialImage1 from '@images/testimonial-1.webp';
 import TestimonialImage2 from '@images/testimonial-2.webp';
 import TestimonialImage3 from '@images/testimonial-3.webp';
@@ -61,25 +62,36 @@ export const projects: Project[] = [
 	{
 		title: 'kieranroberts.dev (This site)',
 		description:
-			'My personal developer portfolio and playground showcasing my skills, projects, and blog. Built using Astro to reduce JavaScript overhead, optimized for performance.',
+			'My personal developer portfolio and CV showcasing my skills, experience, projects, and my recent blog posts. Built using Astro to reduce JavaScript overhead, optimized for performance and SEO.',
 		date: '2024',
 		githubLink: 'https://github.com/kieran6roberts/kieranroberts.dev',
 		liveLink: null,
 		caseStudyLink:
 			'https://blog.kieranroberts.dev/kieranrobertsdev-my-new-dev-portfolio-built-with-astro-tailwindcss-and-typescript',
 		image: PortfolioImage,
-		status: 'complete',
+		status: ['complete'],
 	},
 	{
 		title: 'CvrSnap',
 		description:
-			"CvrSnap empowers you to create great looking cover images for your blog posts in seconds, skipping the design hassle. It's completely free to download as many images as you like.",
+			"CvrSnap empowers you to create great looking cover images for your blog posts using templates and simple editing tools. It's completely free to download as many images as you like. Built with React Router(v7) and provisioned by the SST(v3) Framework.",
 		date: '2025',
-		githubLink: 'https://github.com/kieran6roberts/CoverSnap',
+		githubLink: 'https://github.com/kieran6roberts/cvrsnap',
 		liveLink: 'https://cvrsnap.com/',
 		caseStudyLink: null,
-		image: CoverSnapImage,
-		status: 'in progress',
+		image: CvrSnapImage,
+		status: ['MVP done', 'updates planned'],
+	},
+	{
+		title: 'SST/React-Router(v7) SPA Starter Kit',
+		description:
+			'A single page React starter kit provisioned by the SST(v3) Framework (Monorepo setup), powered by React Router framework (currently v7), TypeScript, and TailwindCSS(v4). Some of this setup was core to CvrSnap, and I wanted to share it with the community for others to get started with the stack.',
+		date: '2025',
+		githubLink: 'https://github.com/kieran6roberts/sst-react-router-spa-starter-kit',
+		liveLink: null,
+		caseStudyLink: null,
+		image: SSTReactRouterSPAStarterKitImage,
+		status: ['in progress'],
 	},
 ];
 

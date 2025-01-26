@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { cx } from 'class-variance-authority';
 
 import type { Testimonial } from '@features/testimonials/types';
 
@@ -11,7 +12,10 @@ const { name, company, role, description, image, profileURL, center } = Astro.pr
 ---
 
 <article
-	class={`card-hover group z-10 overflow-hidden rounded-xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950 ${center ? 'md:col-start-2 md:col-end-6' : 'md:col-span-3'}`}
+	class={cx(
+		'card-hover group z-10 overflow-hidden rounded-xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950',
+		center ? 'md:col-start-2 md:col-end-6' : 'md:col-span-3',
+	)}
 >
 	<div class="flex h-full flex-col justify-between py-8 pl-6 pr-8">
 		<div class="flex flex-1 items-center">

@@ -6,7 +6,7 @@ import TestimonialCard from '@features/testimonials/components/TestimonialCard.a
 <div class="grid grid-cols-1 gap-4 md:grid-flow-row-dense md:grid-cols-6">
 	{
 		testimonials.map((testimonial, index) => (
-			<TestimonialCard {...testimonial} center={index === testimonials.length - 1} />
+			<TestimonialCard center={index === 0 || index === testimonials.length - 1} {...testimonial} />
 		))
 	}
 </div>

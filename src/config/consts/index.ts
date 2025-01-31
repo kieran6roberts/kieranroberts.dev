@@ -9,6 +9,7 @@ import SSTReactRouterSPAStarterKitImage from '@images/sst-rr-kit.webp';
 import TestimonialImage1 from '@images/testimonial-1.webp';
 import TestimonialImage2 from '@images/testimonial-2.webp';
 import TestimonialImage3 from '@images/testimonial-3.webp';
+import TestimonialImage4 from '@images/testimonial-4.webp';
 
 export const EMAIL_ADDRESS = 'kieranroberts6dev@gmail.com';
 export const THEME_STORAGE_KEY = 'theme';
@@ -78,7 +79,7 @@ export const projects: Project[] = [
 		date: '2025',
 		githubLink: 'https://github.com/kieran6roberts/cvrsnap',
 		liveLink: 'https://cvrsnap.com/',
-		caseStudyLink: null,
+		caseStudyLink: 'https://blog.kieranroberts.dev/cvrsnapcom-blog-post-cover-image-creator',
 		image: CvrSnapImage,
 		status: ['MVP done', 'updates planned'],
 	},
@@ -96,6 +97,15 @@ export const projects: Project[] = [
 ];
 
 export const testimonials: Testimonial[] = [
+	{
+		name: 'Sandro Volpicella',
+		company: 'Ex Hashnode',
+		role: 'Platform Engineering Lead',
+		description:
+			"I've worked with Kieran for about 3 years together at Hashnode. What really impressed me is that despite Kieran's profession as a more Frontend developer, he was still able to quickly and reliably build tasks on AWS without much background in it. He was able to understand tasks fast, researched best practices and implementation details by himself, and didn't need much help to implement those. His self-driven approach to learning new technologies really stood out. Also, his preparation for code reviews and his code reviews for others was always very good and thought through. He consistently provided valuable feedback while keeping a constructive attitude. Kieran combines very strong technical knowledge about frontend, especially React, Tailwind CSS, and Next.js with a knack for design. But he also knows how to implement tasks like APIs, asynchronous tasks, or more on AWS efficiently. I'll definitely recommend him for any Fullstack or Frontend position! It was a pleasure working with him.",
+		image: TestimonialImage4,
+		profileURL: 'https://www.linkedin.com/in/alessandro-volpicella/',
+	},
 	{
 		name: 'Pritam Paul',
 		company: 'Hashnode',

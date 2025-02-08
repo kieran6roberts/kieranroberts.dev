@@ -1,0 +1,15 @@
+---
+import Layout from '@shared/layouts/Layout.astro';
+import SectionContainer from '@shared/pages/home/SectionContainer.astro';
+import BlogGroup from '@features/blog/components/BlogGroup.astro';
+
+const siteURL = import.meta.env.SITE;
+---
+
+<Layout url={siteURL} showFooter={true}>
+	<section id="blog" class="relative overflow-hidden border-b border-zinc-200 dark:border-zinc-800">
+		<SectionContainer>
+			<BlogGroup />
+		</SectionContainer>
+	</section>
+</Layout>

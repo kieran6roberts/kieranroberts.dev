@@ -6,6 +6,9 @@ import {
 	X_PROFILE_URL,
 	BLOG_URL,
 } from '@config/consts/urls';
+
+const BLOG_PATH = '/blog';
+const isBlogActive = Astro.url.pathname === BLOG_PATH;
 ---
 
 <div class="flex items-center gap-x-2 text-sm md:gap-x-6">
@@ -15,5 +18,11 @@ import {
 	<span class="hidden text-zinc-400 md:block dark:text-zinc-500">|</span>
 	<SocialLink href={X_PROFILE_URL} label="X" iconName="x" />
 	<span class="hidden text-zinc-400 md:block dark:text-zinc-500">|</span>
-	<SocialLink href={BLOG_URL} label="Blog" iconName="book" />
+	<SocialLink
+		href={BLOG_PATH}
+		target="_self"
+		label="Blog"
+		iconName="book"
+		isActive={isBlogActive}
+	/>
 </div>

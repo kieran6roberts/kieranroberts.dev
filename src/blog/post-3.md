@@ -18,7 +18,7 @@ I’m hesitant to say ‘final’ since it will be iterated on further, but we c
 
 [kieranroberts.dev](https://kieranroberts.dev/)
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1737026220253/3406a601-a1a5-4562-841f-e6f1497bc9ed.png align="center")
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1737026220253/3406a601-a1a5-4562-841f-e6f1497bc9ed.png)
 
 ## The problem
 
@@ -130,7 +130,7 @@ One of the earliest things I did was create a simple `button` component with a c
 
 Recently I wrote an article on a specific type of UX for a main site navigation and I decided to opt for this behavior on my portfolio. You can find a tutorial on this with more information here:
 
-%[https://blog.kieranroberts.dev/tutorial-implement-a-scroll-translated-dynamic-sticky-navbar-in-react]
+[5 tips to level up your React codebase](/blog/5-tips-to-level-up-your-react-codebase)
 
 ### **Color scheme**
 
@@ -161,7 +161,7 @@ Once those design decisions were made, most of the blockers to writing up core c
 
 Overall I am happy with the outcome. The site feels fast thanks to the lack of JavaScript and server first approach of Astro. It scores well across Lighthouse scores which admittedly should be the minimum standard for a site like this.
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1736951224836/e2cccefb-f3c6-476a-94f6-665cdc11fbb8.png align="center")
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1736951224836/e2cccefb-f3c6-476a-94f6-665cdc11fbb8.png)
 
 There was some trial and error with the design but I didn’t get stuck iterating on anything for too long. There’s always room for iteration and improvement. I am not a designer but I was able to harness some inspiration and tips from my experience working with a talented design team. An example is that I paid closer attention to text colors/weights than I would have previously, layering in different shades & weights where appropriate.
 

@@ -40,19 +40,19 @@ CvrSnap is also **free**.
 
 [codebase](https://github.com/kieran6roberts/cvrsnap) - (If you like and use the app, take a second to give it a star on GitHub)
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1738260283581/8b8f19c5-e1e1-4e5d-8731-0a25c25cd1bd.png align="center")
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1738260283581/8b8f19c5-e1e1-4e5d-8731-0a25c25cd1bd.png)
 
 ## CvrSnap example covers
 
 Here are some example covers images I quickly built using CvrSnap:
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1738256980613/4cce1ea1-931f-465b-af77-cf336fde8f1c.png align="center")
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1738256980613/4cce1ea1-931f-465b-af77-cf336fde8f1c.png)
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1738256774691/d51814e7-27e4-4a91-b904-832106879a7f.png align="center")
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1738256774691/d51814e7-27e4-4a91-b904-832106879a7f.png)
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1738260053093/e708767c-f382-4ef4-91b7-c67eedbdeecc.png align="center")
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1738260053093/e708767c-f382-4ef4-91b7-c67eedbdeecc.png)
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1738260073501/ba7bb351-aae0-49e6-afee-f064317a0114.png align="center")
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1738260073501/ba7bb351-aae0-49e6-afee-f064317a0114.png)
 
 ## Requirements
 
@@ -235,7 +235,7 @@ There are multiple guides out there that goes into depth on similar infra step-b
 
 ### Product: Editor
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1738260365894/f9b5edda-fb1b-4a0e-9c74-4af38125e8f3.png align="center")
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1738260365894/f9b5edda-fb1b-4a0e-9c74-4af38125e8f3.png)
 
 I believe the app provides what I initially intended. Simple templates and options to get you moving quickly. Early on I was experimenting with a more custom approach, allowing dragging and resizing of text and an overall slightly more interactive editor. But I realised that didn’t fit my initial purpose for it not to be complicated and open ended with its options. It has pre-designed layouts and options by design. Data is persisted so the user shouldn’t get that feeling of losing something they started. It also feels fast and snappy which is key.
 
@@ -281,4 +281,4 @@ CvrSnap is a free tool designed to help users create custom blog post cover imag
 
 If you made it this far, you are my hero. If you use CvrSnap to download an image you use in a blog post, please share the post with me on [LinkedIn](https://www.linkedin.com/in/kieran6roberts/), or [Bluesky](https://bsky.app/profile/kieran6dev.bsky.social) and I’d be happy to read/share.
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1738178596969/d5dee314-0e5d-48f8-8a93-11716155fab2.png align="center")
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1738178596969/d5dee314-0e5d-48f8-8a93-11716155fab2.png)

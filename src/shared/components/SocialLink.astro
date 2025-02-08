@@ -1,23 +1,31 @@
 ---
 import { Icon } from 'astro-icon/components';
 import ActionItem from '@shared/components/base/ActionItem.astro';
+import { cx } from 'class-variance-authority';
 
 interface Props {
 	href: string;
 	label: string;
 	iconName: string;
+	isActive?: boolean;
+	target?: string;
 }
 
-const { href, label, iconName } = Astro.props;
+const { href, label, iconName, isActive = false, target = '_blank' } = Astro.props;
 ---
 
 <ActionItem
 	as="a"
 	{href}
-	target="_blank"
+	{target}
 	rel="noreferrer"
 	aria-label={label}
-	class="group flex items-center gap-1 rounded-md text-zinc-600 outline-none hover:text-zinc-900 dark:text-zinc-200 dark:hover:text-zinc-50"
+	class={cx(
+		'group flex items-center gap-1 rounded-md',
+		isActive
+			? 'text-zinc-900 dark:text-accent-brightest underline'
+			: 'text-zinc-600 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-50',
+	)}
 >
 	<span class="hidden md:block">{label}</span>
 	<span class="md:hidden"><Icon name={iconName} width="20" height="20" /></span>

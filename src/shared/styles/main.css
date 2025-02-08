@@ -1,6 +1,18 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
+/* @custom-variant dark (&:where(.dark, .dark *)); */
+
+@theme {
+	--color-accent-darkest: #6f61c0;
+	--color-accent-dark: #a084e8;
+	--color-accent-bright: #8be8e5;
+	--color-accent-brightest: #d5ffe4;
+
+	--font-sans: 'Lato', sans-serif;
+	--font-heading: 'Barlow', sans-serif;
+}
+
 /* Fonts */
 @layer base {
 	@font-face {
@@ -39,17 +51,6 @@
 		font-weight: 500;
 		font-display: swap;
 	}
-
-	/* .link-focus {
-		@apply focus-visible:ring-accent-darkest dark:focus-visible:ring-accent-brightest outline-none focus-visible:ring focus-visible:ring-offset-2 dark:focus-visible:ring-offset-zinc-900 !important;
-	}
-	.card-hover {
-		@apply hover:ring-accent-darkest dark:hover:ring-accent-brightest ring-offset-0 transition-all duration-300 outline-none hover:ring hover:ring-offset-2 dark:hover:ring-offset-2 dark:hover:ring-offset-zinc-900 !important;
-	}
-
-	.icon-button-hover {
-		@apply hover:ring-accent-darkest dark:hover:ring-accent-brightest ring-offset-2 hover:ring dark:hover:ring-offset-zinc-900 !important;
-	} */
 }
 
 #signature path {
@@ -65,3 +66,17 @@
 		stroke-dashoffset: 3219;
 	}
 }
+
+@utility reveal {
+	animation: reveal: 'reveal 500ms ease-in forwards';
+}
+
+@keyframes reveal {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+

@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
+import ActionItem from '@shared/components/base/ActionItem.astro';
 
 interface Props {
 	title: string;
@@ -19,10 +20,11 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
 });
 ---
 
-<a
+<ActionItem
+	as="a"
 	href={link}
 	target="_blank"
-	class="card-hover link-focus group relative z-10 flex flex-col gap-4 rounded-xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-900"
+	class="group relative z-10 flex flex-col gap-4 rounded-xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-900"
 >
 	<div class="pb-2">
 		<Image
@@ -58,4 +60,4 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
 			class="stroke-current text-black transition-transform duration-200 group-hover:translate-x-1 dark:text-white"
 		/>
 	</span>
-</a>
+</ActionItem>

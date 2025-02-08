@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { cx } from 'class-variance-authority';
-
+import ActionItem from '@shared/components/base/ActionItem.astro';
 import type { Testimonial } from '@features/testimonials/types';
 
 interface Props extends Testimonial {
@@ -13,7 +13,7 @@ const { name, company, role, description, image, profileURL, center } = Astro.pr
 
 <article
 	class={cx(
-		'card-hover group z-10 overflow-hidden rounded-xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950',
+		'group z-10 overflow-hidden rounded-xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950',
 		center ? 'md:col-start-2 md:col-end-6' : 'md:col-span-3',
 	)}
 >
@@ -26,10 +26,11 @@ const { name, company, role, description, image, profileURL, center } = Astro.pr
 			</p>
 		</div>
 
-		<a
+		<ActionItem
+			as="a"
 			href={profileURL}
 			target="_blank"
-			class="link-focus mx-auto mt-6 flex w-max flex-row items-center justify-center gap-2"
+			class="mx-auto mt-6 flex w-max flex-row items-center justify-center gap-2"
 		>
 			<div class="h-10 w-10 overflow-hidden rounded-full bg-black bg-zinc-200 dark:bg-zinc-800">
 				<Image
@@ -43,14 +44,14 @@ const { name, company, role, description, image, profileURL, center } = Astro.pr
 
 			<div class="mt-auto flex flex-col items-start justify-center">
 				<span
-					class="text-base font-medium text-zinc-700 transition-[text-color] duration-300 ease-in group-hover:text-zinc-900 dark:text-zinc-300 dark:group-hover:text-zinc-100 lg:text-lg"
+					class="text-base font-medium text-zinc-700 transition-[text-color] duration-300 ease-in group-hover:text-zinc-900 lg:text-lg dark:text-zinc-300 dark:group-hover:text-zinc-100"
 					>{name}</span
 				>
 				<span
-					class="ease-ingroup-hover:text-zinc-700 text-sm text-zinc-500 transition-[text-color] duration-300 dark:text-zinc-300 dark:group-hover:text-zinc-300 lg:text-base"
+					class="ease-in group-hover:text-zinc-700 text-sm text-zinc-500 transition-[text-color] duration-300 dark:text-zinc-300 dark:group-hover:text-zinc-300 lg:text-base"
 					>{role}, {company}</span
 				>
 			</div>
-		</a>
+		</ActionItem>
 	</div>
 </article>

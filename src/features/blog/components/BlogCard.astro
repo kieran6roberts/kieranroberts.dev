@@ -24,7 +24,7 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
 	as="a"
 	href={link}
 	target="_blank"
-	class="group relative z-10 flex flex-col gap-4 rounded-xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-900"
+	class="group outline-accent-darkest dark:outline-accent-brightest dark:hover:outline-offset-zinc-900 relative z-10 flex flex-col gap-4 rounded-xl border border-zinc-200 bg-white bg-zinc-50 p-4 outline-offset-0 transition-all duration-300 hover:outline-3 hover:outline-offset-2 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:outline-offset-2"
 >
 	<div class="pb-2">
 		<Image
@@ -36,16 +36,16 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
 			loading="lazy"
 		/>
 		<h2
-			class="mb-2 mt-4 font-heading text-xl font-medium text-zinc-700 transition-all duration-300 group-hover:text-zinc-900 dark:text-zinc-200 dark:group-hover:text-zinc-100 xl:text-2xl"
+			class="font-heading mt-4 mb-2 text-xl font-medium text-zinc-700 transition-all duration-300 group-hover:text-zinc-900 xl:text-2xl dark:text-zinc-200 dark:group-hover:text-zinc-100"
 		>
 			{title}
 		</h2>
-		<time class="text-sm text-zinc-600 dark:text-zinc-300 xl:text-base">
+		<time class="text-sm text-zinc-600 xl:text-base dark:text-zinc-300">
 			{formattedDate}
 		</time>
 	</div>
 	<p
-		class="text-sm text-zinc-500 transition-all duration-300 group-hover:text-zinc-700 dark:text-zinc-300 dark:group-hover:text-zinc-200 xl:text-base"
+		class="text-sm text-zinc-500 transition-all duration-300 group-hover:text-zinc-700 xl:text-base dark:text-zinc-300 dark:group-hover:text-zinc-200"
 	>
 		{description}
 	</p>

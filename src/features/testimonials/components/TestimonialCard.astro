@@ -13,14 +13,14 @@ const { name, company, role, description, image, profileURL, center } = Astro.pr
 
 <article
 	class={cx(
-		'group z-10 overflow-hidden rounded-xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950',
+		'group z-10 overflow-hidden rounded-xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950 outline-accent-darkest dark:outline-accent-brightest outline-offset-0 transition-all duration-300 hover:outline-3 hover:outline-offset-2 dark:hover:outline-offset-2 dark:hover:outline-offset-zinc-900',
 		center ? 'md:col-start-2 md:col-end-6' : 'md:col-span-3',
 	)}
 >
 	<div class="flex h-full flex-col justify-between px-4 py-8">
 		<div class="flex flex-1 items-center">
 			<p
-				class="text-center text-sm text-zinc-500 transition-[text-color] duration-300 ease-in group-hover:text-zinc-800 dark:text-zinc-300 dark:group-hover:text-zinc-200 lg:text-base"
+				class="text-center text-sm text-zinc-500 transition-[text-color] duration-300 ease-in group-hover:text-zinc-800 lg:text-base dark:text-zinc-300 dark:group-hover:text-zinc-200"
 			>
 				"{description}"
 			</p>
@@ -48,7 +48,7 @@ const { name, company, role, description, image, profileURL, center } = Astro.pr
 					>{name}</span
 				>
 				<span
-					class="ease-in group-hover:text-zinc-700 text-sm text-zinc-500 transition-[text-color] duration-300 dark:text-zinc-300 dark:group-hover:text-zinc-300 lg:text-base"
+					class="text-sm text-zinc-500 transition-[text-color] duration-300 ease-in group-hover:text-zinc-700 lg:text-base dark:text-zinc-300 dark:group-hover:text-zinc-300"
 					>{role}, {company}</span
 				>
 			</div>

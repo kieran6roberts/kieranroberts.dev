@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Layout from '@shared/layouts/Layout.astro';
+import Prose from '@features/blog/components/Prose.astro';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -15,6 +16,10 @@ const { Content } = await render(post);
 ---
 
 <Layout title={post.data.title} description={post.data.seoDescription}>
-	<h1>{post.data.title}</h1>
-	<Content />
+	<div class="mx-auto mt-24 max-w-screen-md py-8">
+		<h1 class="text-center text-5xl font-semibold">{post.data.title}</h1>
+		<Prose>
+			<Content />
+		</Prose>
+	</div>
 </Layout>

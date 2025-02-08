@@ -1,14 +1,19 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 import icon from 'astro-icon';
 
-// https://astro.build/config
 export default defineConfig({
 	site: 'https://kieranroberts.dev/',
 	vite: {
-		plugins: [],
+		plugins: [tailwindcss()],
+	},
+	markdown: {
+		rehypePlugins: [],
+		shikiConfig: {
+			wrap: true,
+		},
 	},
 	image: {
 		domains: ['cdn.kieranroberts.dev'],
@@ -24,9 +29,6 @@ export default defineConfig({
 		prefetchAll: false,
 	},
 	integrations: [
-		tailwind({
-			applyBaseStyles: false,
-		}),
 		sitemap(),
 		(await import('astro-compress')).default({
 			Path: ['./dist'],

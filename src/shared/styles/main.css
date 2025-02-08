@@ -95,12 +95,4 @@ html.dark .twitter-tweet a {
 		font-weight: 500;
 		font-display: swap;
 	}
-	/* 
-	.card-hover {
-		@apply hover:ring-accent-darkest dark:hover:ring-accent-brightest ring-offset-0 transition-all duration-300 outline-none hover:ring hover:ring-offset-2 dark:hover:ring-offset-2 dark:hover:ring-offset-zinc-900 !important;
-	}
-
-	.icon-button-hover {
-		@apply hover:ring-accent-darkest dark:hover:ring-accent-brightest ring-offset-2 hover:ring dark:hover:ring-offset-zinc-900 !important;
-	} */
 }

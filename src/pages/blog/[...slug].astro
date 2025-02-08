@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
 import Layout from '@shared/layouts/Layout.astro';
 import Prose from '@features/blog/components/Prose.astro';
 
@@ -16,8 +17,21 @@ const { Content } = await render(post);
 ---
 
 <Layout title={post.data.title} description={post.data.seoDescription}>
-	<div class="mx-auto mt-24 max-w-screen-md py-8">
+	<div class="mx-auto mt-16 flex max-w-screen-md flex-col items-center gap-8 pb-24">
+		{
+			post.data.cover ? (
+				<Image
+					src={post.data.cover}
+					alt="Blog Post Cover Image"
+					class="h-auto w-full rounded-lg"
+					width={600}
+					height={400}
+					loading="eager"
+				/>
+			) : null
+		}
 		<h1 class="text-center text-5xl font-semibold">{post.data.title}</h1>
+		<div class="mx-auto h-px w-2/3 bg-zinc-200 dark:bg-zinc-800"></div>
 		<Prose>
 			<Content />
 		</Prose>

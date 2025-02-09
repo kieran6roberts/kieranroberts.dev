@@ -2,7 +2,7 @@
 import Layout from '@shared/layouts/Layout.astro';
 import BlogGroup from '@features/blog/components/BlogGroup.astro';
 import { getCollection } from 'astro:content';
-import CvrSnapImage from '@images/cvrsnap.webp';
+import Button from '@shared/components/base/Button.astro';
 
 const posts = await getCollection('blog');
 
@@ -23,6 +23,7 @@ const siteURL = import.meta.env.SITE;
 				Learn by building! Explore web development topics related to product UI/UX, React and
 				Next.js, software testing, and more.
 			</p>
+			<Button as="a" size="sm" href="/rss.xml"> RSS Feed </Button>
 		</div>
 		<BlogGroup {posts} />
 	</section>

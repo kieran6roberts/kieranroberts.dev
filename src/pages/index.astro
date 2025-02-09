@@ -11,10 +11,13 @@ import ExperienceList from '@features/experience/components/ExperienceList.astro
 import Button from '@shared/components/base/Button.astro';
 import TestimonialGroup from '@features/testimonials/components/TestimonialGroup.astro';
 import WaveBG from '@features/portfolio/components/WaveBG.astro';
-import { BLOG_URL, GITHUB_PROFILE_URL, CALENDLY_URL } from '@config/consts/urls';
+import { getCollection } from 'astro:content';
+
+import { GITHUB_PROFILE_URL, CALENDLY_URL } from '@config/consts/urls';
 import ProjectGroup from '@features/projects/components/ProjectGroup.astro';
 import TechIllustration from '@features/portfolio/components/TechIllustration.astro';
 
+const posts = await getCollection('blog');
 const siteURL = import.meta.env.SITE;
 ---
 
@@ -32,7 +35,7 @@ const siteURL = import.meta.env.SITE;
 			</div>
 		</section>
 		<section class="border-y bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-700">
-			<div class="relative mx-auto max-w-[1600px] gap-8 px-4 pb-24 pt-12 md:px-16 lg:px-24">
+			<div class="relative mx-auto max-w-[1600px] gap-8 px-4 pt-12 pb-24 md:px-16 lg:px-24">
 				<HeroIllustration />
 			</div>
 		</section>
@@ -68,7 +71,7 @@ const siteURL = import.meta.env.SITE;
 					title="Blog"
 					copy="I write about topics that interest me in the web development space. UI/UX tutorials, React, software testing, and more."
 				/>
-				<BlogGroup />
+				<BlogGroup {posts} />
 				<Button as="a" href="/blog" class="relative z-10 mx-auto">
 					My blog
 					<Icon

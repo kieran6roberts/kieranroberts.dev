@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import { Image } from 'astro:assets';
 import Layout from '@shared/layouts/Layout.astro';
 import Prose from '@features/blog/components/Prose.astro';
+import Toc from '@features/blog/components/Toc.astro';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -13,27 +14,31 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 ---
 
 <Layout title={post.data.title} description={post.data.seoDescription}>
-	<div class="mx-auto mt-16 flex max-w-screen-md flex-col items-center gap-8 pb-24">
-		{
-			post.data.cover ? (
-				<Image
-					src={post.data.cover}
-					alt="Blog Post Cover Image"
-					class="h-auto w-full rounded-lg"
-					width={600}
-					height={400}
-					loading="eager"
-				/>
-			) : null
-		}
-		<h1 class="text-center text-5xl font-semibold">{post.data.title}</h1>
-		<div class="mx-auto h-px w-2/3 bg-zinc-200 dark:bg-zinc-800"></div>
-		<Prose>
-			<Content />
-		</Prose>
+	<div class="mt-16 flex items-start justify-center gap-16 pb-24">
+		<div class="flex max-w-screen-md flex-col items-center gap-8 px-4">
+			{
+				post.data.cover ? (
+					<Image
+						src={post.data.cover}
+						alt="Blog Post Cover Image"
+						class="h-auto w-full rounded-lg"
+						width={600}
+						height={400}
+						loading="eager"
+					/>
+				) : null
+			}
+			<h1 class="text-center text-5xl font-semibold">{post.data.title}</h1>
+			<div class="mx-auto h-px w-2/3 bg-zinc-200 dark:bg-zinc-800"></div>
+			<Prose>
+				<Content />
+			</Prose>
+		</div>
+
+		<Toc {headings} />
 	</div>
 </Layout>

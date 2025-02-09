@@ -1,0 +1,39 @@
+---
+import type { MarkdownHeading } from 'astro';
+import { cva } from 'class-variance-authority';
+
+interface Props {
+	headings: MarkdownHeading[];
+}
+
+const headingVariants = cva('font-medium text-sm', {
+	variants: {
+		level: {
+			1: 'text-zinc-800 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-200',
+			2: 'pl-6 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-300',
+			3: 'pl-12 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-300',
+			4: 'pl-18 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-300',
+		},
+	},
+	defaultVariants: {
+		level: 1,
+	},
+});
+
+const { headings } = Astro.props;
+---
+
+<div
+	class="sticky top-24 hidden max-h-[calc(100vh-4rem)] max-w-[320px] flex-col gap-2 overflow-y-auto pr-4 lg:flex"
+>
+	{
+		headings.map((heading) => (
+			<a
+				href={`#${heading.slug}`}
+				class={headingVariants({ level: heading.depth as 1 | 2 | 3 | 4 })}
+			>
+				{heading.text}
+			</a>
+		))
+	}
+</div>

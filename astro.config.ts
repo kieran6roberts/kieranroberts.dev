@@ -10,7 +10,6 @@ export default defineConfig({
 		plugins: [tailwindcss()],
 	},
 	markdown: {
-		rehypePlugins: [],
 		shikiConfig: {
 			wrap: true,
 		},

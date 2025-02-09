@@ -5,6 +5,9 @@ seoDescription: "A case study on building my developer portfolio 'kieranroberts.
 datePublished: Thu Jan 16 2025 12:50:52 GMT+0000 (Coordinated Universal Time)
 slug: kieranrobertsdev-my-new-dev-portfolio-built-with-astro-tailwindcss-and-typescript
 cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1737027318338/acfb79f0-2716-4dda-94fe-0685082ff2d0.png
+relatedPosts:
+  - 5-tips-to-level-up-your-react-codebase
+  - cvrsnapcom-blog-post-cover-image-creator
 # tags: programming, javascript, web-development, webdev, astro
 ---
 

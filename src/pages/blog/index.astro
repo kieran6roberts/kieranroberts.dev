@@ -2,6 +2,9 @@
 import Layout from '@shared/layouts/Layout.astro';
 import SectionContainer from '@shared/pages/home/SectionContainer.astro';
 import BlogGroup from '@features/blog/components/BlogGroup.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
 
 const siteURL = import.meta.env.SITE;
 ---
@@ -9,7 +12,7 @@ const siteURL = import.meta.env.SITE;
 <Layout url={siteURL} showFooter={true}>
 	<section id="blog" class="relative overflow-hidden border-b border-zinc-200 dark:border-zinc-800">
 		<SectionContainer>
-			<BlogGroup />
+			<BlogGroup {posts} />
 		</SectionContainer>
 	</section>
 </Layout>

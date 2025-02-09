@@ -13,7 +13,7 @@ const blog = defineCollection({
 		seoTitle: z.string().optional(),
 		seoDescription: z.string(),
 		series: z.string().optional(),
-		relatedPosts: z.array(reference('blog')).optional(),
+		relatedPosts: z.array(reference('blog')),
 		datePublished: z.coerce.date(),
 		slug: z.string(),
 		cover: z.string().optional(),

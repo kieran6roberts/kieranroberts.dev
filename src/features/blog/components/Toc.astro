@@ -1,6 +1,7 @@
 ---
 import type { MarkdownHeading } from 'astro';
 import { cva } from 'class-variance-authority';
+import ActionItem from '@shared/components/base/ActionItem.astro';
 
 interface Props {
 	headings: MarkdownHeading[];
@@ -97,18 +98,19 @@ const { headings } = Astro.props;
 
 <div
 	id="toc"
-	class="sticky top-24 hidden max-h-[calc(100vh-4rem)] max-w-[320px] flex-col gap-2 overflow-y-auto pr-4 lg:flex"
+	class="sticky top-24 hidden max-h-[calc(100vh-4rem)] max-w-[320px] flex-col gap-2 overflow-y-auto py-2 pr-4 pl-2 xl:flex"
 >
 	{
 		headings.map((heading) => (
-			<a
+			<ActionItem
 				href={`#${heading.slug}`}
+				as="a"
 				id={heading.slug}
 				data-active="false"
 				class={headingVariants({ level: heading.depth as 1 | 2 | 3 | 4 })}
 			>
 				{heading.text}
-			</a>
+			</ActionItem>
 		))
 	}
 </div>

@@ -1,8 +1,8 @@
 ---
 import Layout from '@shared/layouts/Layout.astro';
-import SectionContainer from '@shared/pages/home/SectionContainer.astro';
 import BlogGroup from '@features/blog/components/BlogGroup.astro';
 import { getCollection } from 'astro:content';
+import CvrSnapImage from '@images/cvrsnap.webp';
 
 const posts = await getCollection('blog');
 
@@ -10,9 +10,20 @@ const siteURL = import.meta.env.SITE;
 ---
 
 <Layout url={siteURL} showFooter={true}>
-	<section id="blog" class="relative overflow-hidden border-b border-zinc-200 dark:border-zinc-800">
-		<SectionContainer>
-			<BlogGroup {posts} />
-		</SectionContainer>
+	<div
+		class="from-accent-brightest to-accent-bright dark:from-accent-darkest dark:to-accent-dark absolute inset-0 z-0 h-[500px] border-b border-zinc-200 bg-gradient-to-r dark:border-zinc-800"
+	>
+	</div>
+	<section class="mx-auto flex max-w-[1400px] flex-col gap-12 px-4 py-16 md:px-16">
+		<div class="relative flex flex-col gap-4 py-8">
+			<h1 class="text-3xl font-semibold xl:text-5xl">Kieran's Engineering Blog</h1>
+			<p
+				class="max-w-[500px] text-left text-sm text-zinc-600 sm:text-base lg:text-lg dark:text-zinc-300"
+			>
+				Learn by building! Explore web development topics related to product UI/UX, React and
+				Next.js, software testing, and more.
+			</p>
+		</div>
+		<BlogGroup {posts} />
 	</section>
 </Layout>

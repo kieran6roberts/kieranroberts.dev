@@ -32,7 +32,9 @@ const { title, copy } = Astro.props;
 		});
 	}
 
-	setupAnimations();
+	document.addEventListener('astro:page-load', () => {
+		setupAnimations();
+	});
 </script>
 
 <div class="flex flex-col items-center gap-4 py-4">

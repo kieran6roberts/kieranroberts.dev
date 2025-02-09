@@ -11,82 +11,84 @@ type Props = Record<string, never>;
 ---
 
 <script>
-	const TRANSLATE_BUFFER = 30;
-	const QUERY_NAME = '(prefers-reduced-motion: no-preference)';
+	document.addEventListener('astro:page-load', () => {
+		const TRANSLATE_BUFFER = 30;
+		const QUERY_NAME = '(prefers-reduced-motion: no-preference)';
 
-	let prevScrollTop = window.scrollY;
-	let animation: number | undefined;
+		let prevScrollTop = window.scrollY;
+		let animation: number | undefined;
 
-	const header = document.getElementById('main-header');
-	const mediaQueryList = window.matchMedia(QUERY_NAME);
+		const header = document.getElementById('main-header');
+		const mediaQueryList = window.matchMedia(QUERY_NAME);
 
-	if (mediaQueryList.matches && header) {
-		const headerTop = getHeaderTopValue();
-		const translateAmount = calculateTranslateValue({
-			headerTop,
-			scrollDistance: 0,
-		});
-		performTranslate(translateAmount);
-	}
+		if (mediaQueryList.matches && header) {
+			const headerTop = getHeaderTopValue();
+			const translateAmount = calculateTranslateValue({
+				headerTop,
+				scrollDistance: 0,
+			});
+			performTranslate(translateAmount);
+		}
 
-	function getHeaderTopValue() {
-		const headerPosition = header?.getBoundingClientRect();
-		return headerPosition?.top ?? 0;
-	}
+		function getHeaderTopValue() {
+			const headerPosition = header?.getBoundingClientRect();
+			return headerPosition?.top ?? 0;
+		}
 
-	function performTranslate(amount: number) {
-		if (header) header.style.transform = `translateY(${amount}px)`;
-	}
+		function performTranslate(amount: number) {
+			if (header) header.style.transform = `translateY(${amount}px)`;
+		}
 
-	function getScrollDistance() {
-		const curScrollTop = window.scrollY;
-		return curScrollTop - prevScrollTop;
-	}
+		function getScrollDistance() {
+			const curScrollTop = window.scrollY;
+			return curScrollTop - prevScrollTop;
+		}
 
-	function calculateTranslateValue({
-		headerTop,
-		scrollDistance,
-	}: {
-		headerTop: number;
-		scrollDistance: number;
-	}) {
-		const navHeight = (header?.offsetHeight || 0) + TRANSLATE_BUFFER;
-		const topOffset = 16;
-
-		return Math.max(
-			Math.min(
-				headerTop -
-					topOffset +
-					(scrollDistance < 0 ? Math.abs(scrollDistance) : -Math.abs(scrollDistance)) * 1,
-				0,
-			),
-			-navHeight,
-		);
-	}
-
-	function handleTranslate() {
-		const curScrollTop = window.scrollY;
-		const scrollDistance = getScrollDistance();
-		const headerTop = getHeaderTopValue();
-		const translateAmount = calculateTranslateValue({
+		function calculateTranslateValue({
 			headerTop,
 			scrollDistance,
+		}: {
+			headerTop: number;
+			scrollDistance: number;
+		}) {
+			const navHeight = (header?.offsetHeight || 0) + TRANSLATE_BUFFER;
+			const topOffset = 16;
+
+			return Math.max(
+				Math.min(
+					headerTop -
+						topOffset +
+						(scrollDistance < 0 ? Math.abs(scrollDistance) : -Math.abs(scrollDistance)) * 1,
+					0,
+				),
+				-navHeight,
+			);
+		}
+
+		function handleTranslate() {
+			const curScrollTop = window.scrollY;
+			const scrollDistance = getScrollDistance();
+			const headerTop = getHeaderTopValue();
+			const translateAmount = calculateTranslateValue({
+				headerTop,
+				scrollDistance,
+			});
+			performTranslate(translateAmount);
+			prevScrollTop = curScrollTop;
+		}
+
+		function handleNavScroll() {
+			animation = requestAnimationFrame(handleTranslate);
+		}
+
+		if (mediaQueryList.matches) {
+			window.addEventListener('scroll', handleNavScroll);
+		}
+
+		document.addEventListener('astro:before-swap', () => {
+			window.removeEventListener('scroll', handleNavScroll);
+			if (animation) cancelAnimationFrame(animation);
 		});
-		performTranslate(translateAmount);
-		prevScrollTop = curScrollTop;
-	}
-
-	function handleNavScroll() {
-		animation = requestAnimationFrame(handleTranslate);
-	}
-
-	if (mediaQueryList.matches) {
-		window.addEventListener('scroll', handleNavScroll);
-	}
-
-	document.addEventListener('astro:before-swap', () => {
-		window.removeEventListener('scroll', handleNavScroll);
-		if (animation) cancelAnimationFrame(animation);
 	});
 </script>
 

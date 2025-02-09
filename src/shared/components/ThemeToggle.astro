@@ -6,7 +6,7 @@ import ActionItem from '@shared/components/base/ActionItem.astro';
 <script>
 	import { Themes, THEME_STORAGE_KEY } from '@config/consts';
 	import type { Theme } from '@shared/types';
-
+	// document.addEventListener('astro:page-load', () => {
 	const button = document.getElementById('theme-toggle');
 
 	const theme = (() => {
@@ -33,9 +33,11 @@ import ActionItem from '@shared/components/base/ActionItem.astro';
 	};
 
 	button?.addEventListener('click', handleToggleClick);
+	// });
 </script>
 
 <ActionItem
+	transition:persist
 	id="theme-toggle"
 	title="Toggles light & dark theme"
 	aria-live="polite"

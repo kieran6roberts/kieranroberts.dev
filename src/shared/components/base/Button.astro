@@ -39,6 +39,7 @@ const {
 ---
 
 <Tag class={button({ intent, size, className })} {...restOfProps}>
+	<slot name="startIcon" />
 	<slot />
 	<slot name="endIcon" />
 </Tag>

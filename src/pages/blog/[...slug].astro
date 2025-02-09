@@ -5,6 +5,8 @@ import Layout from '@shared/layouts/Layout.astro';
 import Prose from '@features/blog/components/Prose.astro';
 import Toc from '@features/blog/components/Toc.astro';
 import BlogCard from '@features/blog/components/BlogCard.astro';
+import Button from '@shared/components/base/Button.astro';
+import { Icon } from 'astro-icon/components';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -25,7 +27,20 @@ const formattedDate = new Date(post.data.datePublished).toLocaleDateString('en-U
 ---
 
 <Layout title={post.data.title} description={post.data.seoDescription}>
+	<div
+		class="from-accent-brightest to-accent-bright dark:from-accent-darkest dark:to-accent-dark absolute inset-0 z-0 h-[50px] border-b border-zinc-200 bg-gradient-to-r dark:border-zinc-800"
+	>
+	</div>
 	<div class="mt-16 flex gap-16 pb-24 xl:items-start xl:justify-center">
+		<Button as="a" href="/blog" size="sm" class="sticky top-24">
+			<Icon
+				name="arrow-left"
+				width={12}
+				height={12}
+				class="stroke-current transition-transform duration-200 group-hover:-translate-x-1"
+			/>
+			Back to posts
+		</Button>
 		<div class="flex max-w-screen-md flex-col items-center gap-8 px-4">
 			{
 				post.data.cover ? (
@@ -36,10 +51,14 @@ const formattedDate = new Date(post.data.datePublished).toLocaleDateString('en-U
 						width={600}
 						height={400}
 						loading="eager"
+						transition:name="blog-cover"
+						transition:animate="slide"
 					/>
 				) : null
 			}
-			<h1 class="text-center text-3xl font-semibold xl:text-5xl">{post.data.title}</h1>
+			<h1 class="text-center text-3xl font-semibold xl:text-5xl">
+				{post.data.title}
+			</h1>
 			<time class="text-lg text-zinc-600 dark:text-zinc-400">
 				{formattedDate}
 			</time>

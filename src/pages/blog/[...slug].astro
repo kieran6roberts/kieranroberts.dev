@@ -17,10 +17,15 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content, headings } = await render(post);
 const relatedPosts = await getEntries(post.data.relatedPosts);
+const formattedDate = new Date(post.data.datePublished).toLocaleDateString('en-US', {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+});
 ---
 
 <Layout title={post.data.title} description={post.data.seoDescription}>
-	<div class="mt-16 flex items-start justify-center gap-16 pb-24">
+	<div class="mt-16 flex gap-16 pb-24 xl:items-start xl:justify-center">
 		<div class="flex max-w-screen-md flex-col items-center gap-8 px-4">
 			{
 				post.data.cover ? (
@@ -34,25 +39,30 @@ const relatedPosts = await getEntries(post.data.relatedPosts);
 					/>
 				) : null
 			}
-			<h1 class="text-center text-5xl font-semibold">{post.data.title}</h1>
+			<h1 class="text-center text-3xl font-semibold xl:text-5xl">{post.data.title}</h1>
+			<time class="text-lg text-zinc-600 dark:text-zinc-400">
+				{formattedDate}
+			</time>
 			<div class="mx-auto h-px w-2/3 bg-zinc-200 dark:bg-zinc-800"></div>
 			<Prose>
 				<Content />
 			</Prose>
-			<h2 class="text-2xl font-semibold">More posts you might like</h2>
-			<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-				{
-					relatedPosts.map((post) => (
-						<BlogCard
-							title={post.data.title}
-							description={post.data.seoDescription}
-							date={post.data.datePublished.toISOString()}
-							link={post.data.slug}
-							image={post.data.cover || ''}
-						/>
-					))
-				}
-			</div>
+			<section class="mt-16 flex flex-col items-center gap-8">
+				<h2 class="text-center text-2xl font-semibold">More posts you might like</h2>
+				<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+					{
+						relatedPosts.map((post) => (
+							<BlogCard
+								title={post.data.title}
+								description={post.data.seoDescription}
+								date={post.data.datePublished.toISOString()}
+								link={post.data.slug}
+								image={post.data.cover || ''}
+							/>
+						))
+					}
+				</div>
+			</section>
 		</div>
 
 		<Toc {headings} />

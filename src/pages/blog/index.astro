@@ -3,6 +3,7 @@ import Layout from '@shared/layouts/Layout.astro';
 import BlogGroup from '@features/blog/components/BlogGroup.astro';
 import { getCollection } from 'astro:content';
 import Button from '@shared/components/base/Button.astro';
+import { BLOG_URL } from '@config/consts/urls';
 
 const posts = await getCollection('blog');
 
@@ -26,5 +27,15 @@ const siteURL = import.meta.env.SITE;
 			<Button as="a" size="sm" href="/rss.xml"> RSS Feed </Button>
 		</div>
 		<BlogGroup {posts} />
+		<div class="flex flex-col items-center gap-8">
+			<p class="mx-auto max-w-[450px] text-center text-base text-zinc-600 dark:text-zinc-300">
+				I am in the proccess of migrating my blog content here and as such, not all the posts I have
+				written are currently here. If you want more to read you can find them using the button
+				below.
+			</p>
+			<Button as="a" intent="secondary" size="sm" href={BLOG_URL} target="_blank">
+				blog.kieranroberts.dev
+			</Button>
+		</div>
 	</section>
 </Layout>

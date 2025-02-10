@@ -9,9 +9,10 @@ interface Props {
 	date: string;
 	link: string;
 	image: string;
+	transitionName?: string;
 }
 
-const { title, description, date, link, image } = Astro.props;
+const { title, description, date, link, image, transitionName } = Astro.props;
 const BLOG_PATH = '/blog';
 
 const formattedDate = new Date(date).toLocaleDateString('en-US', {
@@ -33,6 +34,7 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
 		width={600}
 		height={400}
 		loading="eager"
+		transition:name={transitionName ?? undefined}
 	/>
 	<div>
 		<h2

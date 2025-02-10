@@ -9,6 +9,7 @@ const isBlogActive = Astro.url.pathname === BLOG_PATH;
 <div class="flex items-center gap-x-2 text-sm md:gap-x-6">
 	<SocialLink
 		href={BLOG_PATH}
+		preventTransition={true}
 		target="_self"
 		label="Blog"
 		iconName="book"

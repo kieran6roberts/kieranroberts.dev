@@ -6,7 +6,7 @@ import Layout from '@shared/layouts/Layout.astro';
 import Hero from '@features/portfolio/components/Hero.astro';
 import SectionHeading from '@shared/pages/home/SectionHeading.astro';
 import HeroIllustration from '@features/portfolio/components/HeroIllustration.astro';
-import BlogGroup from '@features/blog/components/BlogGroup.astro';
+import BlogCard from '@features/blog/components/BlogCard.astro';
 import SectionContainer from '@shared/pages/home/SectionContainer.astro';
 import ExperienceList from '@features/experience/components/ExperienceList.astro';
 import Button from '@shared/components/base/Button.astro';
@@ -73,7 +73,20 @@ const siteURL = import.meta.env.SITE;
 					title="Blog"
 					copy="I write about topics that interest me in the web development space. UI/UX tutorials, React, software testing, and more."
 				/>
-				<BlogGroup posts={sortedPosts} />
+				<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+					{
+						sortedPosts.map(({ data: post }) => (
+							<BlogCard
+								title={post.title}
+								description={post.seoDescription}
+								date={post.datePublished.toISOString()}
+								link={post.slug}
+								image={post.cover || ''}
+								transitionName={`cover-${post.slug}`}
+							/>
+						))
+					}
+				</div>
 				<Button as="a" href="/blog" class="relative z-10 mx-auto">
 					My blog
 					<Icon

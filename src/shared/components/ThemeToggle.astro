@@ -6,38 +6,37 @@ import ActionItem from '@shared/components/base/ActionItem.astro';
 <script>
 	import { Themes, THEME_STORAGE_KEY } from '@config/consts';
 	import type { Theme } from '@shared/types';
-	// document.addEventListener('astro:page-load', () => {
-	const button = document.getElementById('theme-toggle');
+	document.addEventListener('astro:page-load', () => {
+		const button = document.getElementById('theme-toggle');
 
-	const theme = (() => {
-		if (typeof localStorage !== 'undefined' && localStorage.getItem(THEME_STORAGE_KEY)) {
-			return (localStorage.getItem(THEME_STORAGE_KEY) as Theme) || Themes.light;
-		}
-		return window.matchMedia('(prefers-color-scheme: dark)').matches ? Themes.dark : Themes.light;
-	})();
+		const theme = (() => {
+			if (typeof localStorage !== 'undefined' && localStorage.getItem(THEME_STORAGE_KEY)) {
+				return (localStorage.getItem(THEME_STORAGE_KEY) as Theme) || Themes.light;
+			}
+			return window.matchMedia('(prefers-color-scheme: dark)').matches ? Themes.dark : Themes.light;
+		})();
 
-	const reflectThemePreference = (theme: Theme) => {
-		document.documentElement.className = '';
-		document.documentElement.classList.add(theme);
-		button?.setAttribute('aria-label', `${theme} theme`);
-	};
+		const reflectThemePreference = (theme: Theme) => {
+			document.documentElement.className = '';
+			document.documentElement.classList.add(theme);
+			button?.setAttribute('aria-label', `${theme} theme`);
+		};
 
-	reflectThemePreference(theme);
-	window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+		reflectThemePreference(theme);
+		window.localStorage.setItem(THEME_STORAGE_KEY, theme);
 
-	const handleToggleClick = () => {
-		const element = document.documentElement;
-		const newTheme = element.classList.contains('dark') ? Themes.light : Themes.dark;
-		reflectThemePreference(newTheme);
-		localStorage.setItem(THEME_STORAGE_KEY, newTheme);
-	};
+		const handleToggleClick = () => {
+			const element = document.documentElement;
+			const newTheme = element.classList.contains('dark') ? Themes.light : Themes.dark;
+			reflectThemePreference(newTheme);
+			localStorage.setItem(THEME_STORAGE_KEY, newTheme);
+		};
 
-	button?.addEventListener('click', handleToggleClick);
-	// });
+		button?.addEventListener('click', handleToggleClick);
+	});
 </script>
 
 <ActionItem
-	transition:persist
 	id="theme-toggle"
 	title="Toggles light & dark theme"
 	aria-live="polite"

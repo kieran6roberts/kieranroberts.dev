@@ -39,10 +39,14 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
 	<div>
 		<h2
 			class="font-heading mt-4 mb-2 text-xl font-semibold text-zinc-700 transition-all duration-300 group-hover:text-zinc-900 xl:text-2xl dark:text-zinc-300 dark:group-hover:text-zinc-100"
+			transition:name={`title-${link}`}
 		>
 			{title}
 		</h2>
-		<time class="text-sm text-zinc-600 xl:text-base dark:text-zinc-300">
+		<time
+			class="text-sm text-zinc-600 xl:text-base dark:text-zinc-300"
+			transition:name={`date-${link}`}
+		>
 			{formattedDate}
 		</time>
 	</div>

@@ -3,7 +3,7 @@ title: '5 Simple Tips/Good Practises to Level Up Your React Codebase'
 seoDescription: '5 simple React tips and good practises: improve maintainability, reusability, performance, and project management effectively'
 datePublished: Thu Jan 23 2025 14:06:40 GMT+0000 (Coordinated Universal Time)
 slug: 5-tips-to-level-up-your-react-codebase
-cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1737640073586/f63f45fa-3fe6-489a-b92e-88e1fd4babb0.png
+cover: https://cdn.kieranroberts.dev/5-tips-to-level-up-your-react-codebase.webp
 relatedPosts:
   - kieranrobertsdev-my-new-dev-portfolio-built-with-astro-tailwindcss-and-typescript
   - cvrsnapcom-blog-post-cover-image-creator

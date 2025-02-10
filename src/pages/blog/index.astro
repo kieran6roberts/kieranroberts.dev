@@ -5,6 +5,8 @@ import { getCollection } from 'astro:content';
 import Button from '@shared/components/base/Button.astro';
 import { BLOG_URL } from '@config/consts/urls';
 import { sortPostsByRecent } from '@features/blog/utils';
+import { Icon } from 'astro-icon/components';
+
 const posts = await getCollection('blog');
 const sortedPosts = sortPostsByRecent(posts);
 
@@ -15,6 +17,9 @@ const siteURL = import.meta.env.SITE;
 	<div
 		class="from-accent-brightest to-accent-bright dark:from-accent-darkest dark:to-accent-dark absolute inset-0 z-0 h-[450px] border-b border-zinc-200 bg-gradient-to-r dark:border-zinc-800"
 	>
+		<div class="absolute top-0 right-0 z-1 hidden h-full w-3/5 lg:block">
+			<Icon name="hero-blog" width="100%" height="100%" />
+		</div>
 	</div>
 	<section class="mx-auto flex max-w-[1400px] flex-col gap-12 px-4 py-16 md:px-16">
 		<div class="relative flex flex-col gap-4 py-8">

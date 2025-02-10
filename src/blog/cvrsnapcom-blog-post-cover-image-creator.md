@@ -5,7 +5,7 @@ seoDescription: 'Create custom blog post cover images quickly with CvrSnap. Save
 datePublished: Fri Jan 31 2025 08:04:26 GMT+0000 (Coordinated Universal Time)
 cuid: cm6khaed0000c09jydgxbhukr
 slug: cvrsnapcom-blog-post-cover-image-creator
-cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1738087079970/4616e973-5cd9-43e0-aca1-d077d9cd959c.png
+cover: https://cdn.kieranroberts.dev/cvrsnapcom-blog-post-cover-image-creator%20(1).webp
 relatedPosts:
   - kieranrobertsdev-my-new-dev-portfolio-built-with-astro-tailwindcss-and-typescript
   - 5-tips-to-level-up-your-react-codebase

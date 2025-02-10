@@ -4,8 +4,9 @@ import BlogGroup from '@features/blog/components/BlogGroup.astro';
 import { getCollection } from 'astro:content';
 import Button from '@shared/components/base/Button.astro';
 import { BLOG_URL } from '@config/consts/urls';
-
+import { sortPostsByRecent } from '@features/blog/utils';
 const posts = await getCollection('blog');
+const sortedPosts = sortPostsByRecent(posts);
 
 const siteURL = import.meta.env.SITE;
 ---
@@ -26,7 +27,7 @@ const siteURL = import.meta.env.SITE;
 			</p>
 			<Button as="a" size="sm" href="/rss.xml"> RSS Feed </Button>
 		</div>
-		<BlogGroup {posts} />
+		<BlogGroup posts={sortedPosts} />
 		<div class="flex flex-col items-center gap-8">
 			<p class="mx-auto max-w-[450px] text-center text-base text-zinc-600 dark:text-zinc-300">
 				I am in the proccess of migrating my blog content here and as such, not all the posts I have

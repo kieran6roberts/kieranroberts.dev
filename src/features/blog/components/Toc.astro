@@ -33,7 +33,7 @@ const { headings } = Astro.props;
 			'#post-content h2, #post-content h3, #post-content h4, #post-content h5',
 		);
 
-		let prevActiveSectionId: string | null = null;
+		let prevActiveSectionId: string | null = headings[0].id;
 
 		function getTocLink(id: string | null) {
 			return id ? document.querySelector(`#toc a[href="#${id}"]`) : null;

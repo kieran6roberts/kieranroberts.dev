@@ -32,7 +32,7 @@ const formattedDate = new Date(post.data.datePublished).toLocaleDateString('en-U
 	>
 	</div>
 	<div class="mt-16 flex gap-16 pb-24 xl:items-start xl:justify-center">
-		<Button as="a" href="/blog" size="sm" class="sticky top-24">
+		<Button as="a" href="/blog" size="sm" class="sticky top-24 hidden xl:flex">
 			<Icon
 				name="arrow-left"
 				width={12}
@@ -41,7 +41,7 @@ const formattedDate = new Date(post.data.datePublished).toLocaleDateString('en-U
 			/>
 			Back to posts
 		</Button>
-		<div class="flex max-w-screen-md flex-col items-center gap-8 px-4">
+		<div class="mx-auto flex max-w-screen-md flex-col items-center gap-8 px-4 xl:mx-0">
 			{
 				post.data.cover ? (
 					<Image

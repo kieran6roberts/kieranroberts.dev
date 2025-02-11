@@ -8,6 +8,8 @@ cover: https://cdn.kieranroberts.dev/kieranrobertsdev-my-new-dev-portfolio-built
 relatedPosts:
   - 5-tips-to-level-up-your-react-codebase
   - cvrsnapcom-blog-post-cover-image-creator
+categories:
+  - Case studies
 # tags: programming, javascript, web-development, webdev, astro
 ---
 

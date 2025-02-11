@@ -6,12 +6,105 @@ import Button from '@shared/components/base/Button.astro';
 import { BLOG_URL } from '@config/consts/urls';
 import { sortPostsByRecent } from '@features/blog/utils';
 import { Icon } from 'astro-icon/components';
+import { categories } from '@features/blog/consts';
+import { cx } from 'class-variance-authority';
+import ActionItem from '@shared/components/base/ActionItem.astro';
 
 const posts = await getCollection('blog');
 const sortedPosts = sortPostsByRecent(posts);
 
 const siteURL = import.meta.env.SITE;
 ---
+
+<script>
+	import { categories, DATA_CATEGORY_ATTRIBUTE_NAME } from '@features/blog/consts';
+
+	document.addEventListener('astro:page-load', () => {
+		const categoryButtons = Array.from(
+			document.querySelectorAll(`[${DATA_CATEGORY_ATTRIBUTE_NAME}]`),
+		);
+
+		const getActiveCategory = () => {
+			const params = new URLSearchParams(window.location.search);
+			const category = params.get('category');
+
+			if (!category) {
+				return 'all';
+			}
+			return Object.keys(categories).includes(category) ? category : 'all';
+		};
+
+		const setActiveURLCategory = (category: keyof typeof categories) => {
+			const url = new URL(window.location.href);
+			url.searchParams.set('category', category);
+			history.pushState({}, '', url);
+		};
+
+		const showBlogCard = (card: Element, isInitialLoad = false) => {
+			card.classList.remove('hidden');
+			if (isInitialLoad) {
+				requestAnimationFrame(() => {
+					card.classList.remove('opacity-0');
+				});
+			} else {
+				card.classList.remove('opacity-0');
+			}
+		};
+
+		const hideBlogCard = (card: Element) => {
+			card.classList.add('hidden');
+			card.classList.add('opacity-0');
+		};
+
+		const filterPosts = (category: string | null, isInitialLoad = false) => {
+			const blogCards = Array.from(document.querySelectorAll('[data-post-categories]'));
+
+			blogCards.forEach((card) => {
+				const postCategories = card.getAttribute('data-post-categories')?.split(',') || [];
+				const shouldShowCard =
+					!category ||
+					category === 'all' ||
+					postCategories.includes(categories[category as keyof typeof categories]);
+
+				if (shouldShowCard) {
+					showBlogCard(card, isInitialLoad);
+				} else {
+					hideBlogCard(card);
+				}
+			});
+
+			categoryButtons.forEach((btn) => {
+				const btnCategory = btn.getAttribute(DATA_CATEGORY_ATTRIBUTE_NAME);
+				const isActive = btnCategory === category || (!category && btnCategory === 'all');
+				if (isActive) {
+					btn.classList.add('font-bold');
+				} else {
+					btn.classList.remove('font-bold');
+				}
+			});
+		};
+
+		const initialCategory = getActiveCategory();
+		filterPosts(initialCategory, true);
+
+		categoryButtons.forEach((button) => {
+			button.addEventListener('click', () => {
+				const buttonCategory = button.getAttribute(DATA_CATEGORY_ATTRIBUTE_NAME);
+				const currentCategory = getActiveCategory();
+
+				if (currentCategory !== buttonCategory) {
+					setActiveURLCategory(buttonCategory as keyof typeof categories);
+					filterPosts(buttonCategory, false);
+				}
+			});
+		});
+
+		window.addEventListener('popstate', () => {
+			const category = getActiveCategory();
+			filterPosts(category, false);
+		});
+	});
+</script>
 
 <Layout url={siteURL} showFooter={true}>
 	<div
@@ -32,19 +125,43 @@ const siteURL = import.meta.env.SITE;
 			</p>
 			<Button as="a" size="sm" href="/rss.xml">RSS Feed</Button>
 		</div>
-		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-			{
-				sortedPosts.map(({ data: post }) => (
-					<BlogCard
-						title={post.title}
-						description={post.seoDescription}
-						date={post.datePublished.toISOString()}
-						link={post.slug}
-						image={post.cover || ''}
-						transitionName={`cover-${post.slug}`}
-					/>
-				))
-			}
+		<div class="z-50 flex flex-row gap-12">
+			<div class="hidden flex-col xl:flex">
+				<h2 class="mb-6 pt-20 text-xl font-semibold">Categories</h2>
+				<ul class="flex flex-col gap-2">
+					{
+						Object.entries(categories).map(([key, value]) => (
+							<li>
+								<ActionItem
+									as="button"
+									data-category={key}
+									class={cx(
+										'hover:text-accent cursor-pointer text-sm text-zinc-600 transition-colors dark:text-zinc-300',
+									)}
+								>
+									{value}
+								</ActionItem>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+				{
+					sortedPosts.map(({ data: post }) => (
+						<BlogCard
+							data-post-categories={post.categories?.join(',') || ''}
+							class="opacity-0 transition-opacity duration-300"
+							title={post.title}
+							description={post.seoDescription}
+							date={post.datePublished.toISOString()}
+							link={post.slug}
+							image={post.cover || ''}
+							transitionName={`cover-${post.slug}`}
+						/>
+					))
+				}
+			</div>
 		</div>
 		<div class="flex flex-col items-center gap-8">
 			<p class="mx-auto max-w-[450px] text-center text-base text-zinc-600 dark:text-zinc-300">

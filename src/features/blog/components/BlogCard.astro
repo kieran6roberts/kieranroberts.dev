@@ -8,11 +8,22 @@ interface Props {
 	description: string;
 	date: string;
 	link: string;
-	image: string;
+	image?: string;
 	transitionName?: string;
+	'data-post-categories'?: string;
+	class?: string;
 }
 
-const { title, description, date, link, image, transitionName } = Astro.props;
+const {
+	title,
+	description,
+	date,
+	link,
+	image,
+	transitionName,
+	'data-post-categories': categories,
+	class: className,
+} = Astro.props;
 const BLOG_PATH = '/blog';
 
 const formattedDate = new Date(date).toLocaleDateString('en-US', {
@@ -22,34 +33,51 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
 });
 ---
 
-<ActionItem
-	as="a"
-	href={`${BLOG_PATH}/${link}`}
-	class="group outline-accent-darkest dark:outline-accent-brightest dark:hover:outline-offset-zinc-900 relative z-10 flex flex-col gap-4 rounded-xl border border-zinc-200 bg-zinc-50 p-4 outline-offset-0 hover:outline-3 hover:outline-offset-2 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:outline-offset-2"
->
-	<Image
-		src={image}
-		alt="Blog Post Cover Image"
-		class="h-auto w-full rounded-lg"
-		width={600}
-		height={400}
-		loading="eager"
-		transition:name={transitionName ?? undefined}
-	/>
-	<div>
-		<h2
-			class="font-heading mt-4 mb-2 text-xl font-semibold text-zinc-700 transition-all duration-300 group-hover:text-zinc-900 xl:text-2xl dark:text-zinc-300 dark:group-hover:text-zinc-100"
-			transition:name={`title-${link}`}
+<article data-post-categories={categories} class:list={[className]}>
+	<ActionItem
+		as="a"
+		href={`${BLOG_PATH}/${link}`}
+		class="group outline-accent-darkest dark:outline-accent-brightest dark:hover:outline-offset-zinc-900 relative z-10 flex min-h-[520px] flex-col gap-4 rounded-xl border border-zinc-200 bg-zinc-50 p-4 outline-offset-0 hover:outline-3 hover:outline-offset-2 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:outline-offset-2"
+	>
+		{
+			image ? (
+				<Image
+					src={image}
+					alt="Blog Post Cover Image"
+					class="h-auto w-full rounded-lg"
+					width={600}
+					height={400}
+					loading="eager"
+					transition:name={transitionName ?? undefined}
+				/>
+			) : null
+		}
+		<div>
+			<h2
+				class="font-heading mt-4 mb-2 text-xl font-semibold text-zinc-700 transition-all duration-300 group-hover:text-zinc-900 xl:text-2xl dark:text-zinc-300 dark:group-hover:text-zinc-100"
+				transition:name={`title-${link}`}
+			>
+				{title}
+			</h2>
+			<time
+				class="text-sm text-zinc-600 xl:text-base dark:text-zinc-400"
+				transition:name={`date-${link}`}
+			>
+				{formattedDate}
+			</time>
+		</div>
+		<p
+			class="text-sm text-zinc-500 transition-all duration-300 group-hover:text-zinc-700 xl:text-base dark:text-zinc-400 dark:group-hover:text-zinc-200"
 		>
 			{title}
-		</h2>
+		</p>
 		<time
 			class="text-sm text-zinc-600 xl:text-base dark:text-zinc-300"
 			transition:name={`date-${link}`}
 		>
 			{formattedDate}
 		</time>
-	</div>
+	</ActionItem>
 	<p
 		class="text-sm text-zinc-500 transition-all duration-300 group-hover:text-zinc-700 xl:text-base dark:text-zinc-300 dark:group-hover:text-zinc-200"
 	>
@@ -66,4 +94,4 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
 			class="stroke-current text-black transition-transform duration-200 group-hover:translate-x-1 dark:text-white"
 		/>
 	</span>
-</ActionItem>
+</article>

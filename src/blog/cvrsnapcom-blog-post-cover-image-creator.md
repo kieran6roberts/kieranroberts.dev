@@ -9,6 +9,8 @@ cover: https://cdn.kieranroberts.dev/cvrsnapcom-blog-post-cover-image-creator%20
 relatedPosts:
   - kieranrobertsdev-my-new-dev-portfolio-built-with-astro-tailwindcss-and-typescript
   - 5-tips-to-level-up-your-react-codebase
+categories:
+  - Case studies
 # tags: aws, programming, javascript, web-development, reactjs
 ---
 

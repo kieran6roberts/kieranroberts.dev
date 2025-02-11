@@ -19,7 +19,7 @@ import ProjectGroup from '@features/projects/components/ProjectGroup.astro';
 import TechIllustration from '@features/portfolio/components/TechIllustration.astro';
 
 const posts = await getCollection('blog');
-const sortedPosts = sortPostsByRecent(posts);
+const sortedPosts = sortPostsByRecent(posts).slice(0, 3);
 const siteURL = import.meta.env.SITE;
 ---
 

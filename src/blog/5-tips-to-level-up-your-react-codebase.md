@@ -7,6 +7,8 @@ cover: https://cdn.kieranroberts.dev/5-tips-to-level-up-your-react-codebase.webp
 relatedPosts:
   - kieranrobertsdev-my-new-dev-portfolio-built-with-astro-tailwindcss-and-typescript
   - cvrsnapcom-blog-post-cover-image-creator
+categories:
+  - React
 # tags: software-development, programming, javascript, reactjs, best-practices
 ---
 

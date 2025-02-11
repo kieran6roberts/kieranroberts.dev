@@ -12,10 +12,10 @@ export default defineConfig({
 	markdown: {
 		shikiConfig: {
 			wrap: true,
-			// themes: {
-			// 	light: 'github-light',
-			// 	dark: 'github-dark',
-			// },
+			themes: {
+				light: 'snazzy-light',
+				dark: 'andromeeda',
+			},
 		},
 	},
 	image: {

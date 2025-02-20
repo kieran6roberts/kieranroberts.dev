@@ -5,7 +5,7 @@ import BlogCard from '@features/blog/components/BlogCard.astro';
 const postsData = await fetchBlogPosts({ first: 3 });
 ---
 
-<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+<div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
 	{
 		postsData.map((post) => (
 			<BlogCard

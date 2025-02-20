@@ -5,7 +5,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & VariantProps<typeof button>;
 
 const button = cva(
-	'group flex items-center justify-center gap-2 rounded-full disabled:cursor-not-allowed disabled:opacity-90',
+	'group flex items-center justify-center text-sm md:text-md gap-2 rounded-full disabled:cursor-not-allowed disabled:opacity-90',
 	{
 		variants: {
 			intent: {
@@ -17,8 +17,8 @@ const button = cva(
 				],
 			},
 			size: {
-				sm: ['w-max', 'text-sm', 'py-1', 'px-2.5'],
-				md: ['w-max', 'text-base', 'py-1.5', 'px-4', 'lg:py-2', 'lg:px-5'],
+				sm: ['w-max', 'py-1', 'px-2.5'],
+				md: ['w-max', 'py-1.5', 'px-4', 'lg:py-2', 'lg:px-5'],
 				full: ['w-full'],
 			},
 		},

@@ -22,7 +22,7 @@ const {
 ---
 
 <article
-	class="card-hover group/exp-card relative z-10 flex flex-col gap-4 rounded-xl border border-zinc-200 bg-zinc-50 py-4 pl-4 pr-8 dark:border-zinc-800 dark:bg-zinc-900 lg:py-8 lg:pl-8 lg:pr-12"
+	class="card-hover group/exp-card relative z-10 flex flex-col gap-4 rounded-xl border border-zinc-200 bg-zinc-50 py-4 pl-4 pr-4 dark:border-zinc-800 dark:bg-zinc-900 md:pr-8 lg:py-8 lg:pl-8 lg:pr-12"
 >
 	<a href={companyURL} target="_blank" class="link-focus flex w-max flex-row items-center gap-4">
 		<div>
@@ -60,7 +60,7 @@ const {
 			</span>
 			<div class="h-px w-full bg-zinc-200 dark:bg-zinc-800"></div>
 			<ul
-				class="list-outside list-disc space-y-4 p-4 text-sm text-zinc-600 group-hover/exp-card:text-zinc-800 dark:text-zinc-300 dark:group-hover/exp-card:text-zinc-200 md:text-base xl:text-lg"
+				class="list-outside list-disc space-y-4 p-4 text-sm text-zinc-600 group-hover/exp-card:text-zinc-800 dark:text-zinc-300 dark:group-hover/exp-card:text-zinc-200 md:text-base"
 			>
 				{responsibilities.map((responsibility) => <li>{responsibility}</li>)}
 			</ul>

@@ -20,7 +20,7 @@ export const Themes = {
 
 export const experience: Experience[] = [
 	{
-		title: 'Software Engineer (Full-Stack)',
+		title: 'Full-Stack Engineer',
 		company: 'Hashnode',
 		location: 'Remote',
 		date: 'May 2021 - Jan 2025',

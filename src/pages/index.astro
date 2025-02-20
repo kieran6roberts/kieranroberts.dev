@@ -7,7 +7,6 @@ import SectionHeading from '@shared/pages/home/SectionHeading.astro';
 import HeroIllustration from '@features/portfolio/components/HeroIllustration.astro';
 import BlogGroup from '@features/blog/components/BlogGroup.astro';
 import SectionContainer from '@shared/pages/home/SectionContainer.astro';
-import AccoladeTweetCard from '@features/accolades/components/AccoladeTweetCard.astro';
 import ExperienceList from '@features/experience/components/ExperienceList.astro';
 import Button from '@shared/components/base/Button.astro';
 import TestimonialGroup from '@features/testimonials/components/TestimonialGroup.astro';
@@ -19,6 +18,20 @@ const siteURL = import.meta.env.SITE;
 ---
 
 <Layout url={siteURL} showFooter={true}>
+	<div class="absolute left-0 top-0 h-[35vh] max-h-[350px] w-full overflow-hidden">
+		<svg class="absolute h-full w-full" viewBox="0 0 1440 400" preserveAspectRatio="none">
+			<path
+				fill="#818CF8"
+				fill-opacity="0.3"
+				d="M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,149.3C672,160,768,224,864,229.3C960,235,1056,181,1152,160C1248,139,1344,149,1392,154.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+			></path>
+			<path
+				fill="#818CF8"
+				fill-opacity="0.1"
+				d="M0,32L48,58.7C96,85,192,139,288,144C384,149,480,107,576,112C672,117,768,171,864,176C960,181,1056,139,1152,122.7C1248,107,1344,117,1392,122.7L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+			></path>
+		</svg>
+	</div>
 	<div id="hero" class="relative overflow-hidden">
 		<section
 			class="relative z-10 mx-auto flex h-full w-full max-w-[1600px] flex-col items-center justify-center"
@@ -99,41 +112,6 @@ const siteURL = import.meta.env.SITE;
 				</Button>
 			</SectionContainer>
 		</section>
-		<!-- <section
-			id="accolades"
-			class="relative overflow-hidden border-b border-zinc-200 dark:border-zinc-800"
-		>
-			<SectionContainer>
-				<SectionHeading
-					title="Accolades & Achievements"
-					copy="Here are some of my personal accomplishments from the web development space that I am proud of."
-				/>
-				<div
-					class="lg:auto-rows-[minmax(0, 1fr)] grid grid-flow-dense grid-cols-1 gap-6 lg:grid-cols-6"
-				>
-					<AccoladeTweetCard
-						id="https://twitter.com/Kieran6dev/status/1699795885037883568"
-						className="lg:col-span-2 lg:row-span-2"
-					/>
-					<AccoladeTweetCard
-						id="https://twitter.com/Kieran6dev/status/1378027456561565701"
-						className="lg:col-span-4 lg:row-span-2"
-					/>
-					<AccoladeTweetCard
-						id="https://twitter.com/Kieran6dev/status/1362110408581140481"
-						className="lg:col-span-3 lg:row-span-3"
-					/>
-					<AccoladeTweetCard
-						id="https://x.com/Kieran6dev/status/1793995027016012259"
-						className="lg:col-span-3 lg:row-span-3"
-					/>
-					<AccoladeTweetCard
-						id="https://twitter.com/QANewsletter/status/1375486529112571910"
-						className="lg:col-span-6 lg:row-span-3"
-					/>
-				</div>
-			</SectionContainer>
-		</section> -->
 		<section>
 			<SectionContainer>
 				<SectionHeading

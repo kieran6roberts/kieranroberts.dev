@@ -5,6 +5,7 @@ import { cva } from 'class-variance-authority';
 
 import type { Project } from '@features/projects/types';
 import Button from '@shared/components/base/Button.astro';
+import { getImageUrl } from '@shared/utils/image';
 
 export interface Props extends Project {}
 
@@ -34,8 +35,8 @@ const statusStyles = cva(
 			<a href={liveLink} target="_blank" class="link-focus">
 				<div class="mb-4 flex overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800 lg:max-h-[250px]">
 					<Image
-						src={image}
-						alt="Hashnode Team"
+						src={getImageUrl(image)}
+						alt={`${title} highlight`}
 						width={700}
 						height={500}
 						class="rounded-lg bg-cover bg-center"
@@ -53,8 +54,8 @@ const statusStyles = cva(
 			<div>
 				<div class="mb-4 flex overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800 lg:max-h-[250px]">
 					<Image
-						src={image}
-						alt="Hashnode Team"
+						src={getImageUrl(image)}
+						alt={`${title} highlight`}
 						width={700}
 						height={500}
 						class="rounded-lg bg-cover bg-center"

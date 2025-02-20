@@ -4,6 +4,7 @@ import { Icon } from 'astro-icon/components';
 
 import Button from '@shared/components/base/Button.astro';
 import type { Experience } from '@features/experience/types';
+import { getImageUrl } from '@shared/utils/image';
 
 type Props = Experience;
 const {
@@ -67,7 +68,7 @@ const {
 				image ? (
 					<div class="flex max-h-[250px] w-full max-w-[400px] justify-start">
 						<Image
-							src={image}
+							src={getImageUrl(image)}
 							alt={`${company} highlight`}
 							width={925}
 							height={731}

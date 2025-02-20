@@ -7,6 +7,6 @@ export type Project = {
 	githubLink: string;
 	liveLink: string | null;
 	caseStudyLink: string | null;
-	image: ImageMetadata;
+	image: string;
 	status: Status[];
 };

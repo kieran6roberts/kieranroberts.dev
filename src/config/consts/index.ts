@@ -2,10 +2,6 @@ import type { Experience } from '@features/experience/types';
 import type { Project } from '@features/projects/types';
 import type { Testimonial } from '@features/testimonials/types';
 
-import CvrSnapImage from '@images/cvrsnap.webp';
-import universityImage from '@images/university.webp';
-import PortfolioImage from '@images/portfolio.webp';
-import SSTReactRouterSPAStarterKitImage from '@images/sst-rr-kit.webp';
 import TestimonialImage1 from '@images/testimonial-1.webp';
 import TestimonialImage2 from '@images/testimonial-2.webp';
 import TestimonialImage3 from '@images/testimonial-3.webp';
@@ -53,7 +49,7 @@ export const education: Experience[] = [
 		responsibilities: [
 			'Integrated Masters Degree in Electronic Engineering (MEng) with first-class honors.',
 		],
-		image: universityImage,
+		image: 'university.webp',
 		showCV: false,
 		companyURL: 'https://www.bangor.ac.uk/',
 	},
@@ -69,7 +65,7 @@ export const projects: Project[] = [
 		liveLink: null,
 		caseStudyLink:
 			'https://blog.kieranroberts.dev/kieranrobertsdev-my-new-dev-portfolio-built-with-astro-tailwindcss-and-typescript',
-		image: PortfolioImage,
+		image: 'portfolio.webp',
 		status: ['complete'],
 	},
 	{
@@ -80,7 +76,7 @@ export const projects: Project[] = [
 		githubLink: 'https://github.com/kieran6roberts/cvrsnap',
 		liveLink: 'https://cvrsnap.com/',
 		caseStudyLink: 'https://blog.kieranroberts.dev/cvrsnapcom-blog-post-cover-image-creator',
-		image: CvrSnapImage,
+		image: 'cvrsnap.webp',
 		status: ['MVP done', 'updates planned'],
 	},
 	{
@@ -91,7 +87,7 @@ export const projects: Project[] = [
 		githubLink: 'https://github.com/kieran6roberts/sst-react-router-spa-starter-kit',
 		liveLink: null,
 		caseStudyLink: null,
-		image: SSTReactRouterSPAStarterKitImage,
+		image: 'sst-rr-kit.webp',
 		status: ['in progress'],
 	},
 ];

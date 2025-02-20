@@ -3,9 +3,9 @@ import { Image } from 'astro:assets';
 
 import Button from '@shared/components/base/Button.astro';
 import SocialLinkGroup from '@shared/components/SocialLinkGroup.astro';
-import KieranAvatar from '@images/Kieran-Avatar.webp';
 import ThemeToggleAstro from '@shared/components/ThemeToggle.astro';
 import { EMAIL_ADDRESS } from '@config/consts';
+import { getImageUrl } from '@shared/utils/image';
 
 type Props = Record<string, never>;
 ---
@@ -105,15 +105,14 @@ type Props = Record<string, never>;
 			<div
 				class="relative flex h-10 w-10 items-center justify-center rounded-full bg-white dark:bg-zinc-900"
 			>
-				<a href="/" class="link-focus rounded-full">
+				<a href="/" data-astro-reload class="link-focus rounded-full">
 					<Image
-						src={KieranAvatar}
+						src={getImageUrl('Kieran-Avatar.webp')}
 						alt="Kieran Roberts header picture"
 						width={80}
 						height={80}
 						loading="eager"
 						quality={100}
-						decoding="async"
 					/>
 				</a>
 			</div>

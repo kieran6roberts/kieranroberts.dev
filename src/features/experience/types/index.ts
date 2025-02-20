@@ -6,7 +6,7 @@ export type Experience = {
 	type: string;
 	iconName: string;
 	responsibilities: string[];
-	image: ImageMetadata | null;
+	image: string | null;
 	showCV: boolean;
 	companyURL: string;
 };

@@ -10,6 +10,15 @@ export default defineConfig({
 	vite: {
 		plugins: [],
 	},
+	image: {
+		domains: ['cdn.kieranroberts.dev'],
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'cdn.kieranroberts.dev',
+			},
+		],
+	},
 	prefetch: {
 		defaultStrategy: 'hover',
 		prefetchAll: false,

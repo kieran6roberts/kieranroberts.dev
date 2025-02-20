@@ -2,9 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 
-import kieranAtWorkImage from '@images/kieran-at-work.webp';
-import hashnodeTeam2022Image from '@images/hashnode-team-2022.webp';
-import hashnodeTeam2024Image from '@images/hashnode-team-2024.webp';
+import { getImageUrl } from '@shared/utils/image';
 ---
 
 <script>
@@ -55,14 +53,14 @@ import hashnodeTeam2024Image from '@images/hashnode-team-2024.webp';
 </div>
 
 <div
-	class="relative z-10 mt-12 flex w-full flex-col items-center justify-center gap-4 lg:flex-row lg:gap-0 [&>div:has(~div:hover)]:scale-90 [&>div:has(~div:hover)]:brightness-50 [&>div:hover~div]:scale-90 [&>div:hover~div]:brightness-50"
+	class="relative z-10 mt-12 flex w-full flex-col items-center justify-center gap-4 lg:flex-row lg:gap-0 lg:[&>div:has(~div:hover)]:scale-90 lg:[&>div:has(~div:hover)]:brightness-50 lg:[&>div:hover~div]:scale-90 lg:[&>div:hover~div]:brightness-50"
 >
 	<div
 		data-hero-image-animate="opacity-100"
-		class="z-20 h-[290px] w-full rounded-xl object-cover opacity-0 shadow-xl brightness-[0.8] transition-all duration-150 ease-in hover:brightness-100 lg:max-w-[550px] lg:translate-x-20 lg:rotate-6 lg:hover:z-50 lg:hover:rotate-0 lg:hover:scale-105 xl:max-w-[650px]"
+		class="z-20 h-[290px] w-full max-w-[500px] rounded-xl object-cover opacity-0 shadow-xl duration-150 ease-in lg:max-w-[550px] lg:translate-x-20 lg:rotate-6 lg:brightness-[0.8] lg:transition-all lg:hover:z-50 lg:hover:rotate-0 lg:hover:scale-105 lg:hover:brightness-100 xl:max-w-[650px]"
 	>
 		<Image
-			src={hashnodeTeam2022Image}
+			src={getImageUrl('hashnode-team-2022.webp')}
 			alt="Hashnode Team from 2022 posing for a team photo"
 			class="h-full w-full rounded-xl object-cover object-center"
 			loading="lazy"
@@ -75,10 +73,10 @@ import hashnodeTeam2024Image from '@images/hashnode-team-2024.webp';
 
 	<div
 		data-hero-image-animate="opacity-100"
-		class="z-30 h-[290px] w-full transform rounded-xl object-cover opacity-0 shadow-xl brightness-[0.8] transition-all duration-150 ease-in lg:max-w-[550px] lg:-rotate-[5deg] lg:hover:z-30 lg:hover:-rotate-0 lg:hover:scale-105 lg:hover:brightness-100 xl:max-w-[650px]"
+		class="z-30 h-[290px] w-full max-w-[500px] transform rounded-xl object-cover opacity-0 shadow-xl duration-150 ease-in lg:max-w-[550px] lg:-rotate-[5deg] lg:brightness-[0.8] lg:transition-all lg:hover:z-30 lg:hover:-rotate-0 lg:hover:scale-105 lg:hover:brightness-100 xl:max-w-[650px]"
 	>
 		<Image
-			src={kieranAtWorkImage}
+			src={getImageUrl('kieran-at-work.webp')}
 			alt="Kieran discussing a project with a coworker in person while sharing his laptop screen"
 			class="h-full w-full rounded-xl object-cover"
 			loading="lazy"
@@ -91,10 +89,10 @@ import hashnodeTeam2024Image from '@images/hashnode-team-2024.webp';
 
 	<div
 		data-hero-image-animate="opacity-100"
-		class="pacity-0 z-20 h-[290px] w-full rounded-xl object-cover opacity-0 shadow-xl brightness-[0.8] transition-all duration-150 ease-in hover:brightness-100 lg:max-w-[550px] lg:-translate-x-20 lg:rotate-6 lg:hover:z-50 lg:hover:rotate-0 lg:hover:scale-105 xl:max-w-[650px]"
+		class="pacity-0 z-20 h-[290px] w-full max-w-[500px] rounded-xl object-cover opacity-0 shadow-xl duration-150 ease-in lg:max-w-[550px] lg:-translate-x-20 lg:rotate-6 lg:brightness-[0.8] lg:transition-all lg:hover:z-50 lg:hover:rotate-0 lg:hover:scale-105 lg:hover:brightness-100 xl:max-w-[650px]"
 	>
 		<Image
-			src={hashnodeTeam2024Image}
+			src={getImageUrl('hashnode-team-2024.webp')}
 			alt="Kieran discussing a project with a coworker in person while sharing his laptop screen"
 			class="h-full w-full rounded-xl object-cover"
 			loading="lazy"

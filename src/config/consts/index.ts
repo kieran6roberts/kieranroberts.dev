@@ -23,7 +23,7 @@ export const experience: Experience[] = [
 		title: 'Software Engineer (Full-Stack)',
 		company: 'Hashnode',
 		location: 'Remote',
-		date: 'May 2021 - Present',
+		date: 'May 2021 - Jan 2025',
 		type: 'Full-time',
 		iconName: 'hashnode',
 		responsibilities: [

@@ -1,50 +1,27 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 
-/* Embeds */
-.link-preview {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-	padding: 1.5rem 1.5rem 1rem 1rem;
-	border: 0 !important;
-	width: 100% !important;
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+	--color-accent-darkest: #6f61c0;
+	--color-accent-dark: #a084e8;
+	--color-accent-bright: #8be8e5;
+	--color-accent-brightest: #d5ffe4;
+
+	--font-sans: 'Lato', sans-serif;
+	--font-heading: 'Barlow', sans-serif;
 }
 
-.link-preview__title {
-	color: #27272a !important;
-	font-weight: 600 !important;
-}
-html.dark .link-preview__title {
-	color: #e4e4e7 !important;
-}
-
-/* Link text styles */
-.link-preview a {
-	color: #3f3f46; /* zinc-700 */
-	transition: all 300ms;
-}
-
-.link-preview:hover a {
-	color: #18181b; /* zinc-900 */
-}
-
-.twitter-tweet {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-	font-size: 1rem;
-	border: 0 !important;
-}
-
-.twitter-tweet a {
-	font-weight: 600;
-	color: #6f61c0;
-}
-
-html.dark .twitter-tweet a {
-	color: #d5ffe4;
+/* Syntax highlighting */
+html.dark .astro-code,
+html.dark .astro-code span {
+	color: var(--shiki-dark) !important;
+	background-color: var(--shiki-dark-bg) !important;
+	/* Optional, if you also want font styles */
+	font-style: var(--shiki-dark-font-style) !important;
+	font-weight: var(--shiki-dark-font-weight) !important;
+	text-decoration: var(--shiki-dark-text-decoration) !important;
 }
 /* Fonts */
 @layer base {
@@ -83,16 +60,5 @@ html.dark .twitter-tweet a {
 		src: url('/fonts/Barlow/Barlow-Medium.ttf');
 		font-weight: 500;
 		font-display: swap;
-	}
-
-	.link-focus {
-		@apply outline-none focus-visible:ring focus-visible:ring-accent-darkest focus-visible:ring-offset-2 dark:focus-visible:ring-accent-brightest dark:focus-visible:ring-offset-zinc-900 !important;
-	}
-	.card-hover {
-		@apply outline-none ring-offset-0 transition-all duration-300 hover:ring hover:ring-accent-darkest hover:ring-offset-2 dark:hover:ring-accent-brightest dark:hover:ring-offset-2 dark:hover:ring-offset-zinc-900 !important;
-	}
-
-	.icon-button-hover {
-		@apply ring-offset-2 hover:ring hover:ring-accent-darkest dark:hover:ring-accent-brightest dark:hover:ring-offset-zinc-900 !important;
 	}
 }

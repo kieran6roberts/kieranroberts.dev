@@ -4,13 +4,12 @@ seoTitle: 'How To Persist Styles With Reloads Using Overrides In Chrome Dev Tool
 seoDescription: "This article will show you how to make CSS style changes that persist through reloads using the Chrome browser dev tools? Let's see how it's done!"
 datePublished: Sat Mar 11 2023 19:21:49 GMT+0000 (Coordinated Universal Time)
 slug: how-to-persist-style-changes-through-reloads-using-overrides-in-dev-tools
-cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1736279593192/58215b14-851e-41b9-ba37-52d3f9fef720.png
+cover: https://cdn.kieranroberts.dev/blog/how-to-persist-style-changes-through-reloads-using-overrides-in-dev-tools-cover.webp
 relatedPosts:
   - 5-tips-to-level-up-your-react-codebase
   - tutorial-implement-a-scroll-translated-dynamic-sticky-navbar-in-react
 categories:
   - UI/UX
-# tags: css, programming, javascript, ux, reactjs
 ---
 
 ## Sidenote

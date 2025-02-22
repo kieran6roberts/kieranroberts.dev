@@ -11,7 +11,6 @@ relatedPosts:
   - 5-tips-to-level-up-your-react-codebase
 categories:
   - Case studies
-# tags: aws, programming, javascript, web-development, reactjs
 ---
 
 Introducing [cvrsnap.com](https://cvrsnap.com/) 🫰.

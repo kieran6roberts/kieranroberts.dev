@@ -10,7 +10,6 @@ relatedPosts:
   - cvrsnapcom-blog-post-cover-image-creator
 categories:
   - Case studies
-# tags: programming, javascript, web-development, webdev, astro
 ---
 
 I decided to build a new personal developer portfolio for myself. Somewhere to showcase my skills, experience, projects etc. It is now deployed at [kieranroberts.dev](https://kieranroberts.dev/) and I wanted to write up a small case study reflecting on the project. Talk about what went well, what I might do differently next time, and what can be improved. I will also discuss the tech involved and the thinking behind certain decisions.

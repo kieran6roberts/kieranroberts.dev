@@ -4,14 +4,13 @@ seoTitle: 'React Sticky Navbar Positioned with Scroll Awareness Tutorial'
 seoDescription: 'Learn to implement a dynamic, sticky, scroll-aware navbar in React with smooth transitions and accessibility optimization for reduced-motion preferences'
 datePublished: Thu Jan 02 2025 12:15:49 GMT+0000 (Coordinated Universal Time)
 slug: tutorial-implement-a-scroll-translated-dynamic-sticky-navbar-in-react
-cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1736279545078/b285f98b-1bcc-49ab-a855-de4499dcc60b.png
+cover: https://cdn.kieranroberts.dev/blog/tutorial-implement-a-scroll-translated-dynamic-sticky-navbar-in-react-cover.webp
 relatedPosts:
   - 5-tips-to-level-up-your-react-codebase
   - cvrsnapcom-blog-post-cover-image-creator
 categories:
   - UI/UX
   - React
-# tags: css, programming, javascript, ux, reactjs
 ---
 
 As a frontend-focused developer, you'll spend a significant portion of your career working on navigation bars. These essential components are integral to almost every modern website and come in various implementations.

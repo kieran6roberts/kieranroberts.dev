@@ -9,7 +9,6 @@ relatedPosts:
   - cvrsnapcom-blog-post-cover-image-creator
 categories:
   - React
-# tags: software-development, programming, javascript, reactjs, best-practices
 ---
 
 I have been working as a Software Engineer in React codebases for almost 4 years now. In that time I have worked closely with many Senior Engineers. Reviewing code, having my own code reviewed, and general collaboration. The way I write code and organise things as a result has evolved.

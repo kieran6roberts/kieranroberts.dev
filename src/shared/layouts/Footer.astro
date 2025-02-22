@@ -5,7 +5,7 @@ import ActionItem from '@shared/components/base/ActionItem.astro';
 type Props = Record<string, never>;
 ---
 
-<footer class="border-t border-zinc-200 dark:border-zinc-800">
+<footer class="border-t border-zinc-200 dark:border-zinc-800" transition:persist>
 	<div class="mx-auto max-w-[1400px] gap-8 px-4 py-4 md:px-16 lg:px-24 2xl:py-8">
 		<div
 			class="flex w-full flex-col items-center gap-4 text-zinc-600 sm:flex-row sm:justify-between dark:text-zinc-300"
@@ -14,7 +14,6 @@ type Props = Record<string, never>;
 				<ActionItem
 					as="a"
 					href="/"
-					data-astro-reload
 					class="rounded-md text-lg font-medium hover:text-zinc-900 dark:hover:text-zinc-50"
 				>
 					{DOMAIN_NAME}

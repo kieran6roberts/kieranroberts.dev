@@ -18,6 +18,7 @@ const { posts } = Astro.props;
 				date={post.datePublished.toISOString()}
 				link={post.slug}
 				image={post.cover || ''}
+				updatedAt={post.updatedAt?.toISOString()}
 			/>
 		))
 	}

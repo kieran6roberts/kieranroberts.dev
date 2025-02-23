@@ -83,6 +83,7 @@ const siteURL = import.meta.env.SITE;
 								link={post.slug}
 								image={post.cover || ''}
 								transitionName={`cover-${post.slug}`}
+								updatedAt={post.updatedAt?.toISOString()}
 							/>
 						))
 					}

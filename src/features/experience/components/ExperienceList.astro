@@ -5,7 +5,7 @@ import ActionItem from '@shared/components/base/ActionItem.astro';
 ---
 
 <script>
-	document.addEventListener('DOMContentLoaded', () => {
+	document.addEventListener('astro:page-load', () => {
 		const tabs = document.querySelectorAll('[data-tab-target]');
 		const tabContents = document.querySelectorAll('[data-tab-content]');
 

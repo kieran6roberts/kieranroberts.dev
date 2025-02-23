@@ -10,6 +10,7 @@ import SectionContainer from '@shared/pages/home/SectionContainer.astro';
 import ExperienceList from '@features/experience/components/ExperienceList.astro';
 import Button from '@shared/components/base/Button.astro';
 import TestimonialGroup from '@features/testimonials/components/TestimonialGroup.astro';
+import WaveBG from '@features/portfolio/components/WaveBG.astro';
 
 import { BLOG_URL, GITHUB_PROFILE_URL, CALENDLY_URL } from '@config/consts/urls';
 import ProjectGroup from '@features/projects/components/ProjectGroup.astro';
@@ -18,20 +19,7 @@ const siteURL = import.meta.env.SITE;
 ---
 
 <Layout url={siteURL} showFooter={true}>
-	<div class="absolute left-0 top-0 h-[35vh] max-h-[350px] w-full overflow-hidden">
-		<svg class="absolute h-full w-full" viewBox="0 0 1440 400" preserveAspectRatio="none">
-			<path
-				fill="#818CF8"
-				fill-opacity="0.3"
-				d="M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,149.3C672,160,768,224,864,229.3C960,235,1056,181,1152,160C1248,139,1344,149,1392,154.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
-			></path>
-			<path
-				fill="#818CF8"
-				fill-opacity="0.1"
-				d="M0,32L48,58.7C96,85,192,139,288,144C384,149,480,107,576,112C672,117,768,171,864,176C960,181,1056,139,1152,122.7C1248,107,1344,117,1392,122.7L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
-			></path>
-		</svg>
-	</div>
+	<WaveBG styles="h-[35vh] max-h-[350px]" />
 	<div id="hero" class="relative overflow-hidden">
 		<section
 			class="relative z-10 mx-auto flex h-full w-full max-w-[1600px] flex-col items-center justify-center"
@@ -58,6 +46,7 @@ const siteURL = import.meta.env.SITE;
 				/>
 				<ExperienceList />
 			</SectionContainer>
+			<WaveBG direction="up" styles="h-[800px]" />
 		</section>
 		<section
 			id="testimonials"
@@ -70,6 +59,7 @@ const siteURL = import.meta.env.SITE;
 				/>
 				<TestimonialGroup />
 			</SectionContainer>
+			<WaveBG direction="up" styles="h-[100%]" />
 		</section>
 		<section
 			id="blog"
@@ -91,6 +81,7 @@ const siteURL = import.meta.env.SITE;
 					/>
 				</Button>
 			</SectionContainer>
+			<WaveBG direction="up" styles="h-1/4" />
 		</section>
 		<section
 			class="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900"
@@ -102,17 +93,12 @@ const siteURL = import.meta.env.SITE;
 				/>
 				<ProjectGroup />
 				<Button target="_blank" as="a" href={GITHUB_PROFILE_URL} class="relative z-10 mx-auto">
-					My GitHub profile
-					<Icon
-						name="github"
-						width={20}
-						height={20}
-						class="stroke-current transition-transform duration-200 group-hover:translate-x-1 group-hover:text-accent-brightest dark:group-hover:text-accent-darkest"
-					/>
+					GitHub profile
 				</Button>
 			</SectionContainer>
+			<WaveBG direction="up" styles="h-1/2" />
 		</section>
-		<section>
+		<section class="relative overflow-hidden">
 			<SectionContainer>
 				<SectionHeading
 					title="Book A Meeting"

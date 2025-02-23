@@ -1,0 +1,37 @@
+---
+import { cva, cx } from 'class-variance-authority';
+
+interface Props {
+	direction?: 'down' | 'up';
+	styles?: string;
+}
+
+const { direction, styles } = Astro.props;
+
+const waveBg = cva('absolute left-0 w-full overflow-hidden', {
+	variants: {
+		direction: {
+			down: 'top-0',
+			up: 'transform rotate-180 bottom-0',
+		},
+	},
+	defaultVariants: {
+		direction: 'down',
+	},
+});
+---
+
+<div class={cx(waveBg({ direction }), styles ?? 'h-[20vh] max-h-[200px]')}>
+	<svg class="absolute h-full w-full" viewBox="0 0 1440 400" preserveAspectRatio="none">
+		<path
+			fill="#818CF8"
+			fill-opacity=".3"
+			d="m0 128 48 16c48 16 144 48 240 42.7 96-5.7 192-47.7 288-37.4 96 10.7 192 74.7 288 80 96 5.7 192-48.3 288-69.3s192-11 240-5.3l48 5.3V0H0Z"
+		></path>
+		<path
+			fill="#818CF8"
+			fill-opacity=".1"
+			d="m0 32 48 26.7C96 85 192 139 288 144s192-37 288-32 192 59 288 64 192-37 288-53.3c96-15.7 192-5.7 240 0l48 5.3V0H0Z"
+		></path>
+	</svg>
+</div>

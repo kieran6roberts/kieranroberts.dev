@@ -12,15 +12,7 @@ categories:
   - UI/UX
 ---
 
-## Sidenote
-
-This month on Hashnode we have been running the [**#DebuggingFeb**](https://hashnode.com/n/debuggingfeb) Writeathon. As a software developer at Hashnode, I wanted to join in. Of course, I won't be eligible for any prizes of course but it's a great opportunity to share knowledge with the wider developer community here on Hashnode and beyond.
-
----
-
-## Introduction
-
-Did you know it is possible to make persistent-through-reload CSS style changes using the in-browser dev tools? This method can also be used for other needs as well as what I'm going to show, so it's a really useful tool to have in your debugging arsenal.
+Did you know it is possible to make persistent-through-reload CSS style changes using the in-browser dev tools? This method can also be used for other needs, so it's a really useful tool to have in your debugging arsenal.
 
 Recently I came across a UI bug that was only visible in our staging environment, and not in my localhost environment. Persisting style changes this way was something I needed to help solve the bug efficiently and cleanly. It's not something you'll likely need very often but is an awesome tool to have in your debugging arsenal.
 
@@ -37,15 +29,9 @@ Make style changes persist through a reload using the in-browser dev tools.
 
 The bug itself was not so interesting, I'll be honest. But the conditions around the bug made it a more challenging fix to solve efficiently.
 
-We often make use of staging environments as a midpoint between local development and production. This is currently the case for our Hashnode-powered blogs. I'm sure you've noticed some significant changes to your blog recently after we released a multitude of awesome UI and UX enhancements. We have seen a lot of positive feedback for these changes which is awesome to hear.
-
-%[https://twitter.com/hashnode/status/1613868739212066817]
+We often make use of staging environments as a midpoint between local development and production. This is currently the case for our Hashnode-powered blogs.
 
 While the team and I were testing some of these updates in staging, it was reported to me that there was a layout shift during a page load for our new navbar which I was responsible for.
-
-%[https://www.loom.com/share/7ffc415df11643128117e33b16582134]
-
-If you look closely, you'll notice the size of the top navbar changes once the newsletter and dashboard links come into view. Layout shifts can be super jarring in many situations and should be avoided where possible.
 
 Although the bug itself would likely be adding/removing a style or two, knowing exactly which style needed to be added or removed was problematic without visualisation of any changes. I couldn't see this in my localhost development.
 
@@ -93,10 +79,6 @@ Now you're finally ready to make some styling changes.
 The way you make these changes has some conditions If you make style changes in the Elements tab using the DOM (Document Object Model) tree, changes will not be saved and you should use the Sources tab instead. Find your file there and make edits.
 
 Secondly, when editing CSS in the Styles pane, if the source of the CSS is an HTML file then any changes made won't be saved by DevTools. It's better to edit the HTML file in the Sources panel to ensure any changes are saved.
-
-Here's a quick video of style changes persisting through reload:
-
-%[https://www.loom.com/share/3c95b54487544d6e8d32a466ce7cbc95]
 
 When an override is in effect you'll notice a little purple circle on top of the file icon and filename.
 

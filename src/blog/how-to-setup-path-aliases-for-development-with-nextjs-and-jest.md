@@ -81,15 +81,19 @@ const config: Config = {
 export default createJestConfig(config);
 ```
 
+You can find the original article below for reference.
+
+---
+
 ## Original article
 
 I wanted to share how you can setup path aliases for your imports. Sometimes you end up with various levels of file nesting and this can get messy fast.
 
-Fortunately for us both Next.js and Jest support adding path aliases so we don't end up with something like this 👇
+Fortunately for us both Next.js and Jest support adding path aliases so we don't end up with something like this:
 
 `import Component from "../../../Component/Component";`
 
-For any medium to large react project you will have realized that due to the component nature of the library we end up doing a lot of importing. Let's find out how we can change the above into this 👇
+For any medium to large react project you will have realized that due to the component nature of the library we end up doing a lot of importing. Let's find out how we can change the above into this:
 
 `import Component from "@/Component/Component";`
 
@@ -99,15 +103,11 @@ for both development in Next.js and for our tests using the test Framework Jest.
 
 ### Step 1 - Create a Next app
 
-I'll start with a brand new project so you can see all the steps. For this I will create a new Next application using `create-next-app` so we can get up and running quickly. Start by running `npx create-next-app`. This is the basic file structure that comes with `create-next-app` 👇.
-
-![create-next-app starter file structure](https://cdn.hashnode.com/res/hashnode/image/upload/v1618562840915/3r7FQoPoD.jpeg)
+I'll start with a brand new project so you can see all the steps. For this I will create a new Next application using `npx create-next-app@latest` so we can get up and running quickly.
 
 ### Step 2 - Create some files to import
 
 Next I'm going to create a `src` folder which is where I normally store the apps components, hooks etc. Let's add some files to our `src` folder to simulate how a real project might look 👇 .
-
-![our file structure after adding a src folder](https://cdn.hashnode.com/res/hashnode/image/upload/v1618563348642/MK3t-u3JX.jpeg)
 
 Here I have created the following files
 

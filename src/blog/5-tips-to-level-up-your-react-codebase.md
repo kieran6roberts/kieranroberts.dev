@@ -348,7 +348,7 @@ There are a few key reasons this approach is not usually preferred:
 
 1. It has access to data it doesn’t need.
 2. `BlogCard` could mutate the original `blog` object causing side effects. Recently while diving into my AWS learnings, I learned about the _‘Principle of least privilege’_ and it applies here. Essentially we don’t allow the inner component the chance to do more than it should be able to.
-3. Can lead to more unpredictable rendering behaviour due to React’s shallow comparison of props: [https://react.dev/reference/react/memo#troubleshooting](https://react.dev/reference/react/memo#troubleshooting)
+3. Can lead to more unpredictable rendering behaviour due to React’s shallow comparison of props: [React memo troubleshooting](https://react.dev/reference/react/memo#troubleshooting)
 4. Is less declarative in general.
 5. Might make testing more difficult because there’s more data than required.
 

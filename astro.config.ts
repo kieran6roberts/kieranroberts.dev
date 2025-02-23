@@ -11,7 +11,7 @@ export default defineConfig({
 	},
 	markdown: {
 		shikiConfig: {
-			wrap: true,
+			wrap: false,
 			themes: {
 				light: 'snazzy-light',
 				dark: 'andromeeda',

@@ -39,15 +39,28 @@ const formattedUpdatedDate = post.data.updatedAt
 	>
 	</div>
 	<div class="mt-16 flex gap-8 pb-24 xl:items-start xl:justify-center 2xl:gap-16">
-		<Button as="a" data-astro-reload href="/blog" size="sm" class="sticky top-24 hidden xl:flex">
-			<Icon
-				name="arrow-left"
-				width={12}
-				height={12}
-				class="stroke-current transition-transform duration-200 group-hover:-translate-x-1"
-			/>
-			Back to posts
-		</Button>
+		<div
+			class="sticky top-24 hidden h-[calc(100vh-10rem)] xl:flex xl:flex-col xl:items-start xl:justify-between"
+		>
+			<Button as="a" data-astro-reload href="/blog" size="sm">
+				<Icon
+					name="arrow-left"
+					width={12}
+					height={12}
+					class="stroke-current transition-transform duration-200 group-hover:-translate-x-1"
+				/>
+				Back to posts
+			</Button>
+			<Button as="a" intent="plain" href="#main" size="sm">
+				<Icon
+					name="nav-arrow-up"
+					width={12}
+					height={12}
+					class="stroke-current transition-transform duration-200 group-hover:-translate-y-1"
+				/>
+				Scroll to top
+			</Button>
+		</div>
 		<div class="mx-auto flex max-w-screen-md flex-col items-center gap-8 px-4 xl:mx-0">
 			{
 				post.data.cover ? (

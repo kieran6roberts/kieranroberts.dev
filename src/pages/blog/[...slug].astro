@@ -33,7 +33,7 @@ const formattedUpdatedDate = post.data.updatedAt
 	: null;
 ---
 
-<Layout title={post.data.title} description={post.data.seoDescription}>
+<Layout title={post.data.title} description={post.data.seoDescription} ogImage={post.data.cover}>
 	<div
 		class="from-accent-brightest to-accent-bright dark:from-accent-darkest dark:to-accent-dark absolute inset-0 z-0 h-[50px] border-b border-zinc-200 bg-gradient-to-r dark:border-zinc-800"
 	>

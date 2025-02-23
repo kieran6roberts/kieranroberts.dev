@@ -18,6 +18,7 @@ const DEFAULT_DESCRIPTION = DEFAULT_SEO_DESCRIPTION;
 const {
 	title = DEFAULT_TITLE,
 	description = DEFAULT_DESCRIPTION,
+	ogImage,
 	showFooter = true,
 	url,
 } = Astro.props;
@@ -29,7 +30,7 @@ const {
 	}}
 	lang="en"
 >
-	<SEO {title} {description} {url} />
+	<SEO {title} {description} {url} {ogImage} />
 	<body
 		style={{
 			scrollBehavior: 'smooth',

@@ -22,7 +22,7 @@ I’m hesitant to say ‘final’ since it will be iterated on further, but we c
 
 [kieranroberts.dev](https://kieranroberts.dev/)
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1737026220253/3406a601-a1a5-4562-841f-e6f1497bc9ed.png)
+![kieranroberts.dev home page hero section](https://cdn.kieranroberts.dev/blog/kieranrobertsdev-my-new-dev-portfolio-built-with-astro-tailwindcss-and-typescript-1.webp)
 
 ## The problem
 
@@ -163,9 +163,7 @@ Once those design decisions were made, most of the blockers to writing up core c
 
 ### What went well
 
-Overall I am happy with the outcome. The site feels fast thanks to the lack of JavaScript and server first approach of Astro. It scores well across Lighthouse scores which admittedly should be the minimum standard for a site like this.
-
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1736951224836/e2cccefb-f3c6-476a-94f6-665cdc11fbb8.png)
+Overall I am happy with the outcome. The site feels fast thanks to the lack of JavaScript and server first approach of Astro. It scores well across Lighthouse scores, which admittedly should be the minimum standard for a site like this.
 
 There was some trial and error with the design but I didn’t get stuck iterating on anything for too long. There’s always room for iteration and improvement. I am not a designer but I was able to harness some inspiration and tips from my experience working with a talented design team. An example is that I paid closer attention to text colors/weights than I would have previously, layering in different shades & weights where appropriate.
 

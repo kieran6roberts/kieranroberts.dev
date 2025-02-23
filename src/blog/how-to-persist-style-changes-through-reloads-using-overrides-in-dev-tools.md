@@ -5,6 +5,7 @@ seoDescription: "This article will show you how to make CSS style changes that p
 datePublished: Sat Mar 11 2023 19:21:49 GMT+0000 (Coordinated Universal Time)
 slug: how-to-persist-style-changes-through-reloads-using-overrides-in-dev-tools
 cover: https://cdn.kieranroberts.dev/blog/how-to-persist-style-changes-through-reloads-using-overrides-in-dev-tools-cover.webp
+updatedAt: Sun Feb 23 2025 13:57:00 GMT+0000 (Coordinated Universal Time)
 relatedPosts:
   - 5-tips-to-level-up-your-react-codebase
   - tutorial-implement-a-scroll-translated-dynamic-sticky-navbar-in-react
@@ -29,9 +30,7 @@ Make style changes persist through a reload using the in-browser dev tools.
 
 The bug itself was not so interesting, I'll be honest. But the conditions around the bug made it a more challenging fix to solve efficiently.
 
-We often make use of staging environments as a midpoint between local development and production. This is currently the case for our Hashnode-powered blogs.
-
-While the team and I were testing some of these updates in staging, it was reported to me that there was a layout shift during a page load for our new navbar which I was responsible for.
+We often make use of staging environments as a midpoint between local development and production. This is currently the case for our Hashnode-powered blogs. While the team and I were testing some of these updates in staging, it was reported to me that there was a layout shift during a page load for our new navbar which I was responsible for.
 
 Although the bug itself would likely be adding/removing a style or two, knowing exactly which style needed to be added or removed was problematic without visualisation of any changes. I couldn't see this in my localhost development.
 
@@ -44,8 +43,6 @@ The problem was that I didn't want to push changes to the staging branch that I 
 ## Solution: Using the Chrome browser dev tools
 
 Like many of you, I often use the in-browser dev tools as an efficient method of trying out different style changes at speed. It's a great way of making a multitude of quick changes without touching the codebase. If you don't use it often, give it a go.
-
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1676717234284/d48902de-c1ca-41a5-8f6f-6bbde6d17fcf.png)
 
 Any changes you make to styles this way will disappear when you reload the page. That's a problem when you need those style changes to persist after the reload. I needed to see that the change I would make was fixing the layout shift. That's where the Chrome browser dev tools came to my rescue.
 
@@ -60,19 +57,19 @@ I'll be using the Chrome dev tools for this tutorial.
   Here we can select a directory on our filesystem that will save style changes we make on whatever domain you need.
 - Then click on **Select folder for overrides**. Feel free to create a new directory for your changes. You can see all this below.
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1676717406885/ff8e3f99-a222-42c1-8451-a09d5cdcefd0.png)
+![Chrome Dev Tools, pointing to the Sources Tab and overrides option](https://cdn.kieranroberts.dev/blog/how-to-persist-style-changes-through-reloads-using-overrides-in-dev-tools-1.webp)
 
 - After selecting a file you'll see a warning. Click on **Allow** and don't expose sensitive information as it warns.
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1676717656528/c02263ea-f519-4a8f-bf7c-453794d8ff43.png)
+![Chrome Dev Tools, sensitive information warning](https://cdn.kieranroberts.dev/blog/how-to-persist-style-changes-through-reloads-using-overrides-in-dev-tools-2.webp)
 
 - After clicking you'll see the directory under the **Overrides** sub-tab. Ensure the checkbox named **Enable Local Overrides** is selected.
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1676718139560/28c6a2a1-3e56-4853-99a0-c1947e0e4a1d.png)
+![Chrome Dev Tools, enabling local overrides](https://cdn.kieranroberts.dev/blog/how-to-persist-style-changes-through-reloads-using-overrides-in-dev-tools-3.webp)
 
-- Next up you need to select the sources you'd like to save for overrides. Navigate to the **Page** sub-tab. Right-click on the source where you'd like to make changes and click **Save for overrides.**
+- Next up you need to select the sources you'd like to save for overrides. Navigate to the **Page** sub-tab. Right-click on the source where you'd like to make changes and click **Override content.**
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1676717890350/1f8f4cf9-527b-4b0b-a5ae-61acbb9ae33b.png)
+![Chrome Dev Tools, saving file for overrides](https://cdn.kieranroberts.dev/blog/how-to-persist-style-changes-through-reloads-using-overrides-in-dev-tools-4.webp)
 
 Now you're finally ready to make some styling changes.
 

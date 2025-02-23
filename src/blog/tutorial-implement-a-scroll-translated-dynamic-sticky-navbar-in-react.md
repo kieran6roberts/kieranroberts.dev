@@ -219,7 +219,7 @@ When scrolling down, we are going to translate the navbar upwards to a maximum t
 
 To help illustrate this, in the image below, consider the thick black line to be the top of the visible viewport. Meaning you can’t see anything above that line. This is where the navbar will be positioned when we have scrolled down and hidden the navbar from view. It’s just above the fold and ready to come right back into view.
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1734866771285/16da719f-24db-4694-a80c-9d422a29cbb7.png)
+![Scroll translated dynamic sticky navbar illustration](https://cdn.kieranroberts.dev/blog/tutorial-implement-a-scroll-translated-dynamic-sticky-navbar-in-react-1.webp)
 
 ### Implementing Scroll Based Logic
 

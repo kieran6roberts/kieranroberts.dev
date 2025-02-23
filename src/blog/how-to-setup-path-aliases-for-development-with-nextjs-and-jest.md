@@ -122,7 +122,16 @@ The contents of the files is not important. As long as you export something from
 
 First we need to create a `jsconfig.json` file (or `tsconfig.json` if you're using TypeScript) and setup our path aliases. My setup looks like this 👇.
 
-![My jsconfig.json file with path alias setup](https://cdn.hashnode.com/res/hashnode/image/upload/v1618563426752/Njv1dGes8.jpeg)
+```typescript
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "@/components": ["src/components/*"],
+    "@/hooks": ["src/hooks/*"],
+    "@/lib": ["src/lib/*"]
+  }
+}
+```
 
 Here we can specify a base url that we start our import from. Commonly you will see the root `.` specified.
 
@@ -134,21 +143,22 @@ Let's take our `components` alias as an example. We are saying we want to match 
 
 Now let's add some basic code to our components:
 
-![basic button component exporting a button](https://cdn.hashnode.com/res/hashnode/image/upload/v1618338169271/DcYMjLHaM.jpeg)
+```typescript
+// src/components/Button.js
+export default function Button() {
+  return <button>Click me</button>
+}
+```
 
 and the header is the same except it exports a `<h2 />` tag 🙂. We can import them into other pages/components using the path aliases like this 👇.
 
-![importing our components using our path aliases](https://cdn.hashnode.com/res/hashnode/image/upload/v1618337488284/bwPgcyit9.jpeg)
+```typescript
+// src/pages/index.js
+import Button from '@/components/Button';
+import Header from '@/components/Header';
+```
 
-And to show you everything is working as expected in the browser.
-
-![Our button and header components in the browser](https://cdn.hashnode.com/res/hashnode/image/upload/v1618338418529/FTbbCAtRl.png)
-
-If we had code in our other files that we created inside our `hooks` and `lib` files we could import them like this:
-
-![importing something from our hooks and lib folders using path aliases](https://cdn.hashnode.com/res/hashnode/image/upload/v1618337724053/ihYD6pMdz.jpeg)
-
-Of course we don't have anything in there but I wanted to show this is how you would import from those places.
+That's it! We have successfully setup path aliases for our imports in Next.js.
 
 ## Jest
 
@@ -166,21 +176,33 @@ First let's download the packages we need to work with Jest. I will install the 
 
 `jest` if the primary package we need to install in order to use the Jest testing framework. While `babel-jest`will help transform our code so we can include things like ES modules `import` syntax in our test files.
 
-We also have to configure a `.babelrc` file with the following setup 👇
+We also have to configure a `.babelrc` file with the following setup:
 
-![configure file for babel to work with next.js](https://cdn.hashnode.com/res/hashnode/image/upload/v1618502188375/dwxvuSgqJ.jpeg)
+```typescript
+{
+  "presets": ["next/babel"]
+}
+```
 
 What we are doing here is telling babel to use the custom preset for Next.js.
 
-Next I'll add a `test` script to the `package.json` file so we can run our test suites like this 👇
-
-![Our test script for jest in the package.json file](https://cdn.hashnode.com/res/hashnode/image/upload/v1618505514432/ffsWKPgBy.jpeg)
-
 ## Step 2 - Add our `jest.config.js`
 
-Finally we can now get on to our aliases in Jest 👏. We first need to create a `jest.config.js` file. There are a couple of options we will pass in here and it looks something like this 👇.
+Finally we can now get on to our aliases in Jest. We first need to create a `jest.config.js` file. There are a couple of options we will pass in here and it looks something like this.
 
-![Our jest.config file with path aliases setup along with ignore files and babel-jest transform](https://cdn.hashnode.com/res/hashnode/image/upload/v1618502684515/bb23gvp0V.jpeg)
+```typescript
+module.exports = {
+	testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
+	moduleNameMapper: {
+		'^@/components(.*)$': '<rootDir>/src/components/$1',
+		'^@/hooks(.*)$': '<rootDir>/src/hooks/$1',
+		'^@/lib(.*)$': '<rootDir>/src/lib/$1',
+	},
+	transform: {
+		'^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest',
+	},
+};
+```
 
 The first thing we do is use the `testPathIgonrePattern` which is defined as an array of strings that specify which paths we would like to skip when testing. Here we include the `node_modules` directory and the `.next` directory which contains our build files.
 
@@ -196,7 +218,14 @@ For more information check out the [Jest - Configuring Jest](https://jestjs.io/d
 
 Now if we add an empty test block to one of our files and attempt the import with the alias we won't receive any errors after running out test script. Our imports are now working as expected in Jest ✔.
 
-![Using our path alias successfully in Jest](https://cdn.hashnode.com/res/hashnode/image/upload/v1618566751895/9nBOaygXD.jpeg)
+```typescript
+// src/__tests__/Button.test.js
+import Button from '@/components/Button';
+
+describe('Button', () => {
+	it('should do something', () => {});
+});
+```
 
 ## Conclusion
 

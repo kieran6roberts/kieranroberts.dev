@@ -4,6 +4,7 @@ import type { ComponentProps } from 'astro/types';
 import SEO from '@shared/components/SEO.astro';
 import Header from '@shared/layouts/Header.astro';
 import Footer from '@shared/layouts/Footer.astro';
+import Button from '@shared/components/base/Button.astro';
 import { DEFAULT_SEO_TITLE, DEFAULT_SEO_DESCRIPTION } from '@config/consts';
 
 type Props = ComponentProps<typeof SEO> & {
@@ -32,14 +33,19 @@ const {
 		style={{
 			scrollBehavior: 'smooth',
 		}}
-		class="bg-white dark:bg-zinc-950 dark:text-zinc-50"
+		class="bg-white dark:bg-zinc-800 dark:text-zinc-50"
 	>
-		<div class="flex flex-col">
-			<Header />
-			<main id="main">
-				<slot />
-			</main>
-		</div>
+		<Button
+			class="pointer-events-none absolute left-1/2 right-1/2 top-6 z-[9999] m-auto hidden h-max -translate-x-1/2 opacity-0 transition-opacity focus:pointer-events-auto focus:opacity-100 lg:flex"
+			as="a"
+			href="#main"
+		>
+			Skip to main content
+		</Button>
+		<Header />
+		<main id="main">
+			<slot />
+		</main>
 		{showFooter ? <Footer /> : null}
 	</body>
 </html>

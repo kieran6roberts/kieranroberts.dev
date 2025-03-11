@@ -27,28 +27,28 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
 	<div class="pb-2">
 		<Image
 			src={image}
-			alt="Blog Post Cover Image"
+			alt={title}
 			class="h-auto w-full rounded-lg"
 			width={300}
 			height={200}
 			loading="lazy"
 		/>
 		<h2
-			class="mb-2 mt-4 font-heading text-xl font-medium text-zinc-700 transition-all duration-300 group-hover:text-zinc-900 dark:text-zinc-300 dark:group-hover:text-zinc-100 xl:text-2xl"
+			class="mb-2 mt-4 font-heading text-xl font-medium text-zinc-700 transition-all duration-300 group-hover:text-zinc-900 dark:text-zinc-200 dark:group-hover:text-zinc-100 xl:text-2xl"
 		>
 			{title}
 		</h2>
-		<time class="text-sm text-zinc-600 dark:text-zinc-400 xl:text-base">
+		<time class="text-sm text-zinc-600 dark:text-zinc-300 xl:text-base">
 			{formattedDate}
 		</time>
 	</div>
 	<p
-		class="text-sm text-zinc-500 transition-all duration-300 group-hover:text-zinc-700 dark:text-zinc-400 dark:group-hover:text-zinc-200 xl:text-base"
+		class="text-sm text-zinc-500 transition-all duration-300 group-hover:text-zinc-700 dark:text-zinc-300 dark:group-hover:text-zinc-200 xl:text-base"
 	>
 		{description}
 	</p>
 	<span
-		class="mt-auto flex items-center gap-2 text-base text-zinc-600 transition-all duration-300 group-hover:text-zinc-700 dark:text-zinc-400 dark:group-hover:text-zinc-300"
+		class="mt-auto flex items-center gap-2 text-base text-zinc-600 transition-all duration-300 group-hover:text-zinc-700 dark:text-zinc-300 dark:group-hover:text-zinc-200"
 	>
 		Read more
 		<Icon

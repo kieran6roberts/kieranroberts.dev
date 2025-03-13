@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import { LINKEDIN_PROFILE_URL } from '@config/consts/urls';
 import Button from '@shared/components/base/Button.astro';
+import Signature from './Signature.astro';
 ---
 
 <div class="relative flex flex-col items-center gap-4 lg:items-start">
@@ -45,6 +46,9 @@ import Button from '@shared/components/base/Button.astro';
 					class="stroke-current text-black transition-transform duration-200 group-hover:translate-x-1 group-hover:text-accent-darkest dark:text-white dark:group-hover:text-accent-brightest"
 				/>
 			</Button>
+		</div>
+		<div class="mx-auto text-zinc-600 dark:text-zinc-400">
+			<Signature height={60} />
 		</div>
 	</div>
 </div>

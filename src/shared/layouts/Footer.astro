@@ -1,16 +1,20 @@
 ---
 import { DOMAIN_NAME } from '@config/consts/urls';
 import SocialLinkGroup from '@shared/components/SocialLinkGroup.astro';
+import Signature from '@features/portfolio/components/Signature.astro';
 
 type Props = Record<string, never>;
 ---
 
-<footer class="border-t dark:border-zinc-600 dark:bg-zinc-800">
-	<div class="mx-auto max-w-[1400px] gap-8 px-4 py-4 md:px-16 lg:px-24 2xl:py-8">
+<footer class="border-t dark:border-zinc-600 dark:bg-zinc-900">
+	<div class="mx-auto max-w-[1400px] p-4 md:px-16 lg:px-24 2xl:py-8">
 		<div
-			class="flex w-full flex-col items-center gap-4 text-zinc-700 dark:text-zinc-100 sm:flex-row sm:justify-between"
+			class="grid grid-cols-1 items-center justify-center gap-8 text-zinc-700 dark:text-zinc-100 md:grid-cols-2"
 		>
-			<div class="flex flex-col gap-1">
+			<div class="grid grid-cols-1 justify-items-center gap-2 md:justify-self-start">
+				<div class="text-zinc-600 dark:text-zinc-300">
+					<Signature height={40} />
+				</div>
 				<a
 					href="/"
 					data-astro-reload
@@ -18,9 +22,14 @@ type Props = Record<string, never>;
 				>
 					{DOMAIN_NAME}
 				</a>
-				<div class="text-center text-sm">Design & build by Kieran.</div>
+				<div class="text-center text-base">Design & build by Kieran.</div>
 			</div>
-			<SocialLinkGroup />
+			<div
+				class="md:align-self-end grid grid-cols-1 justify-items-center gap-4 md:self-end md:justify-self-end"
+			>
+				<SocialLinkGroup />
+				<p class="text-sm">© 2025 Kieran Roberts. All Rights Reserved.</p>
+			</div>
 		</div>
 	</div>
 </footer>

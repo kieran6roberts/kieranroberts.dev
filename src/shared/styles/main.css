@@ -52,3 +52,17 @@
 		@apply ring-offset-2 hover:ring hover:ring-accent-darkest dark:hover:ring-accent-brightest dark:hover:ring-offset-zinc-900 !important;
 	}
 }
+
+#signature path {
+	stroke-dasharray: 3219;
+	animation: draw 1s reverse ease-out forwards;
+}
+
+@keyframes draw {
+	from {
+		stroke-dashoffset: 0;
+	}
+	to {
+		stroke-dashoffset: 3219;
+	}
+}

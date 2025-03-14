@@ -15,6 +15,15 @@ export default {
 				'accent-bright': '#8BE8E5',
 				'accent-brightest': '#D5FFE4',
 			},
+			animation: {
+				reveal: 'reveal 500ms ease-in forwards',
+			},
+			keyframes: {
+				'reveal': {
+					'0%': { opacity: 0 },
+					'100%': { opacity: 1 },
+				},
+			},
 		},
 	},
 	darkMode: ['class'],

@@ -51,7 +51,7 @@ const formattedUpdatedDate = post.data.updatedAt
 				/>
 				Back to posts
 			</Button>
-			<Button as="a" intent="plain" href="#main" size="sm">
+			<Button intent="plain" onclick="window.scrollTo(0, 0)" size="sm">
 				<Icon
 					name="nav-arrow-up"
 					width={12}
@@ -83,7 +83,7 @@ const formattedUpdatedDate = post.data.updatedAt
 			</h1>
 			<div class="flex flex-col items-center gap-2">
 				<time
-					class="text-lg text-zinc-600 dark:text-zinc-400"
+					class="text-lg text-zinc-600 dark:text-zinc-300"
 					transition:name={`date-${post.data.slug}`}
 				>
 					{formattedDate}

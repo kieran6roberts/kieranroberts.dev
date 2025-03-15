@@ -38,7 +38,6 @@ const sortedPosts = sortPostsByRecent(posts);
 							link={post.slug}
 							image={post.cover || ''}
 							updatedAt={post.updatedAt?.toISOString()}
-							transitionName={`cover-${post.slug}`}
 						/>
 					))
 				}

@@ -142,7 +142,6 @@ const formattedUpdatedDate = post.data.updatedAt
 								date={post.data.datePublished.toISOString()}
 								link={post.data.slug}
 								image={post.data.cover || ''}
-								transitionName={`cover-${post.data.slug}`}
 								updatedAt={post.data.updatedAt?.toISOString()}
 							/>
 						))

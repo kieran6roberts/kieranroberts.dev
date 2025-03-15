@@ -10,7 +10,6 @@ interface Props {
 	link: string;
 	image?: string;
 	updatedAt?: string;
-	transitionName?: string;
 	'data-post-categories'?: string;
 	class?: string;
 }
@@ -22,7 +21,6 @@ const {
 	updatedAt,
 	link,
 	image,
-	transitionName,
 	'data-post-categories': categories,
 	class: className,
 } = Astro.props;

@@ -1,65 +1,64 @@
 ---
 import { experience, education } from '@config/consts';
 import ExperienceCard from '@features/experience/components/ExperienceCard.astro';
+import ActionItem from '@shared/components/base/ActionItem.astro';
 ---
 
 <script>
-	document.addEventListener('DOMContentLoaded', () => {
-		const tabs = document.querySelectorAll('[data-tab-target]');
-		const tabContents = document.querySelectorAll('[data-tab-content]');
+	const tabs = document.querySelectorAll('[data-tab-target]');
+	const tabContents = document.querySelectorAll('[data-tab-content]');
 
-		const switchTab = (tab: Element) => {
-			const targetAttribute = tab.getAttribute('data-tab-target');
-			if (!targetAttribute) return;
+	const switchTab = (tab: Element) => {
+		const targetAttribute = tab.getAttribute('data-tab-target');
+		if (!targetAttribute) return;
 
-			const target = document.querySelector(targetAttribute);
-			if (!target) return;
+		const target = document.querySelector(targetAttribute);
+		if (!target) return;
 
-			tabContents.forEach((tabContent) => {
-				tabContent.removeAttribute('data-tab-content-active');
-			});
-
-			tabs.forEach((t) => {
-				t.setAttribute('data-state', 'inactive');
-				t.setAttribute('aria-selected', 'false');
-				t.setAttribute('tabindex', t === tab ? '0' : '-1');
-			});
-
-			tab.setAttribute('data-state', 'active');
-			tab.setAttribute('aria-selected', 'true');
-			target.setAttribute('data-tab-content-active', 'true');
-		};
-
-		tabs.forEach((tab) => {
-			if (tab.getAttribute('data-state') !== 'active') {
-				tab.setAttribute('tabindex', '-1');
-			}
+		tabContents.forEach((tabContent) => {
+			tabContent.removeAttribute('data-tab-content-active');
 		});
 
-		tabs.forEach((tab) => {
-			tab.addEventListener('click', (e) => {
-				e.preventDefault();
-				switchTab(tab);
-			});
+		tabs.forEach((t) => {
+			t.setAttribute('data-state', 'inactive');
+			t.setAttribute('aria-selected', 'false');
+			t.setAttribute('tabindex', t === tab ? '0' : '-1');
+		});
 
-			tab.addEventListener('keydown', (e): void => {
-				const currentIndex = Array.from(tabs).indexOf(tab as HTMLElement);
+		tab.setAttribute('data-state', 'active');
+		tab.setAttribute('aria-selected', 'true');
+		target.setAttribute('data-tab-content-active', 'true');
+	};
 
-				switch ((e as KeyboardEvent).key) {
-					case 'ArrowLeft':
-					case 'ArrowRight': {
-						e.preventDefault();
-						const nextIndex =
-							(e as KeyboardEvent).key === 'ArrowLeft'
-								? (currentIndex - 1 + tabs.length) % tabs.length
-								: (currentIndex + 1) % tabs.length;
-						const targetTab = tabs[nextIndex];
-						(targetTab as HTMLElement).focus();
-						switchTab(targetTab);
-						break;
-					}
+	tabs.forEach((tab) => {
+		if (tab.getAttribute('data-state') !== 'active') {
+			tab.setAttribute('tabindex', '-1');
+		}
+	});
+
+	tabs.forEach((tab) => {
+		tab.addEventListener('click', (e) => {
+			e.preventDefault();
+			switchTab(tab);
+		});
+
+		tab.addEventListener('keydown', (e): void => {
+			const currentIndex = Array.from(tabs).indexOf(tab as HTMLElement);
+
+			switch ((e as KeyboardEvent).key) {
+				case 'ArrowLeft':
+				case 'ArrowRight': {
+					e.preventDefault();
+					const nextIndex =
+						(e as KeyboardEvent).key === 'ArrowLeft'
+							? (currentIndex - 1 + tabs.length) % tabs.length
+							: (currentIndex + 1) % tabs.length;
+					const targetTab = tabs[nextIndex];
+					(targetTab as HTMLElement).focus();
+					switchTab(targetTab);
+					break;
 				}
-			});
+			}
 		});
 	});
 </script>
@@ -71,32 +70,32 @@ import ExperienceCard from '@features/experience/components/ExperienceCard.astro
 		aria-orientation="horizontal"
 	>
 		<li role="presentation">
-			<button
+			<ActionItem
 				id="experience-tab"
 				data-tab-target="#experience-content"
 				data-state="active"
 				role="tab"
 				aria-controls="experience-content"
 				aria-selected="true"
-				type="button"
-				class="link-focus h-full w-full rounded-full bg-white px-3 py-2 text-base font-medium text-zinc-900 hover:bg-zinc-100 data-[state=active]:bg-zinc-900 data-[state=active]:text-white hover:data-[state=active]:bg-zinc-800 dark:bg-transparent dark:text-white dark:hover:bg-zinc-900 dark:data-[state=active]:bg-white dark:data-[state=active]:text-zinc-900 dark:hover:data-[state=active]:bg-zinc-100"
+				as="button"
+				class="h-full w-full rounded-full bg-white px-3 py-2 text-base font-medium text-zinc-900 hover:bg-zinc-100 data-[state=active]:bg-zinc-900 data-[state=active]:text-white hover:data-[state=active]:bg-zinc-800 dark:bg-transparent dark:text-white dark:hover:bg-zinc-900 dark:data-[state=active]:bg-white dark:data-[state=active]:text-zinc-900 dark:hover:data-[state=active]:bg-zinc-100"
 			>
 				Experience
-			</button>
+			</ActionItem>
 		</li>
 		<li role="presentation">
-			<button
+			<ActionItem
 				id="education-tab"
 				data-tab-target="#education-content"
 				data-state="inactive"
 				role="tab"
 				aria-controls="education-content"
 				aria-selected="false"
-				type="button"
-				class="link-focus h-full w-full rounded-full bg-white px-3 py-2 text-base font-medium text-zinc-900 hover:bg-zinc-100 data-[state=active]:bg-zinc-900 data-[state=active]:text-white hover:data-[state=active]:bg-zinc-800 dark:bg-transparent dark:text-white dark:hover:bg-zinc-900 dark:data-[state=active]:bg-white dark:data-[state=active]:text-zinc-900 dark:hover:data-[state=active]:bg-zinc-100"
+				as="button"
+				class="h-full w-full rounded-full bg-white px-3 py-2 text-base font-medium text-zinc-900 hover:bg-zinc-100 data-[state=active]:bg-zinc-900 data-[state=active]:text-white hover:data-[state=active]:bg-zinc-800 dark:bg-transparent dark:text-white dark:hover:bg-zinc-900 dark:data-[state=active]:bg-white dark:data-[state=active]:text-zinc-900 dark:hover:data-[state=active]:bg-zinc-100"
 			>
 				Education
-			</button>
+			</ActionItem>
 		</li>
 	</ul>
 

@@ -5,15 +5,18 @@ import { cva, type VariantProps } from 'class-variance-authority';
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & VariantProps<typeof button>;
 
 const button = cva(
-	'group flex items-center justify-center text-sm md:text-md gap-2 rounded-full disabled:cursor-not-allowed disabled:opacity-90',
+	'group flex items-center justify-center gap-2 text-sm md:text-md rounded-full disabled:cursor-not-allowed disabled:opacity-90 cursor-pointer focus-visible:outline-3 outline-accent-darkest dark:outline-accent-brightest outline-offset-2 dark:outline-offset-zinc-900',
 	{
 		variants: {
 			intent: {
 				'solid-dark': [
-					'bg-zinc-900 dark:bg-zinc-50 hover:bg-zinc-700 dark:hover:bg-zinc-100 border-2 border-transparent text-zinc-50 dark:text-zinc-900 link-focus disabled:bg-zinc-500',
+					'bg-zinc-900 dark:bg-zinc-50 hover:bg-zinc-700 dark:hover:bg-zinc-100 border-2 border-transparent text-zinc-50 dark:text-zinc-900 disabled:bg-zinc-500',
 				],
 				secondary: [
-					'bg-zinc-50 dark:bg-zinc-900 border-2 border-zinc-900/75 dark:border-zinc-50 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-50 link-focus disabled:bg-zinc-500',
+					'bg-zinc-50 dark:bg-zinc-900 border-2 border-zinc-900/75 dark:border-zinc-50 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-50 disabled:bg-zinc-500',
+				],
+				plain: [
+					'bg-transparent border-none text-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 dark:text-zinc-50 hover:text-zinc-700 dark:hover:text-zinc-100 disabled:text-zinc-500',
 				],
 			},
 			size: {
@@ -35,6 +38,7 @@ const {
 ---
 
 <Tag class={button({ intent, size, className })} {...restOfProps}>
+	<slot name="startIcon" />
 	<slot />
 	<slot name="endIcon" />
 </Tag>

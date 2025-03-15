@@ -1,0 +1,155 @@
+---
+import { getCollection, render, getEntries } from 'astro:content';
+import { Image } from 'astro:assets';
+import Layout from '@shared/layouts/Layout.astro';
+import Prose from '@features/blog/components/Prose.astro';
+import Toc from '@features/blog/components/Toc.astro';
+import BlogCard from '@features/blog/components/BlogCard.astro';
+import Button from '@shared/components/base/Button.astro';
+import { Icon } from 'astro-icon/components';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map((post) => ({
+		params: { slug: post.id },
+		props: { post },
+	}));
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+const relatedPosts = await getEntries(post.data.relatedPosts);
+const formattedDate = new Date(post.data.datePublished).toLocaleDateString('en-US', {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+});
+const formattedUpdatedDate = post.data.updatedAt
+	? new Date(post.data.updatedAt).toLocaleDateString('en-US', {
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric',
+		})
+	: null;
+---
+
+<script>
+	function scrollToHash() {
+		const hash = window.location.hash;
+
+		if (!hash) {
+			return;
+		}
+
+		const elementId = hash.slice(1);
+		const element = document.getElementById(elementId);
+
+		if (!element) {
+			return;
+		}
+		// Match post header offset
+		const HEADER_OFFSET = 96;
+		const elementPosition = element.getBoundingClientRect().top;
+		const offsetPosition = elementPosition + window.scrollY - HEADER_OFFSET;
+
+		window.scrollTo({
+			top: offsetPosition,
+			behavior: 'smooth',
+		});
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', scrollToHash);
+	} else {
+		scrollToHash();
+	}
+</script>
+
+<Layout
+	title={post.data.title}
+	description={post.data.seoDescription}
+	ogImage={post.data.cover}
+	isPostPage={true}
+>
+	<div
+		class="from-accent-brightest to-accent-bright dark:from-accent-darkest dark:to-accent-dark absolute inset-0 z-0 h-[50px] border-b border-zinc-200 bg-gradient-to-r dark:border-zinc-800"
+	>
+	</div>
+	<div class="mt-16 flex gap-8 pb-24 xl:items-start xl:justify-center 2xl:gap-16">
+		<div
+			class="sticky top-24 hidden h-[calc(100vh-10rem)] xl:flex xl:flex-col xl:items-start xl:justify-between"
+		>
+			<Button as="a" href="/blog" size="sm">
+				<Icon
+					name="arrow-left"
+					width={12}
+					height={12}
+					class="stroke-current transition-transform duration-200 group-hover:-translate-x-1"
+				/>
+				Back to posts
+			</Button>
+			<Button intent="plain" onclick="window.scrollTo(0, 0)" size="sm">
+				<Icon
+					name="nav-arrow-up"
+					width={12}
+					height={12}
+					class="stroke-current transition-transform duration-200 group-hover:-translate-y-1"
+				/>
+				Scroll to top
+			</Button>
+		</div>
+		<div class="mx-auto flex max-w-screen-md flex-col items-center gap-8 px-4 xl:mx-0">
+			{
+				post.data.cover ? (
+					<Image
+						src={post.data.cover}
+						alt="Blog Post Cover Image"
+						class="aspect-2/1 h-auto w-full rounded-lg"
+						width={1500}
+						height={750}
+						loading="eager"
+					/>
+				) : null
+			}
+			<h1 class="text-center text-3xl font-semibold xl:text-5xl">
+				{post.data.title}
+			</h1>
+			<div class="flex flex-col items-center gap-2">
+				<time class="text-lg text-zinc-600 dark:text-zinc-300">
+					{formattedDate}
+				</time>
+				{
+					formattedUpdatedDate ? (
+						<div class="bg-accent-dark dark:bg-accent-brightest rounded-md px-2 py-1 text-sm">
+							<time class="text-white dark:text-zinc-900">Updated: {formattedUpdatedDate}</time>
+						</div>
+					) : null
+				}
+			</div>
+
+			<div class="mx-auto h-px w-2/3 bg-zinc-200 dark:bg-zinc-800"></div>
+			<Prose>
+				<Content />
+			</Prose>
+			<section class="mt-16 flex flex-col items-center gap-8">
+				<h2 class="text-center text-2xl font-semibold">More posts you might like</h2>
+				<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+					{
+						relatedPosts.map((post) => (
+							<BlogCard
+								title={post.data.title}
+								description={post.data.seoDescription}
+								date={post.data.datePublished.toISOString()}
+								link={post.data.slug}
+								image={post.data.cover || ''}
+								updatedAt={post.data.updatedAt?.toISOString()}
+							/>
+						))
+					}
+				</div>
+			</section>
+		</div>
+
+		<Toc {headings} />
+	</div>
+</Layout>

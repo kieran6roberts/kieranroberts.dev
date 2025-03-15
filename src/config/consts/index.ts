@@ -80,9 +80,9 @@ export const projects: Project[] = [
 		status: ['MVP done', 'updates planned'],
 	},
 	{
-		title: 'SST/React-Router(v7) SPA Starter Kit',
+		title: 'SST/React-Router v7 SPA Start Kit',
 		description:
-			'A single page React starter kit provisioned by the SST(v3) Framework (Monorepo setup), powered by React Router framework (currently v7), TypeScript, and TailwindCSS(v4). Some of this setup was core to CvrSnap, and I wanted to share it with the community for others to get started with the stack.',
+			'A single page React starter kit provisioned by the SST(v3) Framework (Monorepo setup), powered by React Router framework (currently v7), TypeScript, and TailwindCSS(v4). This stack was part of the setup to build CvrSnap.',
 		date: '2025',
 		githubLink: 'https://github.com/kieran6roberts/sst-react-router-spa-starter-kit',
 		liveLink: null,

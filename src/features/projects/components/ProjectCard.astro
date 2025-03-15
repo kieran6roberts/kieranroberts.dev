@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 import { cva } from 'class-variance-authority';
 
+import ActionItem from '@shared/components/base/ActionItem.astro';
 import type { Project } from '@features/projects/types';
 import Button from '@shared/components/base/Button.astro';
 import { getImageUrl } from '@shared/utils/image';
@@ -28,12 +29,12 @@ const statusStyles = cva(
 ---
 
 <article
-	class="card-hover group relative z-10 flex w-full flex-col gap-4 rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950 lg:max-w-[450px]"
+	class="group outline-accent-darkest dark:outline-accent-brightest dark:hover:outline-offset-zinc-900 relative z-10 flex w-full flex-col gap-4 rounded-xl border border-zinc-200 bg-white p-4 outline-offset-0 transition-all duration-300 hover:outline-3 hover:outline-offset-2 lg:max-w-[450px] dark:border-zinc-800 dark:bg-zinc-950 dark:hover:outline-offset-2"
 >
 	{
 		liveLink ? (
-			<a href={liveLink} target="_blank" class="link-focus">
-				<div class="mb-4 flex overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800 lg:max-h-[250px]">
+			<ActionItem as="a" href={liveLink} target="_blank">
+				<div class="mb-4 flex overflow-hidden rounded-lg border border-zinc-200 lg:max-h-[250px] dark:border-zinc-800">
 					<Image
 						src={getImageUrl(image)}
 						alt={`${title} highlight`}
@@ -49,10 +50,10 @@ const statusStyles = cva(
 				<h2 class="font-heading text-2xl font-semibold text-zinc-700 transition-colors duration-300 group-hover:text-zinc-900 dark:text-zinc-200 dark:group-hover:text-zinc-100">
 					{title}
 				</h2>
-			</a>
+			</ActionItem>
 		) : (
 			<div>
-				<div class="mb-4 flex overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800 lg:max-h-[250px]">
+				<div class="mb-4 flex overflow-hidden rounded-lg border border-zinc-200 lg:max-h-[250px] dark:border-zinc-800">
 					<Image
 						src={getImageUrl(image)}
 						alt={`${title} highlight`}

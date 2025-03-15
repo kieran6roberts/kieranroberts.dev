@@ -1,19 +1,24 @@
 ---
-import { fetchBlogPosts } from '@features/blog/api';
 import BlogCard from '@features/blog/components/BlogCard.astro';
+import { type CollectionEntry } from 'astro:content';
 
-const postsData = await fetchBlogPosts({ first: 3 });
+interface Props {
+	posts: CollectionEntry<'blog'>[];
+}
+
+const { posts } = Astro.props;
 ---
 
 <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
 	{
-		postsData.map((post) => (
+		posts.map(({ data: post }) => (
 			<BlogCard
 				title={post.title}
-				description={post.brief}
-				date={post.publishedAt}
-				link={post.url}
-				image={post.coverImage?.url || ''}
+				description={post.seoDescription}
+				date={post.datePublished.toISOString()}
+				link={post.slug}
+				image={post.cover || ''}
+				updatedAt={post.updatedAt?.toISOString()}
 			/>
 		))
 	}

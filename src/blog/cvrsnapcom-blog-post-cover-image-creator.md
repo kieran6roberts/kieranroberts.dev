@@ -44,19 +44,15 @@ CvrSnap is also **free**.
 
 [codebase](https://github.com/kieran6roberts/cvrsnap) - (If you like and use the app, take a second to give it a star on GitHub)
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1738260283581/8b8f19c5-e1e1-4e5d-8731-0a25c25cd1bd.png)
+![CvrSnap editor page screenshot](https://cdn.kieranroberts.dev/blog/cvrsnap-com-blog-post-cover-image-creator-to-help-you-publish-quicker-3.webp)
 
 ## CvrSnap example covers
 
 Here are some example covers images I quickly built using CvrSnap:
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1738256980613/4cce1ea1-931f-465b-af77-cf336fde8f1c.png)
+![CvrSnap example cover with a split color background and foreground text](https://cdn.kieranroberts.dev/blog/cvrsnap-com-blog-post-cover-image-creator-to-help-you-publish-quicker.webp)
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1738256774691/d51814e7-27e4-4a91-b904-832106879a7f.png)
-
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1738260053093/e708767c-f382-4ef4-91b7-c67eedbdeecc.png)
-
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1738260073501/ba7bb351-aae0-49e6-afee-f064317a0114.png)
+![CvrSnap example cover with a pattern background and foreground text](https://cdn.kieranroberts.dev/blog/cvrsnap-com-blog-post-cover-image-creator-to-help-you-publish-quicker-2.webp)
 
 ## Requirements
 
@@ -239,8 +235,6 @@ There are multiple guides out there that goes into depth on similar infra step-b
 
 ### Product: Editor
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1738260365894/f9b5edda-fb1b-4a0e-9c74-4af38125e8f3.png)
-
 I believe the app provides what I initially intended. Simple templates and options to get you moving quickly. Early on I was experimenting with a more custom approach, allowing dragging and resizing of text and an overall slightly more interactive editor. But I realised that didn’t fit my initial purpose for it not to be complicated and open ended with its options. It has pre-designed layouts and options by design. Data is persisted so the user shouldn’t get that feeling of losing something they started. It also feels fast and snappy which is key.
 
 There is a decent amount of customisation options here, between the text and the backgrounds options and I’m happy that you can make covers that don’t all look completely identical. I’m excited to expand the options here (specifically with more complex templates) while keeping the simplicity of making something look good quickly.
@@ -284,5 +278,3 @@ To run the app as a ‘true’ client 1 pager, I will probably refactor the app 
 CvrSnap is a free tool designed to help users create custom blog post cover images quickly and easily. Built as a client-side React app, CvrSnap leverages modern technologies like React Router v7, TypeScript, and AWS. The app's editor persistently saves user progress using IndexedDB and Zustand and PNG download is a simple click away.
 
 If you made it this far, you are my hero. If you use CvrSnap to download an image you use in a blog post, please share the post with me on [LinkedIn](https://www.linkedin.com/in/kieran6roberts/), or [Bluesky](https://bsky.app/profile/kieran6dev.bsky.social) and I’d be happy to read/share.
-
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1738178596969/d5dee314-0e5d-48f8-8a93-11716155fab2.png)

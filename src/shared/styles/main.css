@@ -78,7 +78,7 @@ html.dark .astro-code span {
 }
 
 @utility reveal {
-	animation: reveal: 'reveal 500ms ease-in forwards';
+	animation: reveal 500ms ease-in forwards;
 }
 
 @keyframes reveal {
@@ -89,4 +89,3 @@ html.dark .astro-code span {
 		opacity: 1;
 	}
 }
-

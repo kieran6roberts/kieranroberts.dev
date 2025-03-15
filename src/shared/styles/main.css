@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
-/* @custom-variant dark (&:where(.dark, .dark *)); */
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
 	--color-accent-darkest: #6f61c0;
@@ -77,7 +77,7 @@ html.dark .astro-code span {
 	}
 }
 
-@utility reveal {
+#hero-illustration {
 	animation: reveal 500ms ease-in forwards;
 }
 

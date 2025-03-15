@@ -36,7 +36,7 @@ const siteURL = import.meta.env.SITE;
 				<Hero />
 			</div>
 		</section>
-		<section class="border-y bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-700">
+		<section class="border-y border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-700">
 			<div class="relative mx-auto max-w-[1600px] gap-8 px-4 pt-12 pb-24 md:px-16 lg:px-24">
 				<HeroIllustration />
 			</div>
@@ -53,7 +53,7 @@ const siteURL = import.meta.env.SITE;
 		</section>
 		<section
 			id="testimonials"
-			class="relative overflow-hidden border-b bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-700"
+			class="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-700"
 		>
 			<SectionContainer>
 				<SectionHeading
@@ -73,7 +73,7 @@ const siteURL = import.meta.env.SITE;
 					title="Blog"
 					copy="I write about topics that interest me in the web development space. UI/UX tutorials, React, software testing, and more."
 				/>
-				<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+				<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
 					{
 						sortedPosts.map(({ data: post }) => (
 							<BlogCard

@@ -1,7 +1,7 @@
 ---
 title: 'cvrsnap.com: Blog post cover image creator to help you publish quicker'
 seoTitle: 'CvrSnap: The blog post cover image creator'
-seoDescription: 'Create custom blog post cover images quickly with CvrSnap. Save time designing and publish faster with this free online tool'
+seoDescription: 'Create custom blog post cover images quickly with CvrSnap. Save time designing and publish faster with this free online tool.'
 datePublished: Fri Jan 31 2025 08:04:26 GMT+0000 (Coordinated Universal Time)
 cuid: cm6khaed0000c09jydgxbhukr
 slug: cvrsnapcom-blog-post-cover-image-creator

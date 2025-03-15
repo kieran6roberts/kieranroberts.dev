@@ -38,7 +38,7 @@ export function setupIconTranslate({ svgId }: { svgId: string }) {
 
 	window.addEventListener('mousemove', onMouseMove);
 
-	window.addEventListener('astro:after-swap', () => {
+	window.addEventListener('beforeunload', () => {
 		window.removeEventListener('mousemove', onMouseMove);
 	});
 }

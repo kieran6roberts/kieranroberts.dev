@@ -71,32 +71,20 @@ const formattedUpdatedDate = post.data.updatedAt
 						width={1500}
 						height={750}
 						loading="eager"
-						transition:name={`cover-${post.data.slug}`}
 					/>
 				) : null
 			}
-			<h1
-				class="text-center text-3xl font-semibold xl:text-5xl"
-				transition:name={`title-${post.data.slug}`}
-			>
+			<h1 class="text-center text-3xl font-semibold xl:text-5xl">
 				{post.data.title}
 			</h1>
 			<div class="flex flex-col items-center gap-2">
-				<time
-					class="text-lg text-zinc-600 dark:text-zinc-300"
-					transition:name={`date-${post.data.slug}`}
-				>
+				<time class="text-lg text-zinc-600 dark:text-zinc-300">
 					{formattedDate}
 				</time>
 				{
 					formattedUpdatedDate ? (
 						<div class="bg-accent-dark dark:bg-accent-brightest rounded-md px-2 py-1 text-sm">
-							<time
-								class="text-white dark:text-zinc-900"
-								transition:name={`updated-${post.data.slug}`}
-							>
-								Updated: {formattedUpdatedDate}
-							</time>
+							<time class="text-white dark:text-zinc-900">Updated: {formattedUpdatedDate}</time>
 						</div>
 					) : null
 				}

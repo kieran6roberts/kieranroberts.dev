@@ -10,74 +10,72 @@ const { headings } = Astro.props;
 ---
 
 <script>
-	document.addEventListener('astro:page-load', () => {
-		const headings = document.querySelectorAll(
-			'#post-content h2, #post-content h3, #post-content h4, #post-content h5',
-		);
+	const headings = document.querySelectorAll(
+		'#post-content h2, #post-content h3, #post-content h4, #post-content h5',
+	);
 
-		let prevActiveSectionId: string | null = headings[0]?.id ?? null;
+	let prevActiveSectionId: string | null = headings[0]?.id ?? null;
 
-		function getTocLink(id: string | null) {
-			return id ? document.querySelector(`#toc a[href="#${id}"]`) : null;
-		}
+	function getTocLink(id: string | null) {
+		return id ? document.querySelector(`#toc a[href="#${id}"]`) : null;
+	}
 
-		function setTocLinkAttribute({
-			link,
-			attribute,
-			active,
-		}: {
-			link: Element;
-			attribute: string;
-			active: boolean;
-		}) {
-			link.setAttribute(attribute, active ? 'true' : 'false');
-		}
+	function setTocLinkAttribute({
+		link,
+		attribute,
+		active,
+	}: {
+		link: Element;
+		attribute: string;
+		active: boolean;
+	}) {
+		link.setAttribute(attribute, active ? 'true' : 'false');
+	}
 
-		function addIntersectionObserver() {
-			const observer = new IntersectionObserver((headings) => {
-				headings.forEach((heading) => {
-					const id = heading.target.getAttribute('id');
-					const link = getTocLink(id);
-
-					if (!link) {
-						return;
-					}
-					if (heading.intersectionRatio > 0) {
-						setTocLinkAttribute({ link, attribute: 'data-toc-visible', active: true });
-						prevActiveSectionId = heading.target.id;
-					} else {
-						setTocLinkAttribute({ link, attribute: 'data-toc-visible', active: false });
-					}
-
-					const firstVisibleLink = document.querySelector('#toc a[data-toc-visible="true"]');
-					const linkElements = document.querySelectorAll('#toc a');
-
-					linkElements.forEach((link) => {
-						setTocLinkAttribute({ link, attribute: 'data-toc-active', active: false });
-					});
-
-					if (firstVisibleLink) {
-						setTocLinkAttribute({
-							link: firstVisibleLink,
-							attribute: 'data-toc-active',
-							active: true,
-						});
-					} else if (prevActiveSectionId) {
-						const link = getTocLink(prevActiveSectionId);
-						if (link) {
-							setTocLinkAttribute({ link, attribute: 'data-toc-active', active: true });
-						}
-					}
-				});
-			});
-
+	function addIntersectionObserver() {
+		const observer = new IntersectionObserver((headings) => {
 			headings.forEach((heading) => {
-				observer.observe(heading);
-			});
-		}
+				const id = heading.target.getAttribute('id');
+				const link = getTocLink(id);
 
-		addIntersectionObserver();
-	});
+				if (!link) {
+					return;
+				}
+				if (heading.intersectionRatio > 0) {
+					setTocLinkAttribute({ link, attribute: 'data-toc-visible', active: true });
+					prevActiveSectionId = heading.target.id;
+				} else {
+					setTocLinkAttribute({ link, attribute: 'data-toc-visible', active: false });
+				}
+
+				const firstVisibleLink = document.querySelector('#toc a[data-toc-visible="true"]');
+				const linkElements = document.querySelectorAll('#toc a');
+
+				linkElements.forEach((link) => {
+					setTocLinkAttribute({ link, attribute: 'data-toc-active', active: false });
+				});
+
+				if (firstVisibleLink) {
+					setTocLinkAttribute({
+						link: firstVisibleLink,
+						attribute: 'data-toc-active',
+						active: true,
+					});
+				} else if (prevActiveSectionId) {
+					const link = getTocLink(prevActiveSectionId);
+					if (link) {
+						setTocLinkAttribute({ link, attribute: 'data-toc-active', active: true });
+					}
+				}
+			});
+		});
+
+		headings.forEach((heading) => {
+			observer.observe(heading);
+		});
+	}
+
+	addIntersectionObserver();
 </script>
 
 <div

@@ -43,7 +43,7 @@ const formattedUpdatedDate = updatedAt
 	: null;
 ---
 
-<article data-post-categories={categories} class:list={[className]}>
+<article {...categories ? { 'data-post-categories': categories } : {}} class:list={[className]}>
 	<ActionItem
 		as="a"
 		href={`${BLOG_PATH}/${link}`}
@@ -58,7 +58,7 @@ const formattedUpdatedDate = updatedAt
 					width={600}
 					height={400}
 					loading="eager"
-					transition:name={transitionName ?? undefined}
+					style={{ aspectRatio: '2/1' }}
 				/>
 			) : null
 		}
@@ -66,23 +66,17 @@ const formattedUpdatedDate = updatedAt
 			<div class="flex flex-col gap-2">
 				<h2
 					class="font-heading text-xl font-semibold text-zinc-700 transition-all duration-300 group-hover:text-zinc-900 xl:text-2xl dark:text-zinc-200 dark:group-hover:text-zinc-100"
-					transition:name={`title-${link}`}
 				>
 					{title}
 				</h2>
 				<div class="flex flex-row items-center gap-2">
-					<time
-						class="text-sm text-zinc-600 xl:text-base dark:text-zinc-300"
-						transition:name={`date-${link}`}
-					>
+					<time class="text-sm text-zinc-600 xl:text-base dark:text-zinc-300">
 						{formattedDate}
 					</time>
 					{
 						formattedUpdatedDate ? (
 							<div class="bg-accent-dark dark:bg-accent-brightest rounded-md px-2 py-1 text-xs">
-								<time class="text-white dark:text-zinc-900" transition:name={`updated-${link}`}>
-									Updated: {formattedUpdatedDate}
-								</time>
+								<time class="text-white dark:text-zinc-900">Updated: {formattedUpdatedDate}</time>
 							</div>
 						) : null
 					}

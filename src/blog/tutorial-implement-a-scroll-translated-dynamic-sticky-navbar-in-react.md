@@ -9,8 +9,8 @@ relatedPosts:
   - 5-tips-to-level-up-your-react-codebase
   - cvrsnapcom-blog-post-cover-image-creator
 categories:
-  - UI/UX
-  - React
+  - ui/ux
+  - react
 ---
 
 As a frontend-focused developer, you'll spend a significant portion of your career working on navigation bars. These essential components are integral to almost every modern website and come in various implementations.

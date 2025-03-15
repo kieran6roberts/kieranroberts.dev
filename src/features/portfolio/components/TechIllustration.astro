@@ -5,9 +5,7 @@ import { Icon } from 'astro-icon/components';
 <script>
 	import { setupIconTranslate } from '@shared/scripts/icon-translate';
 
-	document.addEventListener('astro:page-load', () => {
-		setupIconTranslate({ svgId: 'hero-illustration' });
-	});
+	setupIconTranslate({ svgId: 'hero-illustration' });
 </script>
 
 <div id="hero-illustration" class="absolute inset-0 z-0 hidden h-full w-full lg:block">

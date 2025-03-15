@@ -10,7 +10,7 @@ relatedPosts:
   - 5-tips-to-level-up-your-react-codebase
   - tutorial-implement-a-scroll-translated-dynamic-sticky-navbar-in-react
 categories:
-  - UI/UX
+  - ui/ux
 ---
 
 Did you know it is possible to make persistent-through-reload CSS style changes using the in-browser dev tools? This method can also be used for other needs, so it's a really useful tool to have in your debugging arsenal.

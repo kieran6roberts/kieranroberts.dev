@@ -8,7 +8,7 @@ relatedPosts:
   - 5-tips-to-level-up-your-react-codebase
   - tutorial-implement-a-scroll-translated-dynamic-sticky-navbar-in-react
 categories:
-  - React
+  - react
 updatedAt: Sun Feb 23 2025 10:30:00 GMT+0000 (Coordinated Universal Time)
 ---
 

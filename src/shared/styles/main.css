@@ -77,7 +77,8 @@ html.dark .astro-code span {
 	}
 }
 
-#hero-illustration {
+#hero-illustration,
+#blog-illustration {
 	animation: reveal 500ms ease-in forwards;
 }
 

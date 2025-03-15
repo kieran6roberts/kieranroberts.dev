@@ -8,7 +8,7 @@ relatedPosts:
   - kieranrobertsdev-my-new-dev-portfolio-built-with-astro-tailwindcss-and-typescript
   - cvrsnapcom-blog-post-cover-image-creator
 categories:
-  - React
+  - react
 ---
 
 I have been working as a Software Engineer in React codebases for almost 4 years now. In that time I have worked closely with many Senior Engineers. Reviewing code, having my own code reviewed, and general collaboration. The way I write code and organise things as a result has evolved.

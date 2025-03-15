@@ -20,10 +20,9 @@ import TechIllustration from '@features/portfolio/components/TechIllustration.as
 
 const posts = await getCollection('blog');
 const sortedPosts = sortPostsByRecent(posts).slice(0, 3);
-const siteURL = import.meta.env.SITE;
 ---
 
-<Layout url={siteURL} showFooter={true}>
+<Layout showFooter={true}>
 	<WaveBG styles="h-[35vh] max-h-[350px]" />
 	<div id="hero" class="relative overflow-hidden">
 		<section

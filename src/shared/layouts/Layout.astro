@@ -20,7 +20,7 @@ const {
 	description = DEFAULT_DESCRIPTION,
 	ogImage,
 	showFooter = true,
-	url,
+	isPostPage = false,
 } = Astro.props;
 ---
 
@@ -30,7 +30,7 @@ const {
 	}}
 	lang="en"
 >
-	<SEO {title} {description} {url} {ogImage} />
+	<SEO {title} {description} {ogImage} {isPostPage} />
 	<body
 		style={{
 			scrollBehavior: 'smooth',

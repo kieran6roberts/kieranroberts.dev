@@ -6,20 +6,19 @@ import { DEFAULT_SEO_TITLE, DEFAULT_SEO_DESCRIPTION } from '@config/consts';
 interface Props {
 	title?: string;
 	description?: string;
-	url?: string;
 	ogImage?: string;
+	isPostPage?: boolean;
 }
 
 const isProd = import.meta.env.PROD;
-const siteURL = import.meta.env.SITE;
 const DEFAULT_TITLE = DEFAULT_SEO_TITLE;
 const DEFAULT_DESCRIPTION = DEFAULT_SEO_DESCRIPTION;
 
 const {
 	title = DEFAULT_TITLE,
 	description = DEFAULT_DESCRIPTION,
-	url = siteURL,
 	ogImage = '/og-image.png',
+	isPostPage = false,
 } = Astro.props;
 ---
 
@@ -36,7 +35,7 @@ const {
 	<meta property="og:image:height" content="630" />
 	<meta property="og:image:alt" content={`${DOMAIN_NAME} homepage`} />
 	<meta property="og:locale" content="en" />
-	<meta property="og:url" content={url} />
+	<meta property="og:url" content={Astro.url.href} />
 	<meta property="og:site_name" content="Kieran Roberts" />
 	<meta property="og:description" content={description} />
 	<meta property="og:type" content="website" />
@@ -87,6 +86,8 @@ const {
 
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+	{isPostPage ? <link rel="canonical" href={Astro.url.href} /> : null}
 
 	<script is:inline>
 		// Necessary for view transitions

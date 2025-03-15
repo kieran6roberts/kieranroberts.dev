@@ -33,7 +33,44 @@ const formattedUpdatedDate = post.data.updatedAt
 	: null;
 ---
 
-<Layout title={post.data.title} description={post.data.seoDescription} ogImage={post.data.cover}>
+<script>
+	function scrollToHash() {
+		const hash = window.location.hash;
+
+		if (!hash) {
+			return;
+		}
+
+		const elementId = hash.slice(1);
+		const element = document.getElementById(elementId);
+
+		if (!element) {
+			return;
+		}
+		// Match post header offset
+		const HEADER_OFFSET = 96;
+		const elementPosition = element.getBoundingClientRect().top;
+		const offsetPosition = elementPosition + window.scrollY - HEADER_OFFSET;
+
+		window.scrollTo({
+			top: offsetPosition,
+			behavior: 'smooth',
+		});
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', scrollToHash);
+	} else {
+		scrollToHash();
+	}
+</script>
+
+<Layout
+	title={post.data.title}
+	description={post.data.seoDescription}
+	ogImage={post.data.cover}
+	isPostPage={true}
+>
 	<div
 		class="from-accent-brightest to-accent-bright dark:from-accent-darkest dark:to-accent-dark absolute inset-0 z-0 h-[50px] border-b border-zinc-200 bg-gradient-to-r dark:border-zinc-800"
 	>
@@ -42,7 +79,7 @@ const formattedUpdatedDate = post.data.updatedAt
 		<div
 			class="sticky top-24 hidden h-[calc(100vh-10rem)] xl:flex xl:flex-col xl:items-start xl:justify-between"
 		>
-			<Button as="a" data-astro-reload href="/blog" size="sm">
+			<Button as="a" href="/blog" size="sm">
 				<Icon
 					name="arrow-left"
 					width={12}
@@ -67,7 +104,7 @@ const formattedUpdatedDate = post.data.updatedAt
 					<Image
 						src={post.data.cover}
 						alt="Blog Post Cover Image"
-						class="h-auto w-full rounded-lg"
+						class="aspect-2/1 h-auto w-full rounded-lg"
 						width={1500}
 						height={750}
 						loading="eager"

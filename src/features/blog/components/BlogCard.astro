@@ -54,11 +54,10 @@ const formattedUpdatedDate = updatedAt
 				<Image
 					src={image}
 					alt="Blog Post Cover Image"
-					class="h-auto w-full rounded-lg border border-zinc-200 dark:border-zinc-800"
+					class="aspect-2/1 h-auto w-full rounded-lg border border-zinc-200 dark:border-zinc-800"
 					width={600}
 					height={400}
 					loading="eager"
-					style={{ aspectRatio: '2/1' }}
 				/>
 			) : null
 		}

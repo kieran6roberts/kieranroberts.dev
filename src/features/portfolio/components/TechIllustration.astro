@@ -3,46 +3,11 @@ import { Icon } from 'astro-icon/components';
 ---
 
 <script>
-	const hero = document.getElementById('hero');
-	const heroPaths = hero?.querySelectorAll('.hero-animate') as NodeListOf<SVGPathElement>;
+	import { setupIconTranslate } from '@shared/scripts/icon-translate';
 
-	let isAnimating = false;
-	const TRANSLATE_MULTIPLIER = 10;
-
-	const onMouseMove = (e: MouseEvent) => {
-		if (isAnimating || !heroPaths) {
-			return;
-		}
-		isAnimating = true;
-
-		requestAnimationFrame(() => {
-			const { clientX, clientY } = e;
-
-			const mouseX = (clientX / innerWidth - 0.5) * 2;
-			const mouseY = (clientY / innerHeight - 0.5) * 2;
-
-			heroPaths.forEach((path) => {
-				const translateX = mouseX * TRANSLATE_MULTIPLIER;
-				const translateY = mouseY * TRANSLATE_MULTIPLIER;
-				path.style.transform = `translate(${translateX}px, ${translateY}px)`;
-				path.style.transition = 'transform 0.2s ease';
-			});
-
-			isAnimating = false;
-		});
-	};
-	// Could add a resize event with debounce, but leaving that for now.
-	const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
-
-	if (isDesktop) {
-		window.addEventListener('mousemove', onMouseMove);
-
-		window.addEventListener('astro:after-swap', () => {
-			window.removeEventListener('mousemove', onMouseMove);
-		});
-	}
+	setupIconTranslate({ svgId: 'hero-illustration' });
 </script>
 
-<div class="animate-reveal absolute inset-0 z-0 hidden h-full w-full lg:block">
+<div id="hero-illustration" class="absolute inset-0 z-0 hidden h-full w-full lg:block">
 	<Icon name="hero" width="100%" height="100%" />
 </div>

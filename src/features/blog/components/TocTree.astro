@@ -1,0 +1,73 @@
+---
+import type { MarkdownHeading } from 'astro';
+import { cva } from 'class-variance-authority';
+import ActionItem from '@shared/components/base/ActionItem.astro';
+
+interface Props {
+	headings: MarkdownHeading[];
+	currentDepth?: number;
+}
+
+const headingVariants = cva(
+	'font-medium text-zinc-800 dark:text-zinc-200 hover:text-zinc-900 dark:hover:text-zinc-200 data-[toc-active=true]:text-accent-dark dark:data-[toc-active=true]:text-accent-brightest',
+	{
+		variants: {
+			level: {
+				2: 'text-[0.9em]',
+				3: 'text-[0.85em]',
+				4: 'text-[0.8em]',
+			},
+		},
+		defaultVariants: {
+			level: 2,
+		},
+	},
+);
+
+const { headings, currentDepth = 2 } = Astro.props;
+
+const topLevelHeadings = headings.filter((heading) => heading.depth === currentDepth);
+
+function getNestedHeadings(headings: MarkdownHeading[], currentHeading: MarkdownHeading) {
+	const nextDepth = currentHeading.depth + 1;
+
+	const currentIndex = headings.findIndex((h) => h.slug === currentHeading.slug);
+	const subsequentHeadings = headings.slice(currentIndex + 1);
+
+	const childHeadings = [];
+
+	for (const heading of subsequentHeadings) {
+		if (heading.depth < nextDepth) {
+			break;
+		} else if (heading.depth === nextDepth) {
+			childHeadings.push(heading);
+		}
+	}
+
+	return childHeadings;
+}
+---
+
+<ul class:list={['list-outside space-y-2', currentDepth === 2 ? '' : 'mt-2 ml-4']}>
+	{
+		topLevelHeadings.map((heading) => {
+			const childHeadings = getNestedHeadings(headings, heading);
+			return (
+				<li>
+					<ActionItem
+						href={`#${heading.slug}`}
+						as="a"
+						id={heading.slug}
+						data-active="false"
+						class={headingVariants({ level: heading.depth as 2 | 3 | 4 })}
+					>
+						{heading.text}
+					</ActionItem>
+					{childHeadings.length > 0 && (
+						<Astro.self headings={childHeadings} currentDepth={heading.depth + 1} />
+					)}
+				</li>
+			);
+		})
+	}
+</ul>

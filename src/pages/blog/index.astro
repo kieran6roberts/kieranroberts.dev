@@ -1,0 +1,52 @@
+---
+import Layout from '@shared/layouts/Layout.astro';
+import BlogCard from '@features/blog/components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+import Button from '@shared/components/base/Button.astro';
+import { sortPostsByRecent } from '@features/blog/utils';
+import BlogIllustration from '@features/blog/components/BlogIllustration.astro';
+
+const posts = await getCollection('blog');
+const sortedPosts = sortPostsByRecent(posts);
+---
+
+<Layout showFooter={true}>
+	<div
+		class="from-accent-brightest to-accent-bright dark:from-accent-darkest dark:to-accent-dark absolute inset-0 z-0 h-[450px] border-b border-zinc-200 bg-gradient-to-r dark:border-zinc-800"
+	>
+		<BlogIllustration />
+	</div>
+	<section class="mx-auto flex max-w-[1400px] flex-col gap-12 px-4 py-16 md:px-16">
+		<div class="relative flex flex-col gap-4 py-8">
+			<h1 class="text-3xl font-semibold xl:text-5xl">Kieran's Web Dev Blog</h1>
+			<p
+				class="max-w-[500px] text-left text-sm text-zinc-700 sm:text-base lg:text-lg dark:text-zinc-200"
+			>
+				Learn by building! I write about frontend UI/UX, React/Next.js, software testing, web
+				accessibility, and more.
+			</p>
+			<Button as="a" size="sm" href="/rss.xml">RSS Feed</Button>
+		</div>
+		<div class="z-50 flex flex-row gap-12">
+			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+				{
+					sortedPosts.map(({ data: post }) => (
+						<BlogCard
+							title={post.title}
+							description={post.seoDescription}
+							date={post.datePublished.toISOString()}
+							link={post.slug}
+							image={post.cover || ''}
+							updatedAt={post.updatedAt?.toISOString()}
+						/>
+					))
+				}
+			</div>
+		</div>
+		<div class="flex flex-col items-center gap-8">
+			<p class="mx-auto max-w-[450px] text-center text-base text-zinc-600 dark:text-zinc-300">
+				The end.
+			</p>
+		</div>
+	</section>
+</Layout>

@@ -7,7 +7,6 @@ slug: tutorial-implement-a-scroll-translated-dynamic-sticky-navbar-in-react
 cover: https://cdn.kieranroberts.dev/blog/tutorial-implement-a-scroll-translated-dynamic-sticky-navbar-in-react-cover.webp
 relatedPosts:
   - 5-tips-to-level-up-your-react-codebase
-  - cvrsnapcom-blog-post-cover-image-creator
 categories:
   - ui/ux
   - react

@@ -8,7 +8,6 @@ slug: cvrsnapcom-blog-post-cover-image-creator
 cover: https://cdn.kieranroberts.dev/cvrsnapcom-blog-post-cover-image-creator%20(1).webp
 relatedPosts:
   - kieranrobertsdev-my-new-dev-portfolio-built-with-astro-tailwindcss-and-typescript
-  - 5-tips-to-level-up-your-react-codebase
 categories:
   - case-studies
 ---

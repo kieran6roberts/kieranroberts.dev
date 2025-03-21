@@ -6,7 +6,6 @@ datePublished: Thu Jan 16 2025 12:50:52 GMT+0000 (Coordinated Universal Time)
 slug: kieranrobertsdev-my-new-dev-portfolio-built-with-astro-tailwindcss-and-typescript
 cover: https://cdn.kieranroberts.dev/kieranrobertsdev-my-new-dev-portfolio-built-with-astro-tailwindcss-and-typescript.webp
 relatedPosts:
-  - 5-tips-to-level-up-your-react-codebase
   - cvrsnapcom-blog-post-cover-image-creator
 categories:
   - case-studies

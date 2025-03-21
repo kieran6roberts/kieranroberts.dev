@@ -1,61 +1,100 @@
 ---
 import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
+import ActionItem from '@shared/components/base/ActionItem.astro';
 
 interface Props {
 	title: string;
 	description: string;
 	date: string;
 	link: string;
-	image: string;
+	image?: string;
+	updatedAt?: string;
+	'data-post-categories'?: string;
+	class?: string;
 }
 
-const { title, description, date, link, image } = Astro.props;
+const {
+	title,
+	description,
+	date,
+	updatedAt,
+	link,
+	image,
+	'data-post-categories': categories,
+	class: className,
+} = Astro.props;
+const BLOG_PATH = '/blog';
 
 const formattedDate = new Date(date).toLocaleDateString('en-US', {
 	year: 'numeric',
 	month: 'long',
 	day: 'numeric',
 });
+
+const formattedUpdatedDate = updatedAt
+	? new Date(updatedAt).toLocaleDateString('en-US', {
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric',
+		})
+	: null;
 ---
 
-<a
-	href={link}
-	target="_blank"
-	class="card-hover link-focus group relative z-10 flex flex-col gap-4 rounded-xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-900"
->
-	<div class="pb-2">
-		<Image
-			src={image}
-			alt={title}
-			class="h-auto w-full rounded-lg"
-			width={300}
-			height={200}
-			loading="lazy"
-		/>
-		<h2
-			class="mb-2 mt-4 font-heading text-xl font-medium text-zinc-700 transition-all duration-300 group-hover:text-zinc-900 dark:text-zinc-200 dark:group-hover:text-zinc-100 xl:text-2xl"
-		>
-			{title}
-		</h2>
-		<time class="text-sm text-zinc-600 dark:text-zinc-300 xl:text-base">
-			{formattedDate}
-		</time>
-	</div>
-	<p
-		class="text-sm text-zinc-500 transition-all duration-300 group-hover:text-zinc-700 dark:text-zinc-300 dark:group-hover:text-zinc-200 xl:text-base"
+<article {...categories ? { 'data-post-categories': categories } : {}} class:list={[className]}>
+	<ActionItem
+		as="a"
+		href={`${BLOG_PATH}/${link}`}
+		class="group outline-accent-darkest dark:outline-accent-brightest dark:hover:outline-offset-zinc-900 relative z-10 flex h-full min-h-0 flex-col gap-4 rounded-xl border border-zinc-200 bg-zinc-50 p-4 outline-offset-0 transition-all duration-300 hover:outline-3 hover:outline-offset-2 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:outline-offset-2"
 	>
-		{description}
-	</p>
-	<span
-		class="mt-auto flex items-center gap-2 text-base text-zinc-600 transition-all duration-300 group-hover:text-zinc-700 dark:text-zinc-300 dark:group-hover:text-zinc-200"
-	>
-		Read more
-		<Icon
-			name="arrow-right"
-			width={16}
-			height={16}
-			class="stroke-current text-black transition-transform duration-200 group-hover:translate-x-1 dark:text-white"
-		/>
-	</span>
-</a>
+		{
+			image ? (
+				<Image
+					src={image}
+					alt="Blog Post Cover Image"
+					class="aspect-2/1 h-auto w-full rounded-lg border border-zinc-200 dark:border-zinc-800"
+					width={600}
+					height={400}
+					loading="eager"
+				/>
+			) : null
+		}
+		<div class="flex flex-1 flex-col gap-6">
+			<div class="flex flex-col gap-2">
+				<h2
+					class="font-heading text-xl font-semibold text-zinc-700 transition-all duration-300 group-hover:text-zinc-900 xl:text-2xl dark:text-zinc-200 dark:group-hover:text-zinc-100"
+				>
+					{title}
+				</h2>
+				<div class="flex flex-row items-center gap-2">
+					<time class="text-sm text-zinc-600 xl:text-base dark:text-zinc-300">
+						{formattedDate}
+					</time>
+					{
+						formattedUpdatedDate ? (
+							<div class="bg-accent-dark dark:bg-accent-brightest rounded-md px-2 py-1 text-xs">
+								<time class="text-white dark:text-zinc-900">Updated: {formattedUpdatedDate}</time>
+							</div>
+						) : null
+					}
+				</div>
+			</div>
+			<p
+				class="text-sm text-zinc-500 transition-all duration-300 group-hover:text-zinc-700 xl:text-base dark:text-zinc-300 dark:group-hover:text-zinc-200"
+			>
+				{description}
+			</p>
+			<span
+				class="mt-auto flex items-center gap-2 text-base text-zinc-600 transition-all duration-300 group-hover:text-zinc-700 dark:text-zinc-300 dark:group-hover:text-zinc-300"
+			>
+				Read more
+				<Icon
+					name="arrow-right"
+					width={16}
+					height={16}
+					class="stroke-current text-black transition-transform duration-200 group-hover:translate-x-1 dark:text-white"
+				/>
+			</span>
+		</div>
+	</ActionItem>
+</article>

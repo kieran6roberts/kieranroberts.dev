@@ -6,6 +6,7 @@ import Header from '@shared/layouts/Header.astro';
 import Footer from '@shared/layouts/Footer.astro';
 import Button from '@shared/components/base/Button.astro';
 import { DEFAULT_SEO_TITLE, DEFAULT_SEO_DESCRIPTION } from '@config/consts';
+import '@shared/styles/main.css';
 
 type Props = ComponentProps<typeof SEO> & {
 	showFooter?: boolean;
@@ -17,8 +18,9 @@ const DEFAULT_DESCRIPTION = DEFAULT_SEO_DESCRIPTION;
 const {
 	title = DEFAULT_TITLE,
 	description = DEFAULT_DESCRIPTION,
+	ogImage,
 	showFooter = true,
-	url,
+	isPostPage = false,
 } = Astro.props;
 ---
 
@@ -28,7 +30,7 @@ const {
 	}}
 	lang="en"
 >
-	<SEO {title} {description} {url} />
+	<SEO {title} {description} {ogImage} {isPostPage} />
 	<body
 		style={{
 			scrollBehavior: 'smooth',
@@ -36,7 +38,7 @@ const {
 		class="bg-white dark:bg-zinc-800 dark:text-zinc-50"
 	>
 		<Button
-			class="pointer-events-none absolute left-1/2 right-1/2 top-6 z-[9999] m-auto hidden h-max -translate-x-1/2 opacity-0 transition-opacity focus:pointer-events-auto focus:opacity-100 lg:flex"
+			class="pointer-events-none absolute top-6 right-1/2 left-1/2 z-[9999] m-auto hidden h-max -translate-x-1/2 opacity-0 transition-opacity focus:pointer-events-auto focus:opacity-100 lg:flex"
 			as="a"
 			href="#main"
 		>

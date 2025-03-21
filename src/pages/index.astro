@@ -1,24 +1,28 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { getCollection } from 'astro:content';
 
 import Layout from '@shared/layouts/Layout.astro';
 import Hero from '@features/portfolio/components/Hero.astro';
 import SectionHeading from '@shared/pages/home/SectionHeading.astro';
 import HeroIllustration from '@features/portfolio/components/HeroIllustration.astro';
-import BlogGroup from '@features/blog/components/BlogGroup.astro';
+import BlogCard from '@features/blog/components/BlogCard.astro';
 import SectionContainer from '@shared/pages/home/SectionContainer.astro';
 import ExperienceList from '@features/experience/components/ExperienceList.astro';
 import Button from '@shared/components/base/Button.astro';
 import TestimonialGroup from '@features/testimonials/components/TestimonialGroup.astro';
+
 import WaveBG from '@features/portfolio/components/WaveBG.astro';
-import { BLOG_URL, GITHUB_PROFILE_URL, CALENDLY_URL } from '@config/consts/urls';
+import { sortPostsByRecent } from '@features/blog/utils';
+import { GITHUB_PROFILE_URL, CALENDLY_URL } from '@config/consts/urls';
 import ProjectGroup from '@features/projects/components/ProjectGroup.astro';
 import TechIllustration from '@features/portfolio/components/TechIllustration.astro';
 
-const siteURL = import.meta.env.SITE;
+const posts = await getCollection('blog');
+const sortedPosts = sortPostsByRecent(posts).slice(0, 3);
 ---
 
-<Layout url={siteURL} showFooter={true}>
+<Layout showFooter={true}>
 	<WaveBG styles="h-[35vh] max-h-[350px]" />
 	<div id="hero" class="relative overflow-hidden">
 		<section
@@ -31,8 +35,8 @@ const siteURL = import.meta.env.SITE;
 				<Hero />
 			</div>
 		</section>
-		<section class="border-y bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-700">
-			<div class="relative mx-auto max-w-[1600px] gap-8 px-4 pb-24 pt-12 md:px-16 lg:px-24">
+		<section class="border-y border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-700">
+			<div class="relative mx-auto max-w-[1600px] gap-8 px-4 pt-12 pb-24 md:px-16 lg:px-24">
 				<HeroIllustration />
 			</div>
 		</section>
@@ -48,7 +52,7 @@ const siteURL = import.meta.env.SITE;
 		</section>
 		<section
 			id="testimonials"
-			class="relative overflow-hidden border-b bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-700"
+			class="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-700"
 		>
 			<SectionContainer>
 				<SectionHeading
@@ -68,14 +72,27 @@ const siteURL = import.meta.env.SITE;
 					title="Blog"
 					copy="I write about topics that interest me in the web development space. UI/UX tutorials, React, software testing, and more."
 				/>
-				<BlogGroup />
-				<Button target="_blank" as="a" href={BLOG_URL} class="relative z-10 mx-auto">
+				<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+					{
+						sortedPosts.map(({ data: post }) => (
+							<BlogCard
+								title={post.title}
+								description={post.seoDescription}
+								date={post.datePublished.toISOString()}
+								link={post.slug}
+								image={post.cover || ''}
+								updatedAt={post.updatedAt?.toISOString()}
+							/>
+						))
+					}
+				</div>
+				<Button as="a" href="/blog" class="relative z-10 mx-auto">
 					My blog
 					<Icon
 						name="arrow-right"
 						width={16}
 						height={16}
-						class="stroke-current transition-transform duration-200 group-hover:translate-x-1 group-hover:text-accent-brightest dark:group-hover:text-accent-darkest"
+						class="group-hover:text-accent-brightest dark:group-hover:text-accent-darkest stroke-current transition-transform duration-200 group-hover:translate-x-1"
 					/>
 				</Button>
 			</SectionContainer>
@@ -108,7 +125,7 @@ const siteURL = import.meta.env.SITE;
 						name="calendar"
 						width={20}
 						height={20}
-						class="stroke-current transition-transform duration-200 group-hover:translate-x-1 group-hover:text-accent-brightest dark:group-hover:text-accent-darkest"
+						class="group-hover:text-accent-brightest dark:group-hover:text-accent-darkest stroke-current transition-transform duration-200 group-hover:translate-x-1"
 					/>
 				</Button>
 			</SectionContainer>

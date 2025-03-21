@@ -8,14 +8,14 @@ import Signature from './Signature.astro';
 <div class="relative flex flex-col items-center gap-4 lg:items-start">
 	<div class="z-10 mb-8 flex flex-col gap-8">
 		<h1
-			class="mx-auto max-w-[450px] text-center font-heading text-4xl font-bold tracking-tight text-zinc-950 duration-300 ease-in animate-in fade-in dark:text-zinc-50 sm:max-w-[600px] sm:text-6xl lg:mx-0 lg:max-w-[850px] lg:text-7xl 2xl:max-w-[1000px] 2xl:text-[85px]"
+			class="font-heading animate-in fade-in mx-auto max-w-[450px] text-center text-4xl font-bold tracking-tight text-zinc-950 duration-300 ease-in sm:max-w-[600px] sm:text-6xl lg:mx-0 lg:max-w-[850px] lg:text-7xl 2xl:max-w-[1000px] 2xl:text-[85px] dark:text-zinc-50"
 		>
-			I turn complex web <span class="text-[#7146DD] dark:text-accent-brightest">problems</span> into
+			I turn complex web <span class="dark:text-accent-brightest text-[#7146DD]">problems</span> into
 			lightning fast business
-			<span class="text-[#12827E] dark:text-accent-bright">solutions.</span>
+			<span class="dark:text-accent-bright text-[#12827E]">solutions.</span>
 		</h1>
 		<p
-			class="mx-auto max-w-[90%] text-center text-sm tracking-tight text-zinc-700 duration-300 ease-in animate-in fade-in slide-in-from-top dark:text-zinc-200 sm:text-base md:max-w-[625px] md:text-lg"
+			class="animate-in fade-in slide-in-from-top mx-auto max-w-[90%] text-center text-sm tracking-tight text-zinc-700 duration-300 ease-in sm:text-base md:max-w-[625px] md:text-lg dark:text-zinc-200"
 		>
 			I am a Product leaning Full-Stack Engineer with several years of experience building in React
 			and TypeScript. With a passion for building interactive UI's and delivering an exceptional UX.
@@ -24,9 +24,9 @@ import Signature from './Signature.astro';
 		<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
 			<Button
 				as="a"
-				href="https://cdn.kieranroberts.dev/kieranroberts-CV.pdf"
+				href="/CV-Kieran-Roberts.pdf"
 				target="_blank"
-				download="https://cdn.kieranroberts.dev/kieranroberts-CV.pdf"
+				download="/CV-Kieran-Roberts.pdf"
 				aria-label="Download CV and view PDF (opens in new tab)"
 			>
 				Download my CV
@@ -34,7 +34,7 @@ import Signature from './Signature.astro';
 					name="download-circle"
 					width={20}
 					height={20}
-					class="stroke-current text-white transition-transform duration-200 group-hover:translate-y-1 group-hover:text-accent-brightest dark:text-black dark:group-hover:text-accent-darkest"
+					class="group-hover:text-accent-brightest dark:group-hover:text-accent-darkest stroke-current text-white transition-transform duration-200 group-hover:translate-y-1 dark:text-black"
 				/>
 			</Button>
 			<Button intent="secondary" as="a" href={LINKEDIN_PROFILE_URL} target="_blank">
@@ -43,7 +43,7 @@ import Signature from './Signature.astro';
 					name="linked-in"
 					width={16}
 					height={16}
-					class="stroke-current text-black transition-transform duration-200 group-hover:translate-x-1 group-hover:text-accent-darkest dark:text-white dark:group-hover:text-accent-brightest"
+					class="group-hover:text-accent-darkest dark:group-hover:text-accent-brightest stroke-current text-black transition-transform duration-200 group-hover:translate-x-1 dark:text-white"
 				/>
 			</Button>
 		</div>

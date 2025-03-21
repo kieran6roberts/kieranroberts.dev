@@ -90,3 +90,26 @@ html.dark .astro-code span {
 		opacity: 1;
 	}
 }
+
+.copyCode-button {
+	background-color: #6f61c0;
+	position: absolute;
+	top: 0.5rem;
+	right: 0.5rem;
+	padding: 2px 1rem;
+	border-radius: 0.25rem;
+	color: var(--color-zinc-900);
+	color: var(--color-zinc-50);
+	font-size: 0.7rem;
+	cursor: pointer;
+	z-index: 10;
+
+	@media (min-width: 768px) {
+		font-size: 0.8rem;
+	}
+
+	&:hover {
+		background-color: #a084e8;
+		transition: background-color 200ms ease;
+	}
+}

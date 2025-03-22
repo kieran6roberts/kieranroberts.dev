@@ -5,22 +5,22 @@ import ActionItem from '@shared/components/base/ActionItem.astro';
 import type { Testimonial } from '@features/testimonials/types';
 
 interface Props extends Testimonial {
-	center: boolean;
+	cardStyles: string;
 }
 
-const { name, company, role, description, image, profileURL, center } = Astro.props;
+const { name, company, role, description, image, profileURL, cardStyles } = Astro.props;
 ---
 
 <article
 	class={cx(
 		'group z-10 overflow-hidden rounded-xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950 outline-accent-darkest dark:outline-accent-brightest outline-offset-0 transition-all duration-300 hover:outline-3 hover:outline-offset-2 dark:hover:outline-offset-2 dark:hover:outline-offset-zinc-900',
-		center ? 'md:col-start-2 md:col-end-6' : 'md:col-span-3',
+		cardStyles,
 	)}
 >
-	<div class="flex h-full flex-col justify-between px-4 py-8">
+	<div class="flex h-full flex-col justify-between px-4 py-8 xl:px-8 xl:py-12">
 		<div class="flex flex-1 items-center">
 			<p
-				class="text-center text-sm text-zinc-500 transition-[text-color] duration-300 ease-in group-hover:text-zinc-800 lg:text-base dark:text-zinc-300 dark:group-hover:text-zinc-200"
+				class="text-left text-sm text-zinc-500 transition-[text-color] duration-300 ease-in group-hover:text-zinc-800 lg:text-base dark:text-zinc-300 dark:group-hover:text-zinc-200"
 			>
 				"{description}"
 			</p>
@@ -30,7 +30,7 @@ const { name, company, role, description, image, profileURL, center } = Astro.pr
 			as="a"
 			href={profileURL}
 			target="_blank"
-			class="mx-auto mt-6 flex w-max flex-row items-center justify-center gap-2"
+			class="mt-6 flex flex-row items-center gap-2"
 		>
 			<div class="h-10 w-10 overflow-hidden rounded-full bg-black bg-zinc-200 dark:bg-zinc-800">
 				<Image

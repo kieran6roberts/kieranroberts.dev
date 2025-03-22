@@ -29,7 +29,7 @@ export function setupIconTranslate({ svgId }: { svgId: string }) {
 				const translateX = mouseX * TRANSLATE_MULTIPLIER;
 				const translateY = mouseY * TRANSLATE_MULTIPLIER;
 				path.style.transform = `translate(${translateX}px, ${translateY}px)`;
-				path.style.transition = 'transform 0.2s ease';
+				path.style.transition = 'transform 150ms ease';
 			});
 
 			isAnimating = false;

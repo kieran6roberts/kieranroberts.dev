@@ -1,12 +1,14 @@
 ---
 import { getCollection, render, getEntries } from 'astro:content';
 import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+
 import Layout from '@shared/layouts/Layout.astro';
 import Prose from '@features/blog/components/Prose.astro';
 import Toc from '@features/blog/components/Toc.astro';
 import BlogCard from '@features/blog/components/BlogCard.astro';
 import Button from '@shared/components/base/Button.astro';
-import { Icon } from 'astro-icon/components';
+import Share from '@features/blog/components/Share.astro';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -94,22 +96,26 @@ const formattedUpdatedDate = post.data.updatedAt
 	isPostPage={true}
 >
 	<div
-		class="from-accent-brightest to-accent-bright dark:from-accent-darkest dark:to-accent-dark absolute inset-0 z-0 h-[50px] border-b border-zinc-200 bg-gradient-to-r dark:border-zinc-800"
+		class="from-accent-brightest to-accent-bright dark:from-accent-darkest dark:to-accent-dark absolute inset-0 z-0 h-[60px] border-b border-zinc-200 bg-gradient-to-r dark:border-zinc-800"
 	>
 	</div>
-	<div class="mt-16 flex gap-8 pb-24 xl:items-start xl:justify-center 2xl:gap-16">
+	<div class="flex gap-8 pt-16 pb-24 xl:items-start xl:justify-center 2xl:gap-16 dark:bg-zinc-900">
 		<div
 			class="sticky top-24 hidden h-[calc(100vh-10rem)] xl:flex xl:flex-col xl:items-start xl:justify-between"
 		>
-			<Button as="a" href="/blog" size="sm">
-				<Icon
-					name="arrow-left"
-					width={12}
-					height={12}
-					class="stroke-current transition-transform duration-200 group-hover:-translate-x-1"
-				/>
-				Back to posts
-			</Button>
+			<div class="flex flex-col gap-6">
+				<Button as="a" href="/blog" size="sm">
+					<Icon
+						name="arrow-left"
+						width={12}
+						height={12}
+						class="stroke-current transition-transform duration-200 group-hover:-translate-x-1"
+					/>
+					Back to posts
+				</Button>
+				<Share title={post.data.title} />
+			</div>
+
 			<Button intent="plain" onclick="window.scrollTo(0, 0)" size="sm">
 				<Icon
 					name="nav-arrow-up"
@@ -153,6 +159,9 @@ const formattedUpdatedDate = post.data.updatedAt
 			<Prose>
 				<Content />
 			</Prose>
+			<div class="xl:hidden">
+				<Share title={post.data.title} />
+			</div>
 			<section class="mt-16 flex flex-col items-center gap-8">
 				<h2 class="text-center text-2xl font-semibold">More posts you might like</h2>
 				<div class="grid grid-cols-1 gap-4 md:grid-cols-2">

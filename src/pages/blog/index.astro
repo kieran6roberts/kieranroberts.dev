@@ -16,16 +16,21 @@ const sortedPosts = sortPostsByRecent(posts);
 	>
 		<BlogIllustration />
 	</div>
-	<section class="mx-auto flex max-w-[1400px] flex-col gap-12 px-4 py-16 md:px-16">
+	<section class="mx-auto flex max-w-[1400px] flex-col gap-12 px-6 py-16 md:px-16">
 		<div class="relative flex flex-col gap-4 py-8">
-			<h1 class="text-3xl font-semibold xl:text-5xl">Kieran's Web Dev Blog</h1>
+			<h1 class="text-4xl font-semibold xl:text-5xl">Kieran's Web Dev Blog</h1>
 			<p
 				class="max-w-[500px] text-left text-sm text-zinc-700 sm:text-base lg:text-lg dark:text-zinc-200"
 			>
 				Learn by building! I write about frontend UI/UX, React/Next.js, software testing, web
 				accessibility, and more.
 			</p>
-			<Button as="a" size="sm" href="/rss.xml">RSS Feed</Button>
+			<div class="flex flex-row items-center gap-4">
+				<Button as="a" size="sm" href="/rss.xml">RSS Feed</Button>
+				<p class="text-sm text-zinc-700 dark:text-zinc-200">
+					{sortedPosts.length} posts
+				</p>
+			</div>
 		</div>
 		<div class="z-50 flex flex-row gap-12">
 			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

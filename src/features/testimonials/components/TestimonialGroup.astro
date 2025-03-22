@@ -4,9 +4,9 @@ import TestimonialCard from '@features/testimonials/components/TestimonialCard.a
 ---
 
 <div class="grid grid-cols-1 gap-4 md:grid-flow-row-dense md:grid-cols-6">
-	{
-		testimonials.map((testimonial, index) => (
-			<TestimonialCard center={index === 0 || index === testimonials.length - 1} {...testimonial} />
-		))
-	}
+	<TestimonialCard cardStyles="col-span-full lg:col-span-3" {...testimonials[0]} />
+	<TestimonialCard cardStyles="col-span-full lg:col-span-3 lg:row-span-2" {...testimonials[1]} />
+	<TestimonialCard cardStyles="col-span-full lg:col-span-3 lg:row-span-1" {...testimonials[2]} />
+	<TestimonialCard cardStyles="col-span-full lg:col-span-3" {...testimonials[3]} />
+	<TestimonialCard cardStyles="col-span-full lg:col-span-3" {...testimonials[4]} />
 </div>

@@ -6,6 +6,7 @@ import TestimonialImage1 from '@images/testimonial-1.webp';
 import TestimonialImage2 from '@images/testimonial-2.webp';
 import TestimonialImage3 from '@images/testimonial-3.webp';
 import TestimonialImage4 from '@images/testimonial-4.webp';
+import TestimonialImage5 from '@images/testimonial-5.webp';
 
 export const EMAIL_ADDRESS = 'kieranroberts6dev@gmail.com';
 export const THEME_STORAGE_KEY = 'theme';
@@ -94,15 +95,6 @@ export const projects: Project[] = [
 
 export const testimonials: Testimonial[] = [
 	{
-		name: 'Sandro Volpicella',
-		company: 'Ex Hashnode',
-		role: 'Platform Engineering Lead',
-		description:
-			"I've worked with Kieran for about 3 years together at Hashnode. What really impressed me is that despite Kieran's profession as a more Frontend developer, he was still able to quickly and reliably build tasks on AWS without much background in it. He was able to understand tasks fast, researched best practices and implementation details by himself, and didn't need much help to implement those. His self-driven approach to learning new technologies really stood out. Also, his preparation for code reviews and his code reviews for others was always very good and thought through. He consistently provided valuable feedback while keeping a constructive attitude. Kieran combines very strong technical knowledge about frontend, especially React, Tailwind CSS, and Next.js with a knack for design. But he also knows how to implement tasks like APIs, asynchronous tasks, or more on AWS efficiently. I'll definitely recommend him for any Fullstack or Frontend position! It was a pleasure working with him.",
-		image: TestimonialImage4,
-		profileURL: 'https://www.linkedin.com/in/alessandro-volpicella/',
-	},
-	{
 		name: 'Pritam Paul',
 		company: 'Hashnode',
 		role: 'Lead Product Designer',
@@ -110,6 +102,15 @@ export const testimonials: Testimonial[] = [
 			"Kieran has been an absolute rockstar to work with on front-end tasks. His ability to bring my designs, whether landing pages or UI elements, to life with precision and flair is truly impressive. Beyond his prolific development skills, his knack for optimization and making sites faster has been invaluable. On top of that, he's a fantastic friend and teammate who makes every collaboration enjoyable. Can’t recommend him enough!",
 		image: TestimonialImage3,
 		profileURL: 'https://www.linkedin.com/in/pritam-paul360/',
+	},
+	{
+		name: 'Sandro Volpicella',
+		company: 'Ex Hashnode',
+		role: 'Platform Engineering Lead',
+		description:
+			"I've worked with Kieran for about 3 years together at Hashnode. What really impressed me is that despite Kieran's profession as a more Frontend developer, he was still able to quickly and reliably build tasks on AWS without much background in it. He was able to understand tasks fast, researched best practices and implementation details by himself, and didn't need much help to implement those. His self-driven approach to learning new technologies really stood out. Also, his preparation for code reviews and his code reviews for others was always very good and thought through. He consistently provided valuable feedback while keeping a constructive attitude. Kieran combines very strong technical knowledge about frontend, especially React, Tailwind CSS, and Next.js with a knack for design. But he also knows how to implement tasks like APIs, asynchronous tasks, or more on AWS efficiently. I'll definitely recommend him for any Fullstack or Frontend position! It was a pleasure working with him.",
+		image: TestimonialImage4,
+		profileURL: 'https://www.linkedin.com/in/alessandro-volpicella/',
 	},
 	{
 		name: 'Lakshya Thakur',
@@ -128,5 +129,14 @@ export const testimonials: Testimonial[] = [
 			'Kieran is an exceptional professional with a strong commitment to web accessibility, consistently going the extra mile to ensure high standards in product development. He excels in code testing, provides thoughtful feedback during code reviews, and showcases remarkable skill in analyzing and simplifying complex requirements like UI component libraries to enhance team understanding and implementation. His dedication, expertise, and attention to detail make him an invaluable asset to any team or project.',
 		image: TestimonialImage2,
 		profileURL: 'https://www.linkedin.com/in/unclebigbay/',
+	},
+	{
+		name: 'Devender Shekhawat',
+		company: 'Ex Hashnode',
+		role: 'Senior Software Engineer',
+		description:
+			'I have worked with Kieran for 18 months while we built great things at Hashnode. During this time, he took sole ownership of implementing and managing the end-to-end test suites for the entire project. He has an eye for good design and demonstrates remarkable creativity when it comes to building amazing user interfaces and digital experiences. His knowledge of Frontend development and testing (React, Next.js, Cypress, etc.) is very impressive, and his attention to detail makes him a great contributor to any engineering team looking for an all-around software engineer.​​​​​​​​​​​​​​​​',
+		image: TestimonialImage5,
+		profileURL: 'https://www.linkedin.com/in/devender-shekhawat-659380239',
 	},
 ];

@@ -4,10 +4,19 @@ const DAMPING = 0.95;
 const SPRING = 0.05;
 
 export function setupIconTranslate({ svgId }: { svgId: string }) {
-	// Could add a resize event with debounce, but leaving that for now.
+	const isSafari = () => {
+		const ua = navigator.userAgent.toLowerCase();
+		return (
+			ua.includes('safari') &&
+			!ua.includes('chrome') &&
+			!ua.includes('crios') &&
+			!ua.includes('android')
+		);
+	};
+
 	const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
 
-	if (!isDesktop) {
+	if (!isDesktop || isSafari()) {
 		return;
 	}
 

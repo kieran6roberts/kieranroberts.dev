@@ -106,7 +106,7 @@ import ActionItem from '@shared/components/base/ActionItem.astro';
 			data-tab-content-active
 			aria-labelledby="experience-tab"
 			role="tabpanel"
-			class="hidden data-[tab-content-active]:block"
+			class="hidden flex-col gap-4 data-[tab-content-active]:flex"
 		>
 			{experience.map((experience) => <ExperienceCard {...experience} />)}
 		</div>

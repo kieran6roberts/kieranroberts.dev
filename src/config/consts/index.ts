@@ -20,22 +20,22 @@ export const Themes = {
 } as const;
 
 export const experience: Experience[] = [
-	{
-		title: 'Brand Web Developer',
-		company: 'Tines',
-		location: 'Remote',
-		date: 'Apr 2025 - Present',
-		type: 'Full-time',
-		iconName: 'tines',
-		responsibilities: [
-			'Collaborating with designers, marketers and the wider team to build new pages new sections and entirely new web properties.',
-			'Maintain and improve web infrastructure using existing solutions and investigate new ones.',
-			'Identify and resolve performance bottlenecks, ensuring fast and efficient web applications.',
-		],
-		image: null,
-		showCV: false,
-		companyURL: 'https://tines.com',
-	},
+	// {
+	// 	title: 'Brand Web Developer',
+	// 	company: 'Tines',
+	// 	location: 'Remote',
+	// 	date: 'Apr 2025 - Present',
+	// 	type: 'Full-time',
+	// 	iconName: 'tines',
+	// 	responsibilities: [
+	// 		'Collaborating with designers, marketers and the wider team to build new pages new sections and entirely new web properties.',
+	// 		'Maintain and improve web infrastructure using existing solutions and investigate new ones.',
+	// 		'Identify and resolve performance bottlenecks, ensuring fast and efficient web applications.',
+	// 	],
+	// 	image: null,
+	// 	showCV: false,
+	// 	companyURL: 'https://tines.com',
+	// },
 	{
 		title: 'Full-Stack Engineer',
 		company: 'Hashnode',

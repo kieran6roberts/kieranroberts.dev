@@ -1,10 +1,13 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 interface Props {
 	title?: string;
 	copy?: string;
+	icon?: string;
 }
 
-const { title, copy } = Astro.props;
+const { title, copy, icon } = Astro.props;
 ---
 
 <script>
@@ -35,25 +38,28 @@ const { title, copy } = Astro.props;
 	setupAnimations();
 </script>
 
-<div class="flex flex-col items-center gap-4 py-4">
-	{
-		title && (
-			<h2
-				class="text-center text-4xl font-bold text-zinc-800 opacity-0 duration-500 ease-in xl:text-5xl dark:text-zinc-50"
-				data-animate="opacity-100"
-			>
-				{title}
-			</h2>
-		)
-	}
-	{
-		copy && (
-			<p
-				class="mx-auto max-w-[400px] border-t border-zinc-200 pt-4 text-center text-sm text-zinc-600 opacity-0 transition-opacity duration-500 ease-in md:text-base xl:max-w-[500px] xl:text-lg dark:border-zinc-400 dark:text-zinc-100"
-				data-animate="opacity-100"
-			>
-				{copy}
-			</p>
-		)
-	}
+<div class="flex flex-col items-center gap-1">
+	{icon && <Icon name={icon} class="h-40 w-40" />}
+	<div class="flex flex-col items-center gap-4 py-4">
+		{
+			title && (
+				<h2
+					class="text-center text-4xl font-bold text-zinc-800 opacity-0 duration-500 ease-in xl:text-5xl dark:text-zinc-50"
+					data-animate="opacity-100"
+				>
+					{title}
+				</h2>
+			)
+		}
+		{
+			copy && (
+				<p
+					class="mx-auto max-w-[400px] border-t border-zinc-200 pt-4 text-center text-sm text-zinc-600 opacity-0 transition-opacity duration-500 ease-in md:text-base xl:max-w-[500px] xl:text-lg dark:border-zinc-400 dark:text-zinc-100"
+					data-animate="opacity-100"
+				>
+					{copy}
+				</p>
+			)
+		}
+	</div>
 </div>

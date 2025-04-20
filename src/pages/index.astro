@@ -40,15 +40,17 @@ const sortedPosts = sortPostsByRecent(posts).slice(0, 3);
 				<HeroIllustration />
 			</div>
 		</section>
-		<section class="relative border-b border-zinc-200 dark:border-zinc-800">
+		<section
+			class="relative border-b border-zinc-200 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2U1ZTVlNSIvPjwvc3ZnPg==')] dark:border-zinc-800 dark:bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzRjNGM0YyIvPjwvc3ZnPg==')]"
+		>
 			<SectionContainer>
 				<SectionHeading
 					title="Career & Experience"
 					copy="Some of my relevant professional career experience & education. To see more, find the attached CV."
+					icon="tasks"
 				/>
 				<ExperienceList />
 			</SectionContainer>
-			<WaveBG direction="up" styles="h-[800px]" />
 		</section>
 		<section
 			id="testimonials"
@@ -58,19 +60,20 @@ const sortedPosts = sortPostsByRecent(posts).slice(0, 3);
 				<SectionHeading
 					title="Testimonials"
 					copy="I have been fortunate to work closely with awesome people. Here is what they had to say about me."
+					icon="files"
 				/>
 				<TestimonialGroup />
 			</SectionContainer>
-			<WaveBG direction="up" styles="h-[100%]" />
 		</section>
 		<section
 			id="blog"
-			class="relative overflow-hidden border-b border-zinc-200 dark:border-zinc-800"
+			class="relative overflow-hidden border-b border-zinc-200 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2U1ZTVlNSIvPjwvc3ZnPg==')] dark:border-zinc-800 dark:bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzRjNGM0YyIvPjwvc3ZnPg==')]"
 		>
 			<SectionContainer>
 				<SectionHeading
 					title="Blog"
 					copy="I write about topics that interest me in the web development space. UI/UX tutorials, React, software testing, and more."
+					icon="blog"
 				/>
 				<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
 					{
@@ -96,7 +99,6 @@ const sortedPosts = sortPostsByRecent(posts).slice(0, 3);
 					/>
 				</Button>
 			</SectionContainer>
-			<WaveBG direction="up" styles="h-1/4" />
 		</section>
 		<section
 			class="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-700"
@@ -105,19 +107,22 @@ const sortedPosts = sortPostsByRecent(posts).slice(0, 3);
 				<SectionHeading
 					title="Personal Projects"
 					copy="I like to build tools that help my make my life easier and develop my skills. Check out some of my projects below, including items that I am currently working on."
+					icon="projects"
 				/>
 				<ProjectGroup />
 				<Button target="_blank" as="a" href={GITHUB_PROFILE_URL} class="relative z-10 mx-auto">
 					GitHub profile
 				</Button>
 			</SectionContainer>
-			<WaveBG direction="up" styles="h-1/2" />
 		</section>
-		<section class="relative overflow-hidden">
+		<section
+			class="relative overflow-hidden bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2U1ZTVlNSIvPjwvc3ZnPg==')] dark:bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzRjNGM0YyIvPjwvc3ZnPg==')]"
+		>
 			<SectionContainer>
 				<SectionHeading
 					title="Book A Meeting"
 					copy="I'm open to discussing work opportunities, collaborations, or just have a coffee chat. Pick a time slot using the link below and provide a brief description of what you'd like to discuss."
+					icon="cal"
 				/>
 				<Button target="_blank" as="a" href={CALENDLY_URL} class="relative z-10 mx-auto">
 					Calendly booking

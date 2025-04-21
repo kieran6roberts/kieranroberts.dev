@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import { cx } from 'class-variance-authority';
 import ActionItem from '@shared/components/base/ActionItem.astro';
+import Avatar from '@shared/components/base/Avatar.astro';
 import type { Testimonial } from '@features/testimonials/types';
 
 interface Props extends Testimonial {
@@ -32,15 +33,7 @@ const { name, company, role, description, image, profileURL, cardStyles } = Astr
 			target="_blank"
 			class="mt-6 flex flex-row items-center gap-2"
 		>
-			<div class="h-10 w-10 overflow-hidden rounded-full bg-black bg-zinc-200 dark:bg-zinc-800">
-				<Image
-					src={image}
-					alt={`${name}'s avatar`}
-					class="h-full w-full object-cover"
-					quality={100}
-					loading="lazy"
-				/>
-			</div>
+			<Avatar href={profileURL} src={image} alt={`${name}'s avatar`} />
 
 			<div class="mt-auto flex flex-col items-start justify-center">
 				<span

@@ -9,6 +9,8 @@ import Toc from '@features/blog/components/Toc.astro';
 import BlogCard from '@features/blog/components/BlogCard.astro';
 import Button from '@shared/components/base/Button.astro';
 import Share from '@features/blog/components/Share.astro';
+import Avatar from '@shared/components/base/Avatar.astro';
+import { getImageUrl } from '@shared/utils/image';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -143,6 +145,11 @@ const formattedUpdatedDate = post.data.updatedAt
 				{post.data.title}
 			</h1>
 			<div class="flex flex-col items-center gap-2">
+				<Avatar
+					href="/"
+					src={getImageUrl('Kieran-Avatar.webp')}
+					alt="Kieran Roberts header picture"
+				/>
 				<time class="text-lg text-zinc-600 dark:text-zinc-300">
 					{formattedDate}
 				</time>

@@ -63,7 +63,7 @@ import ActionItem from '@shared/components/base/ActionItem.astro';
 	});
 </script>
 
-<div class="relative z-10 flex w-full flex-col items-center justify-center gap-8">
+<div class="relative z-10 flex w-full flex-col items-center justify-center gap-16">
 	<ul
 		class="mx-auto grid w-full max-w-[800px] grid-cols-2 gap-2 rounded-full border border-zinc-300 bg-white p-1 dark:border-zinc-600 dark:bg-zinc-800"
 		role="tablist"
@@ -99,14 +99,14 @@ import ActionItem from '@shared/components/base/ActionItem.astro';
 		</li>
 	</ul>
 
-	<div class="tab-content mx-auto min-h-[575px] w-full max-w-[1000px]">
+	<div class="tab-content mx-auto min-h-[575px] w-full">
 		<div
 			id="experience-content"
 			data-tab-content
 			data-tab-content-active
 			aria-labelledby="experience-tab"
 			role="tabpanel"
-			class="hidden flex-col gap-4 data-[tab-content-active]:flex"
+			class="hidden flex-col gap-20 data-[tab-content-active]:flex"
 		>
 			{experience.map((experience) => <ExperienceCard {...experience} />)}
 		</div>

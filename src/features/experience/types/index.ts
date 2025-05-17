@@ -9,4 +9,5 @@ export type Experience = {
 	image: string | null;
 	showCV: boolean;
 	companyURL: string;
+	highlightImage: string | null;
 };

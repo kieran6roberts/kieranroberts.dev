@@ -28,13 +28,13 @@ export const experience: Experience[] = [
 		type: 'Full-time',
 		iconName: 'tines',
 		responsibilities: [
-			// 'Collaborating with designers, marketers and the wider team to build new pages new sections and entirely new web properties.',
-			// 'Maintain and improve web infrastructure using existing solutions and investigate new ones.',
-			// 'Identify and resolve performance bottlenecks, ensuring fast and efficient web applications.',
+			'Part of the brand team, collaborating closely with designers, marketers, and the wider team to build and maintain web pages, sections, and content for Tines.com. Ensuring the site is search engine optimised and as accessible as possible.',
+			'Identify and resolve performance bottlenecks within React codebases, ensuring a fast and efficient user experience without compromising the unique brand identity and design.',
 		],
 		image: null,
 		showCV: false,
 		companyURL: 'https://tines.com',
+		highlightImage: 'tines-homepage.webp',
 	},
 	{
 		title: 'Full-Stack Engineer',
@@ -47,11 +47,12 @@ export const experience: Experience[] = [
 			'Working closely with a dynamic 6-12 person developer team writing code largely in React and TypeScript to enable the growth of one of the top online developer communities, with a +50k monthly active user base.',
 			'Coordinating with the design team and product managers to deliver several key full-stack features for our popular blogs product. Contributing to a roughly 250% increase in new blogs created by users per month since joining the team.',
 			'Spearheaded an end-to-end Cypress test setup for the frontend including CI pipelines using GitHub Actions that helped increase confidence in code and decrease the number of bugs.',
-			'Assisted in building and maintaining an in-house React UI library from scratch built on Radix UI, coordinating with the design team to bring consistency and accessibility across site UI/UX',
+			'Assisted in building and maintaining an in-house React UI library from scratch built on Radix UI, coordinating with the design team to bring consistency and accessibility across site UI/UX.',
 		],
 		image: null,
 		showCV: false,
 		companyURL: 'https://hashnode.com',
+		highlightImage: 'hashnode-homepage.webp',
 	},
 ];
 
@@ -69,6 +70,7 @@ export const education: Experience[] = [
 		image: 'university.webp',
 		showCV: false,
 		companyURL: 'https://www.bangor.ac.uk/',
+		highlightImage: null,
 	},
 ];
 

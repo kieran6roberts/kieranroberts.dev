@@ -24,19 +24,19 @@ const sortedPosts = sortPostsByRecent(posts).slice(0, 3);
 
 <Layout showFooter={true}>
 	<WaveBG styles="h-[35vh] max-h-[350px]" />
-	<div id="hero" class="relative overflow-hidden">
+	<div class="relative overflow-hidden">
 		<section
-			class="relative z-10 mx-auto flex h-full w-full max-w-[1600px] flex-col items-center justify-center"
+			class="relative z-10 mx-auto flex h-full w-full max-w-[1600px] flex-col items-center justify-center bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2U1ZTVlNSIvPjwvc3ZnPg==')] dark:border-zinc-800 dark:bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzRjNGM0YyIvPjwvc3ZnPg==')]"
 		>
 			<TechIllustration />
 			<div
-				class="mx-auto mb-4 flex max-w-[1400px] flex-col items-center justify-center gap-8 px-4 pt-16 md:mb-8 md:px-16 md:pt-24 lg:mb-12 lg:pt-40"
+				class="mx-auto mb-4 flex max-w-[1400px] flex-col items-center justify-center gap-8 px-4 pt-16 md:mb-8 md:px-16 md:pt-24 lg:mb-12 lg:px-32 lg:pt-40"
 			>
 				<Hero />
 			</div>
 		</section>
 		<section class="border-y border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-700">
-			<div class="relative mx-auto max-w-[1600px] gap-8 px-4 pt-12 pb-24 md:px-16 lg:px-24">
+			<div class="relative mx-auto max-w-[1600px] gap-8 px-4 pt-12 pb-24 md:px-16 lg:px-32">
 				<HeroIllustration />
 			</div>
 		</section>
@@ -121,7 +121,7 @@ const sortedPosts = sortPostsByRecent(posts).slice(0, 3);
 			<SectionContainer>
 				<SectionHeading
 					title="Book A Meeting"
-					copy="I'm open to discussing work opportunities, collaborations, or just have a coffee chat. Pick a time slot using the link below and provide a brief description of what you'd like to discuss."
+					copy="I'm always available for a coffee chat, whatever the reason. Pick a time slot using the link below and provide a brief description of what you'd like to discuss."
 					icon="cal"
 				/>
 				<Button target="_blank" as="a" href={CALENDLY_URL} class="relative z-10 mx-auto">

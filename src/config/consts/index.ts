@@ -1,6 +1,40 @@
-import type { Experience } from '@features/experience/types';
-import type { Project } from '@features/projects/types';
-import type { Testimonial } from '@features/testimonials/types';
+import type { ImageMetadata } from 'astro';
+
+export type Experience = {
+	title: string;
+	company: string;
+	location: string;
+	date: string;
+	type: string;
+	iconName: string;
+	responsibilities: string[];
+	image: string | null;
+	showCV: boolean;
+	companyURL: string;
+	highlightImage: string | null;
+};
+
+type Status = 'complete' | 'in progress' | 'planned' | 'MVP done' | 'updates planned';
+
+export type Project = {
+	title: string;
+	description: string;
+	date: string;
+	githubLink: string;
+	liveLink: string | null;
+	caseStudyLink: string | null;
+	image: string;
+	status: Status[];
+};
+
+export type Testimonial = {
+	name: string;
+	company: string;
+	role: string;
+	description: string;
+	image: ImageMetadata;
+	profileURL: string;
+};
 
 import TestimonialImage1 from '@images/testimonial-1.webp';
 import TestimonialImage2 from '@images/testimonial-2.webp';
@@ -10,9 +44,9 @@ import TestimonialImage5 from '@images/testimonial-5.webp';
 
 export const EMAIL_ADDRESS = 'kieranroberts6dev@gmail.com';
 export const THEME_STORAGE_KEY = 'theme';
-export const DEFAULT_SEO_TITLE = 'Kieran Roberts - Software Engineer';
+export const DEFAULT_SEO_TITLE = 'Kieran Roberts - Brand Web Developer & Full-Stack Engineer';
 export const DEFAULT_SEO_DESCRIPTION =
-	"I'm a full-stack JavaScript-focused engineer with multiple years of industry experience working closely on UI/UX, AWS based infra, and GraphQL API's. Let's talk";
+	"I'm a frontend focused full-stack engineer with multiple years of industry experience working closely on UI/UX, AWS based infra, and GraphQL API's.";
 
 export const Themes = {
 	light: 'light',

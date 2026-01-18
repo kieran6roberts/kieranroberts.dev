@@ -1,139 +1,38 @@
 ---
-import { Icon } from 'astro-icon/components';
-import { getCollection } from 'astro:content';
-
 import Layout from '@shared/layouts/Layout.astro';
-import Hero from '@features/portfolio/components/Hero.astro';
-import SectionHeading from '@shared/pages/home/SectionHeading.astro';
-import HeroIllustration from '@features/portfolio/components/HeroIllustration.astro';
-import BlogCard from '@features/blog/components/BlogCard.astro';
-import SectionContainer from '@shared/pages/home/SectionContainer.astro';
-import ExperienceList from '@features/experience/components/ExperienceList.astro';
-import Button from '@shared/components/base/Button.astro';
-import TestimonialGroup from '@features/testimonials/components/TestimonialGroup.astro';
-
-import WaveBG from '@features/portfolio/components/WaveBG.astro';
-import { sortPostsByRecent } from '@features/blog/utils';
-import { GITHUB_PROFILE_URL, CALENDLY_URL } from '@config/consts/urls';
-import ProjectGroup from '@features/projects/components/ProjectGroup.astro';
-import TechIllustration from '@features/portfolio/components/TechIllustration.astro';
-
-const posts = await getCollection('blog');
-const sortedPosts = sortPostsByRecent(posts).slice(0, 3);
 ---
 
+<style>
+	.hero-placeholder {
+		width: 100%;
+		height: 100dvh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background-color: #f0f0f0;
+		color: #000;
+		font-size: 2rem;
+		font-weight: 500;
+		text-align: center;
+
+		h1 {
+			font-size: 1em;
+		}
+
+		p {
+			font-size: 0.6em;
+		}
+	}
+</style>
+
 <Layout showFooter={true}>
-	<WaveBG styles="h-[35vh] max-h-[350px]" />
-	<div class="relative overflow-hidden">
-		<section
-			class="relative z-10 mx-auto flex h-full w-full max-w-[1600px] flex-col items-center justify-center bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2U1ZTVlNSIvPjwvc3ZnPg==')] dark:border-zinc-800 dark:bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzRjNGM0YyIvPjwvc3ZnPg==')]"
-		>
-			<TechIllustration />
-			<div
-				class="mx-auto mb-4 flex max-w-[1400px] flex-col items-center justify-center gap-8 px-4 pt-16 md:mb-8 md:px-16 md:pt-24 lg:mb-12 lg:px-32 lg:pt-40"
-			>
-				<Hero />
-			</div>
-		</section>
-		<section class="border-y border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-700">
-			<div class="relative mx-auto max-w-[1600px] gap-8 px-4 pt-12 pb-24 md:px-16 lg:px-32">
-				<HeroIllustration />
-			</div>
-		</section>
-		<section
-			class="relative border-b border-zinc-200 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2U1ZTVlNSIvPjwvc3ZnPg==')] dark:border-zinc-800 dark:bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzRjNGM0YyIvPjwvc3ZnPg==')]"
-		>
-			<SectionContainer>
-				<SectionHeading
-					title="Career & Experience"
-					copy="Some of my relevant professional career experience & education in the tech space."
-					icon="tasks"
-				/>
-				<ExperienceList />
-			</SectionContainer>
-		</section>
-		<section
-			id="testimonials"
-			class="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-700"
-		>
-			<SectionContainer>
-				<SectionHeading
-					title="Testimonials"
-					copy="I have been fortunate to work closely with awesome people. Here is what they had to say about me."
-					icon="files"
-				/>
-				<TestimonialGroup />
-			</SectionContainer>
-		</section>
-		<section
-			id="blog"
-			class="relative overflow-hidden border-b border-zinc-200 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2U1ZTVlNSIvPjwvc3ZnPg==')] dark:border-zinc-800 dark:bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzRjNGM0YyIvPjwvc3ZnPg==')]"
-		>
-			<SectionContainer>
-				<SectionHeading
-					title="Blog"
-					copy="I write about topics that interest me in the web development space. UI/UX tutorials, React, software testing, and more."
-					icon="blog"
-				/>
-				<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-					{
-						sortedPosts.map(({ data: post }) => (
-							<BlogCard
-								title={post.title}
-								description={post.seoDescription}
-								date={post.datePublished.toISOString()}
-								link={post.slug}
-								image={post.cover || ''}
-								updatedAt={post.updatedAt?.toISOString()}
-							/>
-						))
-					}
-				</div>
-				<Button as="a" href="/blog" class="relative z-10 mx-auto">
-					My blog
-					<Icon
-						name="arrow-right"
-						width={16}
-						height={16}
-						class="group-hover:text-accent-brightest dark:group-hover:text-accent-darkest stroke-current transition-transform duration-200 group-hover:translate-x-1"
-					/>
-				</Button>
-			</SectionContainer>
-		</section>
-		<section
-			class="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-700"
-		>
-			<SectionContainer>
-				<SectionHeading
-					title="Personal Projects"
-					copy="I like to build tools that help my make my life easier and develop my skills. Check out some of my projects below, including items that I am currently working on."
-					icon="projects"
-				/>
-				<ProjectGroup />
-				<Button target="_blank" as="a" href={GITHUB_PROFILE_URL} class="relative z-10 mx-auto">
-					GitHub profile
-				</Button>
-			</SectionContainer>
-		</section>
-		<section
-			class="relative overflow-hidden bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2U1ZTVlNSIvPjwvc3ZnPg==')] dark:bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzRjNGM0YyIvPjwvc3ZnPg==')]"
-		>
-			<SectionContainer>
-				<SectionHeading
-					title="Book A Meeting"
-					copy="I'm always available for a coffee chat, whatever the reason. Pick a time slot using the link below and provide a brief description of what you'd like to discuss."
-					icon="cal"
-				/>
-				<Button target="_blank" as="a" href={CALENDLY_URL} class="relative z-10 mx-auto">
-					Calendly booking
-					<Icon
-						name="calendar"
-						width={20}
-						height={20}
-						class="group-hover:text-accent-brightest dark:group-hover:text-accent-darkest stroke-current transition-transform duration-200 group-hover:translate-x-1"
-					/>
-				</Button>
-			</SectionContainer>
-		</section>
+	<div class="hero-placeholder">
+		<h1>
+			kieranroberts.dev
+		</h1>
+		<p>
+			Undergoing a design refresh, more to come soon...
+		</p>
 	</div>
 </Layout>

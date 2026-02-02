@@ -83,9 +83,7 @@ When an override is in effect you'll notice a little purple circle on top of the
 
 We can use local overrides for things other than style changes as well. Some of the use cases that come to mind are:
 
-- Testing potential performance improvements
-  - Using different fonts
-  - Changing script load orders
+- Testing potential performance improvements e.g. using different fonts, changing script load order
 - Trying out changes or debugging potential issues in external libraries
 
 It's likely not something you'll need to use very often but will come in very handy in some of these specific use cases.
@@ -97,5 +95,3 @@ It's likely not something you'll need to use very often but will come in very ha
 Using this method I was able to run through some minor style changes very quickly and find/fix the culprit. It ended up being a highly time-efficient solution to a potentially frustrating problem.
 
 It allowed me to cut the effort in debugging -&gt; shipping by a considerable amount. I hope you find it useful in the future too.
-
-See you next time 👋

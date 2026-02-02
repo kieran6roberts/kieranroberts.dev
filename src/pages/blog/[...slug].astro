@@ -1,0 +1,148 @@
+---
+import { getCollection, render } from 'astro:content';
+
+import Layout from '@shared/layouts/Layout.astro';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map((post) => ({
+		params: { slug: post.id },
+		props: { post },
+	}));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const formattedDate = new Date(post.data.datePublished).toLocaleDateString('en-US', {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+});
+const formattedUpdatedDate = post.data.updatedAt
+	? new Date(post.data.updatedAt).toLocaleDateString('en-US', {
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric',
+		})
+	: null;
+---
+
+<style>
+	.blog-post-header {
+		padding: 2rem 1rem;
+
+		h1 {
+			font-family: var(--font-heading);
+			text-wrap: balance;
+			font-size: 1.4rem;
+			font-weight: 500;
+			max-width: 750px;
+			margin: 0 auto;
+			text-align: center;
+
+			@media (min-width: 768px) {
+				font-size: 1.8rem;
+			}
+		}
+
+		.blog-post-date {
+			font-family: var(--font-body);
+			font-size: 1rem;
+			text-align: center;
+			margin-top: 1rem;
+
+			time {
+				font-weight: 500;
+			}
+		}
+	}
+
+	.blog-post-content {
+		padding: 0 1rem 2rem;
+		max-width: 856px;
+		margin: 0 auto;
+		font-family: var(--font-body);
+		font-size: 1.2rem;
+
+		img {
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+		}
+
+		p,
+		ul,
+		details {
+			margin-top: 2rem;
+		}
+
+		details > div,
+		pre {
+			padding-top: 1rem;
+		}
+
+		li + li {
+			margin-top: 1rem;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			font-family: var(--font-heading);
+			font-weight: 500;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+			margin-top: 5rem;
+		}
+
+		h2 {
+			font-size: 1.4rem;
+		}
+
+		h3,
+		h4 {
+			font-size: 1.2rem;
+		}
+		p,
+		li,
+		details > * {
+			line-height: 1.8;
+			font-weight: 400;
+			text-wrap: pretty;
+		}
+
+		pre code {
+			font-size: 0.9rem;
+		}
+
+		pre {
+			padding: 0.5rem;
+		}
+	}
+</style>
+<Layout
+	title={post.data.title}
+	description={post.data.seoDescription}
+	ogImage={post.data.cover}
+	isPostPage={true}
+>
+	<section class="blog-post-header">
+		<h1>{post.data.title}</h1>
+		<p class="blog-post-date">
+			Published <time>{formattedDate}</time>
+			{
+				formattedUpdatedDate ? (
+					<span>
+						, updated <time>{formattedUpdatedDate}</time>
+					</span>
+				) : null
+			}
+		</p>
+	</section>
+	<section class="blog-post-content">
+		<Content />
+	</section>
+</Layout>

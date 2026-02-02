@@ -1,0 +1,108 @@
+---
+import Layout from '@shared/layouts/Layout.astro';
+
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const sortedPosts = posts.sort(
+	(a, b) => new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime(),
+);
+---
+
+<style>
+	h1 {
+		font-size: 1.4rem;
+		font-family: var(--font-heading);
+		text-transform: capitalize;
+		max-width: 856px;
+		margin-top: 4rem;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0 1rem;
+
+		@media (min-width: 768px) {
+			font-size: 1.8rem;
+		}
+	}
+	.blog-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 2rem;
+		padding: 2rem 1rem 2rem;
+		max-width: 856px;
+		margin: 0 auto;
+	}
+	.blog-card {
+		border-radius: 0.5rem;
+		padding: 1rem 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+
+		p {
+			font-family: var(--font-body);
+			font-size: 1rem;
+
+			@media (min-width: 768px) {
+				font-size: 1.1rem;
+				text-wrap: pretty;
+			}
+		}
+		a {
+			text-decoration: none;
+			color: inherit;
+
+			&:hover {
+				h2 {
+					color: #4f5052;
+				}
+			}
+		}
+
+		h2 {
+			font-family: var(--font-heading);
+			font-size: 1.2rem;
+
+			@media (min-width: 768px) {
+				font-size: 1.4rem;
+			}
+		}
+
+		p {
+			display: block;
+			font-family: var(--font-body);
+			margin-top: 0.5rem;
+		}
+
+		time {
+			display: inline-block;
+			font-family: var(--font-body);
+			margin-top: 0.5rem;
+			font-weight: 500;
+		}
+	}
+</style>
+
+<Layout showFooter={true}>
+	<h1>Kieran's web development blog</h1>
+	<div class="blog-grid">
+		{
+			sortedPosts.map(({ data: post }) => (
+				<article class="blog-card">
+					<a href={`/blog/${post.slug}`}>
+						<h2>{post.title}</h2>
+						<time datetime={post.datePublished.toISOString()}>
+							Published {post.datePublished.toLocaleDateString()}
+						</time>
+						{post.updatedAt ? (
+							<time datetime={post.updatedAt.toISOString()}>
+								, updated on {post.updatedAt.toLocaleDateString()}
+							</time>
+						) : null}
+						<p>{post.seoDescription}</p>
+					</a>
+				</article>
+			))
+		}
+	</div>
+</Layout>

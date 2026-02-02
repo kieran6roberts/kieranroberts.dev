@@ -41,9 +41,14 @@
 	box-sizing: border-box;
 }
 
+html {
+	background: #fff;
+}
+
 body {
 	margin: 0;
 	font-family: var(--font-body);
+	background: inherit;
 }
 
 h1,
@@ -55,8 +60,10 @@ h6 {
 	font-family: var(--font-heading);
 	margin: 0;
 	padding: 0;
+	font-weight: 400;
 }
 
 p {
 	margin: 0;
+	font-weight: 400;
 }

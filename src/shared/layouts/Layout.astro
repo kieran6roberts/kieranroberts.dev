@@ -2,7 +2,8 @@
 import type { ComponentProps } from 'astro/types';
 
 import SEO from '@shared/components/SEO.astro';
-// import Button from '@shared/components/base/Button.astro';
+import Footer from '@shared/components/Footer.astro';
+import Nav from '@shared/components/Nav.astro';
 import { DEFAULT_SEO_TITLE, DEFAULT_SEO_DESCRIPTION } from '@config/consts';
 
 import '@shared/styles/main.css';
@@ -23,18 +24,21 @@ const {
 } = Astro.props;
 ---
 
+<style>
+	#main {
+		position: relative;
+	}
+</style>
+
 <html lang="en">
 	<SEO {title} {description} {ogImage} {isPostPage} />
 	<body>
-		<!-- <Button
-			as="a"
-			href="#main"
-		>
-			Skip to main content
-		</Button> -->
-
+		<header>
+			<Nav />
+		</header>
 		<main id="main">
 			<slot />
 		</main>
+		<Footer />
 	</body>
 </html>

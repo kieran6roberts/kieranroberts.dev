@@ -1,17 +1,13 @@
 ---
 import Layout from '@shared/layouts/Layout.astro';
-import SectionHeading from '@features/homepage/SectionHeading.astro';
 
 // import Button from '@shared/components/Button.astro';
 // import HeroSVG from '@shared/icons/hero.svg';
 // import MouseSVG from '@shared/icons/mouse.svg';
 // import Nav from '@shared/components/Nav.astro';
-
-const sectionGap = "8rem";
-const bodyTextSize = "1.25rem";
 ---
 
-<style define:vars={{ sectionGap, bodyTextSize }}>
+<style>
 	.hero {
 		width: 100%;
 		height: 75dvh;
@@ -22,7 +18,6 @@ const bodyTextSize = "1.25rem";
 		text-align: center;
 		position: relative;
 		gap: 3rem;
-		/* border-bottom: 1px solid black; */
 		overflow: hidden;
 		padding: 0 1rem;
 
@@ -49,7 +44,7 @@ const bodyTextSize = "1.25rem";
 	}
 	.hero-copy {
 		font-family: var(--font-body);
-		font-size: var(--bodyTextSize);
+		font-size: 1.25rem;
 		line-height: 1.67;
 		max-width: 400px;
 		margin 0 auto;
@@ -85,7 +80,7 @@ const bodyTextSize = "1.25rem";
 	}
 
 	.space-children > *  {
-		margin-top: var(--sectionGap);
+		margin-top: 8rem;
 	}
 
 	.article-wrapper {
@@ -100,7 +95,7 @@ const bodyTextSize = "1.25rem";
 		}
 
 		p {
-			font-size: var(--bodyTextSize);
+			font-size: 1.25rem;
 			line-height: 1.67;
 			text-wrap: pretty;
 		}
@@ -131,7 +126,7 @@ const bodyTextSize = "1.25rem";
 	#who-am-i {
 		h2 {
 			text-align: center;
-			font-size: var(--bodyTextSize);
+			font-size: 1.25rem;
 			letter-spacing: 0.8px;
 			text-transform: uppercase;
 			font-weight: 400;
@@ -140,10 +135,9 @@ const bodyTextSize = "1.25rem";
 </style>
 
 <Layout showFooter={true}>
-	<!-- <Nav /> -->
 	<div class="hero">
 		<header>
-			<p class="hero-subtitle">Web development & design</p>
+			<p class:list={["hero-subtitle"]}>Web development & design</p>
 			<h1>
 				Kieran Roberts
 			</h1>

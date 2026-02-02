@@ -2,11 +2,11 @@
 import type { ComponentProps } from 'astro/types';
 
 import SEO from '@shared/components/SEO.astro';
-import Header from '@shared/layouts/Header.astro';
-import Footer from '@shared/layouts/Footer.astro';
-import Button from '@shared/components/base/Button.astro';
+import Footer from '@shared/components/Footer.astro';
+import Nav from '@shared/components/Nav.astro';
 import { DEFAULT_SEO_TITLE, DEFAULT_SEO_DESCRIPTION } from '@config/consts';
-import '@shared/styles/main.css';
+
+import '../styles/main.css';
 
 type Props = ComponentProps<typeof SEO> & {
 	showFooter?: boolean;
@@ -19,35 +19,26 @@ const {
 	title = DEFAULT_TITLE,
 	description = DEFAULT_DESCRIPTION,
 	ogImage,
-	showFooter = true,
+	// showFooter = true,
 	isPostPage = false,
 } = Astro.props;
 ---
 
-<html
-	style={{
-		scrollBehavior: 'smooth',
-	}}
-	lang="en"
->
+<style>
+	#main {
+		position: relative;
+	}
+</style>
+
+<html lang="en">
 	<SEO {title} {description} {ogImage} {isPostPage} />
-	<body
-		style={{
-			scrollBehavior: 'smooth',
-		}}
-		class="bg-white dark:bg-zinc-800 dark:text-zinc-50"
-	>
-		<Button
-			class="pointer-events-none absolute top-6 right-1/2 left-1/2 z-[9999] m-auto hidden h-max -translate-x-1/2 opacity-0 transition-opacity focus:pointer-events-auto focus:opacity-100 lg:flex"
-			as="a"
-			href="#main"
-		>
-			Skip to main content
-		</Button>
-		<Header />
+	<body>
+		<header>
+			<Nav />
+		</header>
 		<main id="main">
 			<slot />
 		</main>
-		{showFooter ? <Footer /> : null}
+		<Footer />
 	</body>
 </html>

@@ -1,0 +1,35 @@
+---
+const {
+	as: Tag = 'button',
+	intent = 'solid-dark',
+	size = 'md',
+	class: className = '',
+	...restOfProps
+} = Astro.props;
+---
+
+<style>
+	button,
+	a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		font-size: 0.9rem;
+		border-radius: 2rem;
+		padding: 0.9rem 1rem;
+		background: transparent;
+		color: inherit;
+		margin: 0;
+		min-width: 10rem;
+		font-weight: 500;
+		font-family: var(--font-heading);
+		cursor: pointer;
+	}
+</style>
+
+<Tag {...restOfProps}>
+	<slot name="startIcon" />
+	<slot />
+	<slot name="endIcon" />
+</Tag>

@@ -1,139 +1,170 @@
 ---
-import { Icon } from 'astro-icon/components';
-import { getCollection } from 'astro:content';
-
 import Layout from '@shared/layouts/Layout.astro';
-import Hero from '@features/portfolio/components/Hero.astro';
-import SectionHeading from '@shared/pages/home/SectionHeading.astro';
-import HeroIllustration from '@features/portfolio/components/HeroIllustration.astro';
-import BlogCard from '@features/blog/components/BlogCard.astro';
-import SectionContainer from '@shared/pages/home/SectionContainer.astro';
-import ExperienceList from '@features/experience/components/ExperienceList.astro';
-import Button from '@shared/components/base/Button.astro';
-import TestimonialGroup from '@features/testimonials/components/TestimonialGroup.astro';
 
-import WaveBG from '@features/portfolio/components/WaveBG.astro';
-import { sortPostsByRecent } from '@features/blog/utils';
-import { GITHUB_PROFILE_URL, CALENDLY_URL } from '@config/consts/urls';
-import ProjectGroup from '@features/projects/components/ProjectGroup.astro';
-import TechIllustration from '@features/portfolio/components/TechIllustration.astro';
-
-const posts = await getCollection('blog');
-const sortedPosts = sortPostsByRecent(posts).slice(0, 3);
+// import Button from '@shared/components/Button.astro';
+// import HeroSVG from '@shared/icons/hero.svg';
+// import MouseSVG from '@shared/icons/mouse.svg';
+// import Nav from '@shared/components/Nav.astro';
 ---
 
+<style>
+	.hero {
+		width: 100%;
+		height: 75dvh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		position: relative;
+		gap: 3rem;
+		overflow: hidden;
+		padding: 0 1rem;
+
+		h1 {
+			font-family: var(--font-body);
+			font-size: 2.2rem;
+			text-transform: uppercase;
+			font-weight: 500;
+			letter-spacing: 0.1em;
+			margin-top: 1rem;
+			
+			@media (min-width: 900px) {
+				font-size: 4rem;
+			
+			}
+		}
+
+	}
+	.hero-subtitle {
+		font-family: var(--font-heading);
+		font-size: 1rem;
+		text-transform: uppercase;
+		letter-spacing: 0.8px;
+	}
+	.hero-copy {
+		font-family: var(--font-body);
+		font-size: 1.25rem;
+		line-height: 1.67;
+		max-width: 400px;
+		margin 0 auto;
+	}
+
+	.hero-icon-positioner {
+		svg {
+			height: auto;
+			width: 100%;
+			max-width: 928px;
+			position: absolute;
+			bottom: -4rem;
+			left: 50%;
+			transform: translate(-50%, 0);
+		}
+	}
+
+	.mouse-icon-positioner {
+		display: none;
+
+		@media(min-width: 1280px) {
+			display: block;
+		}
+		svg {
+			position: absolute;
+			top: -12rem;
+			right: 4rem;
+		}
+	}
+
+	.space-children {
+		position: relative;
+	}
+
+	.space-children > *  {
+		margin-top: 8rem;
+	}
+
+	.article-wrapper {
+		position: relative;
+		max-width: 856px;
+		margin: 0 auto;
+		padding: 5rem 0;
+		/* border-bottom: 1px solid black; */
+
+		@media (min-width: 768px) {
+			padding: 5rem 3.5rem 8rem;
+		}
+
+		p {
+			font-size: 1.25rem;
+			line-height: 1.67;
+			text-wrap: pretty;
+		}
+
+		> p + p {
+			margin-top: 2rem;
+		}
+	}
+
+	.section-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 0 1rem;
+	}
+
+	.cta-positioner {
+		button {
+			width: max-content;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			transform: translateX(50%);
+		}
+	}
+
+	#who-am-i {
+		h2 {
+			text-align: center;
+			font-size: 1.25rem;
+			letter-spacing: 0.8px;
+			text-transform: uppercase;
+			font-weight: 400;
+		}
+	}
+</style>
+
 <Layout showFooter={true}>
-	<WaveBG styles="h-[35vh] max-h-[350px]" />
-	<div class="relative overflow-hidden">
-		<section
-			class="relative z-10 mx-auto flex h-full w-full max-w-[1600px] flex-col items-center justify-center bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2U1ZTVlNSIvPjwvc3ZnPg==')] dark:border-zinc-800 dark:bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzRjNGM0YyIvPjwvc3ZnPg==')]"
-		>
-			<TechIllustration />
-			<div
-				class="mx-auto mb-4 flex max-w-[1400px] flex-col items-center justify-center gap-8 px-4 pt-16 md:mb-8 md:px-16 md:pt-24 lg:mb-12 lg:px-32 lg:pt-40"
-			>
-				<Hero />
-			</div>
-		</section>
-		<section class="border-y border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-700">
-			<div class="relative mx-auto max-w-[1600px] gap-8 px-4 pt-12 pb-24 md:px-16 lg:px-32">
-				<HeroIllustration />
-			</div>
-		</section>
-		<section
-			class="relative border-b border-zinc-200 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2U1ZTVlNSIvPjwvc3ZnPg==')] dark:border-zinc-800 dark:bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzRjNGM0YyIvPjwvc3ZnPg==')]"
-		>
-			<SectionContainer>
-				<SectionHeading
-					title="Career & Experience"
-					copy="Some of my relevant professional career experience & education in the tech space."
-					icon="tasks"
-				/>
-				<ExperienceList />
-			</SectionContainer>
-		</section>
-		<section
-			id="testimonials"
-			class="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-700"
-		>
-			<SectionContainer>
-				<SectionHeading
-					title="Testimonials"
-					copy="I have been fortunate to work closely with awesome people. Here is what they had to say about me."
-					icon="files"
-				/>
-				<TestimonialGroup />
-			</SectionContainer>
-		</section>
-		<section
-			id="blog"
-			class="relative overflow-hidden border-b border-zinc-200 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2U1ZTVlNSIvPjwvc3ZnPg==')] dark:border-zinc-800 dark:bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzRjNGM0YyIvPjwvc3ZnPg==')]"
-		>
-			<SectionContainer>
-				<SectionHeading
-					title="Blog"
-					copy="I write about topics that interest me in the web development space. UI/UX tutorials, React, software testing, and more."
-					icon="blog"
-				/>
-				<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-					{
-						sortedPosts.map(({ data: post }) => (
-							<BlogCard
-								title={post.title}
-								description={post.seoDescription}
-								date={post.datePublished.toISOString()}
-								link={post.slug}
-								image={post.cover || ''}
-								updatedAt={post.updatedAt?.toISOString()}
-							/>
-						))
-					}
+	<div class="hero">
+		<header>
+			<p class:list={["hero-subtitle"]}>Web development & design</p>
+			<h1>
+				Kieran Roberts
+			</h1>
+		</header>
+		<p class="hero-copy">
+			Former Full-Stack Developer and current <strong>Brand Web Developer</strong> at <strong>Tines</strong>.
+		</p>
+		<!-- <div class="hero-icon-positioner">
+			<HeroSVG />
+		</div> -->
+	</div>
+
+	<div class="space-children">
+		<!-- <div class="mouse-icon-positioner">
+			<MouseSVG />
+		</div> -->
+		<section id="who-am-i">
+			<div class="section-content">
+				<h2>Who am I?</h2>
+				<div class="article-wrapper">
+					<p>I am a problem solver with a passion for the creative on the web. My 5+ of years experience working in Frontend and Full Stack enginnering has given me the opportunity to work in both product-focused engineering, and frontend & design heavy brand and marketing roles.
+						
+					<p>Today, I am fortunate to be able to take my ideas all the way from conception, through design, and finally implementation. I dabble in UI/UX design using the latest in web design, building wireframes and mockups for web properties.</p>
+					<p>I am in my element when writing code, with modern web frameworks and tools such as React, TypeScript, Astro, and more. These days it's hard not to be AI curious as well, and I like to stay up to date with the latest tooling possibilities here.</p>
+					<p>Occasionally I like to write, and share web development related topics and tips through my <a href="/blog">blog</a>.</p>
 				</div>
-				<Button as="a" href="/blog" class="relative z-10 mx-auto">
-					My blog
-					<Icon
-						name="arrow-right"
-						width={16}
-						height={16}
-						class="group-hover:text-accent-brightest dark:group-hover:text-accent-darkest stroke-current transition-transform duration-200 group-hover:translate-x-1"
-					/>
-				</Button>
-			</SectionContainer>
-		</section>
-		<section
-			class="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-700"
-		>
-			<SectionContainer>
-				<SectionHeading
-					title="Personal Projects"
-					copy="I like to build tools that help my make my life easier and develop my skills. Check out some of my projects below, including items that I am currently working on."
-					icon="projects"
-				/>
-				<ProjectGroup />
-				<Button target="_blank" as="a" href={GITHUB_PROFILE_URL} class="relative z-10 mx-auto">
-					GitHub profile
-				</Button>
-			</SectionContainer>
-		</section>
-		<section
-			class="relative overflow-hidden bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iI2U1ZTVlNSIvPjwvc3ZnPg==')] dark:bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzRjNGM0YyIvPjwvc3ZnPg==')]"
-		>
-			<SectionContainer>
-				<SectionHeading
-					title="Book A Meeting"
-					copy="I'm always available for a coffee chat, whatever the reason. Pick a time slot using the link below and provide a brief description of what you'd like to discuss."
-					icon="cal"
-				/>
-				<Button target="_blank" as="a" href={CALENDLY_URL} class="relative z-10 mx-auto">
-					Calendly booking
-					<Icon
-						name="calendar"
-						width={20}
-						height={20}
-						class="group-hover:text-accent-brightest dark:group-hover:text-accent-darkest stroke-current transition-transform duration-200 group-hover:translate-x-1"
-					/>
-				</Button>
-			</SectionContainer>
+			</div>
 		</section>
 	</div>
 </Layout>

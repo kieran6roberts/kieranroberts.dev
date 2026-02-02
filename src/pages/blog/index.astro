@@ -1,57 +1,108 @@
 ---
 import Layout from '@shared/layouts/Layout.astro';
-import BlogCard from '@features/blog/components/BlogCard.astro';
+
 import { getCollection } from 'astro:content';
-import Button from '@shared/components/base/Button.astro';
-import { sortPostsByRecent } from '@features/blog/utils';
-import BlogIllustration from '@features/blog/components/BlogIllustration.astro';
 
 const posts = await getCollection('blog');
-const sortedPosts = sortPostsByRecent(posts);
+const sortedPosts = posts.sort(
+	(a, b) => new Date(b.data.datePublished).getTime() - new Date(a.data.datePublished).getTime(),
+);
 ---
 
-<Layout showFooter={true}>
-	<div
-		class="from-accent-brightest to-accent-bright dark:from-accent-darkest dark:to-accent-dark absolute inset-0 z-0 h-[450px] border-b border-zinc-200 bg-gradient-to-r dark:border-zinc-800"
-	>
-		<BlogIllustration />
-	</div>
-	<section class="mx-auto flex max-w-[1400px] flex-col gap-12 px-6 py-16 md:px-16 lg:px-32">
-		<div class="relative flex flex-col gap-4 py-8">
-			<h1 class="text-4xl font-semibold xl:text-5xl">Kieran's Web Dev Blog</h1>
-			<p
-				class="max-w-[500px] text-left text-sm text-zinc-700 sm:text-base lg:text-lg dark:text-zinc-200"
-			>
-				Learn by building! I write about frontend UI/UX, React/Next.js, software testing, web
-				accessibility, and more.
-			</p>
-			<div class="flex flex-row items-center gap-4">
-				<Button as="a" size="sm" href="/rss.xml">RSS Feed</Button>
-				<p class="text-sm text-zinc-700 dark:text-zinc-200">
-					{sortedPosts.length} posts
-				</p>
-			</div>
-		</div>
-		<div class="z-50 flex flex-row gap-12">
-			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-				{
-					sortedPosts.map(({ data: post }) => (
-						<BlogCard
-							title={post.title}
-							description={post.seoDescription}
-							date={post.datePublished.toISOString()}
-							link={post.slug}
-							image={post.cover || ''}
-							updatedAt={post.updatedAt?.toISOString()}
-						/>
-					))
+<style>
+	h1 {
+		font-size: 1.4rem;
+		font-family: var(--font-heading);
+		text-transform: capitalize;
+		max-width: 856px;
+		margin-top: 4rem;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0 1rem;
+
+		@media (min-width: 768px) {
+			font-size: 1.8rem;
+		}
+	}
+	.blog-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 2rem;
+		padding: 2rem 1rem 2rem;
+		max-width: 856px;
+		margin: 0 auto;
+	}
+	.blog-card {
+		border-radius: 0.5rem;
+		padding: 1rem 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+
+		p {
+			font-family: var(--font-body);
+			font-size: 1rem;
+
+			@media (min-width: 768px) {
+				font-size: 1.1rem;
+				text-wrap: pretty;
+			}
+		}
+		a {
+			text-decoration: none;
+			color: inherit;
+
+			&:hover {
+				h2 {
+					color: #4f5052;
 				}
-			</div>
-		</div>
-		<div class="flex flex-col items-center gap-8">
-			<p class="mx-auto max-w-[450px] text-center text-base text-zinc-600 dark:text-zinc-300">
-				The end.
-			</p>
-		</div>
-	</section>
+			}
+		}
+
+		h2 {
+			font-family: var(--font-heading);
+			font-size: 1.2rem;
+
+			@media (min-width: 768px) {
+				font-size: 1.4rem;
+			}
+		}
+
+		p {
+			display: block;
+			font-family: var(--font-body);
+			margin-top: 0.5rem;
+		}
+
+		time {
+			display: inline-block;
+			font-family: var(--font-body);
+			margin-top: 0.5rem;
+			font-weight: 500;
+		}
+	}
+</style>
+
+<Layout showFooter={true}>
+	<h1>Kieran's web development blog</h1>
+	<div class="blog-grid">
+		{
+			sortedPosts.map(({ data: post }) => (
+				<article class="blog-card">
+					<a href={`/blog/${post.slug}`}>
+						<h2>{post.title}</h2>
+						<time datetime={post.datePublished.toISOString()}>
+							Published {post.datePublished.toLocaleDateString()}
+						</time>
+						{post.updatedAt ? (
+							<time datetime={post.updatedAt.toISOString()}>
+								, updated on {post.updatedAt.toLocaleDateString()}
+							</time>
+						) : null}
+						<p>{post.seoDescription}</p>
+					</a>
+				</article>
+			))
+		}
+	</div>
 </Layout>

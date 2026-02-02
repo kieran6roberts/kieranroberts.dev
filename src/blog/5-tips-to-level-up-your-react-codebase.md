@@ -1,5 +1,5 @@
 ---
-title: '5 Simple Tips/Good Practises to Level Up Your React Codebase'
+title: '5 Simple Tips/Good Practises To Level Up Your React Codebase'
 seoDescription: '5 simple React tips and good practises: improve maintainability, reusability, performance, and project management effectively.'
 datePublished: Thu Jan 23 2025 14:06:40 GMT+0000 (Coordinated Universal Time)
 slug: 5-tips-to-level-up-your-react-codebase
@@ -375,7 +375,5 @@ I would prefer this approach almost always even if I needed to pass several diff
 ## Summary
 
 This article shares five key tips for improving the maintainability, reusability, organisation, and performance of your React codebases. It covers the benefits of using 'dumb' components as they’re simpler to maintain and re-use, optimising state management beyond `useState`, and suggests exploring effective code repository structures. It also encourages the use of shared constants for consistency and maintainability, and finally favouring the passing of primitive values over whole objects in component props.
-
-There is a ton of things I didn’t cover in this article that could have been in, I might write another article on the topic. Let me know if you have any interesting tips or best practises that you like to employ in your React codebases. I’d love to hear them.
 
 Until next time!

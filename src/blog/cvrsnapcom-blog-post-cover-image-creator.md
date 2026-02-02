@@ -1,5 +1,5 @@
 ---
-title: 'cvrsnap.com: Blog post cover image creator to help you publish quicker'
+title: 'cvrsnap.com: Blog post Cover Image Creator To Help You Publish Quicker'
 seoTitle: 'CvrSnap: The blog post cover image creator'
 seoDescription: 'Create custom blog post cover images quickly with CvrSnap. Save time designing and publish faster with this free online tool.'
 datePublished: Fri Jan 31 2025 08:04:26 GMT+0000 (Coordinated Universal Time)
@@ -58,7 +58,6 @@ Here are some example covers images I quickly built using CvrSnap:
 1. A very simple landing page
 2. Editing interface
 3. Minimum set of customisation options to start with.
-
    1. Text placement, size, font, etc.
    2. Background colors, templates, images etc.
 
@@ -275,5 +274,3 @@ To run the app as a ‘true’ client 1 pager, I will probably refactor the app 
 ## Summary
 
 CvrSnap is a free tool designed to help users create custom blog post cover images quickly and easily. Built as a client-side React app, CvrSnap leverages modern technologies like React Router v7, TypeScript, and AWS. The app's editor persistently saves user progress using IndexedDB and Zustand and PNG download is a simple click away.
-
-If you made it this far, you are my hero. If you use CvrSnap to download an image you use in a blog post, please share the post with me on [LinkedIn](https://www.linkedin.com/in/kieran6roberts/), or [Bluesky](https://bsky.app/profile/kieran6dev.bsky.social) and I’d be happy to read/share.

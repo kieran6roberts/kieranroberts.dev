@@ -151,8 +151,6 @@ The first step is to build your desired navbar. If you already have a working na
 
 For the purpose of the tutorial, I am using Tailwind for styling and also TypeScript, but neither are required.
 
----
-
 Our navbar will use `sticky` positioning. [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/position) defines sticky positioning as the following:
 
 > The element is positioned according to the normal flow of the document, and then offset relative to its _nearest scrolling ancestor_ and [containing block (nearest block-](https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block)level ancestor), including table-related elements, based on the values of `top`, `right`, `bottom`, and `left`. The offset does not affect the position of any other elements.
@@ -436,7 +434,7 @@ Cancelling the animation frame is necessary because if the component unmounts wh
 
 An improvement we can make to the hook is to consider users to prefer to reduce animations when visiting sites. `prefers-reduced-motion` is a CSS media feature in this vein and here is how it described as per [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion):
 
-> The `prefers-reduced-motion` [CSS me](https://developer.mozilla.org/en-US/docs/Web/CSS)[dia feature is used to d](https://developer.mozilla.org/en-US/docs/Web/CSS/@media#media_features)etect if a user has enabled a setting on their device to minimize the amount of non-essential motion. The setting is used to convey to the browser on the device that the user prefers an interface that removes, reduces, or replaces motion-based animations.
+> The `prefers-reduced-motion` [CSS me](https://developer.mozilla.org/en-US/docs/Web/CSS)[dia feature is used to](https://developer.mozilla.org/en-US/docs/Web/CSS/@media#media_features) detect if a user has enabled a setting on their device to minimize the amount of non-essential motion. The setting is used to convey to the browser on the device that the user prefers an interface that removes, reduces, or replaces motion-based animations.
 
 The transitioning being performed on the navbar may be unwanted by users who prefer to be without animations. We can make use of this media query in the hook and prevent the translate from happening if they have this set on their device. Instead the header will just remain in a regular `sticky` state.
 
@@ -614,5 +612,3 @@ export const Navbar = () => {
 ## Summary
 
 In conclusion, implementing a scroll-translated, dynamic sticky navbar in React can bring a nice touch to your website. By leveraging React hooks and considering user preferences for reduced motion, developers can create a smooth, responsive, and accessible navigation experience.
-
-Feel free to share the article if it was helpful.

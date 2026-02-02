@@ -154,8 +154,6 @@ As far as the icons themselves I opted for icons from the open source project [i
 
 If I ever decide to update icons in the future, changing one icon at a time can be easily done.
 
----
-
 Once those design decisions were made, most of the blockers to writing up core code was done and I could proceed with the build.
 
 ## Outcome

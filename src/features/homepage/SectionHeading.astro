@@ -1,0 +1,40 @@
+---
+interface Props {
+	title: string;
+	copy: string;
+	alignment: 'center' | 'start';
+}
+
+const { title, copy, alignment } = Astro.props;
+---
+
+<style>
+	header {
+		&.center {
+			text-align: center;
+		}
+		&.start {
+			text-align: start;
+		}
+
+		h2 {
+			font-family: var(--font-heading);
+			font-size: 1.5rem;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			margin-bottom: 1.2rem;
+		}
+
+		p {
+			font-family: var(--font-body);
+			font-size: 1rem;
+			line-height: 1.28;
+			font-style: italic;
+		}
+	}
+</style>
+
+<header class:list={[alignment]}>
+	<h2>{title}</h2>
+	<p>{copy}</p>
+</header>

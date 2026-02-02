@@ -1,5 +1,5 @@
 ---
-title: 'How to setup path aliases for development with Next.js & Jest'
+title: 'How To Setup Path Aliases For Development With Next.js & Jest'
 seoDescription: 'Learn how to setup path aliases for development with Next.js and Jest. This will help you keep your imports clean and organised.'
 datePublished: Fri Apr 16 2021 09:37:41 GMT+0000 (Coordinated Universal Time)
 slug: how-to-setup-path-aliases-for-development-with-nextjs-and-jest
